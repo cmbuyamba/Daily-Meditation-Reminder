@@ -1,4 +1,5 @@
 import React from 'react';
+import { FluentProvider, webLightTheme } from '@fluentui/react-components';
 import './App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -9,14 +10,16 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Hero />
-      <About />
-      <Conference />
-      <Contact />
-      <Footer />
-    </div>
+    <FluentProvider theme={webLightTheme}>
+      <div className="App">
+        <Header />
+        <Hero />
+        <About />
+        <Conference />
+        <Contact />
+        <Footer />
+      </div>
+    </FluentProvider>
   );
 }
 
