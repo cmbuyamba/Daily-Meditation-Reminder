@@ -1,6 +1,6 @@
-# NACCUS Official Website
+# NAACUS Official Website
 
-Professional website for the National Association of Colleges and Christian Unions (NACCUS), built with React and ready for Microsoft 365 integration.
+Professional website for the National Association of African Catholics in the United States (NAACUS), built with React and ready for Microsoft 365 integration.
 
 ## 🌟 Features
 
@@ -8,7 +8,7 @@ Professional website for the National Association of Colleges and Christian Unio
 - **Responsive Design**: Fully responsive layout that works on all devices
 - **Professional UI**: Clean, modern design with smooth animations
 - **Microsoft 365 Ready**: Pre-configured for Microsoft 365 authentication and services integration
-- **Conference Information**: Dedicated section for NACCUS 2027 conference in Maryland
+- **Conference Information**: Dedicated section for NAACUS 2027 conference in Maryland
 - **Contact Form**: Interactive contact form ready for backend integration
 
 ## 🚀 Quick Start
@@ -56,7 +56,7 @@ This creates a `build` folder with optimized static files ready for deployment.
 2. Navigate to Azure Active Directory > App registrations
 3. Click "New registration"
 4. Configure:
-   - Name: "NACCUS Website"
+   - Name: "NAACUS Website"
    - Supported account types: Choose based on your needs
    - Redirect URI: Add your deployment URLs
 
@@ -157,7 +157,7 @@ For questions or issues:
 - Email: info@naacus.org
 - Website: Coming soon
 
-## 📅 NACCUS 2027 Conference
+## 📅 NAACUS 2027 Conference
 
 Join us in Maryland, Summer 2027!
 
@@ -168,14 +168,14 @@ Join us in Maryland, Summer 2027!
 
 Registration details coming soon!
 
-## 🙏 About NACCUS
+## 🙏 About NAACUS
 
-The National Association of Colleges and Christian Unions empowers Christian student organizations across college campuses nationwide through resources, networking, and spiritual development opportunities.
+The National Association of African Catholics in the United States empowers Christian student organizations across college campuses nationwide through resources, networking, and spiritual development opportunities.
 
 ## 📝 License
 
-Copyright © 2024 NACCUS. All rights reserved.
+Copyright © 2024 NAACUS. All rights reserved.
 
 ---
 
-Built with ❤️ for the NACCUS community
+Built with ❤️ for the NAACUS community
