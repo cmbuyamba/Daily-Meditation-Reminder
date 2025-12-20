@@ -63,10 +63,12 @@ const useStyles = makeStyles({
     fontWeight: '600',
     color: tokens.colorNeutralForeground1,
     marginBottom: '5px',
+    display: 'block',
   },
   contactItemText: {
     fontSize: '1rem',
     color: tokens.colorNeutralForeground2,
+    display: 'block',
   },
   formContainer: {
     backgroundColor: tokens.colorNeutralBackground1,

@@ -74,10 +74,12 @@ const useStyles = makeStyles({
     fontWeight: '500',
     color: tokens.colorNeutralForeground1,
     marginBottom: '5px',
+    display: 'block',
   },
   detailSubtext: {
     fontSize: '0.9rem',
     color: tokens.colorNeutralForeground3,
+    display: 'block',
   },
   conferenceDescription: {
     backgroundColor: tokens.colorNeutralBackground1,

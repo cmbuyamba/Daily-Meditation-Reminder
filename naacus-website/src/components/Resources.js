@@ -64,12 +64,14 @@ const useStyles = makeStyles({
     marginBottom: '15px',
     color: tokens.colorBrandBackground,
     fontWeight: '600',
+    display: 'block',
   },
   cardDescription: {
     fontSize: '1rem',
     lineHeight: '1.7',
     color: tokens.colorNeutralForeground2,
     marginBottom: '20px',
+    display: 'block',
   },
   partnerSection: {
     ...shorthands.padding('40px'),

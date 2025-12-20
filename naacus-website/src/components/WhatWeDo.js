@@ -63,11 +63,13 @@ const useStyles = makeStyles({
     marginBottom: '12px',
     color: tokens.colorBrandBackground,
     fontWeight: '600',
+    display: 'block',
   },
   cardText: {
     fontSize: '1rem',
     lineHeight: '1.7',
     color: tokens.colorNeutralForeground2,
+    display: 'block',
   },
 });
 

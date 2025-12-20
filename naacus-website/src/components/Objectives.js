@@ -71,11 +71,13 @@ const useStyles = makeStyles({
     fontWeight: '600',
     marginBottom: '10px',
     color: tokens.colorBrandBackground,
+    display: 'block',
   },
   objectiveText: {
     fontSize: '1.05rem',
     lineHeight: '1.7',
     color: tokens.colorNeutralForeground2,
+    display: 'block',
   },
   visionCard: {
     background: `linear-gradient(135deg, ${tokens.colorBrandBackground} 0%, #0053a0 100%)`,
