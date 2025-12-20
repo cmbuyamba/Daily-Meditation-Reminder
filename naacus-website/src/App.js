@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
+import Leadership from './components/Leadership';
 import Objectives from './components/Objectives';
 import WhatWeDo from './components/WhatWeDo';
 import WhoWeServe from './components/WhoWeServe';
@@ -24,6 +25,7 @@ function App() {
         <Header />
         <Hero />
         <About />
+        <Leadership />
         <Objectives />
         <WhatWeDo />
         <WhoWeServe />
