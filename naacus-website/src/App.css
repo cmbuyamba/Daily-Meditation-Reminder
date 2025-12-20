@@ -19,12 +19,12 @@ section {
 
 /* Professional section spacing */
 section:not(:first-child) {
-  padding: 80px 0;
+  padding: 50px 0;
 }
 
 @media (max-width: 768px) {
   section:not(:first-child) {
-    padding: 60px 0;
+    padding: 40px 0;
   }
 }
 

@@ -11,12 +11,12 @@ import {
 const useStyles = makeStyles({
   about: {
     backgroundColor: '#faf9f8',
-    ...shorthands.padding('80px', '20px'),
+    ...shorthands.padding('50px', '20px'),
   },
   aboutTitle: {
     fontSize: '2.75rem',
     textAlign: 'center',
-    marginBottom: '24px',
+    marginBottom: '16px',
     color: tokens.colorNeutralForeground1,
     fontWeight: '600',
     display: 'block',
@@ -31,9 +31,9 @@ const useStyles = makeStyles({
     lineHeight: '1.7',
     color: tokens.colorNeutralForeground2,
     textAlign: 'center',
-    marginBottom: '64px',
+    marginBottom: '40px',
     maxWidth: '800px',
-    ...shorthands.margin('0', 'auto', '64px'),
+    ...shorthands.margin('0', 'auto', '40px'),
     display: 'block',
   },
   missionValues: {

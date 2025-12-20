@@ -12,12 +12,12 @@ import { CheckmarkCircle24Regular } from '@fluentui/react-icons';
 const useStyles = makeStyles({
   programs: {
     backgroundColor: tokens.colorNeutralBackground1,
-    ...shorthands.padding('80px', '20px'),
+    ...shorthands.padding('50px', '20px'),
   },
   sectionTitle: {
     fontSize: '2.75rem',
     textAlign: 'center',
-    marginBottom: '24px',
+    marginBottom: '16px',
     color: tokens.colorNeutralForeground1,
     fontWeight: '600',
     display: 'block',
@@ -26,10 +26,10 @@ const useStyles = makeStyles({
   sectionSubtitle: {
     fontSize: '1.125rem',
     textAlign: 'center',
-    marginBottom: '64px',
+    marginBottom: '40px',
     color: tokens.colorNeutralForeground2,
     maxWidth: '800px',
-    margin: '0 auto 64px',
+    margin: '0 auto 40px',
     lineHeight: '1.6',
     display: 'block',
   },
@@ -38,10 +38,10 @@ const useStyles = makeStyles({
     ...shorthands.margin('0', 'auto'),
   },
   highlightCard: {
-    ...shorthands.padding('40px'),
+    ...shorthands.padding('30px'),
     backgroundColor: tokens.colorNeutralBackground1,
     ...shorthands.borderRadius('8px'),
-    marginBottom: '40px',
+    marginBottom: '30px',
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06)',
   },
   highlightTitle: {
@@ -97,9 +97,9 @@ const useStyles = makeStyles({
   },
   getInvolvedSection: {
     backgroundColor: tokens.colorNeutralBackground1,
-    ...shorthands.padding('40px'),
+    ...shorthands.padding('32px'),
     ...shorthands.borderRadius('12px'),
-    marginTop: '40px',
+    marginTop: '30px',
     textAlign: 'center',
   },
   getInvolvedTitle: {

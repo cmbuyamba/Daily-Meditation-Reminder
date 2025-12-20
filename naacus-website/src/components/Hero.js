@@ -12,8 +12,8 @@ const useStyles = makeStyles({
     position: 'relative',
     background: `linear-gradient(135deg, ${tokens.colorBrandBackground} 0%, #005a9e 100%)`,
     color: tokens.colorNeutralForegroundInverted,
-    ...shorthands.padding('120px', '20px'),
-    minHeight: '600px',
+    ...shorthands.padding('80px', '20px'),
+    minHeight: '500px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -30,7 +30,7 @@ const useStyles = makeStyles({
   heroTitle: {
     fontSize: '4rem',
     fontWeight: '600',
-    marginBottom: '24px',
+    marginBottom: '16px',
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
     textAlign: 'center',
@@ -42,7 +42,7 @@ const useStyles = makeStyles({
   },
   heroSubtitle: {
     fontSize: '1.5rem',
-    marginBottom: '24px',
+    marginBottom: '16px',
     fontWeight: '400',
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
@@ -54,7 +54,7 @@ const useStyles = makeStyles({
   },
   heroDescription: {
     fontSize: '1.125rem',
-    marginBottom: '48px',
+    marginBottom: '32px',
     lineHeight: '1.7',
     color: tokens.colorNeutralForegroundInverted,
     opacity: 0.95,
@@ -66,7 +66,7 @@ const useStyles = makeStyles({
     ...shorthands.gap('16px'),
     justifyContent: 'center',
     flexWrap: 'wrap',
-    marginTop: '32px',
+    marginTop: '24px',
   },
   heroGraphic: {
     position: 'absolute',

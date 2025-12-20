@@ -12,12 +12,12 @@ import { Image24Regular, Video24Regular } from '@fluentui/react-icons';
 const useStyles = makeStyles({
   gallery: {
     backgroundColor: '#faf9f8',
-    ...shorthands.padding('80px', '20px'),
+    ...shorthands.padding('50px', '20px'),
   },
   sectionTitle: {
     fontSize: '2.75rem',
     textAlign: 'center',
-    marginBottom: '24px',
+    marginBottom: '16px',
     color: tokens.colorNeutralForeground1,
     fontWeight: '600',
     display: 'block',
@@ -26,10 +26,10 @@ const useStyles = makeStyles({
   sectionSubtitle: {
     fontSize: '1.125rem',
     textAlign: 'center',
-    marginBottom: '64px',
+    marginBottom: '40px',
     color: tokens.colorNeutralForeground2,
     maxWidth: '800px',
-    margin: '0 auto 64px',
+    margin: '0 auto 40px',
     lineHeight: '1.6',
     display: 'block',
   },
@@ -40,8 +40,8 @@ const useStyles = makeStyles({
   galleryGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-    ...shorthands.gap('30px'),
-    marginBottom: '40px',
+    ...shorthands.gap('24px'),
+    marginBottom: '32px',
   },
   galleryCard: {
     ...shorthands.padding('0'),
@@ -83,7 +83,7 @@ const useStyles = makeStyles({
   },
   ctaSection: {
     textAlign: 'center',
-    ...shorthands.padding('40px', '20px'),
+    ...shorthands.padding('32px', '20px'),
     backgroundColor: '#f0f7ff',
     ...shorthands.borderRadius('12px'),
   },
