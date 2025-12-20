@@ -155,39 +155,27 @@ function Conference() {
         <div className={styles.conferenceDetails}>
           <Card className={styles.detailCard}>
             <div className={styles.cardIcon}>🙏</div>
-            <CardHeader
-              header={<Text className={styles.cardTitle}>Focus</Text>}
-              description={
-                <>
-                  <Text className={styles.cardText}>Unity in Christ</Text>
-                  <Text className={styles.detailSubtext}>Strengthening our faith together</Text>
-                </>
-              }
-            />
+            <div>
+              <Text className={styles.cardTitle}>Focus</Text>
+              <Text className={styles.cardText}>Unity in Christ</Text>
+              <Text className={styles.detailSubtext}>Strengthening our faith together</Text>
+            </div>
           </Card>
           <Card className={styles.detailCard}>
             <div className={styles.cardIcon}>📖</div>
-            <CardHeader
-              header={<Text className={styles.cardTitle}>Theme</Text>}
-              description={
-                <>
-                  <Text className={styles.cardText}>Evangelization</Text>
-                  <Text className={styles.detailSubtext}>Sharing the Gospel message</Text>
-                </>
-              }
-            />
+            <div>
+              <Text className={styles.cardTitle}>Theme</Text>
+              <Text className={styles.cardText}>Evangelization</Text>
+              <Text className={styles.detailSubtext}>Sharing the Gospel message</Text>
+            </div>
           </Card>
           <Card className={styles.detailCard}>
             <div className={styles.cardIcon}>🌍</div>
-            <CardHeader
-              header={<Text className={styles.cardTitle}>Celebration</Text>}
-              description={
-                <>
-                  <Text className={styles.cardText}>African Catholic Culture</Text>
-                  <Text className={styles.detailSubtext}>Heritage and traditions</Text>
-                </>
-              }
-            />
+            <div>
+              <Text className={styles.cardTitle}>Celebration</Text>
+              <Text className={styles.cardText}>African Catholic Culture</Text>
+              <Text className={styles.detailSubtext}>Heritage and traditions</Text>
+            </div>
           </Card>
         </div>
         <div className={styles.conferenceDescription}>
