@@ -66,11 +66,13 @@ const useStyles = makeStyles({
     marginBottom: '8px',
     color: tokens.colorNeutralForeground1,
     fontWeight: '600',
+    display: 'block',
   },
   memberTitle: {
     fontSize: '0.9rem',
     lineHeight: '1.5',
     color: tokens.colorNeutralForeground2,
+    display: 'block',
   },
   memberContact: {
     fontSize: '0.9rem',
