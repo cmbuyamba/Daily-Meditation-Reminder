@@ -1,0 +1,25 @@
+{
+  "name": "naccus-organization",
+  "version": "1.0.0",
+  "description": "NACCUS - National Association of Colleges and Christian Unions",
+  "scripts": {
+    "start": "cd naacus-website && npm start",
+    "build": "cd naacus-website && npm run build",
+    "test": "cd naacus-website && npm test",
+    "install-deps": "cd naacus-website && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cmbuyamba/Daily-Meditation-Reminder.git"
+  },
+  "keywords": [
+    "naccus",
+    "christian",
+    "college",
+    "campus ministry",
+    "conference"
+  ],
+  "author": "NACCUS",
+  "license": "UNLICENSED",
+  "private": true
+}
