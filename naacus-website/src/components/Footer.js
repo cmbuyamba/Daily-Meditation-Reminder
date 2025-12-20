@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
   shorthands,
@@ -93,8 +94,8 @@ const useStyles = makeStyles({
 });
 
 function Footer() {
+  const { t } = useTranslation();
   const styles = useStyles();
-  const currentYear = new Date().getFullYear();
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -107,10 +108,10 @@ function Footer() {
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div className={styles.footerSection}>
-          <Text as="h3" className={styles.footerSectionTitle}>NAACUS</Text>
-          <Text className={styles.footerSectionSubtitle}>National Association of African Catholics in the United States</Text>
+          <Text as="h3" className={styles.footerSectionTitle}>{t('header.title')}</Text>
+          <Text className={styles.footerSectionSubtitle}>{t('header.tagline')}</Text>
           <Text as="p" className={styles.footerTagline}>
-            "Together with Christ" — Building vibrant African Catholic communities across the United States.
+            {t('footer.tagline')}
           </Text>
         </div>
         <div className={styles.footerSection}>
@@ -228,7 +229,7 @@ function Footer() {
       </div>
       <div className={styles.footerBottom}>
         <Text as="p" className={styles.footerBottomText}>
-          &copy; {currentYear} NAACUS - National Association of African Catholics in the United States. All rights reserved.
+          {t('footer.copyright')}
         </Text>
         <Text as="p" className={styles.msIntegration}>
           Microsoft 365 Integration Ready

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
   shorthands,
@@ -72,27 +73,24 @@ const useStyles = makeStyles({
 });
 
 function About() {
+  const { t } = useTranslation();
   const styles = useStyles();
 
   return (
     <section id="about" className={styles.about}>
-      <Text as="h2" className={styles.aboutTitle}>About NAACUS</Text>
+      <Text as="h2" className={styles.aboutTitle}>{t('about.title')}</Text>
       <div className={styles.aboutContent}>
         <Text as="p" className={styles.aboutIntro}>
-          The National Association of African Catholics in the United States (NAACUS) brings together 
-          African Catholics and their families to foster faith, leadership, and service in the Church 
-          across the United States. Rooted in the Gospel and our motto "Together with Christ," we 
-          welcome members into an active community for fellowship, workshops, and collaborative ministries.
+          {t('about.intro')}
         </Text>
         <div className={styles.missionValues}>
           <Card className={styles.missionItem}>
             <div className={styles.icon}>🎯</div>
             <CardHeader
-              header={<Text className={styles.itemTitle}>Our Mission</Text>}
+              header={<Text className={styles.itemTitle}>{t('about.mission.title')}</Text>}
               description={
                 <Text className={styles.itemText}>
-                  To gather African Catholic communities in the U.S., promote their faith, 
-                  and ensure their full and active participation in the life of the Church.
+                  {t('about.mission.description')}
                 </Text>
               }
             />
@@ -100,12 +98,10 @@ function About() {
           <Card className={styles.missionItem}>
             <div className={styles.icon}>✨</div>
             <CardHeader
-              header={<Text className={styles.itemTitle}>Our Vision</Text>}
+              header={<Text className={styles.itemTitle}>{t('about.vision.title')}</Text>}
               description={
                 <Text className={styles.itemText}>
-                  A vibrant and visible African Catholic community that contributes its gifts 
-                  to the Church and society—confident in identity, generous in service, 
-                  and engaged in society.
+                  {t('about.vision.description')}
                 </Text>
               }
             />
@@ -113,12 +109,10 @@ function About() {
           <Card className={styles.missionItem}>
             <div className={styles.icon}>🤝</div>
             <CardHeader
-              header={<Text className={styles.itemTitle}>Our Motto</Text>}
+              header={<Text className={styles.itemTitle}>{t('about.motto.title')}</Text>}
               description={
                 <Text className={styles.itemText}>
-                  "Together with Christ" — We build welcoming networks of fellowship, workshops, 
-                  and community initiatives that uplift people, celebrate culture, and advance 
-                  the common good.
+                  {t('about.motto.description')}
                 </Text>
               }
             />

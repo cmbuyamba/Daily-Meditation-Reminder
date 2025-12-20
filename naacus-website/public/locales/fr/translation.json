@@ -1,0 +1,45 @@
+{
+  "header": {
+    "title": "NAACUS",
+    "tagline": "Association Nationale des Catholiques Africains aux États-Unis",
+    "nav": {
+      "home": "Accueil",
+      "about": "À Propos",
+      "leadership": "Direction",
+      "objectives": "Objectifs",
+      "events": "Événements",
+      "ministries": "Ministères",
+      "gallery": "Galerie",
+      "resources": "Ressources",
+      "contact": "Contact"
+    }
+  },
+  "hero": {
+    "title": "Ensemble avec le Christ",
+    "subtitle": "Unir les Communautés Catholiques Africaines à Travers les États-Unis",
+    "description": "Une communauté dynamique de foi, d'héritage et de service—où les catholiques africains participent pleinement à la vie de l'Église tout en célébrant leur identité culturelle.",
+    "discoverButton": "Découvrez Notre Mission",
+    "joinButton": "Rejoignez Notre Communauté"
+  },
+  "about": {
+    "title": "À Propos de NAACUS",
+    "intro": "L'Association Nationale des Catholiques Africains aux États-Unis (NAACUS) rassemble les catholiques africains et leurs familles pour favoriser la foi, le leadership et le service dans l'Église à travers les États-Unis. Enracinés dans l'Évangile et notre devise \"Ensemble avec le Christ\", nous accueillons les membres dans une communauté active pour la fraternité, les ateliers et les ministères collaboratifs.",
+    "mission": {
+      "title": "Notre Mission",
+      "description": "Rassembler les communautés catholiques africaines aux États-Unis, promouvoir leur foi et assurer leur participation pleine et active à la vie de l'Église."
+    },
+    "vision": {
+      "title": "Notre Vision",
+      "description": "Une communauté catholique africaine dynamique et visible qui apporte ses dons à l'Église et à la société—confiante dans son identité, généreuse dans son service et engagée dans la société."
+    },
+    "motto": {
+      "title": "Notre Devise",
+      "description": "\"Ensemble avec le Christ\" — Nous construisons des réseaux accueillants de fraternité, d'ateliers et d'initiatives communautaires qui élèvent les gens, célèbrent la culture et font progresser le bien commun."
+    }
+  },
+  "footer": {
+    "copyright": "© 2024 NAACUS. Tous droits réservés.",
+    "tagline": "Ensemble avec le Christ - Unir les communautés catholiques africaines à travers les États-Unis."
+  },
+  "backToTop": "Retour en Haut"
+}

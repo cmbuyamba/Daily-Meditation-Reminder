@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
   shorthands,
@@ -12,6 +13,7 @@ import {
   Button
 } from '@fluentui/react-components';
 import { Navigation24Regular } from '@fluentui/react-icons';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const useStyles = makeStyles({
   header: {
@@ -80,9 +82,15 @@ const useStyles = makeStyles({
       display: 'block',
     },
   },
+  headerActions: {
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('12px'),
+  },
 });
 
 function Header() {
+  const { t } = useTranslation();
   const styles = useStyles();
 
   const scrollToSection = (sectionId) => {
@@ -96,68 +104,72 @@ function Header() {
     <header className={styles.header}>
       <div className={styles.headerContainer}>
         <div className={styles.logo}>
-          <Text as="h1" className={styles.logoTitle}>NAACUS</Text>
-          <Text className={styles.tagline}>National Association of African Catholics in the United States</Text>
+          <Text as="h1" className={styles.logoTitle}>{t('header.title')}</Text>
+          <Text className={styles.tagline}>{t('header.tagline')}</Text>
         </div>
-        <nav className={styles.nav}>
-          <Button 
-            appearance="transparent" 
-            onClick={() => scrollToSection('home')}
-            className={styles.navLink}
-          >
-            Home
-          </Button>
-          <Button 
-            appearance="transparent" 
-            onClick={() => scrollToSection('about')}
-            className={styles.navLink}
-          >
-            About
-          </Button>
-          <Button 
-            appearance="transparent" 
-            onClick={() => scrollToSection('leadership')}
-            className={styles.navLink}
-          >
-            Leadership
-          </Button>
-          <Button 
-            appearance="transparent" 
-            onClick={() => scrollToSection('programs')}
-            className={styles.navLink}
-          >
-            Events
-          </Button>
-          <Button 
-            appearance="transparent" 
-            onClick={() => scrollToSection('ministries')}
-            className={styles.navLink}
-          >
-            Ministries
-          </Button>
-          <Button 
-            appearance="transparent" 
-            onClick={() => scrollToSection('gallery')}
-            className={styles.navLink}
-          >
-            Gallery
-          </Button>
-          <Button 
-            appearance="transparent" 
-            onClick={() => scrollToSection('resources')}
-            className={styles.navLink}
-          >
-            Resources
-          </Button>
-          <Button 
-            appearance="transparent" 
-            onClick={() => scrollToSection('contact')}
-            className={styles.navLink}
-          >
-            Contact
-          </Button>
-        </nav>
+        <div className={styles.headerActions}>
+          <nav className={styles.nav}>
+            <Button 
+              appearance="transparent" 
+              onClick={() => scrollToSection('home')}
+              className={styles.navLink}
+            >
+              {t('header.nav.home')}
+            </Button>
+            <Button 
+              appearance="transparent" 
+              onClick={() => scrollToSection('about')}
+              className={styles.navLink}
+            >
+              {t('header.nav.about')}
+            </Button>
+            <Button 
+              appearance="transparent" 
+              onClick={() => scrollToSection('leadership')}
+              className={styles.navLink}
+            >
+              {t('header.nav.leadership')}
+            </Button>
+            <Button 
+              appearance="transparent" 
+              onClick={() => scrollToSection('programs')}
+              className={styles.navLink}
+            >
+              {t('header.nav.events')}
+            </Button>
+            <Button 
+              appearance="transparent" 
+              onClick={() => scrollToSection('ministries')}
+              className={styles.navLink}
+            >
+              {t('header.nav.ministries')}
+            </Button>
+            <Button 
+              appearance="transparent" 
+              onClick={() => scrollToSection('gallery')}
+              className={styles.navLink}
+            >
+              {t('header.nav.gallery')}
+            </Button>
+            <Button 
+              appearance="transparent" 
+              onClick={() => scrollToSection('resources')}
+              className={styles.navLink}
+            >
+              {t('header.nav.resources')}
+            </Button>
+            <Button 
+              appearance="transparent" 
+              onClick={() => scrollToSection('contact')}
+              className={styles.navLink}
+            >
+              {t('header.nav.contact')}
+            </Button>
+          </nav>
+          <LanguageSwitcher />
+        </div>
         <div className={styles.mobileMenu}>
+          <LanguageSwitcher />
           <Menu>
             <MenuTrigger disableButtonEnhancement>
               <Button 
@@ -168,15 +180,15 @@ function Header() {
             </MenuTrigger>
             <MenuPopover>
               <MenuList>
-                <MenuItem onClick={() => scrollToSection('home')}>Home</MenuItem>
-                <MenuItem onClick={() => scrollToSection('about')}>About</MenuItem>
-                <MenuItem onClick={() => scrollToSection('leadership')}>Leadership</MenuItem>
-                <MenuItem onClick={() => scrollToSection('objectives')}>Objectives</MenuItem>
-                <MenuItem onClick={() => scrollToSection('programs')}>Events & Activities</MenuItem>
-                <MenuItem onClick={() => scrollToSection('ministries')}>Ministries</MenuItem>
-                <MenuItem onClick={() => scrollToSection('gallery')}>Gallery</MenuItem>
-                <MenuItem onClick={() => scrollToSection('resources')}>Resources</MenuItem>
-                <MenuItem onClick={() => scrollToSection('contact')}>Contact</MenuItem>
+                <MenuItem onClick={() => scrollToSection('home')}>{t('header.nav.home')}</MenuItem>
+                <MenuItem onClick={() => scrollToSection('about')}>{t('header.nav.about')}</MenuItem>
+                <MenuItem onClick={() => scrollToSection('leadership')}>{t('header.nav.leadership')}</MenuItem>
+                <MenuItem onClick={() => scrollToSection('objectives')}>{t('header.nav.objectives')}</MenuItem>
+                <MenuItem onClick={() => scrollToSection('programs')}>{t('header.nav.events')}</MenuItem>
+                <MenuItem onClick={() => scrollToSection('ministries')}>{t('header.nav.ministries')}</MenuItem>
+                <MenuItem onClick={() => scrollToSection('gallery')}>{t('header.nav.gallery')}</MenuItem>
+                <MenuItem onClick={() => scrollToSection('resources')}>{t('header.nav.resources')}</MenuItem>
+                <MenuItem onClick={() => scrollToSection('contact')}>{t('header.nav.contact')}</MenuItem>
               </MenuList>
             </MenuPopover>
           </Menu>
