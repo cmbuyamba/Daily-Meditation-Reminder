@@ -4,8 +4,7 @@ import {
   shorthands,
   tokens,
   Text,
-  Card,
-  Avatar
+  Card
 } from '@fluentui/react-components';
 
 const useStyles = makeStyles({
@@ -57,21 +56,27 @@ const useStyles = makeStyles({
     backgroundColor: tokens.colorNeutralBackground1,
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06)',
     ...shorthands.borderRadius('8px'),
+    ...shorthands.overflow('hidden'),
+    textAlign: 'center',
     '&:hover': {
       transform: 'translateY(-4px)',
       boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
     },
   },
-  memberHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    ...shorthands.gap('12px'),
+  photo: {
+    width: '100%',
+    height: '220px',
+    objectFit: 'cover',
+    display: 'block',
   },
-  avatar: {
-    flexShrink: 0,
+  photoPlaceholder: {
+    width: '100%',
+    height: '220px',
+    background: 'linear-gradient(180deg, #e6f0ff 0%, #cbd5e1 100%)',
+    display: 'block',
   },
-  memberInfo: {
-    flex: 1,
+  memberBody: {
+    ...shorthands.padding('16px', '16px', '8px'),
   },
   memberName: {
     fontSize: '1.125rem',
@@ -136,20 +141,17 @@ function Leadership() {
         <div className={styles.boardGrid}>
           {executiveBoard.map((member) => (
             <Card key={member.name} className={styles.boardMember}>
-              <div className={styles.memberHeader}>
-                <Avatar 
-                  className={styles.avatar}
-                  name={member.name}
-                  image={member.photo ? { src: member.photo } : undefined}
-                  size={56}
-                />
-                <div className={styles.memberInfo}>
-                  <Text className={styles.memberName}>{member.name}</Text>
-                  <Text className={styles.memberTitle}>{member.title}</Text>
-                  {member.phone && member.email && (
-                    <Text className={styles.memberContact}>{member.phone} – {member.email}</Text>
-                  )}
-                </div>
+              {member.photo ? (
+                <img src={member.photo} alt={member.name} className={styles.photo} />
+              ) : (
+                <div className={styles.photoPlaceholder} />
+              )}
+              <div className={styles.memberBody}>
+                <Text className={styles.memberName}>{member.name}</Text>
+                <Text className={styles.memberTitle}>{member.title}</Text>
+                {member.phone && member.email && (
+                  <Text className={styles.memberContact}>{member.phone} – {member.email}</Text>
+                )}
               </div>
             </Card>
           ))}
@@ -159,20 +161,17 @@ function Leadership() {
         <div className={styles.boardGrid}>
           {spiritualAdvisers.map((member) => (
             <Card key={member.name} className={styles.boardMember}>
-              <div className={styles.memberHeader}>
-                <Avatar 
-                  className={styles.avatar}
-                  name={member.name}
-                  image={member.photo ? { src: member.photo } : undefined}
-                  size={56}
-                />
-                <div className={styles.memberInfo}>
-                  <Text className={styles.memberName}>{member.name}</Text>
-                  <Text className={styles.memberTitle}>{member.title}</Text>
-                  {member.phone && member.email && (
-                    <Text className={styles.memberContact}>{member.phone} – {member.email}</Text>
-                  )}
-                </div>
+              {member.photo ? (
+                <img src={member.photo} alt={member.name} className={styles.photo} />
+              ) : (
+                <div className={styles.photoPlaceholder} />
+              )}
+              <div className={styles.memberBody}>
+                <Text className={styles.memberName}>{member.name}</Text>
+                <Text className={styles.memberTitle}>{member.title}</Text>
+                {member.phone && member.email && (
+                  <Text className={styles.memberContact}>{member.phone} – {member.email}</Text>
+                )}
               </div>
             </Card>
           ))}
