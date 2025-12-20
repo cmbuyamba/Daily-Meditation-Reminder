@@ -133,28 +133,28 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('what-we-do')}
+                onClick={() => scrollToSection('objectives')}
                 style={{ cursor: 'pointer' }}
               >
-                What We Do
+                Objectives
               </Link>
             </li>
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('programs')}
+                onClick={() => scrollToSection('gallery')}
                 style={{ cursor: 'pointer' }}
               >
-                Programs
+                Gallery
               </Link>
             </li>
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('conference')}
+                onClick={() => scrollToSection('resources')}
                 style={{ cursor: 'pointer' }}
               >
-                Conference
+                Resources
               </Link>
             </li>
             <li>
@@ -169,42 +169,42 @@ function Footer() {
           </ul>
         </div>
         <div className={styles.footerSection}>
-          <Text as="h4" className={styles.footerSectionTitle}>Our Mission</Text>
+          <Text as="h4" className={styles.footerSectionTitle}>Engage</Text>
           <ul className={styles.footerList}>
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('what-we-do')}
+                onClick={() => scrollToSection('programs')}
                 style={{ cursor: 'pointer' }}
               >
-                Pastoral Care
+                Events & Activities
               </Link>
             </li>
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('what-we-do')}
+                onClick={() => scrollToSection('conference')}
                 style={{ cursor: 'pointer' }}
               >
-                Heritage & Culture
+                National Conference
               </Link>
             </li>
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('what-we-do')}
+                onClick={() => scrollToSection('newsletter')}
                 style={{ cursor: 'pointer' }}
               >
-                Family Life
+                Newsletter
               </Link>
             </li>
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('what-we-do')}
+                onClick={() => scrollToSection('resources')}
                 style={{ cursor: 'pointer' }}
               >
-                Evangelization
+                Membership
               </Link>
             </li>
           </ul>

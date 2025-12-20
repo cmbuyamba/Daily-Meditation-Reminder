@@ -107,17 +107,24 @@ function Header() {
           </Button>
           <Button 
             appearance="transparent" 
-            onClick={() => scrollToSection('what-we-do')}
-            className={styles.navLink}
-          >
-            What We Do
-          </Button>
-          <Button 
-            appearance="transparent" 
             onClick={() => scrollToSection('programs')}
             className={styles.navLink}
           >
-            Programs
+            Events
+          </Button>
+          <Button 
+            appearance="transparent" 
+            onClick={() => scrollToSection('gallery')}
+            className={styles.navLink}
+          >
+            Gallery
+          </Button>
+          <Button 
+            appearance="transparent" 
+            onClick={() => scrollToSection('resources')}
+            className={styles.navLink}
+          >
+            Resources
           </Button>
           <Button 
             appearance="transparent" 
@@ -140,9 +147,11 @@ function Header() {
               <MenuList>
                 <MenuItem onClick={() => scrollToSection('home')}>Home</MenuItem>
                 <MenuItem onClick={() => scrollToSection('about')}>About</MenuItem>
-                <MenuItem onClick={() => scrollToSection('what-we-do')}>What We Do</MenuItem>
-                <MenuItem onClick={() => scrollToSection('programs')}>Programs</MenuItem>
-                <MenuItem onClick={() => scrollToSection('conference')}>Conference</MenuItem>
+                <MenuItem onClick={() => scrollToSection('objectives')}>Objectives</MenuItem>
+                <MenuItem onClick={() => scrollToSection('programs')}>Events & Activities</MenuItem>
+                <MenuItem onClick={() => scrollToSection('gallery')}>Gallery</MenuItem>
+                <MenuItem onClick={() => scrollToSection('resources')}>Resources</MenuItem>
+                <MenuItem onClick={() => scrollToSection('contact')}>Contact</MenuItem>
                 <MenuItem onClick={() => scrollToSection('contact')}>Contact</MenuItem>
               </MenuList>
             </MenuPopover>
