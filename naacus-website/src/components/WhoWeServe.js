@@ -71,6 +71,7 @@ const useStyles = makeStyles({
     ...shorthands.padding('30px', '20px'),
     backgroundColor: '#f0f7ff',
     ...shorthands.borderRadius('8px'),
+      display: 'block',
   },
 });
 
