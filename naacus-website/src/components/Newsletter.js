@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   newsletter: {
     background: `linear-gradient(135deg, ${tokens.colorBrandBackground} 0%, #005a9e 100%)`,
     color: tokens.colorNeutralForegroundInverted,
-    ...shorthands.padding('80px', '20px'),
+    ...shorthands.padding('50px', '20px'),
   },
   content: {
     maxWidth: '800px',
@@ -27,7 +27,7 @@ const useStyles = makeStyles({
   },
   title: {
     fontSize: '2.75rem',
-    marginBottom: '24px',
+    marginBottom: '16px',
     fontWeight: '600',
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
@@ -35,7 +35,7 @@ const useStyles = makeStyles({
   },
   subtitle: {
     fontSize: '1.125rem',
-    marginBottom: '48px',
+    marginBottom: '32px',
     lineHeight: '1.6',
     color: tokens.colorNeutralForegroundInverted,
     opacity: 0.95,

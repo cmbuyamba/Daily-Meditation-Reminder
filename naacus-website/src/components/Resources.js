@@ -17,12 +17,12 @@ import {
 const useStyles = makeStyles({
   resources: {
     backgroundColor: tokens.colorNeutralBackground1,
-    ...shorthands.padding('80px', '20px'),
+    ...shorthands.padding('50px', '20px'),
   },
   sectionTitle: {
     fontSize: '2.75rem',
     textAlign: 'center',
-    marginBottom: '24px',
+    marginBottom: '16px',
     color: tokens.colorNeutralForeground1,
     fontWeight: '600',
     display: 'block',
@@ -31,10 +31,10 @@ const useStyles = makeStyles({
   sectionSubtitle: {
     fontSize: '1.125rem',
     textAlign: 'center',
-    marginBottom: '64px',
+    marginBottom: '40px',
     color: tokens.colorNeutralForeground2,
     maxWidth: '800px',
-    margin: '0 auto 64px',
+    margin: '0 auto 40px',
     lineHeight: '1.6',
     display: 'block',
   },
@@ -45,8 +45,8 @@ const useStyles = makeStyles({
   resourcesGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-    ...shorthands.gap('30px'),
-    marginBottom: '40px',
+    ...shorthands.gap('24px'),
+    marginBottom: '32px',
   },
   resourceCard: {
     ...shorthands.padding('30px', '20px'),
@@ -77,10 +77,10 @@ const useStyles = makeStyles({
     display: 'block',
   },
   partnerSection: {
-    ...shorthands.padding('40px'),
+    ...shorthands.padding('32px'),
     backgroundColor: tokens.colorNeutralBackground1,
     ...shorthands.borderRadius('12px'),
-    marginTop: '40px',
+    marginTop: '32px',
   },
   partnerTitle: {
     fontSize: '2rem',

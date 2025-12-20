@@ -23,12 +23,12 @@ import {
 const useStyles = makeStyles({
   ministries: {
     backgroundColor: '#faf9f8',
-    ...shorthands.padding('80px', '20px'),
+    ...shorthands.padding('50px', '20px'),
   },
   sectionTitle: {
     fontSize: '2.75rem',
     textAlign: 'center',
-    marginBottom: '24px',
+    marginBottom: '16px',
     color: tokens.colorNeutralForeground1,
     fontWeight: '600',
     display: 'block',
@@ -39,9 +39,9 @@ const useStyles = makeStyles({
     lineHeight: '1.7',
     color: tokens.colorNeutralForeground2,
     textAlign: 'center',
-    marginBottom: '64px',
+    marginBottom: '40px',
     maxWidth: '800px',
-    ...shorthands.margin('0', 'auto', '64px'),
+    ...shorthands.margin('0', 'auto', '40px'),
     display: 'block',
   },
   content: {
@@ -52,7 +52,7 @@ const useStyles = makeStyles({
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
     ...shorthands.gap('24px'),
-    marginBottom: '48px',
+    marginBottom: '32px',
   },
   ministryCard: {
     ...shorthands.padding('32px', '24px'),
@@ -88,7 +88,7 @@ const useStyles = makeStyles({
     display: 'block',
   },
   callToAction: {
-    ...shorthands.padding('48px', '40px'),
+    ...shorthands.padding('32px', '30px'),
     backgroundColor: tokens.colorNeutralBackground1,
     ...shorthands.borderRadius('8px'),
     textAlign: 'center',

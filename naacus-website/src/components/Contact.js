@@ -13,12 +13,12 @@ import {
 const useStyles = makeStyles({
   contact: {
     backgroundColor: '#faf9f8',
-    ...shorthands.padding('80px', '20px'),
+    ...shorthands.padding('50px', '20px'),
   },
   contactTitle: {
     fontSize: '2.75rem',
     textAlign: 'center',
-    marginBottom: '64px',
+    marginBottom: '40px',
     color: tokens.colorNeutralForeground1,
     fontWeight: '600',
     display: 'block',

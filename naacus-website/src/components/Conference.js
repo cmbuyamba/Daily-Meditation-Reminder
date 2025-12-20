@@ -13,12 +13,12 @@ import { CheckmarkCircle24Regular } from '@fluentui/react-icons';
 const useStyles = makeStyles({
   conference: {
     backgroundColor: tokens.colorNeutralBackground1,
-    ...shorthands.padding('80px', '20px'),
+    ...shorthands.padding('50px', '20px'),
   },
   conferenceTitle: {
     fontSize: '2.75rem',
     textAlign: 'center',
-    marginBottom: '40px',
+    marginBottom: '30px',
     color: tokens.colorNeutralForeground1,
     fontWeight: '600',
     display: 'block',
@@ -27,10 +27,10 @@ const useStyles = makeStyles({
   conferenceBanner: {
     background: `linear-gradient(135deg, ${tokens.colorBrandBackground} 0%, #005a9e 100%)`,
     color: tokens.colorNeutralForegroundInverted,
-    ...shorthands.padding('40px', '20px'),
+    ...shorthands.padding('32px', '20px'),
     ...shorthands.borderRadius('8px'),
     textAlign: 'center',
-    marginBottom: '64px',
+    marginBottom: '40px',
   },
   bannerTitle: {
     fontSize: '1.875rem',
@@ -54,8 +54,8 @@ const useStyles = makeStyles({
   conferenceDetails: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-    ...shorthands.gap('30px'),
-    marginBottom: '60px',
+    ...shorthands.gap('24px'),
+    marginBottom: '40px',
   },
   detailCard: {
     textAlign: 'center',
@@ -89,7 +89,7 @@ const useStyles = makeStyles({
   },
   conferenceDescription: {
     backgroundColor: tokens.colorNeutralBackground1,
-    ...shorthands.padding('40px'),
+    ...shorthands.padding('32px'),
     ...shorthands.borderRadius('12px'),
   },
   descriptionTitle: {
