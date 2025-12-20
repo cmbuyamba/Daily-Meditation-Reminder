@@ -1,22 +1,25 @@
-# NACCUS - National Association of Colleges and Christian Unions
+# NAACUS - National Association of African Catholics in the United States
 
-Welcome to the official repository for NACCUS (National Association of Colleges and Christian Unions).
+Welcome to the official repository for NAACUS (National Association of African Catholics in the United States).
 
-## 🎯 About NACCUS
+## 🎯 About NAACUS
 
-The National Association of Colleges and Christian Unions empowers Christian student organizations across college campuses nationwide through resources, networking, and spiritual development opportunities.
+The National Association of African Catholics in the United States unites African Catholic communities across the nation to promote faith and heritage, strengthen families, and cultivate leaders—ensuring full participation in the life of the Church in the U.S. while supporting the Church in Africa.
 
 ## 🌐 Website
 
-This repository contains the source code for the official NACCUS website, a professional React-based application designed for the NACCUS 2027 conference in Maryland.
+This repository contains the source code for the official NAACUS website, a professional React-based application designed to serve and connect the African Catholic community. The website structure closely mirrors the official NAACUS.org website.
 
 ### Key Features
 
 - **Modern React Application** - Built with the latest React technologies
 - **Professional Design** - Clean, responsive UI with Microsoft-inspired styling
 - **Microsoft 365 Integration Ready** - Pre-configured for Azure AD authentication
-- **Conference Information** - Dedicated section for NACCUS 2027 in Maryland
-- **Contact & Outreach** - Interactive forms for community engagement
+- **Complete NAACUS.org Structure** - All sections from the official website included
+- **Gallery & Media** - Photos and videos from events and activities
+- **Resources Hub** - Brochures, newsletters, and membership forms
+- **Newsletter Subscription** - Stay connected with email updates
+- **Community Engagement** - Interactive forms and contact options
 
 ## 🚀 Quick Start
 
@@ -49,8 +52,15 @@ npm run build
 │   │   ├── components/      # React components
 │   │   │   ├── Header.js    # Navigation header
 │   │   │   ├── Hero.js      # Landing section
-│   │   │   ├── About.js     # About NACCUS
-│   │   │   ├── Conference.js # NACCUS 2027 info
+│   │   │   ├── About.js     # About NAACUS
+│   │   │   ├── Objectives.js # 8 detailed objectives
+│   │   │   ├── WhatWeDo.js  # What we do section
+│   │   │   ├── WhoWeServe.js # Who we serve section
+│   │   │   ├── Programs.js  # Programs & activities
+│   │   │   ├── Gallery.js   # Photo & video gallery
+│   │   │   ├── Conference.js # National conference info
+│   │   │   ├── Resources.js # Resources & partner links
+│   │   │   ├── Newsletter.js # Newsletter subscription
 │   │   │   ├── Contact.js   # Contact form
 │   │   │   └── Footer.js    # Site footer
 │   │   ├── config/          # Configuration files
@@ -74,17 +84,23 @@ The website is pre-configured for Microsoft 365 integration, enabling:
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for complete setup instructions.
 
-## 📅 NACCUS 2027 Conference
+## 🎯 Our Mission
 
-### Join Us in Maryland - Summer 2027
+NAACUS exists to gather African Catholic communities in the U.S., promote their faith, and ensure their full and active participation in the life of the Church. Our vision is a vibrant and visible African Catholic community that contributes its gifts to the Church and society.
 
-The website features comprehensive information about the upcoming NACCUS 2027 conference, including:
+### Website Sections
 
-- Conference details and location
-- Registration information
-- Workshop and event schedules
-- Networking opportunities
-- Resources for campus ministry leaders
+1. **Home** - Welcome message and "Together with Christ" motto
+2. **About** - Mission, Vision, and Motto
+3. **Objectives** - 8 detailed organizational objectives
+4. **What We Do** - 5 core activities (pastoral care, heritage awareness, family life, evangelization, collaboration)
+5. **Who We Serve** - 8 community segments (immigrants, migrants, refugees, students, professionals, families, elders, diaspora)
+6. **Programs & Activities** - Events, workshops, conferences, and Get Involved
+7. **Gallery & Videos** - Photos and videos from events and celebrations
+8. **Conference** - Biannual national conference information
+9. **Resources** - Brochures, newsletters, membership forms, and partner organizations
+10. **Newsletter** - Email subscription for updates
+11. **Contact** - Community connection and contact form
 
 ## 🎨 Customization
 
@@ -131,18 +147,18 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for platform-specific instructions.
 ## 📞 Contact
 
 - **Email**: info@naacus.org
-- **Website**: Coming soon
+- **Website**: https://naacus.org
 
 ## 🤝 Contributing
 
-This is the official NACCUS website. For contributions or suggestions, please contact the NACCUS team.
+This is the official NAACUS website. For contributions or suggestions, please contact the NAACUS team.
 
 ## 📝 License
 
-Copyright © 2024 NACCUS. All rights reserved.
+Copyright © 2024 NAACUS. All rights reserved.
 
 ---
 
-**Built with ❤️ for the NACCUS community**
+**Built with ❤️ for the NAACUS community**
 
-Empowering Christian communities on college campuses nationwide.
+Together with Christ - Uniting African Catholic communities across the United States.

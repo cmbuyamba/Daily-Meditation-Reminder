@@ -127,32 +127,32 @@ function Hero() {
   return (
     <section id="home" className={styles.hero}>
       <div className={styles.heroContent}>
-        <Text as="h1" className={styles.heroTitle}>Welcome to NACCUS</Text>
+        <Text as="h1" className={styles.heroTitle}>Together with Christ</Text>
         <Text as="p" className={styles.heroSubtitle}>
-          Empowering Christian Unions Across College Campuses Nationwide
+          Uniting African Catholic Communities Across the United States
         </Text>
         <Text as="p" className={styles.heroDescription}>
-          Join us for NACCUS 2027 in Maryland as we strengthen our community, 
-          share our faith, and build lasting connections.
+          A vibrant community of faith, heritage, and service—where African Catholics 
+          participate fully in the life of the Church while celebrating their cultural identity.
         </Text>
         <div className={styles.heroButtons}>
           <Button 
             appearance="primary" 
             size="large"
-            onClick={() => scrollToSection('conference')}
+            onClick={() => scrollToSection('about')}
           >
-            Learn About NACCUS 2027
+            Discover Our Mission
           </Button>
           <Button 
             appearance="outline" 
             size="large"
-            onClick={() => scrollToSection('about')}
+            onClick={() => scrollToSection('conference')}
             style={{ 
               color: tokens.colorNeutralForegroundInverted, 
               borderColor: tokens.colorNeutralForegroundInverted 
             }}
           >
-            Discover Our Mission
+            Join Our Community
           </Button>
         </div>
       </div>

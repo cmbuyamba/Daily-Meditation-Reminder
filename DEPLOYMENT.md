@@ -1,7 +1,7 @@
-# NACCUS Website - Deployment Guide
+# NAACUS Website - Deployment Guide
 
 ## Overview
-This guide provides step-by-step instructions for deploying the NACCUS website to various hosting platforms and configuring Microsoft 365 integration.
+This guide provides step-by-step instructions for deploying the NAACUS website to various hosting platforms and configuring Microsoft 365 integration.
 
 ## Prerequisites
 - Azure account (for Microsoft 365 integration)
@@ -20,7 +20,7 @@ Azure Static Web Apps is recommended because it provides seamless integration wi
 4. Click "Create"
 5. Configure:
    - **Resource Group**: Create new or select existing
-   - **Name**: `naccus-website`
+   - **Name**: `naacus-website`
    - **Region**: Choose closest to Maryland
    - **Source**: GitHub
    - **Repository**: Select your repository
@@ -124,7 +124,7 @@ Azure Static Web Apps is recommended because it provides seamless integration wi
 2. Navigate to **Azure Active Directory** > **App registrations**
 3. Click **New registration**
 4. Configure:
-   - **Name**: NACCUS Website
+   - **Name**: NAACUS Website
    - **Supported account types**: 
      - Multi-tenant (Accounts in any organizational directory)
    - **Redirect URI**: 
@@ -308,7 +308,7 @@ After successful deployment:
 3. Configure analytics (Google Analytics, Azure Application Insights)
 4. Set up monitoring and alerts
 5. Create backup strategy
-6. Plan content updates for NACCUS 2027
+6. Plan content updates for NAACUS 2027
 
 ---
 

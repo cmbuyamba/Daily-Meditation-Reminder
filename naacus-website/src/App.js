@@ -4,7 +4,14 @@ import './App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
+import Objectives from './components/Objectives';
+import WhatWeDo from './components/WhatWeDo';
+import WhoWeServe from './components/WhoWeServe';
+import Programs from './components/Programs';
+import Gallery from './components/Gallery';
 import Conference from './components/Conference';
+import Resources from './components/Resources';
+import Newsletter from './components/Newsletter';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -15,7 +22,14 @@ function App() {
         <Header />
         <Hero />
         <About />
+        <Objectives />
+        <WhatWeDo />
+        <WhoWeServe />
+        <Programs />
+        <Gallery />
         <Conference />
+        <Resources />
+        <Newsletter />
         <Contact />
         <Footer />
       </div>

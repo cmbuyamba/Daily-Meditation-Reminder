@@ -1,7 +1,7 @@
 {
-  "name": "naccus-organization",
+  "name": "naacus-organization",
   "version": "1.0.0",
-  "description": "NACCUS - National Association of Colleges and Christian Unions",
+  "description": "NAACUS - National Association of African Catholics in the United States",
   "scripts": {
     "start": "cd naacus-website && npm start",
     "build": "cd naacus-website && npm run build",
@@ -13,13 +13,15 @@
     "url": "https://github.com/cmbuyamba/Daily-Meditation-Reminder.git"
   },
   "keywords": [
-    "naccus",
-    "christian",
-    "college",
-    "campus ministry",
+    "naacus",
+    "african catholic",
+    "catholic community",
+    "faith and heritage",
+    "african diaspora",
+    "church participation",
     "conference"
   ],
-  "author": "NACCUS",
+  "author": "NAACUS",
   "license": "UNLICENSED",
   "private": true
 }

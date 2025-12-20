@@ -68,12 +68,13 @@ function About() {
 
   return (
     <section id="about" className={styles.about}>
-      <Text as="h2" className={styles.aboutTitle}>About NACCUS</Text>
+      <Text as="h2" className={styles.aboutTitle}>About NAACUS</Text>
       <div className={styles.aboutContent}>
         <Text as="p" className={styles.aboutIntro}>
-          The National Association of Colleges and Christian Unions (NACCUS) is dedicated 
-          to supporting and strengthening Christian communities across college campuses 
-          throughout the United States.
+          The National Association of African Catholics in the United States (NAACUS) brings together 
+          African Catholics and their families to foster faith, leadership, and service in the Church 
+          across the United States. Rooted in the Gospel and our motto "Together with Christ," we 
+          welcome members into an active community for fellowship, workshops, and collaborative ministries.
         </Text>
         <div className={styles.missionValues}>
           <Card className={styles.missionItem}>
@@ -82,20 +83,21 @@ function About() {
               header={<Text className={styles.itemTitle}>Our Mission</Text>}
               description={
                 <Text className={styles.itemText}>
-                  To empower Christian students and campus ministries through resources, 
-                  networking, and spiritual development opportunities.
+                  To gather African Catholic communities in the U.S., promote their faith, 
+                  and ensure their full and active participation in the life of the Church.
                 </Text>
               }
             />
           </Card>
           <Card className={styles.missionItem}>
-            <div className={styles.icon}>💡</div>
+            <div className={styles.icon}>✨</div>
             <CardHeader
               header={<Text className={styles.itemTitle}>Our Vision</Text>}
               description={
                 <Text className={styles.itemText}>
-                  A thriving network of Christian unions that transforms campus cultures 
-                  and equips students to live out their faith.
+                  A vibrant and visible African Catholic community that contributes its gifts 
+                  to the Church and society—confident in identity, generous in service, 
+                  and engaged in society.
                 </Text>
               }
             />
@@ -103,11 +105,12 @@ function About() {
           <Card className={styles.missionItem}>
             <div className={styles.icon}>🤝</div>
             <CardHeader
-              header={<Text className={styles.itemTitle}>Our Values</Text>}
+              header={<Text className={styles.itemTitle}>Our Motto</Text>}
               description={
                 <Text className={styles.itemText}>
-                  Unity, excellence, authenticity, and service guide everything we do 
-                  as we serve campus ministries nationwide.
+                  "Together with Christ" — We build welcoming networks of fellowship, workshops, 
+                  and community initiatives that uplift people, celebrate culture, and advance 
+                  the common good.
                 </Text>
               }
             />

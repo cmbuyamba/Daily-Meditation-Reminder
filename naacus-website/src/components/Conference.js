@@ -132,83 +132,94 @@ function Conference() {
 
   return (
     <section id="conference" className={styles.conference}>
-      <Text as="h2" className={styles.conferenceTitle}>NACCUS 2027 Conference</Text>
+      <Text as="h2" className={styles.conferenceTitle}>National Conference</Text>
       <div className={styles.conferenceBanner}>
-        <Text as="h3" className={styles.bannerTitle}>Join Us in Maryland!</Text>
-        <Text as="p" className={styles.conferenceDate}>Summer 2027</Text>
+        <Text as="h3" className={styles.bannerTitle}>Biannual National Conference</Text>
+        <Text as="p" className={styles.conferenceDate}>Unity in Christ • Evangelization • African Heritage</Text>
       </div>
       <div className={styles.conferenceContent}>
         <div className={styles.conferenceDetails}>
           <Card className={styles.detailCard}>
-            <div className={styles.cardIcon}>📍</div>
+            <div className={styles.cardIcon}>🙏</div>
             <CardHeader
-              header={<Text className={styles.cardTitle}>Location</Text>}
+              header={<Text className={styles.cardTitle}>Focus</Text>}
               description={
                 <>
-                  <Text className={styles.cardText}>Maryland</Text>
-                  <Text className={styles.detailSubtext}>Specific venue to be announced</Text>
+                  <Text className={styles.cardText}>Unity in Christ</Text>
+                  <Text className={styles.detailSubtext}>Strengthening our faith together</Text>
                 </>
               }
             />
           </Card>
           <Card className={styles.detailCard}>
-            <div className={styles.cardIcon}>📅</div>
+            <div className={styles.cardIcon}>📖</div>
             <CardHeader
-              header={<Text className={styles.cardTitle}>When</Text>}
+              header={<Text className={styles.cardTitle}>Theme</Text>}
               description={
                 <>
-                  <Text className={styles.cardText}>Summer 2027</Text>
-                  <Text className={styles.detailSubtext}>Exact dates coming soon</Text>
+                  <Text className={styles.cardText}>Evangelization</Text>
+                  <Text className={styles.detailSubtext}>Sharing the Gospel message</Text>
                 </>
               }
             />
           </Card>
           <Card className={styles.detailCard}>
-            <div className={styles.cardIcon}>✨</div>
+            <div className={styles.cardIcon}>🌍</div>
             <CardHeader
-              header={<Text className={styles.cardTitle}>What to Expect</Text>}
+              header={<Text className={styles.cardTitle}>Celebration</Text>}
               description={
                 <>
-                  <Text className={styles.cardText}>Workshops, Networking</Text>
-                  <Text className={styles.detailSubtext}>Spiritual growth & fellowship</Text>
+                  <Text className={styles.cardText}>African Catholic Culture</Text>
+                  <Text className={styles.detailSubtext}>Heritage and traditions</Text>
                 </>
               }
             />
           </Card>
         </div>
         <div className={styles.conferenceDescription}>
-          <Text as="h3" className={styles.descriptionTitle}>A Transformative Experience</Text>
+          <Text as="h3" className={styles.descriptionTitle}>A Gathering of Faith and Heritage</Text>
           <Text as="p" className={styles.descriptionText}>
-            NACCUS 2027 will bring together Christian student leaders, campus ministry 
-            staff, and supporters from across the nation for an unforgettable experience 
-            of worship, learning, and community building.
+            Our biannual national conference brings together African Catholics from across the United States 
+            for an inspiring experience of worship, learning, fellowship, and cultural celebration. This 
+            signature event focuses on unity in Christ and evangelization while honoring the rich heritage 
+            of African Catholics.
           </Text>
           <div className={styles.conferenceHighlights}>
             <div className={styles.highlight}>
               <CheckmarkCircle24Regular color={tokens.colorPaletteGreenForeground1} />
-              <span>Inspiring keynote speakers and worship sessions</span>
+              <span>Inspiring liturgies and worship incorporating African traditions</span>
             </div>
             <div className={styles.highlight}>
               <CheckmarkCircle24Regular color={tokens.colorPaletteGreenForeground1} />
-              <span>Practical workshops for campus ministry leadership</span>
+              <span>Workshops on faith, family life, and leadership formation</span>
             </div>
             <div className={styles.highlight}>
               <CheckmarkCircle24Regular color={tokens.colorPaletteGreenForeground1} />
-              <span>Networking opportunities with peers nationwide</span>
+              <span>Networking with African Catholic communities nationwide</span>
             </div>
             <div className={styles.highlight}>
               <CheckmarkCircle24Regular color={tokens.colorPaletteGreenForeground1} />
-              <span>Resources and tools for effective ministry</span>
+              <span>Cultural celebrations honoring African heritage</span>
+            </div>
+            <div className={styles.highlight}>
+              <CheckmarkCircle24Regular color={tokens.colorPaletteGreenForeground1} />
+              <span>Youth and young adult programs and mentorship</span>
+            </div>
+            <div className={styles.highlight}>
+              <CheckmarkCircle24Regular color={tokens.colorPaletteGreenForeground1} />
+              <span>Strengthening connections with parishes and dioceses</span>
             </div>
           </div>
           <div className={styles.ctaSection}>
-            <Text as="p" className={styles.ctaText}>Stay tuned for registration details!</Text>
+            <Text as="p" className={styles.ctaText}>
+              Join us for our next conference and experience the vibrant African Catholic community!
+            </Text>
             <Button 
               appearance="primary" 
               size="large"
               onClick={() => scrollToSection('contact')}
             >
-              Get Updates
+              Stay Informed
             </Button>
           </div>
         </div>
