@@ -4,7 +4,8 @@ import {
   shorthands,
   tokens,
   Text,
-  Card
+  Card,
+  Avatar
 } from '@fluentui/react-components';
 
 const useStyles = makeStyles({
@@ -61,6 +62,17 @@ const useStyles = makeStyles({
       boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
     },
   },
+  memberHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('12px'),
+  },
+  avatar: {
+    flexShrink: 0,
+  },
+  memberInfo: {
+    flex: 1,
+  },
   memberName: {
     fontSize: '1.125rem',
     marginBottom: '8px',
@@ -87,28 +99,28 @@ function Leadership() {
   const styles = useStyles();
 
   const executiveBoard = [
-    { name: 'Mrs. Sally Stovall', title: 'President', phone: '317-727-5736', email: 'sstov92865@aol.com' },
-    { name: 'Mr. Kwame Frimpong', title: 'Vice President', phone: '240-731-1526', email: 'akrasah@gmail.com' },
-    { name: 'Mr. Alex Nana Danso', title: 'General Secretary', phone: '571-337-9797', email: 'lexidan6771@aol.com' },
-    { name: 'Mr. Fessahaye Mebrahtu', title: 'Assistant General Secretary', phone: '414-526-0385', email: 'fmebrahtu@panafricoma.org' },
-    { name: 'Mr. Bosco Miller', title: 'Publicity Secretary', phone: '210-315-2547', email: 'boscom@ameritech.net' },
-    { name: 'Mrs. Reine Marie Assana', title: 'Assistant Publicity Secretary', phone: '414-614-4907', email: 'assanabebe@gmail.com' },
-    { name: 'Sr. Henrietta Okoro HHCJ', title: 'Treasurer', phone: '832-605-5426', email: 'chikodi59@hotmail.com' },
-    { name: 'Deacon Francis Chan', title: 'Financial Secretary', phone: '515-210-4444', email: 'nyalam05@gmail.com' },
-    { name: 'Eric Mpesha', title: 'Assistant Financial Secretary', phone: '240-498-7171', email: 'empesha@yahoo.com' },
-    { name: 'Dr. Seikor Bundu', title: 'Provost', phone: '240-994-6774', email: 'seikorbundu@hotmail.com' },
-    { name: 'Mrs. Lucia Chuo', title: 'Coordinator for African Catholic Women', phone: '301-233-7662', email: 'lchuo@worldbank.org' },
-    { name: 'Ms. Nkafu Amingwa', title: 'Coordinator for People with Disability', phone: '240-205-4759', email: 'nkafu.amingwa@gmail.com' },
-    { name: 'Rebecca Tham', title: 'Youth and Young Adult Coordinator', phone: '267-982-7645', email: 'thamrebecca@gmail.com' },
-    { name: 'Mr. Kwadwo Mireku', title: 'Ex-Officio Member', phone: '301-202-4277', email: 'kwadwomireku@hotmail.com' },
-    { name: 'Mr. Ntal Alimasi', title: 'Ex-Officio Member', phone: '202-256-1781', email: 'ntal.alim@gmail.com' },
+    { name: 'Mrs. Sally Stovall', title: 'President', phone: '317-727-5736', email: 'sstov92865@aol.com', photo: '' },
+    { name: 'Mr. Kwame Frimpong', title: 'Vice President', phone: '240-731-1526', email: 'akrasah@gmail.com', photo: '' },
+    { name: 'Mr. Alex Nana Danso', title: 'General Secretary', phone: '571-337-9797', email: 'lexidan6771@aol.com', photo: '' },
+    { name: 'Mr. Fessahaye Mebrahtu', title: 'Assistant General Secretary', phone: '414-526-0385', email: 'fmebrahtu@panafricoma.org', photo: '' },
+    { name: 'Mr. Bosco Miller', title: 'Publicity Secretary', phone: '210-315-2547', email: 'boscom@ameritech.net', photo: '' },
+    { name: 'Mrs. Reine Marie Assana', title: 'Assistant Publicity Secretary', phone: '414-614-4907', email: 'assanabebe@gmail.com', photo: '' },
+    { name: 'Sr. Henrietta Okoro HHCJ', title: 'Treasurer', phone: '832-605-5426', email: 'chikodi59@hotmail.com', photo: '' },
+    { name: 'Deacon Francis Chan', title: 'Financial Secretary', phone: '515-210-4444', email: 'nyalam05@gmail.com', photo: '' },
+    { name: 'Eric Mpesha', title: 'Assistant Financial Secretary', phone: '240-498-7171', email: 'empesha@yahoo.com', photo: '' },
+    { name: 'Dr. Seikor Bundu', title: 'Provost', phone: '240-994-6774', email: 'seikorbundu@hotmail.com', photo: '' },
+    { name: 'Mrs. Lucia Chuo', title: 'Coordinator for African Catholic Women', phone: '301-233-7662', email: 'lchuo@worldbank.org', photo: '' },
+    { name: 'Ms. Nkafu Amingwa', title: 'Coordinator for People with Disability', phone: '240-205-4759', email: 'nkafu.amingwa@gmail.com', photo: '' },
+    { name: 'Rebecca Tham', title: 'Youth and Young Adult Coordinator', phone: '267-982-7645', email: 'thamrebecca@gmail.com', photo: '' },
+    { name: 'Mr. Kwadwo Mireku', title: 'Ex-Officio Member', phone: '301-202-4277', email: 'kwadwomireku@hotmail.com', photo: '' },
+    { name: 'Mr. Ntal Alimasi', title: 'Ex-Officio Member', phone: '202-256-1781', email: 'ntal.alim@gmail.com', photo: '' },
   ];
 
   const spiritualAdvisers = [
-    { name: 'Rev. Fr. Aniedi Okure, O.P.', title: 'Spiritual Adviser', phone: '301-277-9787', email: 'okureop@gmail.com' },
-    { name: 'Rev. Fr. Benoit Mukamba, CSSP', title: 'Spiritual Adviser', phone: '281-216-7894', email: 'kishben61@gmail.com' },
-    { name: 'Sr. Joanna Okereke, HHCJ', title: 'Spiritual Adviser', phone: '202-541-3359', email: 'Jokereke@usccb.org' },
-    { name: 'Msgr. Anselm Nwaorgu', title: 'Spiritual Adviser', phone: '908-456-7357', email: 'anwaorgu@yahoo.com' },
+    { name: 'Rev. Fr. Aniedi Okure, O.P.', title: 'Spiritual Adviser', phone: '301-277-9787', email: 'okureop@gmail.com', photo: '' },
+    { name: 'Rev. Fr. Benoit Mukamba, CSSP', title: 'Spiritual Adviser', phone: '281-216-7894', email: 'kishben61@gmail.com', photo: '' },
+    { name: 'Sr. Joanna Okereke, HHCJ', title: 'Spiritual Adviser', phone: '202-541-3359', email: 'Jokereke@usccb.org', photo: '' },
+    { name: 'Msgr. Anselm Nwaorgu', title: 'Spiritual Adviser', phone: '908-456-7357', email: 'anwaorgu@yahoo.com', photo: '' },
   ];
 
   return (
@@ -124,12 +136,20 @@ function Leadership() {
         <div className={styles.boardGrid}>
           {executiveBoard.map((member) => (
             <Card key={member.name} className={styles.boardMember}>
-              <div>
-                <Text className={styles.memberName}>{member.name}</Text>
-                <Text className={styles.memberTitle}>{member.title}</Text>
-                {member.phone && member.email && (
-                  <Text className={styles.memberContact}>{member.phone} – {member.email}</Text>
-                )}
+              <div className={styles.memberHeader}>
+                <Avatar 
+                  className={styles.avatar}
+                  name={member.name}
+                  image={member.photo ? { src: member.photo } : undefined}
+                  size={56}
+                />
+                <div className={styles.memberInfo}>
+                  <Text className={styles.memberName}>{member.name}</Text>
+                  <Text className={styles.memberTitle}>{member.title}</Text>
+                  {member.phone && member.email && (
+                    <Text className={styles.memberContact}>{member.phone} – {member.email}</Text>
+                  )}
+                </div>
               </div>
             </Card>
           ))}
@@ -139,12 +159,20 @@ function Leadership() {
         <div className={styles.boardGrid}>
           {spiritualAdvisers.map((member) => (
             <Card key={member.name} className={styles.boardMember}>
-              <div>
-                <Text className={styles.memberName}>{member.name}</Text>
-                <Text className={styles.memberTitle}>{member.title}</Text>
-                {member.phone && member.email && (
-                  <Text className={styles.memberContact}>{member.phone} – {member.email}</Text>
-                )}
+              <div className={styles.memberHeader}>
+                <Avatar 
+                  className={styles.avatar}
+                  name={member.name}
+                  image={member.photo ? { src: member.photo } : undefined}
+                  size={56}
+                />
+                <div className={styles.memberInfo}>
+                  <Text className={styles.memberName}>{member.name}</Text>
+                  <Text className={styles.memberTitle}>{member.title}</Text>
+                  {member.phone && member.email && (
+                    <Text className={styles.memberContact}>{member.phone} – {member.email}</Text>
+                  )}
+                </div>
               </div>
             </Card>
           ))}
