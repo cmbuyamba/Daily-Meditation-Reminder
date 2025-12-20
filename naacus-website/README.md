@@ -8,7 +8,7 @@ Professional website for the National Association of African Catholics in the Un
 - **Responsive Design**: Fully responsive layout that works on all devices
 - **Professional UI**: Clean, modern design with smooth animations
 - **Microsoft 365 Ready**: Pre-configured for Microsoft 365 authentication and services integration
-- **Conference Information**: Dedicated section for NAACUS 2027 conference in Maryland
+- **Community Information**: Comprehensive sections about mission, programs, and activities
 - **Contact Form**: Interactive contact form ready for backend integration
 
 ## 🚀 Quick Start
@@ -157,20 +157,20 @@ For questions or issues:
 - Email: info@naacus.org
 - Website: Coming soon
 
-## 📅 NAACUS 2027 Conference
+## 📅 Biannual National Conference
 
-Join us in Maryland, Summer 2027!
+Join us for our next national conference!
 
-- Inspiring speakers and worship
-- Leadership workshops
-- Networking opportunities
-- Resources for campus ministry
+- Unity in Christ
+- Evangelization and faith formation
+- Cultural celebrations
+- Networking with African Catholic communities nationwide
 
-Registration details coming soon!
+Conference details coming soon!
 
 ## 🙏 About NAACUS
 
-The National Association of African Catholics in the United States empowers Christian student organizations across college campuses nationwide through resources, networking, and spiritual development opportunities.
+The National Association of African Catholics in the United States (NAACUS) brings together African Catholics and their families to foster faith, leadership, and service in the Church across the United States. Rooted in the Gospel and our motto "Together with Christ," we welcome members into an active community for fellowship, workshops, and collaborative ministries that strengthen parish life and the wider Catholic community.
 
 ## 📝 License
 
