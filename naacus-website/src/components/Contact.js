@@ -1,7 +1,86 @@
 import React, { useState } from 'react';
-import './Contact.css';
+import { 
+  makeStyles,
+  shorthands,
+  tokens,
+  Text,
+  Input,
+  Textarea,
+  Button,
+  Field
+} from '@fluentui/react-components';
+
+const useStyles = makeStyles({
+  contact: {
+    backgroundColor: tokens.colorNeutralBackground1,
+    ...shorthands.padding('80px', '20px'),
+  },
+  contactTitle: {
+    fontSize: '2.5rem',
+    textAlign: 'center',
+    marginBottom: '60px',
+    color: tokens.colorBrandBackground,
+    fontWeight: '700',
+  },
+  contactContent: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    ...shorthands.gap('60px'),
+    maxWidth: '1000px',
+    ...shorthands.margin('0', 'auto'),
+    '@media (max-width: 768px)': {
+      gridTemplateColumns: '1fr',
+      ...shorthands.gap('40px'),
+    },
+  },
+  contactInfoTitle: {
+    fontSize: '2rem',
+    marginBottom: '20px',
+    color: tokens.colorBrandBackground,
+    fontWeight: '600',
+  },
+  contactInfoText: {
+    fontSize: '1.1rem',
+    color: tokens.colorNeutralForeground2,
+    lineHeight: '1.8',
+    marginBottom: '40px',
+  },
+  contactDetails: {
+    display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('25px'),
+  },
+  contactItem: {
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('20px'),
+  },
+  contactIcon: {
+    fontSize: '2rem',
+  },
+  contactItemTitle: {
+    fontSize: '1.1rem',
+    fontWeight: '600',
+    color: tokens.colorNeutralForeground1,
+    marginBottom: '5px',
+  },
+  contactItemText: {
+    fontSize: '1rem',
+    color: tokens.colorNeutralForeground2,
+  },
+  formContainer: {
+    backgroundColor: tokens.colorNeutralBackground1,
+  },
+  formNote: {
+    fontSize: '0.85rem',
+    color: tokens.colorNeutralForeground3,
+    marginTop: '20px',
+    fontStyle: 'italic',
+  },
+});
 
 function Contact() {
+  const styles = useStyles();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,93 +103,90 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="contact">
-      <h2>Get In Touch</h2>
-      <div className="contact-content">
-        <div className="contact-info">
-          <h3>Connect With Us</h3>
-          <p>
+    <section id="contact" className={styles.contact}>
+      <Text as="h2" className={styles.contactTitle}>Get In Touch</Text>
+      <div className={styles.contactContent}>
+        <div>
+          <Text as="h3" className={styles.contactInfoTitle}>Connect With Us</Text>
+          <Text as="p" className={styles.contactInfoText}>
             Have questions about NACCUS or the 2027 conference? 
             We'd love to hear from you!
-          </p>
-          <div className="contact-details">
-            <div className="contact-item">
-              <div className="contact-icon">📧</div>
+          </Text>
+          <div className={styles.contactDetails}>
+            <div className={styles.contactItem}>
+              <div className={styles.contactIcon}>📧</div>
               <div>
-                <h4>Email</h4>
-                <p>info@naacus.org</p>
+                <Text className={styles.contactItemTitle}>Email</Text>
+                <Text className={styles.contactItemText}>info@naacus.org</Text>
               </div>
             </div>
-            <div className="contact-item">
-              <div className="contact-icon">📱</div>
+            <div className={styles.contactItem}>
+              <div className={styles.contactIcon}>📱</div>
               <div>
-                <h4>Phone</h4>
-                <p>Coming Soon</p>
+                <Text className={styles.contactItemTitle}>Phone</Text>
+                <Text className={styles.contactItemText}>Coming Soon</Text>
               </div>
             </div>
-            <div className="contact-item">
-              <div className="contact-icon">🌐</div>
+            <div className={styles.contactItem}>
+              <div className={styles.contactIcon}>🌐</div>
               <div>
-                <h4>Social Media</h4>
-                <p>Follow us for updates</p>
+                <Text className={styles.contactItemTitle}>Social Media</Text>
+                <Text className={styles.contactItemText}>Follow us for updates</Text>
               </div>
             </div>
           </div>
         </div>
-        <div className="contact-form-container">
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Name *</label>
-              <input
-                type="text"
-                id="name"
+        <div className={styles.formContainer}>
+          <form onSubmit={handleSubmit}>
+            <Field label="Name *" required>
+              <Input
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 required
                 placeholder="Your full name"
               />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email *</label>
-              <input
+            </Field>
+            <Field label="Email *" required style={{ marginTop: '20px' }}>
+              <Input
                 type="email"
-                id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 required
                 placeholder="your.email@example.com"
               />
-            </div>
-            <div className="form-group">
-              <label htmlFor="organization">College/Organization</label>
-              <input
-                type="text"
-                id="organization"
+            </Field>
+            <Field label="College/Organization" style={{ marginTop: '20px' }}>
+              <Input
                 name="organization"
                 value={formData.organization}
                 onChange={handleChange}
                 placeholder="Your college or organization"
               />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Message *</label>
-              <textarea
-                id="message"
+            </Field>
+            <Field label="Message *" required style={{ marginTop: '20px' }}>
+              <Textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 required
-                rows="5"
+                rows={5}
                 placeholder="Tell us how we can help..."
-              ></textarea>
-            </div>
-            <button type="submit" className="btn btn-primary">Send Message</button>
+              />
+            </Field>
+            <Button 
+              appearance="primary" 
+              type="submit" 
+              size="large"
+              style={{ marginTop: '20px' }}
+            >
+              Send Message
+            </Button>
           </form>
-          <p className="form-note">
+          <Text as="p" className={styles.formNote}>
             * Microsoft 365 integration ready - form submissions will be processed through secure Microsoft services
-          </p>
+          </Text>
         </div>
       </div>
     </section>
