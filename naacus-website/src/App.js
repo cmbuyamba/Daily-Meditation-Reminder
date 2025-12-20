@@ -8,6 +8,7 @@ import Objectives from './components/Objectives';
 import WhatWeDo from './components/WhatWeDo';
 import WhoWeServe from './components/WhoWeServe';
 import Programs from './components/Programs';
+import Ministries from './components/Ministries';
 import Gallery from './components/Gallery';
 import Conference from './components/Conference';
 import Resources from './components/Resources';
@@ -27,6 +28,7 @@ function App() {
         <WhatWeDo />
         <WhoWeServe />
         <Programs />
+        <Ministries />
         <Gallery />
         <Conference />
         <Resources />
