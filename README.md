@@ -8,16 +8,18 @@ The National Association of African Catholics in the United States unites Africa
 
 ## 🌐 Website
 
-This repository contains the source code for the official NAACUS website, a professional React-based application designed to serve and connect the African Catholic community.
+This repository contains the source code for the official NAACUS website, a professional React-based application designed to serve and connect the African Catholic community. The website structure closely mirrors the official NAACUS.org website.
 
 ### Key Features
 
 - **Modern React Application** - Built with the latest React technologies
 - **Professional Design** - Clean, responsive UI with Microsoft-inspired styling
 - **Microsoft 365 Integration Ready** - Pre-configured for Azure AD authentication
-- **Community Information** - Comprehensive sections about our mission, programs, and activities
-- **Conference Information** - Details about our biannual national conferences
-- **Contact & Outreach** - Interactive forms for community engagement
+- **Complete NAACUS.org Structure** - All sections from the official website included
+- **Gallery & Media** - Photos and videos from events and activities
+- **Resources Hub** - Brochures, newsletters, and membership forms
+- **Newsletter Subscription** - Stay connected with email updates
+- **Community Engagement** - Interactive forms and contact options
 
 ## 🚀 Quick Start
 
@@ -51,10 +53,14 @@ npm run build
 │   │   │   ├── Header.js    # Navigation header
 │   │   │   ├── Hero.js      # Landing section
 │   │   │   ├── About.js     # About NAACUS
+│   │   │   ├── Objectives.js # 8 detailed objectives
 │   │   │   ├── WhatWeDo.js  # What we do section
 │   │   │   ├── WhoWeServe.js # Who we serve section
 │   │   │   ├── Programs.js  # Programs & activities
+│   │   │   ├── Gallery.js   # Photo & video gallery
 │   │   │   ├── Conference.js # National conference info
+│   │   │   ├── Resources.js # Resources & partner links
+│   │   │   ├── Newsletter.js # Newsletter subscription
 │   │   │   ├── Contact.js   # Contact form
 │   │   │   └── Footer.js    # Site footer
 │   │   ├── config/          # Configuration files
@@ -82,13 +88,19 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for complete setup instructions.
 
 NAACUS exists to gather African Catholic communities in the U.S., promote their faith, and ensure their full and active participation in the life of the Church. Our vision is a vibrant and visible African Catholic community that contributes its gifts to the Church and society.
 
-### What We Do
+### Website Sections
 
-- **Pastoral Care & Parish Connection** - Supporting African Catholic communities and strengthening their connection with parishes, dioceses, and national Catholic organizations
-- **Heritage & Culture Awareness** - Raising awareness of the presence, heritage, and cultures of African Catholics in the U.S.
-- **Family Life & Vocations** - Building up family life and vocations, nurturing leadership among laity, youth, and young adults
-- **Evangelization & Catechesis** - Promoting evangelization, catechesis, and service
-- **Collaboration & Advocacy** - Collaborating with diocesan offices, national Catholic partners, and advocating for social justice
+1. **Home** - Welcome message and "Together with Christ" motto
+2. **About** - Mission, Vision, and Motto
+3. **Objectives** - 8 detailed organizational objectives
+4. **What We Do** - 5 core activities (pastoral care, heritage awareness, family life, evangelization, collaboration)
+5. **Who We Serve** - 8 community segments (immigrants, migrants, refugees, students, professionals, families, elders, diaspora)
+6. **Programs & Activities** - Events, workshops, conferences, and Get Involved
+7. **Gallery & Videos** - Photos and videos from events and celebrations
+8. **Conference** - Biannual national conference information
+9. **Resources** - Brochures, newsletters, membership forms, and partner organizations
+10. **Newsletter** - Email subscription for updates
+11. **Contact** - Community connection and contact form
 
 ## 🎨 Customization
 
@@ -135,7 +147,7 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for platform-specific instructions.
 ## 📞 Contact
 
 - **Email**: info@naacus.org
-- **Website**: Coming soon
+- **Website**: https://naacus.org
 
 ## 🤝 Contributing
 
