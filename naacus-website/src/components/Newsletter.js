@@ -11,7 +11,7 @@ import { Mail24Regular } from '@fluentui/react-icons';
 
 const useStyles = makeStyles({
   newsletter: {
-    background: `linear-gradient(135deg, ${tokens.colorBrandBackground} 0%, #0053a0 100%)`,
+    background: `linear-gradient(135deg, ${tokens.colorBrandBackground} 0%, #005a9e 100%)`,
     color: tokens.colorNeutralForegroundInverted,
     ...shorthands.padding('80px', '20px'),
   },
@@ -26,16 +26,17 @@ const useStyles = makeStyles({
     color: tokens.colorNeutralForegroundInverted,
   },
   title: {
-    fontSize: '2.5rem',
-    marginBottom: '20px',
-    fontWeight: '700',
+    fontSize: '2.75rem',
+    marginBottom: '24px',
+    fontWeight: '600',
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
+    letterSpacing: '-0.02em',
   },
   subtitle: {
-    fontSize: '1.2rem',
-    marginBottom: '40px',
-    lineHeight: '1.7',
+    fontSize: '1.125rem',
+    marginBottom: '48px',
+    lineHeight: '1.6',
     color: tokens.colorNeutralForegroundInverted,
     opacity: 0.95,
     display: 'block',

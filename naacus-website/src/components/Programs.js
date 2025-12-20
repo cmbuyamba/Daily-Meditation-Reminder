@@ -11,25 +11,26 @@ import { CheckmarkCircle24Regular } from '@fluentui/react-icons';
 
 const useStyles = makeStyles({
   programs: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: tokens.colorNeutralBackground1,
     ...shorthands.padding('80px', '20px'),
   },
   sectionTitle: {
-    fontSize: '2.5rem',
+    fontSize: '2.75rem',
     textAlign: 'center',
-    marginBottom: '20px',
-    color: tokens.colorBrandBackground,
-    fontWeight: '700',
+    marginBottom: '24px',
+    color: tokens.colorNeutralForeground1,
+    fontWeight: '600',
     display: 'block',
+    letterSpacing: '-0.02em',
   },
   sectionSubtitle: {
-    fontSize: '1.2rem',
+    fontSize: '1.125rem',
     textAlign: 'center',
-    marginBottom: '60px',
+    marginBottom: '64px',
     color: tokens.colorNeutralForeground2,
-    maxWidth: '900px',
-    margin: '0 auto 60px',
-    lineHeight: '1.7',
+    maxWidth: '800px',
+    margin: '0 auto 64px',
+    lineHeight: '1.6',
     display: 'block',
   },
   content: {
@@ -39,13 +40,14 @@ const useStyles = makeStyles({
   highlightCard: {
     ...shorthands.padding('40px'),
     backgroundColor: tokens.colorNeutralBackground1,
-    ...shorthands.borderRadius('12px'),
+    ...shorthands.borderRadius('8px'),
     marginBottom: '40px',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06)',
   },
   highlightTitle: {
-    fontSize: '1.8rem',
-    marginBottom: '20px',
-    color: tokens.colorBrandBackground,
+    fontSize: '1.625rem',
+    marginBottom: '16px',
+    color: tokens.colorNeutralForeground1,
     fontWeight: '600',
   },
   highlightText: {

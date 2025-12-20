@@ -9,25 +9,26 @@ import {
 
 const useStyles = makeStyles({
   whoWeServe: {
-    backgroundColor: tokens.colorNeutralBackground1,
+    backgroundColor: '#faf9f8',
     ...shorthands.padding('80px', '20px'),
   },
   sectionTitle: {
-    fontSize: '2.5rem',
+    fontSize: '2.75rem',
     textAlign: 'center',
-    marginBottom: '20px',
-    color: tokens.colorBrandBackground,
-    fontWeight: '700',
+    marginBottom: '24px',
+    color: tokens.colorNeutralForeground1,
+    fontWeight: '600',
     display: 'block',
+    letterSpacing: '-0.02em',
   },
   sectionSubtitle: {
-    fontSize: '1.2rem',
+    fontSize: '1.125rem',
     textAlign: 'center',
-    marginBottom: '60px',
+    marginBottom: '64px',
     color: tokens.colorNeutralForeground2,
-    maxWidth: '900px',
-    margin: '0 auto 60px',
-    lineHeight: '1.7',
+    maxWidth: '800px',
+    margin: '0 auto 64px',
+    lineHeight: '1.6',
     display: 'block',
   },
   content: {
@@ -42,12 +43,13 @@ const useStyles = makeStyles({
   },
   communityCard: {
     textAlign: 'center',
-    ...shorthands.padding('30px', '20px'),
+    ...shorthands.padding('24px', '16px'),
     backgroundColor: tokens.colorNeutralBackground1,
     ...shorthands.borderRadius('8px'),
     ...shorthands.transition('all', '0.3s', 'ease'),
+    boxShadow: '0 2px 6px rgba(0, 0, 0, 0.05)',
     '&:hover': {
-      transform: 'translateY(-3px)',
+      transform: 'translateY(-4px)',
       boxShadow: tokens.shadow8,
     },
   },

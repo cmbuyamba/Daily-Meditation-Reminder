@@ -1,9 +1,66 @@
 /* Global styles for the App container */
 .App {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  
+  /* Design tokens for consistent styling */
+  --card-hover-lift: -8px;
+  --card-shadow-normal: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --border-radius-normal: 8px;
+  --transition-duration: 0.3s;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Section container styling */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Professional section spacing */
+section:not(:first-child) {
+  padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  section:not(:first-child) {
+    padding: 60px 0;
+  }
+}
+
+/* Add fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth transitions for interactive elements - specify properties for better performance */
+button, a {
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+/* Professional button hover states */
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

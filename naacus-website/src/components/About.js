@@ -10,29 +10,30 @@ import {
 
 const useStyles = makeStyles({
   about: {
-    backgroundColor: tokens.colorNeutralBackground1,
+    backgroundColor: '#faf9f8',
     ...shorthands.padding('80px', '20px'),
   },
   aboutTitle: {
-    fontSize: '2.5rem',
+    fontSize: '2.75rem',
     textAlign: 'center',
-    marginBottom: '60px',
-    color: tokens.colorBrandBackground,
-    fontWeight: '700',
+    marginBottom: '24px',
+    color: tokens.colorNeutralForeground1,
+    fontWeight: '600',
     display: 'block',
+    letterSpacing: '-0.02em',
   },
   aboutContent: {
     maxWidth: '1200px',
     ...shorthands.margin('0', 'auto'),
   },
   aboutIntro: {
-    fontSize: '1.2rem',
-    lineHeight: '1.8',
+    fontSize: '1.125rem',
+    lineHeight: '1.7',
     color: tokens.colorNeutralForeground2,
     textAlign: 'center',
-    marginBottom: '60px',
-    maxWidth: '900px',
-    ...shorthands.margin('0', 'auto', '60px'),
+    marginBottom: '64px',
+    maxWidth: '800px',
+    ...shorthands.margin('0', 'auto', '64px'),
     display: 'block',
   },
   missionValues: {
@@ -42,25 +43,30 @@ const useStyles = makeStyles({
   },
   missionItem: {
     textAlign: 'center',
-    ...shorthands.padding('30px', '20px'),
-    ...shorthands.transition('transform', '0.3s', 'ease'),
+    ...shorthands.padding('40px', '32px'),
+    ...shorthands.transition('all', '0.3s', 'ease'),
+    backgroundColor: tokens.colorNeutralBackground1,
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06)',
+    ...shorthands.borderRadius('8px'),
     '&:hover': {
-      transform: 'translateY(-5px)',
+      transform: 'translateY(-8px)',
+      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
     },
   },
   icon: {
     fontSize: '3rem',
     marginBottom: '20px',
+    display: 'block',
   },
   itemTitle: {
-    fontSize: '1.5rem',
-    marginBottom: '15px',
-    color: tokens.colorBrandBackground,
+    fontSize: '1.375rem',
+    marginBottom: '12px',
+    color: tokens.colorNeutralForeground1,
     fontWeight: '600',
   },
   itemText: {
     fontSize: '1rem',
-    lineHeight: '1.8',
+    lineHeight: '1.6',
     color: tokens.colorNeutralForeground2,
   },
 });

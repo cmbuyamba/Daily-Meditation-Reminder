@@ -12,16 +12,17 @@ import {
 
 const useStyles = makeStyles({
   contact: {
-    backgroundColor: tokens.colorNeutralBackground1,
+    backgroundColor: '#faf9f8',
     ...shorthands.padding('80px', '20px'),
   },
   contactTitle: {
-    fontSize: '2.5rem',
+    fontSize: '2.75rem',
     textAlign: 'center',
-    marginBottom: '60px',
-    color: tokens.colorBrandBackground,
-    fontWeight: '700',
+    marginBottom: '64px',
+    color: tokens.colorNeutralForeground1,
+    fontWeight: '600',
     display: 'block',
+    letterSpacing: '-0.02em',
   },
   contactContent: {
     display: 'grid',
@@ -35,17 +36,17 @@ const useStyles = makeStyles({
     },
   },
   contactInfoTitle: {
-    fontSize: '2rem',
-    marginBottom: '20px',
-    color: tokens.colorBrandBackground,
+    fontSize: '1.875rem',
+    marginBottom: '16px',
+    color: tokens.colorNeutralForeground1,
     fontWeight: '600',
     display: 'block',
   },
   contactInfoText: {
-    fontSize: '1.1rem',
+    fontSize: '1rem',
     color: tokens.colorNeutralForeground2,
-    lineHeight: '1.8',
-    marginBottom: '40px',
+    lineHeight: '1.6',
+    marginBottom: '32px',
     display: 'block',
   },
   contactDetails: {
