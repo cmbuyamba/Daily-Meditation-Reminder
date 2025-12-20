@@ -31,17 +31,20 @@ const useStyles = makeStyles({
     fontWeight: '700',
     marginBottom: '10px',
     color: tokens.colorNeutralForegroundInverted,
+    display: 'block',
   },
   footerSectionSubtitle: {
     fontSize: '1rem',
     fontWeight: '600',
     color: tokens.colorNeutralForegroundInverted,
+    display: 'block',
   },
   footerTagline: {
     fontSize: '0.95rem',
     fontStyle: 'italic',
     opacity: 0.9,
     color: tokens.colorNeutralForegroundInverted,
+    display: 'block',
   },
   footerList: {
     listStyle: 'none',
@@ -80,6 +83,7 @@ const useStyles = makeStyles({
     marginBottom: '10px',
     color: tokens.colorNeutralForegroundInverted,
     opacity: 0.8,
+    display: 'block',
   },
   msIntegration: {
     fontSize: '0.85rem',

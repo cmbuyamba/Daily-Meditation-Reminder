@@ -19,6 +19,7 @@ const useStyles = makeStyles({
     marginBottom: '60px',
     color: tokens.colorBrandBackground,
     fontWeight: '700',
+    display: 'block',
   },
   aboutContent: {
     maxWidth: '1200px',
@@ -32,6 +33,7 @@ const useStyles = makeStyles({
     marginBottom: '60px',
     maxWidth: '900px',
     ...shorthands.margin('0', 'auto', '60px'),
+    display: 'block',
   },
   missionValues: {
     display: 'grid',

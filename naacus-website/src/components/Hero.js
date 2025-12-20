@@ -30,6 +30,7 @@ const useStyles = makeStyles({
     fontWeight: '700',
     marginBottom: '20px',
     color: tokens.colorNeutralForegroundInverted,
+    display: 'block',
     '@media (max-width: 768px)': {
       fontSize: '2.5rem',
     },
@@ -39,6 +40,7 @@ const useStyles = makeStyles({
     marginBottom: '20px',
     fontWeight: '500',
     color: tokens.colorNeutralForegroundInverted,
+    display: 'block',
     '@media (max-width: 768px)': {
       fontSize: '1.2rem',
     },
@@ -49,6 +51,7 @@ const useStyles = makeStyles({
     lineHeight: '1.8',
     color: tokens.colorNeutralForegroundInverted,
     opacity: 0.95,
+    display: 'block',
   },
   heroButtons: {
     display: 'flex',

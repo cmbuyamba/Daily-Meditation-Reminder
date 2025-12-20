@@ -42,12 +42,14 @@ const useStyles = makeStyles({
     letterSpacing: '2px',
     margin: 0,
     color: tokens.colorNeutralForegroundInverted,
+    display: 'block',
   },
   tagline: {
     fontSize: '0.85rem',
     margin: 0,
     opacity: 0.9,
     color: tokens.colorNeutralForegroundInverted,
+    display: 'block',
   },
   nav: {
     display: 'flex',

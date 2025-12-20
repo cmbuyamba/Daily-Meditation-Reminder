@@ -21,6 +21,7 @@ const useStyles = makeStyles({
     marginBottom: '60px',
     color: tokens.colorBrandBackground,
     fontWeight: '700',
+    display: 'block',
   },
   contactContent: {
     display: 'grid',
@@ -38,12 +39,14 @@ const useStyles = makeStyles({
     marginBottom: '20px',
     color: tokens.colorBrandBackground,
     fontWeight: '600',
+    display: 'block',
   },
   contactInfoText: {
     fontSize: '1.1rem',
     color: tokens.colorNeutralForeground2,
     lineHeight: '1.8',
     marginBottom: '40px',
+    display: 'block',
   },
   contactDetails: {
     display: 'flex',
