@@ -123,6 +123,13 @@ function Header() {
           </Button>
           <Button 
             appearance="transparent" 
+            onClick={() => scrollToSection('ministries')}
+            className={styles.navLink}
+          >
+            Ministries
+          </Button>
+          <Button 
+            appearance="transparent" 
             onClick={() => scrollToSection('gallery')}
             className={styles.navLink}
           >
@@ -158,9 +165,9 @@ function Header() {
                 <MenuItem onClick={() => scrollToSection('about')}>About</MenuItem>
                 <MenuItem onClick={() => scrollToSection('objectives')}>Objectives</MenuItem>
                 <MenuItem onClick={() => scrollToSection('programs')}>Events & Activities</MenuItem>
+                <MenuItem onClick={() => scrollToSection('ministries')}>Ministries</MenuItem>
                 <MenuItem onClick={() => scrollToSection('gallery')}>Gallery</MenuItem>
                 <MenuItem onClick={() => scrollToSection('resources')}>Resources</MenuItem>
-                <MenuItem onClick={() => scrollToSection('contact')}>Contact</MenuItem>
                 <MenuItem onClick={() => scrollToSection('contact')}>Contact</MenuItem>
               </MenuList>
             </MenuPopover>
