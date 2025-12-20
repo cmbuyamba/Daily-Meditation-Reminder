@@ -4,6 +4,9 @@ import './App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
+import WhatWeDo from './components/WhatWeDo';
+import WhoWeServe from './components/WhoWeServe';
+import Programs from './components/Programs';
 import Conference from './components/Conference';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -15,6 +18,9 @@ function App() {
         <Header />
         <Hero />
         <About />
+        <WhatWeDo />
+        <WhoWeServe />
+        <Programs />
         <Conference />
         <Contact />
         <Footer />

@@ -109,7 +109,7 @@ function Contact() {
         <div>
           <Text as="h3" className={styles.contactInfoTitle}>Connect With Us</Text>
           <Text as="p" className={styles.contactInfoText}>
-            Have questions about NACCUS or the 2027 conference? 
+            Have questions about NAACUS or our programs? Interested in joining our community? 
             We'd love to hear from you!
           </Text>
           <div className={styles.contactDetails}>
@@ -121,17 +121,17 @@ function Contact() {
               </div>
             </div>
             <div className={styles.contactItem}>
-              <div className={styles.contactIcon}>📱</div>
+              <div className={styles.contactIcon}>🤝</div>
               <div>
-                <Text className={styles.contactItemTitle}>Phone</Text>
-                <Text className={styles.contactItemText}>Coming Soon</Text>
+                <Text className={styles.contactItemTitle}>Join Us</Text>
+                <Text className={styles.contactItemText}>Become a member or volunteer</Text>
               </div>
             </div>
             <div className={styles.contactItem}>
               <div className={styles.contactIcon}>🌐</div>
               <div>
-                <Text className={styles.contactItemTitle}>Social Media</Text>
-                <Text className={styles.contactItemText}>Follow us for updates</Text>
+                <Text className={styles.contactItemTitle}>Community</Text>
+                <Text className={styles.contactItemText}>Connect with African Catholics nationwide</Text>
               </div>
             </div>
           </div>
@@ -157,12 +157,12 @@ function Contact() {
                 placeholder="your.email@example.com"
               />
             </Field>
-            <Field label="College/Organization" style={{ marginTop: '20px' }}>
+            <Field label="Parish/Organization (Optional)" style={{ marginTop: '20px' }}>
               <Input
                 name="organization"
                 value={formData.organization}
                 onChange={handleChange}
-                placeholder="Your college or organization"
+                placeholder="Your parish or organization"
               />
             </Field>
             <Field label="Message *" required style={{ marginTop: '20px' }}>

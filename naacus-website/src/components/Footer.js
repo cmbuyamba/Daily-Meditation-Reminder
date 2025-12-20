@@ -103,10 +103,10 @@ function Footer() {
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div className={styles.footerSection}>
-          <Text as="h3" className={styles.footerSectionTitle}>NACCUS</Text>
-          <Text className={styles.footerSectionSubtitle}>National Association of Colleges and Christian Unions</Text>
+          <Text as="h3" className={styles.footerSectionTitle}>NAACUS</Text>
+          <Text className={styles.footerSectionSubtitle}>National Association of African Catholics in the United States</Text>
           <Text as="p" className={styles.footerTagline}>
-            Empowering Christian communities on college campuses nationwide.
+            "Together with Christ" — Building vibrant African Catholic communities across the United States.
           </Text>
         </div>
         <div className={styles.footerSection}>
@@ -133,10 +133,28 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
+                onClick={() => scrollToSection('what-we-do')}
+                style={{ cursor: 'pointer' }}
+              >
+                What We Do
+              </Link>
+            </li>
+            <li>
+              <Link 
+                className={styles.footerLink} 
+                onClick={() => scrollToSection('programs')}
+                style={{ cursor: 'pointer' }}
+              >
+                Programs
+              </Link>
+            </li>
+            <li>
+              <Link 
+                className={styles.footerLink} 
                 onClick={() => scrollToSection('conference')}
                 style={{ cursor: 'pointer' }}
               >
-                Conference 2027
+                Conference
               </Link>
             </li>
             <li>
@@ -151,49 +169,62 @@ function Footer() {
           </ul>
         </div>
         <div className={styles.footerSection}>
-          <Text as="h4" className={styles.footerSectionTitle}>Connect</Text>
+          <Text as="h4" className={styles.footerSectionTitle}>Our Mission</Text>
           <ul className={styles.footerList}>
             <li>
-              <Link href="mailto:info@naacus.org" className={styles.footerLink}>
-                Email Us
+              <Link 
+                className={styles.footerLink} 
+                onClick={() => scrollToSection('what-we-do')}
+                style={{ cursor: 'pointer' }}
+              >
+                Pastoral Care
               </Link>
             </li>
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('what-we-do')}
                 style={{ cursor: 'pointer' }}
               >
-                Get Updates
+                Heritage & Culture
               </Link>
             </li>
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('conference')}
+                onClick={() => scrollToSection('what-we-do')}
                 style={{ cursor: 'pointer' }}
               >
-                Register Interest
+                Family Life
+              </Link>
+            </li>
+            <li>
+              <Link 
+                className={styles.footerLink} 
+                onClick={() => scrollToSection('what-we-do')}
+                style={{ cursor: 'pointer' }}
+              >
+                Evangelization
               </Link>
             </li>
           </ul>
         </div>
         <div className={styles.footerSection}>
-          <Text as="h4" className={styles.footerSectionTitle}>NACCUS 2027</Text>
-          <Text>Join us in Maryland</Text>
-          <Text>Summer 2027</Text>
+          <Text as="h4" className={styles.footerSectionTitle}>Get Involved</Text>
+          <Text>Join our community of African Catholics</Text>
+          <Text>Participate in our programs</Text>
           <Link 
             className={styles.footerCta} 
-            onClick={() => scrollToSection('conference')}
+            onClick={() => scrollToSection('contact')}
             style={{ cursor: 'pointer' }}
           >
-            Learn More →
+            Contact Us →
           </Link>
         </div>
       </div>
       <div className={styles.footerBottom}>
         <Text as="p" className={styles.footerBottomText}>
-          &copy; {currentYear} NACCUS. All rights reserved.
+          &copy; {currentYear} NAACUS - National Association of African Catholics in the United States. All rights reserved.
         </Text>
         <Text as="p" className={styles.msIntegration}>
           Microsoft 365 Integration Ready

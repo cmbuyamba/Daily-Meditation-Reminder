@@ -87,8 +87,8 @@ function Header() {
     <header className={styles.header}>
       <div className={styles.headerContainer}>
         <div className={styles.logo}>
-          <Text as="h1" className={styles.logoTitle}>NACCUS</Text>
-          <Text className={styles.tagline}>National Association of Colleges and Christian Unions</Text>
+          <Text as="h1" className={styles.logoTitle}>NAACUS</Text>
+          <Text className={styles.tagline}>National Association of African Catholics in the United States</Text>
         </div>
         <nav className={styles.nav}>
           <Button 
@@ -107,10 +107,17 @@ function Header() {
           </Button>
           <Button 
             appearance="transparent" 
-            onClick={() => scrollToSection('conference')}
+            onClick={() => scrollToSection('what-we-do')}
             className={styles.navLink}
           >
-            Conference 2027
+            What We Do
+          </Button>
+          <Button 
+            appearance="transparent" 
+            onClick={() => scrollToSection('programs')}
+            className={styles.navLink}
+          >
+            Programs
           </Button>
           <Button 
             appearance="transparent" 
@@ -133,7 +140,9 @@ function Header() {
               <MenuList>
                 <MenuItem onClick={() => scrollToSection('home')}>Home</MenuItem>
                 <MenuItem onClick={() => scrollToSection('about')}>About</MenuItem>
-                <MenuItem onClick={() => scrollToSection('conference')}>Conference 2027</MenuItem>
+                <MenuItem onClick={() => scrollToSection('what-we-do')}>What We Do</MenuItem>
+                <MenuItem onClick={() => scrollToSection('programs')}>Programs</MenuItem>
+                <MenuItem onClick={() => scrollToSection('conference')}>Conference</MenuItem>
                 <MenuItem onClick={() => scrollToSection('contact')}>Contact</MenuItem>
               </MenuList>
             </MenuPopover>
