@@ -15,13 +15,16 @@ import { Navigation24Regular } from '@fluentui/react-icons';
 
 const useStyles = makeStyles({
   header: {
-    backgroundColor: tokens.colorBrandBackground,
-    color: tokens.colorNeutralForegroundInverted,
+    backgroundColor: 'rgba(255, 255, 255, 0.98)',
+    backdropFilter: 'blur(10px)',
+    color: tokens.colorNeutralForeground1,
     position: 'sticky',
     top: 0,
     zIndex: 1000,
-    boxShadow: tokens.shadow8,
-    ...shorthands.padding('20px', '0'),
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+    ...shorthands.padding('16px', '0'),
+    ...shorthands.borderBottom('1px', 'solid', '#e1dfdd'),
+    transition: 'all 0.3s ease',
   },
   headerContainer: {
     maxWidth: '1200px',
@@ -37,19 +40,20 @@ const useStyles = makeStyles({
     ...shorthands.gap('4px'),
   },
   logoTitle: {
-    fontSize: '2rem',
-    fontWeight: '700',
-    letterSpacing: '2px',
+    fontSize: '1.5rem',
+    fontWeight: '600',
+    letterSpacing: '0.5px',
     margin: 0,
-    color: tokens.colorNeutralForegroundInverted,
+    color: tokens.colorBrandBackground,
     display: 'block',
   },
   tagline: {
-    fontSize: '0.85rem',
+    fontSize: '0.75rem',
     margin: 0,
-    opacity: 0.9,
-    color: tokens.colorNeutralForegroundInverted,
+    opacity: 0.7,
+    color: tokens.colorNeutralForeground2,
     display: 'block',
+    fontWeight: '400',
   },
   nav: {
     display: 'flex',
@@ -59,12 +63,13 @@ const useStyles = makeStyles({
     },
   },
   navLink: {
-    color: tokens.colorNeutralForegroundInverted,
+    color: tokens.colorNeutralForeground1,
     textDecoration: 'none',
-    fontSize: '1rem',
+    fontSize: '0.9rem',
     fontWeight: '500',
+    transition: 'color 0.2s ease',
     '&:hover': {
-      opacity: 0.8,
+      color: tokens.colorBrandBackground,
     },
   },
   mobileMenu: {
@@ -142,7 +147,7 @@ function Header() {
               <Button 
                 appearance="transparent" 
                 icon={<Navigation24Regular />}
-                style={{ color: tokens.colorNeutralForegroundInverted }}
+                style={{ color: tokens.colorNeutralForeground1 }}
               />
             </MenuTrigger>
             <MenuPopover>

@@ -9,9 +9,9 @@ import {
 
 const useStyles = makeStyles({
   footer: {
-    backgroundColor: '#1a1a1a',
+    backgroundColor: '#252423',
     color: tokens.colorNeutralForegroundInverted,
-    ...shorthands.padding('60px', '20px', '20px'),
+    ...shorthands.padding('64px', '20px', '24px'),
   },
   footerContent: {
     maxWidth: '1200px',
@@ -27,9 +27,9 @@ const useStyles = makeStyles({
     ...shorthands.gap('15px'),
   },
   footerSectionTitle: {
-    fontSize: '1.2rem',
-    fontWeight: '700',
-    marginBottom: '10px',
+    fontSize: '1.125rem',
+    fontWeight: '600',
+    marginBottom: '16px',
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
   },
