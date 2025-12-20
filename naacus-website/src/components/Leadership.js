@@ -114,8 +114,8 @@ function Leadership() {
 
         <Text as="h3" className={styles.sectionTitle}>Executive Board</Text>
         <div className={styles.boardGrid}>
-          {executiveBoard.map((member, index) => (
-            <Card key={index} className={styles.boardMember}>
+          {executiveBoard.map((member) => (
+            <Card key={member.name} className={styles.boardMember}>
               <CardHeader
                 header={<Text className={styles.memberName}>{member.name}</Text>}
                 description={<Text className={styles.memberTitle}>{member.title}</Text>}
@@ -126,8 +126,8 @@ function Leadership() {
 
         <Text as="h3" className={styles.sectionTitle}>Spiritual Advisers</Text>
         <div className={styles.boardGrid}>
-          {spiritualAdvisers.map((member, index) => (
-            <Card key={index} className={styles.boardMember}>
+          {spiritualAdvisers.map((member) => (
+            <Card key={member.name} className={styles.boardMember}>
               <CardHeader
                 header={<Text className={styles.memberName}>{member.name}</Text>}
                 description={<Text className={styles.memberTitle}>{member.title}</Text>}
