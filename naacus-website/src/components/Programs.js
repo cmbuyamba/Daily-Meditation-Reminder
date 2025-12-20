@@ -84,12 +84,16 @@ const useStyles = makeStyles({
     marginBottom: '15px',
     fontWeight: '600',
     color: tokens.colorNeutralForegroundInverted,
+    display: 'block',
+    textAlign: 'center',
   },
   calloutText: {
     fontSize: '1.1rem',
     marginBottom: '20px',
     color: tokens.colorNeutralForegroundInverted,
     opacity: 0.95,
+    display: 'block',
+    textAlign: 'center',
   },
   getInvolvedSection: {
     backgroundColor: tokens.colorNeutralBackground1,
@@ -103,12 +107,16 @@ const useStyles = makeStyles({
     marginBottom: '20px',
     color: tokens.colorBrandBackground,
     fontWeight: '600',
+    display: 'block',
+    textAlign: 'center',
   },
   getInvolvedText: {
     fontSize: '1.15rem',
     lineHeight: '1.8',
     color: tokens.colorNeutralForeground2,
     marginBottom: '30px',
+    display: 'block',
+    textAlign: 'center',
   },
 });
 

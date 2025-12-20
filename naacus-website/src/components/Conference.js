@@ -38,12 +38,14 @@ const useStyles = makeStyles({
     fontWeight: '600',
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
+    textAlign: 'center',
   },
   conferenceDate: {
     fontSize: '1.25rem',
     fontWeight: '400',
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
+    textAlign: 'center',
   },
   conferenceContent: {
     maxWidth: '1200px',
@@ -95,12 +97,16 @@ const useStyles = makeStyles({
     marginBottom: '20px',
     color: tokens.colorBrandBackground,
     fontWeight: '600',
+    display: 'block',
+    textAlign: 'center',
   },
   descriptionText: {
     fontSize: '1.1rem',
     lineHeight: '1.8',
     color: tokens.colorNeutralForeground2,
     marginBottom: '30px',
+    display: 'block',
+    textAlign: 'center',
   },
   conferenceHighlights: {
     marginBottom: '30px',
@@ -123,6 +129,8 @@ const useStyles = makeStyles({
     marginBottom: '20px',
     fontWeight: '500',
     color: tokens.colorNeutralForeground1,
+    display: 'block',
+    textAlign: 'center',
   },
 });
 

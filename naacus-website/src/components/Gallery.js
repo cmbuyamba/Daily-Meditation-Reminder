@@ -92,6 +92,8 @@ const useStyles = makeStyles({
     marginBottom: '20px',
     color: tokens.colorNeutralForeground1,
     fontWeight: '500',
+    display: 'block',
+    textAlign: 'center',
   },
 });
 

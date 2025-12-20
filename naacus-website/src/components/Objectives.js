@@ -99,12 +99,16 @@ const useStyles = makeStyles({
     marginBottom: '20px',
     fontWeight: '600',
     color: tokens.colorNeutralForegroundInverted,
+    display: 'block',
+    textAlign: 'center',
   },
   visionText: {
     fontSize: '1.2rem',
     lineHeight: '1.8',
     color: tokens.colorNeutralForegroundInverted,
     opacity: 0.95,
+    display: 'block',
+    textAlign: 'center',
   },
 });
 

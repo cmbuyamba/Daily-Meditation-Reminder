@@ -88,6 +88,7 @@ const useStyles = makeStyles({
     color: tokens.colorBrandBackground,
     fontWeight: '600',
     textAlign: 'center',
+    display: 'block',
   },
   partnerText: {
     fontSize: '1.1rem',
@@ -95,6 +96,7 @@ const useStyles = makeStyles({
     color: tokens.colorNeutralForeground2,
     marginBottom: '30px',
     textAlign: 'center',
+    display: 'block',
   },
   partnerList: {
     display: 'flex',

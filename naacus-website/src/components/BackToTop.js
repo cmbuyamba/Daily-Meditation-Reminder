@@ -28,13 +28,17 @@ const useStyles = makeStyles({
     visibility: 'visible',
   },
   button: {
-    width: '56px',
-    height: '56px',
-    ...shorthands.borderRadius('50%'),
+    ...shorthands.padding('12px', '24px'),
+    ...shorthands.borderRadius('50px'),
+    backgroundColor: tokens.colorNeutralBackground1,
+    color: tokens.colorNeutralForeground1,
     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+    fontSize: '16px',
+    fontWeight: '600',
     ':hover': {
       transform: 'translateY(-2px)',
       boxShadow: '0 6px 16px rgba(0, 0, 0, 0.2)',
+      backgroundColor: tokens.colorNeutralBackground1Hover,
     },
   },
 });
@@ -69,13 +73,15 @@ function BackToTop() {
   return (
     <div className={`${styles.backToTop} ${isVisible ? styles.visible : ''}`}>
       <Button
-        appearance="primary"
-        shape="circular"
+        appearance="subtle"
         icon={<ArrowUp24Regular />}
+        iconPosition="after"
         onClick={scrollToTop}
         className={styles.button}
         aria-label="Back to top"
-      />
+      >
+        Back to Top
+      </Button>
     </div>
   );
 }
