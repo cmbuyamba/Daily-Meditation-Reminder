@@ -23,6 +23,7 @@ const useStyles = makeStyles({
     position: 'relative',
     zIndex: 2,
     maxWidth: '900px',
+    margin: '0 auto',
     textAlign: 'center',
     animation: 'fadeInUp 0.8s ease-out',
   },
@@ -32,6 +33,7 @@ const useStyles = makeStyles({
     marginBottom: '24px',
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
+    textAlign: 'center',
     lineHeight: '1.2',
     letterSpacing: '-0.02em',
     '@media (max-width: 768px)': {
@@ -44,6 +46,7 @@ const useStyles = makeStyles({
     fontWeight: '400',
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
+    textAlign: 'center',
     lineHeight: '1.4',
     '@media (max-width: 768px)': {
       fontSize: '1.25rem',
@@ -56,8 +59,7 @@ const useStyles = makeStyles({
     color: tokens.colorNeutralForegroundInverted,
     opacity: 0.95,
     display: 'block',
-    maxWidth: '700px',
-    margin: '0 auto 48px',
+    textAlign: 'center',
   },
   heroButtons: {
     display: 'flex',
