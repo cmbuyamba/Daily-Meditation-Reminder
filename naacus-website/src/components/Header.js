@@ -16,7 +16,9 @@ import { Navigation24Regular } from '@fluentui/react-icons';
 const useStyles = makeStyles({
   header: {
     backgroundColor: 'rgba(255, 255, 255, 0.98)',
-    backdropFilter: 'blur(10px)',
+    '@supports (backdrop-filter: blur(10px))': {
+      backdropFilter: 'blur(10px)',
+    },
     color: tokens.colorNeutralForeground1,
     position: 'sticky',
     top: 0,
