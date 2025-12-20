@@ -14,7 +14,10 @@ import {
   News24Regular,
   CalendarLtr24Regular,
   Money24Regular,
-  Video24Regular
+  Video24Regular,
+  PersonAccounts24Regular,
+  HandRight24Regular,
+  MusicNote224Regular
 } from '@fluentui/react-icons';
 
 const useStyles = makeStyles({
@@ -116,7 +119,7 @@ function Ministries() {
       description: 'Promoting social justice and advocating for African communities in the United States.'
     },
     {
-      icon: <People24Regular />,
+      icon: <PersonAccounts24Regular />,
       title: "Women's Ministry",
       description: 'Empowering women through retreats, workshops, and fellowship activities.'
     },
@@ -136,7 +139,7 @@ function Ministries() {
       description: 'Building brotherhood and strengthening faith among African Catholic men.'
     },
     {
-      icon: <Heart24Regular />,
+      icon: <HandRight24Regular />,
       title: 'Ministry for People with Disabilities',
       description: 'Creating inclusive opportunities for full participation in church life.'
     },
@@ -166,7 +169,7 @@ function Ministries() {
       description: 'Planning and coordinating meaningful worship experiences and celebrations.'
     },
     {
-      icon: <Book24Regular />,
+      icon: <MusicNote224Regular />,
       title: 'ANEC Ministry',
       description: 'Organizing the African National Eucharistic Congress and related activities.'
     },
