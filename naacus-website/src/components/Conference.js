@@ -21,6 +21,7 @@ const useStyles = makeStyles({
     marginBottom: '40px',
     color: tokens.colorBrandBackground,
     fontWeight: '700',
+    display: 'block',
   },
   conferenceBanner: {
     background: `linear-gradient(135deg, ${tokens.colorBrandBackground} 0%, #0053a0 100%)`,
@@ -35,11 +36,13 @@ const useStyles = makeStyles({
     marginBottom: '10px',
     fontWeight: '700',
     color: tokens.colorNeutralForegroundInverted,
+    display: 'block',
   },
   conferenceDate: {
     fontSize: '1.5rem',
     fontWeight: '500',
     color: tokens.colorNeutralForegroundInverted,
+    display: 'block',
   },
   conferenceContent: {
     maxWidth: '1200px',
@@ -74,10 +77,12 @@ const useStyles = makeStyles({
     fontWeight: '500',
     color: tokens.colorNeutralForeground1,
     marginBottom: '5px',
+    display: 'block',
   },
   detailSubtext: {
     fontSize: '0.9rem',
     color: tokens.colorNeutralForeground3,
+    display: 'block',
   },
   conferenceDescription: {
     backgroundColor: tokens.colorNeutralBackground1,

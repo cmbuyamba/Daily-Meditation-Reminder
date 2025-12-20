@@ -20,6 +20,7 @@ const useStyles = makeStyles({
     marginBottom: '20px',
     color: tokens.colorBrandBackground,
     fontWeight: '700',
+    display: 'block',
   },
   sectionSubtitle: {
     fontSize: '1.2rem',
@@ -29,6 +30,7 @@ const useStyles = makeStyles({
     maxWidth: '800px',
     margin: '0 auto 60px',
     lineHeight: '1.6',
+    display: 'block',
   },
   content: {
     maxWidth: '1200px',
@@ -67,12 +69,14 @@ const useStyles = makeStyles({
     fontWeight: '600',
     marginBottom: '10px',
     color: tokens.colorNeutralForeground1,
+    display: 'block',
   },
   cardDescription: {
     fontSize: '1rem',
     lineHeight: '1.6',
     color: tokens.colorNeutralForeground2,
     marginBottom: '15px',
+    display: 'block',
   },
   ctaSection: {
     textAlign: 'center',

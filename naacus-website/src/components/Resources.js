@@ -25,6 +25,7 @@ const useStyles = makeStyles({
     marginBottom: '20px',
     color: tokens.colorBrandBackground,
     fontWeight: '700',
+    display: 'block',
   },
   sectionSubtitle: {
     fontSize: '1.2rem',
@@ -34,6 +35,7 @@ const useStyles = makeStyles({
     maxWidth: '900px',
     margin: '0 auto 60px',
     lineHeight: '1.7',
+    display: 'block',
   },
   content: {
     maxWidth: '1200px',
@@ -64,12 +66,14 @@ const useStyles = makeStyles({
     marginBottom: '15px',
     color: tokens.colorBrandBackground,
     fontWeight: '600',
+    display: 'block',
   },
   cardDescription: {
     fontSize: '1rem',
     lineHeight: '1.7',
     color: tokens.colorNeutralForeground2,
     marginBottom: '20px',
+    display: 'block',
   },
   partnerSection: {
     ...shorthands.padding('40px'),

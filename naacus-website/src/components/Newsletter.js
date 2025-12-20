@@ -30,6 +30,7 @@ const useStyles = makeStyles({
     marginBottom: '20px',
     fontWeight: '700',
     color: tokens.colorNeutralForegroundInverted,
+    display: 'block',
   },
   subtitle: {
     fontSize: '1.2rem',
@@ -37,6 +38,7 @@ const useStyles = makeStyles({
     lineHeight: '1.7',
     color: tokens.colorNeutralForegroundInverted,
     opacity: 0.95,
+    display: 'block',
   },
   formContainer: {
     maxWidth: '500px',
