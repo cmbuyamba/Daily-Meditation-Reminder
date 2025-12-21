@@ -95,6 +95,9 @@ const useStyles = makeStyles({
   },
 });
 
+// Delay before showing menu after scroll stops (in milliseconds)
+const SCROLL_HIDE_DELAY = 150;
+
 function Header() {
   const { t } = useTranslation();
   const styles = useStyles();
@@ -114,7 +117,7 @@ function Header() {
       // Set new timeout to detect when scrolling stops
       scrollTimeoutRef.current = setTimeout(() => {
         setIsScrolling(false);
-      }, 150); // Show menu 150ms after scrolling stops
+      }, SCROLL_HIDE_DELAY);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
