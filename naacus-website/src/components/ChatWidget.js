@@ -10,6 +10,7 @@ import {
   Card,
 } from '@fluentui/react-components';
 import { Chat24Regular, Dismiss24Regular, Send24Filled } from '@fluentui/react-icons';
+import { processMessage, logConversation } from '../services/chatbotService';
 
 const useStyles = makeStyles({
   container: {
@@ -72,8 +73,8 @@ const useStyles = makeStyles({
     color: '#0f6cbd',
   },
   chatPanel: {
-    width: '340px',
-    height: '420px',
+    width: '360px',
+    height: '480px',
     backgroundColor: '#ffffff',
     boxShadow: '0 14px 40px rgba(0,0,0,0.24)',
     ...shorthands.borderRadius('12px'),
@@ -92,7 +93,7 @@ const useStyles = makeStyles({
     fontWeight: 600,
   },
   messages: {
-    height: '290px',
+    height: '340px',
     overflowY: 'auto',
     backgroundColor: '#f5f7fb',
     ...shorthands.padding('12px'),
@@ -106,11 +107,11 @@ const useStyles = makeStyles({
     ...shorthands.gap('8px'),
   },
   bubble: {
-    maxWidth: '70%',
+    maxWidth: '75%',
     ...shorthands.padding('10px','12px'),
     ...shorthands.borderRadius('12px'),
-    fontSize: '0.95rem',
-    lineHeight: 1.4,
+    fontSize: '0.9rem',
+    lineHeight: 1.5,
   },
   bubbleBot: {
     backgroundColor: '#e6f2fb',
@@ -120,6 +121,30 @@ const useStyles = makeStyles({
     backgroundColor: '#dff6dd',
     color: '#06310e',
     marginLeft: 'auto',
+  },
+  quickActions: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    ...shorthands.gap('6px'),
+    ...shorthands.margin('6px', '0', '0', '0'),
+  },
+  quickActionButton: {
+    fontSize: '0.8rem',
+    minHeight: '28px',
+    ...shorthands.padding('4px', '10px'),
+  },
+  relatedQuestions: {
+    fontSize: '0.85rem',
+    ...shorthands.margin('8px', '0', '0', '0'),
+    color: '#0f2940',
+  },
+  relatedQuestion: {
+    cursor: 'pointer',
+    ...shorthands.padding('4px', '0'),
+    '&:hover': {
+      textDecoration: 'underline',
+      color: '#0f6cbd',
+    },
   },
   inputRow: {
     display: 'flex',
@@ -133,33 +158,86 @@ const useStyles = makeStyles({
     minWidth: 'auto',
     height: '40px',
   },
+  typingIndicator: {
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('4px'),
+    ...shorthands.padding('8px', '12px'),
+    backgroundColor: '#e6f2fb',
+    ...shorthands.borderRadius('12px'),
+    maxWidth: '60px',
+  },
+  typingDot: {
+    width: '6px',
+    height: '6px',
+    backgroundColor: '#0f6cbd',
+    ...shorthands.borderRadius('50%'),
+    animation: 'typing 1.4s infinite',
+  },
 });
 
 function ChatWidget() {
   const { t } = useTranslation();
   const styles = useStyles();
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    { from: 'bot', text: t('chat.greeting') },
-  ]);
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
   const listRef = useRef(null);
+
+  // Initialize with greeting when opening
+  useEffect(() => {
+    if (open && messages.length === 0) {
+      const greeting = processMessage('hi');
+      setMessages([{ from: 'bot', text: greeting.text, quickActions: greeting.quickActions }]);
+    }
+  }, [open, messages.length]);
 
   useEffect(() => {
     if (listRef.current) {
       listRef.current.scrollTop = listRef.current.scrollHeight;
     }
-  }, [messages, open]);
+  }, [messages, isTyping]);
 
-  const sendMessage = () => {
-    const text = input.trim();
+  const handleBotResponse = (userMessage) => {
+    setIsTyping(true);
+    
+    // Simulate typing delay for natural feel
+    setTimeout(() => {
+      const response = processMessage(userMessage);
+      
+      // Log the conversation
+      logConversation(userMessage, response, 'web');
+      
+      setMessages(prev => [...prev, { 
+        from: 'bot', 
+        text: response.text,
+        quickActions: response.quickActions,
+        relatedQuestions: response.relatedQuestions
+      }]);
+      setIsTyping(false);
+    }, 600 + Math.random() * 400); // Random delay between 600-1000ms
+  };
+
+  const sendMessage = (messageText = null) => {
+    const text = (messageText || input).trim();
     if (!text) return;
+    
     setMessages(prev => [...prev, { from: 'user', text }]);
     setInput('');
-    // Simulate bot reply
-    setTimeout(() => {
-      setMessages(prev => [...prev, { from: 'bot', text: t('chat.botReply') }]);
-    }, 800);
+    
+    handleBotResponse(text);
+  };
+
+  const handleQuickAction = (questionText) => {
+    sendMessage(questionText);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
   };
 
   return (
@@ -167,7 +245,7 @@ function ChatWidget() {
       {!open && (
         <div className={styles.teaserCard} onClick={() => setOpen(true)}>
           <div className={styles.avatarWrap}>
-            <div className={styles.avatarInner} />
+            <div className={styles.avatarInner}>AI</div>
             <div className={styles.avatarBadge}><Chat24Regular /></div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.2 }}>
@@ -180,15 +258,60 @@ function ChatWidget() {
       {open && (
         <Card className={styles.chatPanel}>
           <div className={styles.header}>
-            <Text className={styles.title}>{t('chat.supportTitle')}</Text>
+            <div>
+              <Text className={styles.title}>{t('chat.supportTitle')}</Text>
+              <Text style={{ fontSize: '0.75rem', opacity: 0.9 }}>AI-Powered Assistant</Text>
+            </div>
             <Button appearance="transparent" onClick={() => setOpen(false)} icon={<Dismiss24Regular />} />
           </div>
           <div ref={listRef} className={styles.messages}>
             {messages.map((m, i) => (
-              <div key={i} className={styles.messageRow}>
-                <div className={`${styles.bubble} ${m.from === 'bot' ? styles.bubbleBot : styles.bubbleUser}`}>{m.text}</div>
+              <div key={i}>
+                <div className={styles.messageRow}>
+                  <div className={`${styles.bubble} ${m.from === 'bot' ? styles.bubbleBot : styles.bubbleUser}`}>
+                    {m.text}
+                  </div>
+                </div>
+                {m.from === 'bot' && m.quickActions && m.quickActions.length > 0 && (
+                  <div className={styles.quickActions}>
+                    {m.quickActions.map(qa => (
+                      <Button
+                        key={qa.id}
+                        appearance="outline"
+                        size="small"
+                        className={styles.quickActionButton}
+                        onClick={() => handleQuickAction(qa.question)}
+                      >
+                        {qa.label}
+                      </Button>
+                    ))}
+                  </div>
+                )}
+                {m.from === 'bot' && m.relatedQuestions && m.relatedQuestions.length > 0 && (
+                  <div className={styles.relatedQuestions}>
+                    <div style={{ fontWeight: 600, marginBottom: '4px' }}>Related questions:</div>
+                    {m.relatedQuestions.map((q, idx) => (
+                      <div 
+                        key={idx} 
+                        className={styles.relatedQuestion}
+                        onClick={() => handleQuickAction(q)}
+                      >
+                        • {q}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
+            {isTyping && (
+              <div className={styles.messageRow}>
+                <div className={styles.typingIndicator}>
+                  <div className={styles.typingDot} style={{ animationDelay: '0s' }}></div>
+                  <div className={styles.typingDot} style={{ animationDelay: '0.2s' }}></div>
+                  <div className={styles.typingDot} style={{ animationDelay: '0.4s' }}></div>
+                </div>
+              </div>
+            )}
           </div>
           <div className={styles.inputRow}>
             <Input
@@ -196,17 +319,26 @@ function ChatWidget() {
               placeholder={t('chat.placeholder')}
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onKeyPress={handleKeyPress}
               style={{ flex: 1 }}
             />
-            <Button appearance="primary" className={styles.sendButton} icon={<Send24Filled />} onClick={sendMessage} />
+            <Button 
+              appearance="primary" 
+              className={styles.sendButton} 
+              icon={<Send24Filled />} 
+              onClick={() => sendMessage()}
+              disabled={!input.trim()}
+            />
           </div>
         </Card>
       )}
-
-      {/* Floating toggle button when open on small screens */}
-      {open && (
-        <Button appearance="primary" icon={<Chat24Regular />} onClick={() => setOpen(false)} style={{ display: 'none' }} />
-      )}
+      
+      <style>{`
+        @keyframes typing {
+          0%, 60%, 100% { transform: translateY(0); }
+          30% { transform: translateY(-6px); }
+        }
+      `}</style>
     </div>
   );
 }
