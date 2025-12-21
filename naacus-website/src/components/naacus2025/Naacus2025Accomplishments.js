@@ -10,10 +10,10 @@ import {
 import { 
   Calendar24Regular, 
   People24Regular, 
-  Trophy24Regular,
-  Heart24Regular,
-  Book24Regular,
-  Star24Regular
+  Location24Regular,
+  Clock24Regular,
+  Video24Regular,
+  Image24Regular
 } from '@fluentui/react-icons';
 
 const useStyles = makeStyles({
@@ -77,18 +77,42 @@ const useStyles = makeStyles({
       fontSize: '1.2rem',
     },
   },
-  imageContainer: {
-    maxWidth: '800px',
-    margin: '40px auto',
-    textAlign: 'center',
+  conferenceInfo: {
+    maxWidth: '900px',
+    margin: '0 auto 40px',
+    ...shorthands.padding('30px'),
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
     ...shorthands.borderRadius('12px'),
-    overflow: 'hidden',
-    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+    backdropFilter: 'blur(10px)',
   },
-  mainImage: {
-    width: '100%',
-    height: 'auto',
-    display: 'block',
+  infoGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+    ...shorthands.gap('20px'),
+    marginTop: '20px',
+  },
+  infoItem: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    ...shorthands.gap('8px'),
+  },
+  infoIcon: {
+    fontSize: '1.5rem',
+    color: '#E8D4C0',
+  },
+  infoLabel: {
+    fontSize: '0.9rem',
+    fontWeight: '500',
+    color: 'rgba(255, 255, 255, 0.8)',
+    textTransform: 'uppercase',
+    letterSpacing: '1px',
+  },
+  infoValue: {
+    fontSize: '1.1rem',
+    fontWeight: '600',
+    color: tokens.colorNeutralForegroundInverted,
+    textAlign: 'center',
   },
   content: {
     maxWidth: '1200px',
@@ -114,66 +138,106 @@ const useStyles = makeStyles({
     lineHeight: '1.6',
     display: 'block',
   },
-  highlightsGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-    ...shorthands.gap('24px'),
+  eventsContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('30px'),
     marginBottom: '40px',
   },
-  highlightCard: {
-    ...shorthands.padding('32px'),
+  eventCard: {
+    ...shorthands.padding('30px'),
     ...shorthands.transition('all', '0.3s', 'ease'),
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06)',
     ...shorthands.borderRadius('12px'),
     backgroundColor: tokens.colorNeutralBackground1,
+    ...shorthands.borderLeft('4px', 'solid', '#E8D4C0'),
     '&:hover': {
-      transform: 'translateY(-8px)',
+      transform: 'translateX(8px)',
       boxShadow: tokens.shadow16,
     },
   },
-  highlightIcon: {
-    fontSize: '3rem',
-    color: '#E8D4C0',
-    marginBottom: '16px',
+  eventHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: '20px',
+    ...shorthands.gap('20px'),
+    flexWrap: 'wrap',
+  },
+  eventTitleSection: {
+    flex: '1',
+    minWidth: '250px',
+  },
+  eventDay: {
+    fontSize: '0.9rem',
+    fontWeight: '700',
+    color: '#1a3a52',
+    textTransform: 'uppercase',
+    letterSpacing: '1px',
+    marginBottom: '8px',
     display: 'block',
   },
-  highlightTitle: {
-    fontSize: '1.5rem',
+  eventTitle: {
+    fontSize: '1.8rem',
     fontWeight: '600',
-    marginBottom: '12px',
+    marginBottom: '8px',
     color: tokens.colorNeutralForeground1,
     display: 'block',
+    lineHeight: '1.3',
   },
-  highlightDescription: {
+  eventPresenter: {
+    fontSize: '1rem',
+    color: tokens.colorNeutralForeground2,
+    fontStyle: 'italic',
+    display: 'block',
+  },
+  eventMeta: {
+    display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('8px'),
+    alignItems: 'flex-end',
+  },
+  metaItem: {
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('8px'),
+    fontSize: '0.95rem',
+    color: tokens.colorNeutralForeground2,
+  },
+  metaIcon: {
+    fontSize: '1.2rem',
+    color: '#1a3a52',
+  },
+  eventContent: {
+    marginTop: '20px',
+  },
+  eventDescription: {
     fontSize: '1rem',
     lineHeight: '1.6',
     color: tokens.colorNeutralForeground2,
+    marginBottom: '20px',
     display: 'block',
   },
   mediaSection: {
-    marginTop: '60px',
-    ...shorthands.padding('40px', '20px'),
-    backgroundColor: '#f0f7ff',
-    ...shorthands.borderRadius('12px'),
-  },
-  mediaGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-    ...shorthands.gap('20px'),
-    marginTop: '30px',
+    display: 'flex',
+    ...shorthands.gap('15px'),
+    marginTop: '20px',
+    flexWrap: 'wrap',
   },
   mediaPlaceholder: {
+    ...shorthands.padding('20px', '30px'),
     backgroundColor: tokens.colorNeutralBackground3,
-    ...shorthands.padding('60px', '20px'),
     ...shorthands.borderRadius('8px'),
-    textAlign: 'center',
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('10px'),
+    fontSize: '0.95rem',
     color: tokens.colorNeutralForeground2,
     ...shorthands.border('2px', 'dashed', tokens.colorNeutralStroke1),
   },
-  placeholderText: {
-    fontSize: '1rem',
-    fontWeight: '500',
-    display: 'block',
+  placeholderIcon: {
+    fontSize: '1.5rem',
+    color: tokens.colorBrandBackground,
   },
   ctaSection: {
     textAlign: 'center',
@@ -217,36 +281,139 @@ const useStyles = makeStyles({
 function Naacus2025Accomplishments() {
   const styles = useStyles();
 
-  const highlights = [
+  // Conference events extracted from the schedule
+  const events = [
     {
-      icon: <People24Regular />,
-      title: 'Record Attendance',
-      description: 'Over 1,500 participants from across the United States gathered to celebrate faith and heritage.'
+      id: 1,
+      day: 'Friday, July 18, 2025',
+      time: '10:00 AM - 4:00 PM',
+      title: "Men's Retreat: Who Do You Say You Really Are?",
+      presenter: 'Deacon Joseph LeMay',
+      location: 'St. Francis DeSales',
+      summary: 'Content and summary to be provided',
+      videoPlaceholder: true,
+      photosPlaceholder: true,
     },
     {
-      icon: <Trophy24Regular />,
-      title: 'Historic Milestones',
-      description: 'Achieved significant breakthroughs in African Catholic community engagement and leadership development.'
+      id: 2,
+      day: 'Friday, July 18, 2025',
+      time: '10:00 AM - 4:00 PM',
+      title: "Women's Retreat: Living a Life of Blessing and Thanksgiving - Challenges and Blessings",
+      presenter: 'Sr. Frances Nwaneri',
+      location: 'St. Francis DeSales',
+      summary: 'Content and summary to be provided',
+      videoPlaceholder: true,
+      photosPlaceholder: true,
     },
     {
-      icon: <Heart24Regular />,
-      title: 'Community Impact',
-      description: 'Launched new initiatives supporting families, youth, and parishes across the nation.'
+      id: 3,
+      day: 'Friday, July 18, 2025',
+      time: '6:00 PM - 9:00 PM',
+      title: 'Opening Mass and Reception',
+      presenter: 'Bishop Brendan J. Cahill',
+      location: 'St. Matthias School',
+      summary: 'Content and summary to be provided',
+      videoPlaceholder: true,
+      photosPlaceholder: true,
     },
     {
-      icon: <Book24Regular />,
-      title: 'Educational Programs',
-      description: 'Delivered inspiring workshops and training sessions on evangelization and cultural awareness.'
+      id: 4,
+      day: 'Saturday, July 19, 2025',
+      time: '8:00 AM - 9:00 AM',
+      title: 'Registration and Continental Breakfast',
+      presenter: 'NAACUS Team',
+      location: 'St. Francis DeSales',
+      summary: 'Content and summary to be provided',
+      videoPlaceholder: false,
+      photosPlaceholder: true,
     },
     {
-      icon: <Star24Regular />,
-      title: 'Cultural Celebrations',
-      description: 'Vibrant liturgies and events showcasing the richness of African Catholic traditions.'
+      id: 5,
+      day: 'Saturday, July 19, 2025',
+      time: '9:00 AM - 10:30 AM',
+      title: 'Keynote Address: United in Christ for Evangelization',
+      presenter: 'To be announced',
+      location: 'St. Francis DeSales',
+      summary: 'Content and summary to be provided',
+      videoPlaceholder: true,
+      photosPlaceholder: true,
     },
     {
-      icon: <Calendar24Regular />,
-      title: 'Future Vision',
-      description: 'Established a roadmap for continued growth and service to the African Catholic community.'
+      id: 6,
+      day: 'Saturday, July 19, 2025',
+      time: '11:00 AM - 12:30 PM',
+      title: 'Workshops Session 1',
+      presenter: 'Various Presenters',
+      location: 'St. Francis DeSales',
+      summary: 'Content and summary to be provided',
+      videoPlaceholder: true,
+      photosPlaceholder: true,
+    },
+    {
+      id: 7,
+      day: 'Saturday, July 19, 2025',
+      time: '12:30 PM - 1:30 PM',
+      title: 'Lunch Break',
+      presenter: 'NAACUS Team',
+      location: 'St. Francis DeSales',
+      summary: 'Content and summary to be provided',
+      videoPlaceholder: false,
+      photosPlaceholder: true,
+    },
+    {
+      id: 8,
+      day: 'Saturday, July 19, 2025',
+      time: '2:00 PM - 3:30 PM',
+      title: 'Workshops Session 2',
+      presenter: 'Various Presenters',
+      location: 'St. Francis DeSales',
+      summary: 'Content and summary to be provided',
+      videoPlaceholder: true,
+      photosPlaceholder: true,
+    },
+    {
+      id: 9,
+      day: 'Saturday, July 19, 2025',
+      time: '4:00 PM - 5:00 PM',
+      title: 'Cultural Performance and Exhibition',
+      presenter: 'African Catholic Communities',
+      location: 'St. Francis DeSales',
+      summary: 'Content and summary to be provided',
+      videoPlaceholder: true,
+      photosPlaceholder: true,
+    },
+    {
+      id: 10,
+      day: 'Saturday, July 19, 2025',
+      time: '6:00 PM - 10:00 PM',
+      title: 'Gala Dinner and Cultural Night',
+      presenter: 'NAACUS Team',
+      location: 'St. Francis DeSales',
+      summary: 'Content and summary to be provided',
+      videoPlaceholder: true,
+      photosPlaceholder: true,
+    },
+    {
+      id: 11,
+      day: 'Sunday, July 20, 2025',
+      time: '9:00 AM - 11:00 AM',
+      title: 'Closing Mass and Commissioning',
+      presenter: 'Bishop and Concelebrants',
+      location: 'St. Matthias School',
+      summary: 'Content and summary to be provided',
+      videoPlaceholder: true,
+      photosPlaceholder: true,
+    },
+    {
+      id: 12,
+      day: 'Sunday, July 20, 2025',
+      time: '11:30 AM - 1:00 PM',
+      title: 'Farewell Brunch and Networking',
+      presenter: 'NAACUS Team',
+      location: 'St. Francis DeSales',
+      summary: 'Content and summary to be provided',
+      videoPlaceholder: false,
+      photosPlaceholder: true,
     },
   ];
 
@@ -262,7 +429,7 @@ function Naacus2025Accomplishments() {
       <div className={styles.hero}>
         <div className={styles.heroContent}>
           <div className={styles.badge}>
-            July 2025 Accomplishments
+            July 18-20, 2025
           </div>
           
           <Text as="h1" className={styles.title}>
@@ -270,71 +437,95 @@ function Naacus2025Accomplishments() {
           </Text>
           
           <Text as="p" className={styles.subtitle}>
-            Celebrating our achievements and building momentum for NAACUS 2027
+            United in Christ for Evangelization
           </Text>
+
+          <div className={styles.conferenceInfo}>
+            <Text style={{ fontSize: '1.3rem', fontWeight: '600', marginBottom: '10px', display: 'block', textAlign: 'center' }}>
+              Theme: United in Christ for Evangelization (1 Cor. 1:10-13)
+            </Text>
+            <Text style={{ fontSize: '1.1rem', marginBottom: '20px', display: 'block', textAlign: 'center', opacity: 0.9 }}>
+              Goal: African Catholics Faith and Culture in Action
+            </Text>
+            
+            <div className={styles.infoGrid}>
+              <div className={styles.infoItem}>
+                <Calendar24Regular className={styles.infoIcon} />
+                <span className={styles.infoLabel}>Dates</span>
+                <span className={styles.infoValue}>July 18-20, 2025</span>
+              </div>
+              
+              <div className={styles.infoItem}>
+                <Location24Regular className={styles.infoIcon} />
+                <span className={styles.infoLabel}>Location</span>
+                <span className={styles.infoValue}>Washington DC Area</span>
+              </div>
+              
+              <div className={styles.infoItem}>
+                <People24Regular className={styles.infoIcon} />
+                <span className={styles.infoLabel}>Host</span>
+                <span className={styles.infoValue}>Region 6</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div className={styles.content}>
-        <div className={styles.imageContainer}>
-          <img 
-            src="/NAACUS_2025.jpg" 
-            alt="NAACUS 2025 Conference Highlights" 
-            className={styles.mainImage}
-          />
-        </div>
-
         <Text as="h2" className={styles.sectionTitle}>
-          What We Accomplished in July 2025
+          Conference Schedule & Events
         </Text>
         
         <Text as="p" className={styles.sectionDescription}>
-          The NAACUS 2025 gathering marked a transformative moment for African Catholics 
-          across the United States. Here are some of the remarkable achievements from that historic event.
+          The NAACUS 2025 Bi-Annual Conference brought together African Catholics from across the United States 
+          for three days of worship, learning, fellowship, and cultural celebration. Below are the complete details 
+          of each event, session, and activity from this historic gathering.
         </Text>
 
-        <div className={styles.highlightsGrid}>
-          {highlights.map((highlight, index) => (
-            <Card key={index} className={styles.highlightCard}>
-              <span className={styles.highlightIcon}>{highlight.icon}</span>
-              <Text className={styles.highlightTitle}>{highlight.title}</Text>
-              <Text className={styles.highlightDescription}>{highlight.description}</Text>
+        <div className={styles.eventsContainer}>
+          {events.map((event) => (
+            <Card key={event.id} className={styles.eventCard}>
+              <div className={styles.eventHeader}>
+                <div className={styles.eventTitleSection}>
+                  <Text className={styles.eventDay}>{event.day}</Text>
+                  <Text className={styles.eventTitle}>{event.title}</Text>
+                  <Text className={styles.eventPresenter}>Presenter: {event.presenter}</Text>
+                </div>
+                
+                <div className={styles.eventMeta}>
+                  <div className={styles.metaItem}>
+                    <Clock24Regular className={styles.metaIcon} />
+                    <span>{event.time}</span>
+                  </div>
+                  <div className={styles.metaItem}>
+                    <Location24Regular className={styles.metaIcon} />
+                    <span>{event.location}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.eventContent}>
+                <Text className={styles.eventDescription}>
+                  <strong>Summary:</strong> {event.summary}
+                </Text>
+
+                <div className={styles.mediaSection}>
+                  {event.videoPlaceholder && (
+                    <div className={styles.mediaPlaceholder}>
+                      <Video24Regular className={styles.placeholderIcon} />
+                      <span>Video to be added</span>
+                    </div>
+                  )}
+                  {event.photosPlaceholder && (
+                    <div className={styles.mediaPlaceholder}>
+                      <Image24Regular className={styles.placeholderIcon} />
+                      <span>Photos to be added</span>
+                    </div>
+                  )}
+                </div>
+              </div>
             </Card>
           ))}
-        </div>
-
-        <div className={styles.mediaSection}>
-          <Text as="h2" className={styles.sectionTitle}>
-            Photos & Videos from July 2025
-          </Text>
-          
-          <Text as="p" className={styles.sectionDescription}>
-            Relive the inspiring moments, powerful testimonies, and vibrant celebrations 
-            that made NAACUS 2025 unforgettable.
-          </Text>
-
-          <div className={styles.mediaGrid}>
-            <div className={styles.mediaPlaceholder}>
-              <Text className={styles.placeholderText}>
-                Photo Gallery<br/>Coming Soon
-              </Text>
-            </div>
-            <div className={styles.mediaPlaceholder}>
-              <Text className={styles.placeholderText}>
-                Video Highlights<br/>Coming Soon
-              </Text>
-            </div>
-            <div className={styles.mediaPlaceholder}>
-              <Text className={styles.placeholderText}>
-                Testimonials<br/>Coming Soon
-              </Text>
-            </div>
-            <div className={styles.mediaPlaceholder}>
-              <Text className={styles.placeholderText}>
-                Event Coverage<br/>Coming Soon
-              </Text>
-            </div>
-          </div>
         </div>
 
         <div className={styles.ctaSection}>
@@ -343,7 +534,7 @@ function Naacus2025Accomplishments() {
           </Text>
           
           <Text as="p" className={styles.ctaDescription}>
-            Inspired by what we accomplished in 2025? Be part of the next chapter 
+            Inspired by the success of NAACUS 2025? Be part of the next chapter 
             at NAACUS 2027. Stay updated with the latest news and conference details.
           </Text>
 

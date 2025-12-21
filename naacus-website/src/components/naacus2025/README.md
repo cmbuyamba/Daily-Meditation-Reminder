@@ -2,13 +2,13 @@
 
 ## Purpose
 
-This subproject showcases the accomplishments and achievements from the NAACUS gathering in July 2025. It serves as a promotional tool to inspire participation in the upcoming NAACUS 2027 conference by highlighting the success and impact of the 2025 event.
+This subproject presents a detailed breakdown of every event from the NAACUS 2025 Bi-Annual Conference (July 18-20, 2025). It serves as a comprehensive record of the conference and a promotional tool to inspire participation in the upcoming NAACUS 2027 conference.
 
 ## Structure
 
 ```
 naacus2025/
-├── Naacus2025Accomplishments.js  # Main component showcasing 2025 achievements
+├── Naacus2025Accomplishments.js  # Main component with event-by-event details
 ├── index.js                       # Export file for easy importing
 └── README.md                      # This file
 ```
@@ -19,52 +19,80 @@ naacus2025/
 
 The main component that presents:
 
-1. **Hero Section**: Eye-catching introduction with the NAACUS 2025 banner
-2. **Main Image**: Displays the NAACUS_2025.jpg from the public folder
-3. **Accomplishments Highlights**: Grid of 6 key achievements:
-   - Record Attendance
-   - Historic Milestones
-   - Community Impact
-   - Educational Programs
-   - Cultural Celebrations
-   - Future Vision
+1. **Hero Section**: Conference theme, dates, and location information
+   - Theme: United in Christ for Evangelization (1 Cor. 1:10-13)
+   - Goal: African Catholics Faith and Culture in Action
+   - Dates: July 18-20, 2025
+   - Location: Washington DC Area (St. Francis DeSales HS / St. Matthias School)
+   - Host: Region 6
 
-4. **Media Section**: Placeholders for photos, videos, testimonials, and event coverage
-5. **Call-to-Action**: Encourages visitors to subscribe for NAACUS 2027 updates
+2. **Event Schedule**: Complete listing of all 12 conference events including:
+   - Friday, July 18: Men's & Women's Retreats, Opening Mass
+   - Saturday, July 19: Keynote, Workshops, Cultural Performance, Gala Dinner
+   - Sunday, July 20: Closing Mass, Farewell Brunch
+
+3. **Event Cards**: Each event displays:
+   - Day and time
+   - Event title
+   - Presenter/facilitator
+   - Location
+   - Summary (placeholder for content to be added)
+   - Media placeholders for videos and photos
+
+4. **Call-to-Action**: Encourages visitors to subscribe for NAACUS 2027 updates
 
 ## Adding Content
 
+### Event Summaries
+
+Each event in the `events` array has a `summary` field currently set to "Content and summary to be provided". To add summaries:
+
+1. Edit the `events` array in `Naacus2025Accomplishments.js`
+2. Replace the `summary` value for each event with the actual description
+3. Example:
+```javascript
+{
+  id: 1,
+  summary: 'A transformative day for men exploring their identity in Christ. Deacon Joseph LeMay led participants through reflection, prayer, and discussion...',
+}
+```
+
 ### Photos
 
-To add photos from the July 2025 event:
+To add photos for specific events:
 
 1. Place photo files in `/naacus-website/public/naacus2025/photos/`
-2. Update the media grid in `Naacus2025Accomplishments.js` to display actual images
-3. Consider creating a photo gallery component for better organization
+2. Name them descriptively (e.g., `event-1-mens-retreat.jpg`)
+3. Update the event card to display actual images instead of placeholders
+4. Consider creating a photo gallery component for each event
 
 ### Videos
 
-To add videos:
+To add videos for specific events:
 
-1. Host videos on a platform (YouTube, Vimeo, etc.) or place in `/naacus-website/public/naacus2025/videos/`
-2. Replace the video placeholder with embedded video players
-3. Consider using react-player or similar libraries for better video handling
+1. Host videos on YouTube, Vimeo, or place in `/naacus-website/public/naacus2025/videos/`
+2. Update the event card to embed the video player
+3. Example for YouTube:
+```javascript
+<iframe 
+  width="560" 
+  height="315" 
+  src="https://www.youtube.com/embed/VIDEO_ID" 
+  title="Event Video"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+```
 
-### Testimonials
+### Customizing Events
 
-To add testimonials:
+The events array can be customized to:
 
-1. Create a testimonials data structure with quotes, names, and optional photos
-2. Replace the testimonials placeholder with actual testimonial cards
-3. Consider creating a separate Testimonials component for reusability
-
-### Text Content
-
-The component currently has placeholder text. To customize:
-
-1. Update the highlight cards with specific achievements
-2. Modify the section descriptions with actual event details
-3. Add more sections as needed (keynote speakers, workshops, etc.)
+1. Add or remove events as needed
+2. Update presenter names and titles
+3. Adjust times and locations
+4. Add additional metadata fields (workshop topics, attendee count, etc.)
 
 ## Integration
 
