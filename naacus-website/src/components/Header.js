@@ -4,7 +4,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { 
   makeStyles,
   shorthands,
-  tokens,
   Text,
   Menu,
   MenuTrigger,

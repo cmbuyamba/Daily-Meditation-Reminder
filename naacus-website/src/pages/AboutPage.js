@@ -1,6 +1,8 @@
 import React from 'react';
 import { makeStyles, shorthands, tokens } from '@fluentui/react-components';
 import About from '../components/About';
+import WhatWeDo from '../components/WhatWeDo';
+import WhoWeServe from '../components/WhoWeServe';
 
 const useStyles = makeStyles({
   page: {
@@ -21,6 +23,8 @@ export default function AboutPage() {
     <div className={styles.page}>
       <div className={styles.container}>
         <About />
+        <WhatWeDo />
+        <WhoWeServe />
       </div>
     </div>
   );
