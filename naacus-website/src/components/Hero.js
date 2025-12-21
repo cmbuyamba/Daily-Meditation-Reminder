@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
   shorthands,
@@ -127,6 +128,7 @@ const useStyles = makeStyles({
 });
 
 function Hero() {
+  const { t } = useTranslation();
   const styles = useStyles();
 
   const scrollToSection = (sectionId) => {
@@ -139,13 +141,12 @@ function Hero() {
   return (
     <section id="home" className={styles.hero}>
       <div className={styles.heroContent}>
-        <Text as="h1" className={styles.heroTitle}>Together with Christ</Text>
+        <Text as="h1" className={styles.heroTitle}>{t('hero.title')}</Text>
         <Text as="p" className={styles.heroSubtitle}>
-          Uniting African Catholic Communities Across the United States
+          {t('hero.subtitle')}
         </Text>
         <Text as="p" className={styles.heroDescription}>
-          A vibrant community of faith, heritage, and service—where African Catholics 
-          participate fully in the life of the Church while celebrating their cultural identity.
+          {t('hero.description')}
         </Text>
         <div className={styles.heroButtons}>
           <Button 
@@ -153,7 +154,7 @@ function Hero() {
             size="large"
             onClick={() => scrollToSection('about')}
           >
-            Discover Our Mission
+            {t('hero.discoverButton')}
           </Button>
           <Button 
             appearance="outline" 
@@ -164,7 +165,7 @@ function Hero() {
               borderColor: tokens.colorNeutralForegroundInverted 
             }}
           >
-            Join Our Community
+            {t('hero.joinButton')}
           </Button>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
   shorthands,
@@ -43,6 +44,7 @@ const useStyles = makeStyles({
 });
 
 function BackToTop() {
+  const { t } = useTranslation();
   const styles = useStyles();
   const [isVisible, setIsVisible] = useState(false);
 
@@ -77,9 +79,9 @@ function BackToTop() {
         iconPosition="after"
         onClick={scrollToTop}
         className={styles.button}
-        aria-label="Back to top"
+        aria-label={t('backToTop')}
       >
-        Back to Top
+        {t('backToTop')}
       </Button>
     </div>
   );

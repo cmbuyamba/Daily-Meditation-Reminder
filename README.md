@@ -15,6 +15,7 @@ This repository contains the source code for the official NAACUS website, a prof
 - **Modern React Application** - Built with the latest React technologies
 - **Professional Design** - Clean, responsive UI with Microsoft-inspired styling
 - **Microsoft 365 Integration Ready** - Pre-configured for Azure AD authentication
+- **Multi-language Support** - Full internationalization (i18n) with English and French translations
 - **Complete NAACUS.org Structure** - All sections from the official website included
 - **Gallery & Media** - Photos and videos from events and activities
 - **Resources Hub** - Brochures, newsletters, and membership forms
@@ -119,6 +120,21 @@ The website uses Microsoft-inspired colors:
 - Primary: `#0078d4` (Microsoft Blue)
 - Secondary: `#0053a0` (Dark Blue)  
 - Accent: `#90e0ef` (Light Blue)
+
+### Localization (i18n)
+
+The website supports multiple languages using react-i18next:
+
+- **Supported Languages**: English (en), French (fr)
+- **Translation Files**: Located in `naacus-website/public/locales/{language}/translation.json`
+- **Language Switcher**: Available in the header navigation
+- **Adding New Languages**:
+  1. Create a new folder in `naacus-website/public/locales/` (e.g., `es` for Spanish)
+  2. Copy the English translation file and translate the content
+  3. Add the language to the `supportedLngs` array in `naacus-website/src/i18n.js`
+  4. Update the LanguageSwitcher component to include the new language option
+
+The selected language is persisted in localStorage and automatically detected on subsequent visits.
 
 ## 📖 Documentation
 
