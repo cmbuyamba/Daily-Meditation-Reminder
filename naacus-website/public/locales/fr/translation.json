@@ -119,5 +119,18 @@
   },
   "joinNowButton": {
     "text": "Rejoindre"
+  },
+  "conference2027": {
+    "badge": "RÉSERVEZ LA DATE",
+    "title": "Un Rassemblement Historique Arrive en 2027",
+    "subtitle": "La Conférence Nationale qui réunira les Catholiques Africains de toute l'Amérique",
+    "highlightText": "Rejoignez-nous pour un rassemblement sans précédent de foi, d'héritage et d'unité",
+    "whenLabel": "Quand",
+    "whenValue": "Juillet 2027",
+    "whereLabel": "Où",
+    "whereValue": "Maryland",
+    "targetLabel": "Attendu",
+    "targetValue": "Plus de 5 000 Participants",
+    "ctaButton": "Restez Informé - Rejoignez Notre Communauté"
   }
 }

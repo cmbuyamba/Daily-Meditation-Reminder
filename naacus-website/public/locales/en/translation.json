@@ -119,5 +119,18 @@
   },
   "joinNowButton": {
     "text": "Join Now"
+  },
+  "conference2027": {
+    "badge": "SAVE THE DATE",
+    "title": "A Historic Gathering is Coming in 2027",
+    "subtitle": "The National Conference that will bring together African Catholics from across America",
+    "highlightText": "Join us for an unprecedented gathering of faith, heritage, and unity",
+    "whenLabel": "When",
+    "whenValue": "July 2027",
+    "whereLabel": "Where",
+    "whereValue": "Maryland",
+    "targetLabel": "Expected",
+    "targetValue": "5,000+ Attendees",
+    "ctaButton": "Stay Updated - Join Our Community"
   }
 }
