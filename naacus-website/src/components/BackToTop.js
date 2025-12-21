@@ -75,7 +75,19 @@ function BackToTop() {
   };
 
   return (
-    <div className={`${styles.backToTop} ${isVisible ? styles.visible : ''}`}>
+    <div 
+      style={{
+        position: 'fixed',
+        bottom: '130px',
+        right: '30px',
+        zIndex: 1200,
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+        visibility: isVisible ? 'visible' : 'hidden',
+        transition: 'opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out',
+        pointerEvents: isVisible ? 'auto' : 'none',
+      }}
+    >
       <Button
         appearance="subtle"
         icon={<ArrowUp24Regular />}
@@ -83,6 +95,28 @@ function BackToTop() {
         onClick={scrollToTop}
         className={styles.button}
         aria-label={t('backToTop')}
+        style={{
+          padding: '12px 24px',
+          borderRadius: '50px',
+          backgroundColor: '#0067b8',
+          color: '#ffffff',
+          boxShadow: '0 6px 16px rgba(0, 103, 184, 0.35)',
+          fontSize: '14px',
+          fontWeight: '600',
+          border: 'none',
+          cursor: 'pointer',
+          transition: 'all 0.3s ease',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'translateY(-3px)';
+          e.currentTarget.style.boxShadow = '0 8px 20px rgba(0, 103, 184, 0.45)';
+          e.currentTarget.style.backgroundColor = '#005a9e';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.boxShadow = '0 6px 16px rgba(0, 103, 184, 0.35)';
+          e.currentTarget.style.backgroundColor = '#0067b8';
+        }}
       >
         {t('backToTop')}
       </Button>
