@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { 
   makeStyles,
   shorthands,
@@ -96,13 +97,12 @@ const useStyles = makeStyles({
 function Footer() {
   const { t } = useTranslation();
   const styles = useStyles();
+  const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleNavigation = (path) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -121,7 +121,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('home')}
+                onClick={() => handleNavigation('/')}
                 style={{ cursor: 'pointer' }}
               >
                 Home
@@ -130,7 +130,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('about')}
+                onClick={() => handleNavigation('/about')}
                 style={{ cursor: 'pointer' }}
               >
                 About
@@ -139,25 +139,25 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('objectives')}
+                onClick={() => handleNavigation('/leadership')}
                 style={{ cursor: 'pointer' }}
               >
-                Objectives
+                Leadership
               </Link>
             </li>
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('gallery')}
+                onClick={() => handleNavigation('/events')}
                 style={{ cursor: 'pointer' }}
               >
-                Gallery
+                Events
               </Link>
             </li>
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('resources')}
+                onClick={() => handleNavigation('/resources')}
                 style={{ cursor: 'pointer' }}
               >
                 Resources
@@ -166,7 +166,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('contact')}
+                onClick={() => handleNavigation('/contact')}
                 style={{ cursor: 'pointer' }}
               >
                 Contact
@@ -180,7 +180,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('programs')}
+                onClick={() => handleNavigation('/programs-activities')}
                 style={{ cursor: 'pointer' }}
               >
                 Events & Activities
@@ -189,7 +189,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('conference')}
+                onClick={() => handleNavigation('/events')}
                 style={{ cursor: 'pointer' }}
               >
                 National Conference
@@ -198,7 +198,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('newsletter')}
+                onClick={() => handleNavigation('/contact')}
                 style={{ cursor: 'pointer' }}
               >
                 Newsletter
@@ -207,7 +207,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => scrollToSection('resources')}
+                onClick={() => handleNavigation('/membership')}
                 style={{ cursor: 'pointer' }}
               >
                 Membership
@@ -219,21 +219,21 @@ function Footer() {
           <Text as="h4" className={styles.footerSectionTitle}>Get Involved</Text>
           <Link 
             className={styles.footerLink} 
-            onClick={() => scrollToSection('newsletter')}
+            onClick={() => handleNavigation('/membership')}
             style={{ cursor: 'pointer' }}
           >
             Join our community of African Catholics
           </Link>
           <Link 
             className={styles.footerLink} 
-            onClick={() => scrollToSection('programs')}
+            onClick={() => handleNavigation('/programs-activities')}
             style={{ cursor: 'pointer' }}
           >
             Participate in our programs
           </Link>
           <Link 
             className={styles.footerCta} 
-            onClick={() => scrollToSection('contact')}
+            onClick={() => handleNavigation('/contact')}
             style={{ cursor: 'pointer' }}
           >
             Contact Us →
