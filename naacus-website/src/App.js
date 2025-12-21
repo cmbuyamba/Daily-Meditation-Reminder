@@ -10,6 +10,7 @@ import VolunteerPage from './pages/VolunteerPage';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import SubscribeButton from './components/SubscribeButton';
+import ChatWidget from './components/ChatWidget';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Footer />
           <BackToTop />
           <SubscribeButton />
+          <ChatWidget />
         </div>
       </Router>
     </FluentProvider>
