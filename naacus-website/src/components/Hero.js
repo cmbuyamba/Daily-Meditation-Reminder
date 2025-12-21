@@ -65,10 +65,26 @@ const useStyles = makeStyles({
   },
   heroButtons: {
     display: 'flex',
+    flexDirection: 'column',
+    ...shorthands.gap('20px'),
+    alignItems: 'center',
+    marginTop: '48px',
+    maxWidth: '700px',
+    margin: '48px auto 0',
+  },
+  primaryActions: {
+    display: 'flex',
     ...shorthands.gap('20px'),
     justifyContent: 'center',
     flexWrap: 'wrap',
-    marginTop: '40px',
+    width: '100%',
+  },
+  secondaryActions: {
+    display: 'flex',
+    ...shorthands.gap('20px'),
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    width: '100%',
   },
   membershipHighlight: {
     backgroundColor: 'rgba(90, 160, 220, 0.35)',
@@ -196,75 +212,95 @@ function Hero() {
         </div>
 
         <div className={styles.heroButtons}>
-          <Button 
-            appearance="primary" 
-            size="large"
-            onClick={() => scrollToSection('newsletter')}
-            style={{
-              backgroundColor: '#28a745',
-              borderColor: '#28a745',
-              fontSize: '1.15rem',
-              padding: '18px 48px',
-              height: 'auto',
-              fontWeight: '600',
-              borderRadius: '8px',
-              boxShadow: '0 4px 16px rgba(40, 167, 69, 0.3)',
-            }}
-          >
-            {t('hero.becomeMemberButton')}
-          </Button>
-          <Button 
-            appearance="primary" 
-            size="large"
-            onClick={() => window.location.href = '/membership'}
-            style={{
-              backgroundColor: '#0067b8',
-              borderColor: '#0067b8',
-              fontSize: '1.15rem',
-              padding: '18px 48px',
-              height: 'auto',
-              fontWeight: '600',
-              borderRadius: '8px',
-              boxShadow: '0 4px 16px rgba(0, 103, 184, 0.3)',
-            }}
-          >
-            Become a Member
-          </Button>
-          <Button 
-            appearance="primary" 
-            size="large"
-            onClick={() => window.location.href = '/volunteer'}
-            style={{
-              backgroundColor: '#d83b01',
-              borderColor: '#d83b01',
-              fontSize: '1.15rem',
-              padding: '18px 48px',
-              height: 'auto',
-              fontWeight: '600',
-              borderRadius: '8px',
-              boxShadow: '0 4px 16px rgba(216, 59, 1, 0.3)',
-            }}
-          >
-            Volunteer with Us
-          </Button>
-          <Button 
-            appearance="outline" 
-            size="large"
-            onClick={() => scrollToSection('about')}
-            style={{ 
-              color: tokens.colorNeutralForegroundInverted, 
-              borderColor: tokens.colorNeutralForegroundInverted,
-              fontSize: '1.15rem',
-              padding: '18px 48px',
-              height: 'auto',
-              borderWidth: '2px',
-              borderRadius: '8px',
-              fontWeight: '600',
-              backgroundColor: 'transparent',
-            }}
-          >
-            {t('hero.discoverButton')}
-          </Button>
+          {/* Primary Actions Row */}
+          <div className={styles.primaryActions}>
+            <Button 
+              appearance="primary" 
+              size="large"
+              onClick={() => window.location.href = '/membership'}
+              style={{
+                backgroundColor: '#0067b8',
+                borderColor: '#0067b8',
+                fontSize: '1.05rem',
+                padding: '16px 32px',
+                height: 'auto',
+                fontWeight: '600',
+                borderRadius: '8px',
+                boxShadow: '0 6px 20px rgba(0, 103, 184, 0.4)',
+                flex: '1',
+                minWidth: '180px',
+                maxWidth: '220px',
+              }}
+            >
+              Become a Member
+            </Button>
+            <Button 
+              appearance="primary" 
+              size="large"
+              onClick={() => window.location.href = '/volunteer'}
+              style={{
+                backgroundColor: '#d83b01',
+                borderColor: '#d83b01',
+                fontSize: '1.05rem',
+                padding: '16px 32px',
+                height: 'auto',
+                fontWeight: '600',
+                borderRadius: '8px',
+                boxShadow: '0 6px 20px rgba(216, 59, 1, 0.4)',
+                flex: '1',
+                minWidth: '180px',
+                maxWidth: '220px',
+              }}
+            >
+              Volunteer with Us
+            </Button>
+          </div>
+          
+          {/* Secondary Actions Row */}
+          <div className={styles.secondaryActions}>
+            <Button 
+              appearance="primary" 
+              size="large"
+              onClick={() => scrollToSection('newsletter')}
+              style={{
+                backgroundColor: '#28a745',
+                borderColor: '#28a745',
+                fontSize: '0.95rem',
+                padding: '14px 28px',
+                height: 'auto',
+                fontWeight: '600',
+                borderRadius: '8px',
+                boxShadow: '0 4px 16px rgba(40, 167, 69, 0.35)',
+                flex: '1',
+                minWidth: '180px',
+                maxWidth: '220px',
+              }}
+            >
+              {t('hero.becomeMemberButton')}
+            </Button>
+            <Button 
+              appearance="outline" 
+              size="large"
+              onClick={() => scrollToSection('about')}
+              style={{ 
+                color: tokens.colorNeutralForegroundInverted, 
+                borderColor: 'rgba(255, 255, 255, 0.9)',
+                fontSize: '0.95rem',
+                padding: '14px 28px',
+                height: 'auto',
+                borderWidth: '2px',
+                borderRadius: '8px',
+                fontWeight: '600',
+                backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                backdropFilter: 'blur(10px)',
+                flex: '1',
+                minWidth: '180px',
+                maxWidth: '220px',
+              }}
+            >
+              {t('hero.discoverButton')}
+            </Button>
+          </div>
         </div>
       </div>
       <div className={styles.heroGraphic}>

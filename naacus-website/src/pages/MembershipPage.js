@@ -11,7 +11,9 @@ import {
   Checkbox,
   Textarea,
   Card,
+  Spinner,
 } from '@fluentui/react-components';
+import { submitMembershipToSharePoint } from '../services/m365Service';
 
 const useStyles = makeStyles({
   membershipPage: {
@@ -127,6 +129,8 @@ const useStyles = makeStyles({
 function MembershipPage() {
   const styles = useStyles();
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -188,12 +192,28 @@ function MembershipPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log('Membership form submitted:', formData);
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      // Submit to Microsoft 365 SharePoint
+      const result = await submitMembershipToSharePoint(formData);
+      
+      if (result.success) {
+        console.log('Membership form submitted successfully to SharePoint:', result.data);
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        throw new Error(result.error || 'Failed to submit form');
+      }
+    } catch (err) {
+      console.error('Error submitting membership form:', err);
+      setError(err.message || 'An error occurred while submitting the form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -524,9 +544,31 @@ function MembershipPage() {
             size="large"
             type="submit"
             className={styles.submitButton}
+            disabled={isSubmitting}
           >
-            Submit Membership Application
+            {isSubmitting ? (
+              <>
+                <Spinner size="tiny" style={{ marginRight: '8px' }} />
+                Submitting to Microsoft 365...
+              </>
+            ) : (
+              'Submit Membership Application'
+            )}
           </Button>
+
+          {error && (
+            <div style={{
+              marginTop: '24px',
+              padding: '16px',
+              backgroundColor: '#fde7e9',
+              borderRadius: '8px',
+              color: '#d13438',
+              textAlign: 'center',
+            }}>
+              <Text style={{ fontWeight: '600' }}>Error: </Text>
+              <Text>{error}</Text>
+            </div>
+          )}
         </form>
       </div>
     </div>

@@ -11,7 +11,9 @@ import {
   Checkbox,
   Textarea,
   Card,
+  Spinner,
 } from '@fluentui/react-components';
+import { submitVolunteerToSharePoint } from '../services/m365Service';
 
 const useStyles = makeStyles({
   volunteerPage: {
@@ -133,6 +135,8 @@ const useStyles = makeStyles({
 function VolunteerPage() {
   const styles = useStyles();
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -194,12 +198,28 @@ function VolunteerPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log('Volunteer form submitted:', formData);
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      // Submit to Microsoft 365 SharePoint
+      const result = await submitVolunteerToSharePoint(formData);
+      
+      if (result.success) {
+        console.log('Volunteer form submitted successfully to SharePoint:', result.data);
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        throw new Error(result.error || 'Failed to submit form');
+      }
+    } catch (err) {
+      console.error('Error submitting volunteer form:', err);
+      setError(err.message || 'An error occurred while submitting the form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -502,9 +522,31 @@ function VolunteerPage() {
             size="large"
             type="submit"
             className={styles.submitButton}
+            disabled={isSubmitting}
           >
-            Submit Volunteer Application
+            {isSubmitting ? (
+              <>
+                <Spinner size="tiny" style={{ marginRight: '8px' }} />
+                Submitting to Microsoft 365...
+              </>
+            ) : (
+              'Submit Volunteer Application'
+            )}
           </Button>
+
+          {error && (
+            <div style={{
+              marginTop: '24px',
+              padding: '16px',
+              backgroundColor: '#fde7e9',
+              borderRadius: '8px',
+              color: '#d13438',
+              textAlign: 'center',
+            }}>
+              <Text style={{ fontWeight: '600' }}>Error: </Text>
+              <Text>{error}</Text>
+            </div>
+          )}
         </form>
       </div>
     </div>
