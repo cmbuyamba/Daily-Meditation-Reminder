@@ -11,57 +11,74 @@ import {
 const useStyles = makeStyles({
   hero: {
     position: 'relative',
-    background: `linear-gradient(135deg, ${tokens.colorBrandBackground} 0%, #1a6fb8 100%)`,
+    background: `linear-gradient(135deg, #0f4c81 0%, #1a6fb8 50%, #2a8fd8 100%)`,
     color: tokens.colorNeutralForegroundInverted,
-    ...shorthands.padding('100px', '20px', '80px'),
-    minHeight: '600px',
+    ...shorthands.padding('120px', '20px', '100px'),
+    minHeight: '700px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
+    '::before': {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%)',
+      pointerEvents: 'none',
+      zIndex: 1,
+    },
   },
   heroContent: {
     position: 'relative',
     zIndex: 2,
-    maxWidth: '1000px',
+    maxWidth: '1100px',
     margin: '0 auto',
     textAlign: 'center',
   },
   heroTitle: {
-    fontSize: '4.5rem',
-    fontWeight: '600',
-    marginBottom: '24px',
+    fontSize: '5rem',
+    fontWeight: '700',
+    marginBottom: '32px',
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
     textAlign: 'center',
-    lineHeight: '1.1',
-    letterSpacing: '-0.03em',
+    lineHeight: '1.15',
+    letterSpacing: '-0.02em',
+    textShadow: '0 4px 20px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2)',
+    fontFamily: 'Georgia, "Times New Roman", serif',
     '@media (max-width: 768px)': {
-      fontSize: '2.8rem',
+      fontSize: '3rem',
     },
   },
   heroSubtitle: {
-    fontSize: '1.6rem',
-    marginBottom: '20px',
-    fontWeight: '400',
-    color: tokens.colorNeutralForegroundInverted,
+    fontSize: '1.75rem',
+    marginBottom: '24px',
+    fontWeight: '500',
+    color: 'rgba(255, 255, 255, 0.95)',
     display: 'block',
     textAlign: 'center',
-    lineHeight: '1.5',
+    lineHeight: '1.6',
+    textShadow: '0 2px 12px rgba(0, 0, 0, 0.25)',
+    letterSpacing: '0.5px',
     '@media (max-width: 768px)': {
-      fontSize: '1.3rem',
+      fontSize: '1.4rem',
     },
   },
   heroDescription: {
-    fontSize: '1.2rem',
-    marginBottom: '40px',
-    lineHeight: '1.8',
-    color: tokens.colorNeutralForegroundInverted,
-    opacity: 0.96,
+    fontSize: '1.25rem',
+    marginBottom: '48px',
+    lineHeight: '1.9',
+    color: 'rgba(255, 255, 255, 0.92)',
+    opacity: 1,
     display: 'block',
     textAlign: 'center',
-    maxWidth: '900px',
-    margin: '0 auto 40px',
+    maxWidth: '920px',
+    margin: '0 auto 48px',
+    fontWeight: '400',
+    textShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
   },
   heroButtons: {
     display: 'flex',
@@ -87,38 +104,47 @@ const useStyles = makeStyles({
     width: '100%',
   },
   membershipHighlight: {
-    backgroundColor: 'rgba(90, 160, 220, 0.35)',
-    ...shorthands.padding('24px', '32px'),
-    ...shorthands.borderRadius('16px'),
-    marginTop: '40px',
-    backdropFilter: 'blur(12px)',
-    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
+    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.08) 100%)',
+    ...shorthands.padding('28px', '40px'),
+    ...shorthands.borderRadius('20px'),
+    marginTop: '48px',
+    backdropFilter: 'blur(16px)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+    ...shorthands.border('1px', 'solid', 'rgba(255, 255, 255, 0.18)'),
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    '&:hover': {
+      transform: 'translateY(-2px)',
+      boxShadow: '0 12px 40px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.25)',
+    },
   },
   membershipText: {
-    fontSize: '1.1rem',
+    fontSize: '1.2rem',
     color: tokens.colorNeutralForegroundInverted,
-    marginBottom: '16px',
+    marginBottom: '20px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    ...shorthands.gap('10px'),
+    ...shorthands.gap('12px'),
     textAlign: 'center',
-    fontWeight: '500',
+    fontWeight: '600',
+    textShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
+    letterSpacing: '0.3px',
   },
   benefitsList: {
     display: 'flex',
-    ...shorthands.gap('32px'),
+    ...shorthands.gap('40px'),
     justifyContent: 'center',
     flexWrap: 'wrap',
-    marginTop: '16px',
+    marginTop: '20px',
   },
   benefitItem: {
     display: 'flex',
     alignItems: 'center',
-    ...shorthands.gap('8px'),
-    fontSize: '1rem',
-    color: tokens.colorNeutralForegroundInverted,
-    fontWeight: '400',
+    ...shorthands.gap('10px'),
+    fontSize: '1.05rem',
+    color: 'rgba(255, 255, 255, 0.95)',
+    fontWeight: '500',
+    textShadow: '0 1px 4px rgba(0, 0, 0, 0.2)',
   },
   heroGraphic: {
     position: 'absolute',
@@ -132,49 +158,59 @@ const useStyles = makeStyles({
   graphicCircle: {
     position: 'absolute',
     ...shorthands.borderRadius('50%'),
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    background: 'radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%)',
   },
   circle1: {
-    width: '400px',
-    height: '400px',
-    top: '-200px',
-    right: '-100px',
+    width: '500px',
+    height: '500px',
+    top: '-250px',
+    right: '-150px',
     animationName: {
-      from: { transform: 'translateY(0)' },
-      to: { transform: 'translateY(20px)' },
+      from: { transform: 'translateY(0) scale(1)' },
+      to: { transform: 'translateY(30px) scale(1.05)' },
     },
-    animationDuration: '3s',
+    animationDuration: '8s',
     animationIterationCount: 'infinite',
     animationDirection: 'alternate',
     animationTimingFunction: 'ease-in-out',
   },
   circle2: {
-    width: '300px',
-    height: '300px',
-    bottom: '-150px',
-    left: '-50px',
+    width: '400px',
+    height: '400px',
+    bottom: '-200px',
+    left: '-100px',
     animationName: {
-      from: { transform: 'translateY(0)' },
-      to: { transform: 'translateY(-20px)' },
+      from: { transform: 'translateY(0) scale(1)' },
+      to: { transform: 'translateY(-30px) scale(1.08)' },
     },
-    animationDuration: '4s',
+    animationDuration: '10s',
     animationIterationCount: 'infinite',
     animationDirection: 'alternate',
     animationTimingFunction: 'ease-in-out',
   },
   circle3: {
-    width: '200px',
-    height: '200px',
-    top: '50%',
-    right: '20%',
+    width: '300px',
+    height: '300px',
+    top: '40%',
+    right: '15%',
     animationName: {
-      from: { transform: 'translateY(0)' },
-      to: { transform: 'translateY(15px)' },
+      from: { transform: 'translateY(0) scale(1)' },
+      to: { transform: 'translateY(25px) scale(1.06)' },
     },
-    animationDuration: '3.5s',
+    animationDuration: '9s',
     animationIterationCount: 'infinite',
     animationDirection: 'alternate',
     animationTimingFunction: 'ease-in-out',
+  },
+  divineLight: {
+    position: 'absolute',
+    width: '600px',
+    height: '600px',
+    top: '-300px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    background: 'radial-gradient(circle, rgba(255, 215, 0, 0.12) 0%, transparent 70%)',
+    pointerEvents: 'none',
   },
 });
 
@@ -202,12 +238,19 @@ function Hero() {
         
         <div className={styles.membershipHighlight}>
           <Text className={styles.membershipText}>
-            <span style={{ fontSize: '1.5rem' }}>⭐</span> {t('hero.membershipTeaser')}
+            <span style={{ fontSize: '1.8rem', filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))' }}>✨</span> 
+            {t('hero.membershipTeaser')}
           </Text>
           <div className={styles.benefitsList}>
-            <span className={styles.benefitItem}>✓ {t('hero.benefit1')}</span>
-            <span className={styles.benefitItem}>✓ {t('hero.benefit2')}</span>
-            <span className={styles.benefitItem}>✓ {t('hero.benefit3')}</span>
+            <span className={styles.benefitItem}>
+              <span style={{ fontSize: '1.2rem', color: '#ffd700' }}>✓</span> {t('hero.benefit1')}
+            </span>
+            <span className={styles.benefitItem}>
+              <span style={{ fontSize: '1.2rem', color: '#ffd700' }}>✓</span> {t('hero.benefit2')}
+            </span>
+            <span className={styles.benefitItem}>
+              <span style={{ fontSize: '1.2rem', color: '#ffd700' }}>✓</span> {t('hero.benefit3')}
+            </span>
           </div>
         </div>
 
@@ -221,18 +264,28 @@ function Hero() {
               style={{
                 backgroundColor: '#0067b8',
                 borderColor: '#0067b8',
-                fontSize: '1.05rem',
-                padding: '16px 32px',
+                fontSize: '1.1rem',
+                padding: '18px 36px',
                 height: 'auto',
                 fontWeight: '600',
-                borderRadius: '8px',
-                boxShadow: '0 6px 20px rgba(0, 103, 184, 0.4)',
+                borderRadius: '12px',
+                boxShadow: '0 8px 24px rgba(0, 103, 184, 0.45), 0 4px 12px rgba(0, 0, 0, 0.2)',
                 flex: '1',
-                minWidth: '180px',
-                maxWidth: '220px',
+                minWidth: '200px',
+                maxWidth: '240px',
+                transition: 'all 0.3s ease',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-3px)';
+                e.currentTarget.style.boxShadow = '0 12px 32px rgba(0, 103, 184, 0.5), 0 6px 16px rgba(0, 0, 0, 0.25)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 103, 184, 0.45), 0 4px 12px rgba(0, 0, 0, 0.2)';
               }}
             >
-              Become a Member
+              ✝ Become a Member
             </Button>
             <Button 
               appearance="primary" 
@@ -241,18 +294,28 @@ function Hero() {
               style={{
                 backgroundColor: '#d83b01',
                 borderColor: '#d83b01',
-                fontSize: '1.05rem',
-                padding: '16px 32px',
+                fontSize: '1.1rem',
+                padding: '18px 36px',
                 height: 'auto',
                 fontWeight: '600',
-                borderRadius: '8px',
-                boxShadow: '0 6px 20px rgba(216, 59, 1, 0.4)',
+                borderRadius: '12px',
+                boxShadow: '0 8px 24px rgba(216, 59, 1, 0.45), 0 4px 12px rgba(0, 0, 0, 0.2)',
                 flex: '1',
-                minWidth: '180px',
-                maxWidth: '220px',
+                minWidth: '200px',
+                maxWidth: '240px',
+                transition: 'all 0.3s ease',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-3px)';
+                e.currentTarget.style.boxShadow = '0 12px 32px rgba(216, 59, 1, 0.5), 0 6px 16px rgba(0, 0, 0, 0.25)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(216, 59, 1, 0.45), 0 4px 12px rgba(0, 0, 0, 0.2)';
               }}
             >
-              Volunteer with Us
+              🙏 Volunteer with Us
             </Button>
           </div>
           
@@ -265,18 +328,28 @@ function Hero() {
               style={{
                 backgroundColor: '#28a745',
                 borderColor: '#28a745',
-                fontSize: '0.95rem',
-                padding: '14px 28px',
+                fontSize: '1rem',
+                padding: '16px 32px',
                 height: 'auto',
                 fontWeight: '600',
-                borderRadius: '8px',
-                boxShadow: '0 4px 16px rgba(40, 167, 69, 0.35)',
+                borderRadius: '12px',
+                boxShadow: '0 6px 20px rgba(40, 167, 69, 0.4), 0 3px 10px rgba(0, 0, 0, 0.15)',
                 flex: '1',
-                minWidth: '180px',
-                maxWidth: '220px',
+                minWidth: '200px',
+                maxWidth: '240px',
+                transition: 'all 0.3s ease',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-3px)';
+                e.currentTarget.style.boxShadow = '0 10px 28px rgba(40, 167, 69, 0.45), 0 5px 14px rgba(0, 0, 0, 0.2)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(40, 167, 69, 0.4), 0 3px 10px rgba(0, 0, 0, 0.15)';
               }}
             >
-              {t('hero.becomeMemberButton')}
+              📧 {t('hero.becomeMemberButton')}
             </Button>
             <Button 
               appearance="outline" 
@@ -285,25 +358,38 @@ function Hero() {
               style={{ 
                 color: tokens.colorNeutralForegroundInverted, 
                 borderColor: 'rgba(255, 255, 255, 0.9)',
-                fontSize: '0.95rem',
-                padding: '14px 28px',
+                fontSize: '1rem',
+                padding: '16px 32px',
                 height: 'auto',
                 borderWidth: '2px',
-                borderRadius: '8px',
+                borderRadius: '12px',
                 fontWeight: '600',
-                backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                backdropFilter: 'blur(10px)',
+                backgroundColor: 'rgba(255, 255, 255, 0.18)',
+                backdropFilter: 'blur(12px)',
                 flex: '1',
-                minWidth: '180px',
-                maxWidth: '220px',
+                minWidth: '200px',
+                maxWidth: '240px',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-3px)';
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.2)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.18)';
+                e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.15)';
               }}
             >
-              {t('hero.discoverButton')}
+              📖 {t('hero.discoverButton')}
             </Button>
           </div>
         </div>
       </div>
       <div className={styles.heroGraphic}>
+        <div className={styles.divineLight}></div>
         <div className={`${styles.graphicCircle} ${styles.circle1}`}></div>
         <div className={`${styles.graphicCircle} ${styles.circle2}`}></div>
         <div className={`${styles.graphicCircle} ${styles.circle3}`}></div>
