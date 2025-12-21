@@ -56,11 +56,15 @@ const useStyles = makeStyles({
   communityIcon: {
     fontSize: '2.5rem',
     marginBottom: '15px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   communityText: {
     fontSize: '1.1rem',
     fontWeight: '600',
     color: tokens.colorNeutralForeground1,
+    textAlign: 'center',
   },
   closingText: {
     fontSize: '1.15rem',

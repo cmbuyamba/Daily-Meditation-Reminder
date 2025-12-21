@@ -54,6 +54,10 @@ const useStyles = makeStyles({
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06)',
     ...shorthands.borderRadius('8px'),
     backgroundColor: tokens.colorNeutralBackground1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    textAlign: 'center',
     '&:hover': {
       transform: 'translateY(-8px)',
       boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
@@ -63,6 +67,13 @@ const useStyles = makeStyles({
     fontSize: '2.5rem',
     marginBottom: '20px',
     color: tokens.colorBrandBackground,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '56px',
+    height: '56px',
+    ...shorthands.borderRadius('50%'),
+    backgroundColor: tokens.colorBrandBackground2,
   },
   cardTitle: {
     fontSize: '1.3rem',
@@ -70,12 +81,14 @@ const useStyles = makeStyles({
     color: tokens.colorBrandBackground,
     fontWeight: '600',
     display: 'block',
+    textAlign: 'center',
   },
   cardText: {
     fontSize: '1rem',
     lineHeight: '1.7',
     color: tokens.colorNeutralForeground2,
     display: 'block',
+    textAlign: 'center',
   },
 });
 

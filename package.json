@@ -6,7 +6,7 @@
     "start": "cd naacus-website && npm start",
     "build": "cd naacus-website && npm run build",
     "test": "cd naacus-website && npm test",
-    "install-deps": "cd naacus-website && npm install"
+    "install-deps": "cd naacus-website && npm install --legacy-peer-deps"
   },
   "repository": {
     "type": "git",
