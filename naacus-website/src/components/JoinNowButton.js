@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { 
   makeStyles,
   shorthands,
@@ -39,6 +40,8 @@ const useStyles = makeStyles({
 function JoinNowButton() {
   const { t } = useTranslation();
   const styles = useStyles();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -56,9 +59,22 @@ function JoinNowButton() {
   }, []);
 
   const scrollToNewsletter = () => {
-    const element = document.getElementById('newsletter');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    // If not on home page, navigate to home page first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation and then scroll
+      setTimeout(() => {
+        const element = document.getElementById('newsletter');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // Already on home page, just scroll
+      const element = document.getElementById('newsletter');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
