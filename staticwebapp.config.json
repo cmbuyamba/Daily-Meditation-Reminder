@@ -7,8 +7,5 @@
       "/images/*",
       "/favicon.ico"
     ]
-  },
-  "buildRequiredFlags": [
-    "--legacy-peer-deps"
-  ]
+  }
 }
