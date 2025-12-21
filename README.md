@@ -14,6 +14,7 @@ This repository contains the source code for the official NAACUS website, a prof
 
 - **Modern React Application** - Built with the latest React technologies
 - **Professional Design** - Clean, responsive UI with Microsoft-inspired styling
+- **AI-Powered Chatbot** - Intelligent FAQ assistant for website and WhatsApp
 - **Microsoft 365 Integration Ready** - Pre-configured for Azure AD authentication
 - **Multi-language Support** - Full internationalization (i18n) with English and French translations
 - **Complete NAACUS.org Structure** - All sections from the official website included
@@ -70,9 +71,50 @@ npm run build
 │   │   └── index.js         # Entry point
 │   ├── public/              # Static assets
 │   └── package.json         # Dependencies
+├── whatsapp-server/         # WhatsApp chatbot server
+│   ├── server.js            # Express webhook server
+│   ├── chatbotService.js    # AI chatbot logic
+│   └── package.json         # Server dependencies
 ├── DEPLOYMENT.md            # Deployment guide
+├── WHATSAPP_INTEGRATION.md  # WhatsApp setup guide
+├── AI_CHATBOT_DOCUMENTATION.md  # Chatbot documentation
 └── README.md                # This file
 ```
+
+## 🤖 AI Chatbot
+
+The NAACUS website includes an intelligent AI-powered chatbot that answers frequently asked questions about the organization, membership, events, and programs.
+
+### Features
+
+- **Smart FAQ Matching** - Uses natural language processing to understand questions
+- **Quick Actions** - Pre-configured common questions for easy access
+- **Related Questions** - Suggests relevant follow-up questions
+- **Multi-Platform** - Available on both website and WhatsApp
+- **Real-Time Responses** - Instant answers without waiting for human support
+
+### Using the Web Chatbot
+
+1. Click the chat icon in the bottom-right corner of any page
+2. Type your question or select a quick action
+3. Get instant answers with related information
+4. Click on related questions for more details
+
+### WhatsApp Integration
+
+The same AI chatbot can be integrated with WhatsApp Business for mobile support:
+
+1. Set up a Twilio account for WhatsApp Business API
+2. Deploy the WhatsApp server to your cloud provider
+3. Configure the webhook URL in Twilio
+4. Users can message your WhatsApp number for instant support
+
+See [WHATSAPP_INTEGRATION.md](WHATSAPP_INTEGRATION.md) for detailed setup instructions.
+
+### Documentation
+
+- **[AI Chatbot Documentation](AI_CHATBOT_DOCUMENTATION.md)** - Complete guide to the chatbot system
+- **[WhatsApp Integration Guide](WHATSAPP_INTEGRATION.md)** - WhatsApp setup and deployment
 
 ## 🔧 Microsoft 365 Integration
 
