@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     position: 'fixed',
     right: '24px',
     bottom: '24px',
-    zIndex: 1100,
+    zIndex: 1300,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-end',
@@ -258,7 +258,7 @@ function ChatWidget() {
       {open && (
         <Card className={styles.chatPanel}>
           <div className={styles.header}>
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
               <Text className={styles.title}>{t('chat.supportTitle')}</Text>
               <Text style={{ fontSize: '0.75rem', opacity: 0.9 }}>AI-Powered Assistant</Text>
             </div>
