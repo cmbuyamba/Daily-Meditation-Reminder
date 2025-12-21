@@ -6,7 +6,6 @@ import {
   Text,
   Button,
   Input,
-  Textarea,
   Card,
 } from '@fluentui/react-components';
 import { Chat24Regular, Dismiss24Regular, Send24Filled } from '@fluentui/react-icons';
@@ -25,25 +24,50 @@ const useStyles = makeStyles({
   teaserCard: {
     display: 'flex',
     alignItems: 'center',
-    ...shorthands.gap('12px'),
+    ...shorthands.gap('8px'),
     backgroundColor: '#0f6cbd',
     color: tokens.colorNeutralForegroundInverted,
-    ...shorthands.padding('14px', '18px'),
-    ...shorthands.borderRadius('14px'),
-    boxShadow: '0 6px 24px rgba(0,0,0,0.2)',
+    ...shorthands.padding('16px', '20px'),
+    ...shorthands.borderRadius('20px'),
+    boxShadow: '0 10px 30px rgba(0,0,0,0.25)',
     cursor: 'pointer',
   },
-  avatar: {
-    width: '44px',
-    height: '44px',
+  avatarWrap: {
+    position: 'relative',
+    width: '60px',
+    height: '60px',
     ...shorthands.borderRadius('50%'),
-    background: 'linear-gradient(135deg, #ffffff 0%, #bcd4f5 100%)',
+    backgroundColor: '#ffffff',
+    boxShadow: '0 0 0 4px #0f6cbd inset',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  avatarInner: {
+    width: '48px',
+    height: '48px',
+    ...shorthands.borderRadius('50%'),
+    background: 'linear-gradient(135deg, #f3f6fc 0%, #bcd4f5 100%)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     color: '#0f6cbd',
     fontWeight: 700,
     fontSize: '1rem',
+  },
+  avatarBadge: {
+    position: 'absolute',
+    top: '-2px',
+    right: '-2px',
+    width: '22px',
+    height: '22px',
+    ...shorthands.borderRadius('50%'),
+    backgroundColor: '#ffffff',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: '#0f6cbd',
   },
   chatPanel: {
     width: '340px',
@@ -139,10 +163,13 @@ function ChatWidget() {
     <div className={styles.container}>
       {!open && (
         <div className={styles.teaserCard} onClick={() => setOpen(true)}>
-          <div className={styles.avatar}>💬</div>
+          <div className={styles.avatarWrap}>
+            <div className={styles.avatarInner} />
+            <div className={styles.avatarBadge}><Chat24Regular /></div>
+          </div>
           <div>
-            <Text weight="semibold" style={{ color: '#fff' }}>Need help?</Text>
-            <Text style={{ color: '#fff' }}>Let's chat</Text>
+            <Text weight="semibold" style={{ color: '#fff', fontSize: '1.25rem' }}>Need help?</Text>
+            <Text style={{ color: '#fff', fontSize: '1.25rem' }}>Let's chat</Text>
           </div>
         </div>
       )}
