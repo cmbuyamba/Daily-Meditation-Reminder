@@ -3,6 +3,8 @@ import { FluentProvider, webLightTheme } from '@fluentui/react-components';
 import './App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import MemberBenefits from './components/MemberBenefits';
+import Testimonials from './components/Testimonials';
 import About from './components/About';
 import Leadership from './components/Leadership';
 import Objectives from './components/Objectives';
@@ -24,15 +26,17 @@ function App() {
       <div className="App">
         <Header />
         <Hero />
+        <MemberBenefits />
+        <Testimonials />
         <About />
-        <Leadership />
-        <Objectives />
         <WhatWeDo />
         <WhoWeServe />
         <Programs />
+        <Conference />
+        <Leadership />
+        <Objectives />
         <Ministries />
         <Gallery />
-        <Conference />
         <Resources />
         <Newsletter />
         <Contact />
