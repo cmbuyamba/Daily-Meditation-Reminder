@@ -77,45 +77,70 @@ const useStyles = makeStyles({
     display: 'block',
   },
   partnerSection: {
-    ...shorthands.padding('32px'),
-    backgroundColor: tokens.colorNeutralBackground1,
+    ...shorthands.padding('40px', '20px'),
+    backgroundColor: '#f8f9fa',
     ...shorthands.borderRadius('12px'),
-    marginTop: '32px',
+    marginTop: '40px',
+    overflow: 'hidden',
   },
   partnerTitle: {
     fontSize: '2rem',
-    marginBottom: '20px',
+    marginBottom: '12px',
     color: tokens.colorBrandBackground,
     fontWeight: '600',
     textAlign: 'center',
     display: 'block',
   },
   partnerText: {
-    fontSize: '1.1rem',
-    lineHeight: '1.8',
+    fontSize: '1.05rem',
+    lineHeight: '1.6',
     color: tokens.colorNeutralForeground2,
-    marginBottom: '30px',
+    marginBottom: '40px',
     textAlign: 'center',
     display: 'block',
   },
-  partnerList: {
-    display: 'flex',
-    flexDirection: 'column',
-    ...shorthands.gap('15px'),
-    maxWidth: '600px',
-    margin: '0 auto',
+  carouselContainer: {
+    position: 'relative',
+    overflow: 'hidden',
+    width: '100%',
+    ...shorthands.padding('20px', '0'),
   },
-  partnerItem: {
+  carouselTrack: {
+    display: 'flex',
+    ...shorthands.gap('60px'),
+    animationName: {
+      '0%': { transform: 'translateX(0)' },
+      '100%': { transform: 'translateX(-50%)' },
+    },
+    animationDuration: '30s',
+    animationTimingFunction: 'linear',
+    animationIterationCount: 'infinite',
+    '&:hover': {
+      animationPlayState: 'paused',
+    },
+  },
+  logoItem: {
     display: 'flex',
     alignItems: 'center',
-    ...shorthands.gap('15px'),
-    ...shorthands.padding('15px'),
-    backgroundColor: '#f0f7ff',
+    justifyContent: 'center',
+    minWidth: '200px',
+    height: '100px',
+    ...shorthands.padding('20px'),
+    backgroundColor: '#ffffff',
     ...shorthands.borderRadius('8px'),
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+    ...shorthands.transition('all', '0.3s', 'ease'),
+    '&:hover': {
+      transform: 'scale(1.05)',
+      boxShadow: '0 4px 16px rgba(0, 0, 0, 0.12)',
+    },
   },
-  partnerItemText: {
-    fontSize: '1.05rem',
+  logoText: {
+    fontSize: '1rem',
+    fontWeight: '600',
     color: tokens.colorNeutralForeground1,
+    textAlign: 'center',
+    lineHeight: '1.3',
   },
 });
 
@@ -150,11 +175,11 @@ function Resources() {
   ];
 
   const partners = [
-    'United States Conference of Catholic Bishops (USCCB)',
-    'Local Diocesan Offices',
-    'African and Haitian Catholic Ministries',
-    'National Catholic Organizations',
-    'Intercultural Ministry Programs'
+    { name: 'USCCB', fullName: 'United States Conference of Catholic Bishops' },
+    { name: 'Local Dioceses', fullName: 'Local Diocesan Offices' },
+    { name: 'African & Haitian Ministries', fullName: 'African and Haitian Catholic Ministries' },
+    { name: 'National Catholic Orgs', fullName: 'National Catholic Organizations' },
+    { name: 'Intercultural Programs', fullName: 'Intercultural Ministry Programs' },
   ];
 
   return (
@@ -192,13 +217,21 @@ function Resources() {
             NAACUS collaborates with various Catholic organizations, dioceses, and ministries 
             to support African Catholics throughout the United States.
           </Text>
-          <div className={styles.partnerList}>
-            {partners.map((partner, index) => (
-              <div key={index} className={styles.partnerItem}>
-                <Link24Regular color={tokens.colorBrandBackground} />
-                <Text className={styles.partnerItemText}>{partner}</Text>
-              </div>
-            ))}
+          <div className={styles.carouselContainer}>
+            <div className={styles.carouselTrack}>
+              {/* First set of logos */}
+              {partners.map((partner, index) => (
+                <div key={`logo-1-${index}`} className={styles.logoItem} title={partner.fullName}>
+                  <Text className={styles.logoText}>{partner.name}</Text>
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {partners.map((partner, index) => (
+                <div key={`logo-2-${index}`} className={styles.logoItem} title={partner.fullName}>
+                  <Text className={styles.logoText}>{partner.name}</Text>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

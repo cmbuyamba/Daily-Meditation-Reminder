@@ -214,6 +214,40 @@ function Hero() {
             {t('hero.becomeMemberButton')}
           </Button>
           <Button 
+            appearance="primary" 
+            size="large"
+            onClick={() => window.location.href = '/membership'}
+            style={{
+              backgroundColor: '#0067b8',
+              borderColor: '#0067b8',
+              fontSize: '1.15rem',
+              padding: '18px 48px',
+              height: 'auto',
+              fontWeight: '600',
+              borderRadius: '8px',
+              boxShadow: '0 4px 16px rgba(0, 103, 184, 0.3)',
+            }}
+          >
+            Become a Member
+          </Button>
+          <Button 
+            appearance="primary" 
+            size="large"
+            onClick={() => window.location.href = '/volunteer'}
+            style={{
+              backgroundColor: '#d83b01',
+              borderColor: '#d83b01',
+              fontSize: '1.15rem',
+              padding: '18px 48px',
+              height: 'auto',
+              fontWeight: '600',
+              borderRadius: '8px',
+              boxShadow: '0 4px 16px rgba(216, 59, 1, 0.3)',
+            }}
+          >
+            Volunteer with Us
+          </Button>
+          <Button 
             appearance="outline" 
             size="large"
             onClick={() => scrollToSection('about')}

@@ -225,16 +225,16 @@ function Header() {
               {t('header.nav.events')}
             </button>
             <button 
-              onClick={() => handleNavigation(null, 'ministries')}
+              onClick={() => handleNavigation('/membership', null)}
               className={styles.navLink}
             >
-              {t('header.nav.ministries')}
+              Membership
             </button>
             <button 
-              onClick={() => handleNavigation(null, 'gallery')}
+              onClick={() => handleNavigation('/volunteer', null)}
               className={styles.navLink}
             >
-              {t('header.nav.gallery')}
+              Volunteer
             </button>
             <button 
               onClick={() => handleNavigation(null, 'resources')}
@@ -290,8 +290,8 @@ function Header() {
                 <MenuItem onClick={() => handleNavigation(null, 'leadership')}>{t('header.nav.leadership')}</MenuItem>
                 <MenuItem onClick={() => handleNavigation(null, 'objectives')}>{t('header.nav.objectives')}</MenuItem>
                 <MenuItem onClick={() => handleNavigation(null, 'programs')}>{t('header.nav.events')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation(null, 'ministries')}>{t('header.nav.ministries')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation(null, 'gallery')}>{t('header.nav.gallery')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation('/membership', null)}>Membership</MenuItem>
+                <MenuItem onClick={() => handleNavigation('/volunteer', null)}>Volunteer</MenuItem>
                 <MenuItem onClick={() => handleNavigation(null, 'resources')}>{t('header.nav.resources')}</MenuItem>
                 <MenuItem onClick={() => handleNavigation(null, 'contact')}>{t('header.nav.contact')}</MenuItem>
               </MenuList>

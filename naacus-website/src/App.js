@@ -5,6 +5,8 @@ import './App.css';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import EventsPage from './pages/EventsPage';
+import MembershipPage from './pages/MembershipPage';
+import VolunteerPage from './pages/VolunteerPage';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import JoinNowButton from './components/JoinNowButton';
@@ -18,6 +20,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/events" element={<EventsPage />} />
+            <Route path="/membership" element={<MembershipPage />} />
+            <Route path="/volunteer" element={<VolunteerPage />} />
           </Routes>
           <Footer />
           <BackToTop />
