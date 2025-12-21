@@ -11,88 +11,123 @@ import {
   MenuPopover,
   MenuList,
   MenuItem,
-  Button
+  Button,
+  Input
 } from '@fluentui/react-components';
-import { Navigation24Regular } from '@fluentui/react-icons';
+import { Navigation24Regular, Search24Regular, Person24Regular } from '@fluentui/react-icons';
 import LanguageSwitcher from './LanguageSwitcher';
 
 const useStyles = makeStyles({
   header: {
-    backgroundColor: 'rgba(255, 255, 255, 0.98)',
-    '@supports (backdrop-filter: blur(10px))': {
-      backdropFilter: 'blur(10px)',
-    },
-    color: tokens.colorNeutralForeground1,
+    backgroundColor: '#ffffff',
+    color: '#262626',
     position: 'fixed',
     top: 0,
     left: 0,
     right: 0,
     zIndex: 1000,
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
-    ...shorthands.padding('16px', '0'),
-    ...shorthands.borderBottom('1px', 'solid', '#e1dfdd'),
-    transition: 'transform 0.3s ease, opacity 0.3s ease',
-  },
-  headerHidden: {
-    transform: 'translateY(-100%)',
-    opacity: 0,
+    boxShadow: 'none',
+    ...shorthands.borderBottom('1px', 'solid', '#e5e5e5'),
+    height: '54px',
+    display: 'flex',
+    alignItems: 'center',
   },
   headerContainer: {
-    maxWidth: '1200px',
+    width: '100%',
+    maxWidth: '1600px',
     ...shorthands.margin('0', 'auto'),
-    ...shorthands.padding('0', '20px'),
+    ...shorthands.padding('0', '5%'),
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    height: '100%',
+  },
+  leftSection: {
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('24px'),
+    flex: 1,
   },
   logo: {
     display: 'flex',
-    flexDirection: 'column',
-    ...shorthands.gap('4px'),
+    alignItems: 'center',
+    cursor: 'pointer',
+    ...shorthands.padding('0', '12px', '0', '0'),
   },
   logoTitle: {
-    fontSize: '1.5rem',
+    fontSize: '15px',
     fontWeight: '600',
-    letterSpacing: '0.5px',
+    letterSpacing: '0.3px',
     margin: 0,
-    color: tokens.colorBrandBackground,
-    display: 'block',
-  },
-  tagline: {
-    fontSize: '0.75rem',
-    margin: 0,
-    opacity: 0.7,
-    color: tokens.colorNeutralForeground2,
-    display: 'block',
-    fontWeight: '400',
+    color: '#0067b8',
+    whiteSpace: 'nowrap',
   },
   nav: {
     display: 'flex',
-    ...shorthands.gap('10px'),
-    '@media (max-width: 768px)': {
+    alignItems: 'center',
+    ...shorthands.gap('0'),
+    ...shorthands.margin('0'),
+    ...shorthands.padding('0'),
+    listStyle: 'none',
+    '@media (max-width: 1024px)': {
       display: 'none',
     },
   },
   navLink: {
-    color: tokens.colorNeutralForeground1,
+    color: '#262626',
     textDecoration: 'none',
-    fontSize: '0.9rem',
-    fontWeight: '500',
-    transition: 'color 0.2s ease',
-    '&:hover': {
-      color: tokens.colorBrandBackground,
-    },
-  },
-  mobileMenu: {
-    display: 'none',
-    '@media (max-width: 768px)': {
-      display: 'block',
-    },
-  },
-  headerActions: {
+    fontSize: '13px',
+    fontWeight: '400',
+    ...shorthands.padding('0', '12px'),
+    height: '54px',
     display: 'flex',
     alignItems: 'center',
-    ...shorthands.gap('12px'),
+    transition: 'background-color 0.1s ease',
+    backgroundColor: 'transparent',
+    ...shorthands.border('none'),
+    cursor: 'pointer',
+    '&:hover': {
+      backgroundColor: '#f2f2f2',
+      textDecoration: 'underline',
+    },
+  },
+  rightSection: {
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('16px'),
+  },
+function Header() {
+  const { t } = useTranslation();
+  const styles = useStyles();
+  const navigate = useNavigate();
+  const location = useLocation();
+  },
+  signInButton: {
+    fontSize: '13px',
+    fontWeight: '400',
+    height: '32px',
+    ...shorthands.padding('0', '12px'),
+    backgroundColor: 'transparent',
+    color: '#262626',
+    ...shorthands.border('1px', 'solid', '#e5e5e5'),
+    ...shorthands.borderRadius('2px'),
+    '&:hover': {
+      backgroundColor: '#f2f2f2',
+    },
+    '@media (max-width: 768px)': {
+      display: 'none',
+    },
+  },
+  mobileMenuButton: {
+    display: 'none',
+    '@media (max-width: 1024px)': {
+      display: 'flex',
+    },
+  },
+  languageSwitcher: {
+    '@media (max-width: 768px)': {
+      display: 'none',
+    },
   },
 });
 
@@ -187,78 +222,92 @@ function Header() {
             </Button>
             <Button 
               appearance="transparent" 
+              onClick={styles.header}>
+      <div className={styles.headerContainer}>
+        {/* Left Section: Logo + Navigation */}
+        <div className={styles.leftSection}>
+          <div className={styles.logo} onClick={() => handleNavigation(null, 'home')}>
+            <Text as="h1" className={styles.logoTitle}>{t('header.title')}</Text>
+          </div>
+          
+          <nav className={styles.nav}>
+            <button 
+              onClick={() => handleNavigation('/events', null)}
+              className={styles.navLink}
+            >
+              {t('header.nav.naacus2025', 'NAACUS 2025')}
+            </button>
+            <button 
+              onClick={() => handleNavigation(null, 'about')}
+              className={styles.navLink}
+            >
+              {t('header.nav.about')}
+            </button>
+            <button 
               onClick={() => handleNavigation(null, 'leadership')}
               className={styles.navLink}
             >
               {t('header.nav.leadership')}
-            </Button>
-            <Button 
-              appearance="transparent" 
+            </button>
+            <button 
               onClick={() => handleNavigation(null, 'programs')}
               className={styles.navLink}
             >
               {t('header.nav.events')}
-            </Button>
-            <Button 
-              appearance="transparent" 
+            </button>
+            <button 
               onClick={() => handleNavigation(null, 'ministries')}
               className={styles.navLink}
             >
               {t('header.nav.ministries')}
-            </Button>
-            <Button 
-              appearance="transparent" 
+            </button>
+            <button 
               onClick={() => handleNavigation(null, 'gallery')}
               className={styles.navLink}
             >
               {t('header.nav.gallery')}
-            </Button>
-            <Button 
-              appearance="transparent" 
+            </button>
+            <button 
               onClick={() => handleNavigation(null, 'resources')}
               className={styles.navLink}
             >
               {t('header.nav.resources')}
-            </Button>
-            <Button 
-              appearance="transparent" 
+            </button>
+            <button 
               onClick={() => handleNavigation(null, 'contact')}
               className={styles.navLink}
             >
               {t('header.nav.contact')}
-            </Button>
+            </button>
           </nav>
-          <LanguageSwitcher />
         </div>
-        <div className={styles.mobileMenu}>
-          <LanguageSwitcher />
+
+        {/* Right Section: Search, Language, Sign In */}
+        <div className={styles.rightSection}>
+          <div className={styles.searchContainer}>
+            <Input 
+              className={styles.searchInput}
+              placeholder="Search"
+              contentAfter={<Search24Regular className={styles.searchIcon} />}
+            />
+          </div>
+          
+          <div className={styles.languageSwitcher}>
+            <LanguageSwitcher />
+          </div>
+          
+          <Button 
+            appearance="subtle"
+            className={styles.signInButton}
+            icon={<Person24Regular />}
+          >
+            Sign in
+          </Button>
+
+          {/* Mobile Menu */}
           <Menu>
             <MenuTrigger disableButtonEnhancement>
               <Button 
-                appearance="transparent" 
+                appearance="subtle"
                 icon={<Navigation24Regular />}
-                style={{ color: tokens.colorNeutralForeground1 }}
-              />
-            </MenuTrigger>
-            <MenuPopover>
-              <MenuList>
-                <MenuItem onClick={() => handleNavigation(null, 'home')}>{t('header.nav.home')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation('/events', null)}>{t('header.nav.naacus2025', 'NAACUS 2025')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation(null, 'about')}>{t('header.nav.about')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation(null, 'leadership')}>{t('header.nav.leadership')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation(null, 'objectives')}>{t('header.nav.objectives')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation(null, 'programs')}>{t('header.nav.events')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation(null, 'ministries')}>{t('header.nav.ministries')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation(null, 'gallery')}>{t('header.nav.gallery')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation(null, 'resources')}>{t('header.nav.resources')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation(null, 'contact')}>{t('header.nav.contact')}</MenuItem>
-              </MenuList>
-            </MenuPopover>
-          </Menu>
-        </div>
-      </div>
-    </header>
-  );
-}
-
-export default Header;
+                className={styles.mobileMenuButton
