@@ -24,18 +24,19 @@ const useStyles = makeStyles({
   teaserCard: {
     display: 'flex',
     alignItems: 'center',
-    ...shorthands.gap('8px'),
+    ...shorthands.gap('10px'),
     backgroundColor: '#0f6cbd',
     color: tokens.colorNeutralForegroundInverted,
-    ...shorthands.padding('16px', '20px'),
-    ...shorthands.borderRadius('20px'),
-    boxShadow: '0 10px 30px rgba(0,0,0,0.25)',
+    ...shorthands.padding('12px', '16px'),
+    ...shorthands.borderRadius('16px'),
+    boxShadow: '0 8px 20px rgba(0,0,0,0.18)',
+    maxWidth: '300px',
     cursor: 'pointer',
   },
   avatarWrap: {
     position: 'relative',
-    width: '60px',
-    height: '60px',
+    width: '52px',
+    height: '52px',
     ...shorthands.borderRadius('50%'),
     backgroundColor: '#ffffff',
     boxShadow: '0 0 0 4px #0f6cbd inset',
@@ -44,8 +45,8 @@ const useStyles = makeStyles({
     justifyContent: 'center',
   },
   avatarInner: {
-    width: '48px',
-    height: '48px',
+    width: '42px',
+    height: '42px',
     ...shorthands.borderRadius('50%'),
     background: 'linear-gradient(135deg, #f3f6fc 0%, #bcd4f5 100%)',
     display: 'flex',
@@ -59,8 +60,8 @@ const useStyles = makeStyles({
     position: 'absolute',
     top: '-2px',
     right: '-2px',
-    width: '22px',
-    height: '22px',
+    width: '20px',
+    height: '20px',
     ...shorthands.borderRadius('50%'),
     backgroundColor: '#ffffff',
     boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
@@ -167,9 +168,9 @@ function ChatWidget() {
             <div className={styles.avatarInner} />
             <div className={styles.avatarBadge}><Chat24Regular /></div>
           </div>
-          <div>
-            <Text weight="semibold" style={{ color: '#fff', fontSize: '1.25rem' }}>Need help?</Text>
-            <Text style={{ color: '#fff', fontSize: '1.25rem' }}>Let's chat</Text>
+          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.2 }}>
+            <Text as="div" weight="semibold" style={{ color: '#fff', fontSize: '1.1rem' }}>Need help?</Text>
+            <Text as="div" style={{ color: '#fff', fontSize: '1.1rem' }}>Let's chat</Text>
           </div>
         </div>
       )}

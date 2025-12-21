@@ -7,6 +7,10 @@ import HomePage from './pages/HomePage';
 import EventsPage from './pages/EventsPage';
 import MembershipPage from './pages/MembershipPage';
 import VolunteerPage from './pages/VolunteerPage';
+import AboutPage from './pages/AboutPage';
+import LeadershipPage from './pages/LeadershipPage';
+import ResourcesPage from './pages/ResourcesPage';
+import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import SubscribeButton from './components/SubscribeButton';
@@ -21,8 +25,12 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/events" element={<EventsPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/leadership" element={<LeadershipPage />} />
             <Route path="/membership" element={<MembershipPage />} />
             <Route path="/volunteer" element={<VolunteerPage />} />
+            <Route path="/resources" element={<ResourcesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
           <Footer />
           <BackToTop />
