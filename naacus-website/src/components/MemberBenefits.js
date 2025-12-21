@@ -5,8 +5,7 @@ import {
   shorthands,
   tokens,
   Text,
-  Card,
-  Button
+  Card
 } from '@fluentui/react-components';
 import {
   People24Regular,
@@ -135,13 +134,6 @@ const useStyles = makeStyles({
 function MemberBenefits() {
   const { t } = useTranslation();
   const styles = useStyles();
-
-  const scrollToNewsletter = () => {
-    const element = document.getElementById('newsletter');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const benefits = [
     {

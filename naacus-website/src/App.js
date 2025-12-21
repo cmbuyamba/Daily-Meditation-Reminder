@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Conference2027Teaser from './components/Conference2027Teaser';
+import { Naacus2025Accomplishments } from './components/naacus2025';
 import MemberBenefits from './components/MemberBenefits';
 import Testimonials from './components/Testimonials';
 import About from './components/About';
@@ -29,6 +30,7 @@ function App() {
         <Header />
         <Hero />
         <Conference2027Teaser />
+        <Naacus2025Accomplishments />
         <MemberBenefits />
         <Testimonials />
         <About />
