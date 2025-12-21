@@ -10,7 +10,7 @@
 
 import { faqData, defaultResponses, quickActions } from '../data/faqData';
 import copilotStudioService from './copilotStudioService';
-import copilotStudioConfig, { validateConfig } from '../config/copilotStudioConfig';
+import { validateConfig } from '../config/copilotStudioConfig';
 
 // Track if Copilot Studio is available
 let copilotStudioAvailable = false;
@@ -330,7 +330,7 @@ export function cleanupCopilotStudio() {
   }
 }
 
-export default {
+const chatbotService = {
   initializeCopilotStudio,
   processMessage,
   getFaqById,
@@ -342,3 +342,5 @@ export default {
   cleanupCopilotStudio,
   copilotStudioService, // Export for advanced usage
 };
+
+export default chatbotService;
