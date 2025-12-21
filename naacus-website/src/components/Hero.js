@@ -84,16 +84,39 @@ const useStyles = makeStyles({
   heroButtons: {
     display: 'flex',
     flexDirection: 'column',
-    ...shorthands.gap('24px'),
+    ...shorthands.gap('16px'),
     alignItems: 'center',
-    marginTop: '56px',
+    marginTop: '40px',
     maxWidth: '800px',
-    margin: '56px auto 0',
+    margin: '40px auto 0',
   },
   primaryCTA: {
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
+  },
+  primaryButton: {
+    background: 'linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%)',
+    color: '#0f4c81',
+    border: '2px solid rgba(255, 255, 255, 0.9)',
+    fontSize: '1.1rem',
+    padding: '16px 44px',
+    fontWeight: '700',
+    borderRadius: '16px',
+    boxShadow: '0 8px 32px rgba(255, 255, 255, 0.3), 0 4px 16px rgba(0, 0, 0, 0.2)',
+    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+    letterSpacing: '0.6px',
+    textTransform: 'uppercase',
+    minWidth: '260px',
+    cursor: 'pointer',
+    '&:hover': {
+      transform: 'translateY(-4px) scale(1.02)',
+      boxShadow: '0 12px 40px rgba(255, 255, 255, 0.4), 0 6px 20px rgba(0, 0, 0, 0.25)',
+      background: 'linear-gradient(135deg, #ffffff 0%, #ffffff 100%)',
+    },
+    '&:active': {
+      transform: 'translateY(-2px)',
+    },
   },
   secondaryActions: {
     display: 'flex',
@@ -101,6 +124,32 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     flexWrap: 'wrap',
     width: '100%',
+  },
+  secondaryButton: {
+    border: '2px solid rgba(255, 255, 255, 0.75)',
+    color: 'rgba(255, 255, 255, 0.98)',
+    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+    fontSize: '0.95rem',
+    padding: '12px 28px',
+    fontWeight: '600',
+    borderRadius: '12px',
+    backdropFilter: 'blur(12px)',
+    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15)',
+    transition: 'all 0.3s ease',
+    flex: '1',
+    minWidth: '160px',
+    maxWidth: '220px',
+    cursor: 'pointer',
+    letterSpacing: '0.2px',
+    '&:hover': {
+      transform: 'translateY(-2px)',
+      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      borderColor: 'rgba(255, 255, 255, 0.9)',
+      boxShadow: '0 6px 20px rgba(0, 0, 0, 0.18)',
+    },
+    '&:active': {
+      transform: 'translateY(-1px)',
+    },
   },
   membershipHighlight: {
     background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.08) 100%)',
@@ -211,6 +260,14 @@ const useStyles = makeStyles({
     background: 'radial-gradient(circle, rgba(255, 215, 0, 0.12) 0%, transparent 70%)',
     pointerEvents: 'none',
   },
+  '@keyframes bounce': {
+    '0%, 100%': {
+      transform: 'translateY(0)',
+    },
+    '50%': {
+      transform: 'translateY(12px)',
+    },
+  },
 });
 
 function Hero() {
@@ -254,112 +311,30 @@ function Hero() {
         </div>
 
         <div className={styles.heroButtons}>
-          {/* Primary Call to Action - Main Focus */}
+          {/* Primary Call to Action */}
           <div className={styles.primaryCTA}>
-            <Button 
-              appearance="primary" 
-              size="large"
+            <button
               onClick={() => window.location.href = '/membership'}
-              style={{
-                background: 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)',
-                color: '#0f4c81',
-                border: '2px solid rgba(255, 255, 255, 0.9)',
-                fontSize: '1.3rem',
-                padding: '22px 56px',
-                height: 'auto',
-                fontWeight: '700',
-                borderRadius: '16px',
-                boxShadow: '0 10px 40px rgba(255, 255, 255, 0.3), 0 6px 20px rgba(0, 0, 0, 0.25)',
-                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                letterSpacing: '0.5px',
-                textTransform: 'uppercase',
-                minWidth: '300px',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px) scale(1.02)';
-                e.currentTarget.style.boxShadow = '0 16px 50px rgba(255, 255, 255, 0.4), 0 10px 28px rgba(0, 0, 0, 0.3)';
-                e.currentTarget.style.background = 'linear-gradient(135deg, #ffffff 0%, #ffffff 100%)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.boxShadow = '0 10px 40px rgba(255, 255, 255, 0.3), 0 6px 20px rgba(0, 0, 0, 0.25)';
-                e.currentTarget.style.background = 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)';
-              }}
+              className={styles.primaryButton}
             >
               ✝ Join Our Faith Community
-            </Button>
+            </button>
           </div>
-          
-          {/* Secondary Actions - Supportive Options */}
+
+          {/* Secondary Actions */}
           <div className={styles.secondaryActions}>
-            <Button 
-              appearance="outline" 
-              size="large"
+            <button
               onClick={() => window.location.href = '/about'}
-              style={{ 
-                color: 'rgba(255, 255, 255, 0.95)', 
-                borderColor: 'rgba(255, 255, 255, 0.7)',
-                fontSize: '1rem',
-                padding: '16px 32px',
-                height: 'auto',
-                borderWidth: '2px',
-                borderRadius: '12px',
-                fontWeight: '600',
-                backgroundColor: 'rgba(255, 255, 255, 0.12)',
-                backdropFilter: 'blur(12px)',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15)',
-                letterSpacing: '0.3px',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.22)';
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.9)';
-                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.12)';
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.7)';
-                e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.15)';
-              }}
+              className={styles.secondaryButton}
             >
-              🙏 Discover Our Mission
-            </Button>
-            <Button 
-              appearance="outline" 
-              size="large"
+              🙏 Learn Our Mission
+            </button>
+            <button
               onClick={() => window.location.href = '/volunteer'}
-              style={{ 
-                color: 'rgba(255, 255, 255, 0.95)', 
-                borderColor: 'rgba(255, 255, 255, 0.7)',
-                fontSize: '1rem',
-                padding: '16px 32px',
-                height: 'auto',
-                borderWidth: '2px',
-                borderRadius: '12px',
-                fontWeight: '600',
-                backgroundColor: 'rgba(255, 255, 255, 0.12)',
-                backdropFilter: 'blur(12px)',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15)',
-                letterSpacing: '0.3px',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.22)';
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.9)';
-                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.12)';
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.7)';
-                e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.15)';
-              }}
+              className={styles.secondaryButton}
             >
               💫 Get Involved
-            </Button>
+            </button>
           </div>
         </div>
       </div>
