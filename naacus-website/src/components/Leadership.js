@@ -6,7 +6,6 @@ import {
   Text,
   Card,
   Dialog,
-  DialogTrigger,
   DialogContent,
   DialogBody,
   DialogTitle,
@@ -219,8 +218,8 @@ function Leadership() {
       </div>
 
       {selectedMember && (
-        <Dialog open={!!selectedMember} onOpenChange={(_, { open }) => !open && setSelectedMember(null)}>
-          <DialogContent>
+        <Dialog open={true}>
+          <DialogContent style={{ maxWidth: '500px' }}>
             <DialogTitle className={styles.dialogTitle}>
               {selectedMember.name}
             </DialogTitle>
@@ -231,6 +230,19 @@ function Leadership() {
                     {selectedMember.title}
                   </Text>
                 </div>
+
+                <div>
+                  <Text as="h4" style={{ fontSize: '0.95rem', fontWeight: '600', marginBottom: '12px', color: tokens.colorNeutralForeground1 }}>
+                    About
+                  </Text>
+                  <Text as="p" style={{ fontSize: '0.9rem', lineHeight: '1.6', color: tokens.colorNeutralForeground2, marginBottom: '12px' }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </Text>
+                  <Text as="p" style={{ fontSize: '0.9rem', lineHeight: '1.6', color: tokens.colorNeutralForeground2 }}>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  </Text>
+                </div>
+
                 <div>
                   <Text as="h4" style={{ fontSize: '0.95rem', fontWeight: '600', marginBottom: '8px', color: tokens.colorNeutralForeground1 }}>
                     Contact Information
@@ -246,14 +258,14 @@ function Leadership() {
                     </Text>
                   )}
                 </div>
-                <Button appearance="secondary" onClick={() => setSelectedMember(null)}>
-                  Close
-                </Button>
-              </div>
-            </DialogBody>
-          </DialogContent>
-        </Dialog>
-      )}
+              <Button appearance="secondary" onClick={() => setSelectedMember(null)}>
+                Close
+              </Button>
+            </div>
+          </DialogBody>
+        </DialogContent>
+      </Dialog>
+    )}
     </section>
   );
 }
