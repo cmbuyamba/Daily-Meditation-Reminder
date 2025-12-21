@@ -2,6 +2,8 @@
 .App {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;
+  --header-height: 72px;
+  padding-top: var(--header-height); /* Space for fixed header */
   
   /* Design tokens for consistent styling */
   --card-hover-lift: -8px;

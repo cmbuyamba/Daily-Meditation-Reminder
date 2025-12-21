@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
@@ -22,13 +22,19 @@ const useStyles = makeStyles({
       backdropFilter: 'blur(10px)',
     },
     color: tokens.colorNeutralForeground1,
-    position: 'sticky',
+    position: 'fixed',
     top: 0,
+    left: 0,
+    right: 0,
     zIndex: 1000,
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
     ...shorthands.padding('16px', '0'),
     ...shorthands.borderBottom('1px', 'solid', '#e1dfdd'),
-    transition: 'all 0.3s ease',
+    transition: 'transform 0.3s ease, opacity 0.3s ease',
+  },
+  headerHidden: {
+    transform: 'translateY(-100%)',
+    opacity: 0,
   },
   headerContainer: {
     maxWidth: '1200px',
@@ -89,9 +95,40 @@ const useStyles = makeStyles({
   },
 });
 
+// Delay before showing menu after scroll stops (in milliseconds)
+const SCROLL_HIDE_DELAY = 150;
+
 function Header() {
   const { t } = useTranslation();
   const styles = useStyles();
+  const [isScrolling, setIsScrolling] = useState(false);
+  const scrollTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Set scrolling state to true
+      setIsScrolling(true);
+
+      // Clear previous timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+
+      // Set new timeout to detect when scrolling stops
+      scrollTimeoutRef.current = setTimeout(() => {
+        setIsScrolling(false);
+      }, SCROLL_HIDE_DELAY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, []); // Empty dependency array - effect runs only on mount/unmount
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -101,7 +138,7 @@ function Header() {
   };
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${isScrolling ? styles.headerHidden : ''}`}>
       <div className={styles.headerContainer}>
         <div className={styles.logo}>
           <Text as="h1" className={styles.logoTitle}>{t('header.title')}</Text>
