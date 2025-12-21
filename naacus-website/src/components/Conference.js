@@ -5,7 +5,6 @@ import {
   tokens,
   Text,
   Card,
-  CardHeader,
   Button
 } from '@fluentui/react-components';
 import { CheckmarkCircle24Regular } from '@fluentui/react-icons';
