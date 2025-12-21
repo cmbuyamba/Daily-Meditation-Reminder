@@ -4,8 +4,7 @@ import {
   makeStyles,
   shorthands,
   tokens,
-  Text,
-  Button
+  Text
 } from '@fluentui/react-components';
 
 const useStyles = makeStyles({
@@ -273,13 +272,6 @@ const useStyles = makeStyles({
 function Hero() {
   const { t } = useTranslation();
   const styles = useStyles();
-
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section id="home" className={styles.hero}>

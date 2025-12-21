@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
   shorthands,
-  Button, tokens
+  Button
 } from '@fluentui/react-components';
 import { ArrowUp24Regular } from '@fluentui/react-icons';
 

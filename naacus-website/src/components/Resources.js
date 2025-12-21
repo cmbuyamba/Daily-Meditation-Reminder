@@ -10,8 +10,7 @@ import {
 import { 
   DocumentBulletList24Regular,
   News24Regular,
-  FormNew24Regular,
-  Link24Regular
+  FormNew24Regular
 } from '@fluentui/react-icons';
 
 const useStyles = makeStyles({

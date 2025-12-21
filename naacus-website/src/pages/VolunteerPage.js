@@ -163,28 +163,28 @@ function VolunteerPage() {
   });
 
   const volunteerInterestOptions = [
-    'Event Planning & Coordination',
-    'Youth & Children Programs',
-    'Administrative Support',
-    'Communications & Social Media',
-    'Fundraising',
-    'Community Outreach',
-    'Translation Services',
-    'Technology & Website',
-    'Hospitality & Welcoming',
-    'Music & Liturgy',
-    'Education & Tutoring',
-    'Prayer & Spiritual Support',
+    { key: 'Event Planning & Coordination', label: t('volunteer.interestEventPlanning') },
+    { key: 'Youth & Children Programs', label: t('volunteer.interestYouth') },
+    { key: 'Administrative Support', label: t('volunteer.interestAdmin') },
+    { key: 'Communications & Social Media', label: t('volunteer.interestComms') },
+    { key: 'Fundraising', label: t('volunteer.interestFundraising') },
+    { key: 'Community Outreach', label: t('volunteer.interestOutreach') },
+    { key: 'Translation Services', label: t('volunteer.interestTranslation') },
+    { key: 'Technology & Website', label: t('volunteer.interestTech') },
+    { key: 'Hospitality & Welcoming', label: t('volunteer.interestHospitality') },
+    { key: 'Music & Liturgy', label: t('volunteer.interestMusic') },
+    { key: 'Education & Tutoring', label: t('volunteer.interestEducation') },
+    { key: 'Prayer & Spiritual Support', label: t('volunteer.interestPrayer') },
   ];
 
   const availabilityOptions = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',
+    { key: 'Monday', label: t('volunteer.monday') },
+    { key: 'Tuesday', label: t('volunteer.tuesday') },
+    { key: 'Wednesday', label: t('volunteer.wednesday') },
+    { key: 'Thursday', label: t('volunteer.thursday') },
+    { key: 'Friday', label: t('volunteer.friday') },
+    { key: 'Saturday', label: t('volunteer.saturday') },
+    { key: 'Sunday', label: t('volunteer.sunday') },
   ];
 
   const handleInputChange = (field, value) => {
@@ -229,11 +229,9 @@ function VolunteerPage() {
       <div className={styles.volunteerPage}>
         <div className={styles.container}>
           <div className={styles.successMessage}>
-            <Text className={styles.successTitle}>Thank You for Your Commitment!</Text>
+            <Text className={styles.successTitle}>{t('volunteer.successTitle')}</Text>
             <Text className={styles.successText}>
-              Your volunteer application has been received. We're grateful for your willingness to serve 
-              the NAACUS community. Our volunteer coordinator will contact you within 3-5 business days 
-              to discuss opportunities that match your interests and availability.
+              {t('volunteer.successMessage')}
             </Text>
             <Button
               appearance="primary"
@@ -245,7 +243,7 @@ function VolunteerPage() {
                 borderColor: '#d83b01',
               }}
             >
-              Return to Home
+              {t('volunteer.returnHome')}
             </Button>
           </div>
         </div>
@@ -257,21 +255,20 @@ function VolunteerPage() {
     <div className={styles.volunteerPage}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <Text as="h1" className={styles.title}>Volunteer with NAACUS</Text>
+          <Text as="h1" className={styles.title}>{t('volunteer.title')}</Text>
           <Text className={styles.subtitle}>
-            Make a difference in the African Catholic community. Share your time, talents, and passion 
-            to help strengthen our mission and serve our members.
+            {t('volunteer.subtitle')}
           </Text>
         </div>
 
         <form onSubmit={handleSubmit}>
           {/* Personal Information */}
           <Card className={styles.formCard}>
-            <Text className={styles.sectionTitle}>Personal Information</Text>
+            <Text className={styles.sectionTitle}>{t('volunteer.personalInfo')}</Text>
             <div className={styles.formGrid}>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  First Name <span className={styles.required}>*</span>
+                  {t('volunteer.firstName')} <span className={styles.required}>{t('volunteer.required')}</span>
                 </label>
                 <Input
                   required
@@ -281,7 +278,7 @@ function VolunteerPage() {
               </div>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  Last Name <span className={styles.required}>*</span>
+                  {t('volunteer.lastName')} <span className={styles.required}>{t('volunteer.required')}</span>
                 </label>
                 <Input
                   required
@@ -291,7 +288,7 @@ function VolunteerPage() {
               </div>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  Email <span className={styles.required}>*</span>
+                  {t('volunteer.email')} <span className={styles.required}>{t('volunteer.required')}</span>
                 </label>
                 <Input
                   type="email"
@@ -302,7 +299,7 @@ function VolunteerPage() {
               </div>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  Phone <span className={styles.required}>*</span>
+                  {t('volunteer.phone')} <span className={styles.required}>{t('volunteer.required')}</span>
                 </label>
                 <Input
                   type="tel"
@@ -313,7 +310,7 @@ function VolunteerPage() {
               </div>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  City <span className={styles.required}>*</span>
+                  {t('volunteer.city')} <span className={styles.required}>{t('volunteer.required')}</span>
                 </label>
                 <Input
                   required
@@ -323,7 +320,7 @@ function VolunteerPage() {
               </div>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  State <span className={styles.required}>*</span>
+                  {t('volunteer.state')} <span className={styles.required}>{t('volunteer.required')}</span>
                 </label>
                 <Input
                   required
@@ -332,7 +329,7 @@ function VolunteerPage() {
                 />
               </div>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
-                <label className={styles.label}>Zip Code</label>
+                <label className={styles.label}>{t('volunteer.zipCode')}</label>
                 <Input
                   value={formData.zipCode}
                   onChange={(e) => handleInputChange('zipCode', e.target.value)}
@@ -343,38 +340,38 @@ function VolunteerPage() {
 
           {/* Skills & Background */}
           <Card className={styles.formCard}>
-            <Text className={styles.sectionTitle}>Skills & Experience</Text>
+            <Text className={styles.sectionTitle}>{t('volunteer.skillsExperience')}</Text>
             <div className={styles.formGrid}>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
-                <label className={styles.label}>Languages Spoken</label>
+                <label className={styles.label}>{t('volunteer.languagesSpoken')}</label>
                 <Input
-                  placeholder="e.g., English, French, Swahili, Portuguese..."
+                  placeholder={t('volunteer.languagesPlaceholder')}
                   value={formData.languagesSpoken}
                   onChange={(e) => handleInputChange('languagesSpoken', e.target.value)}
                 />
               </div>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
-                <label className={styles.label}>Professional Skills & Expertise</label>
+                <label className={styles.label}>{t('volunteer.professionalSkills')}</label>
                 <Textarea
-                  placeholder="Share your professional skills, certifications, or relevant expertise..."
+                  placeholder={t('volunteer.professionalSkillsPlaceholder')}
                   value={formData.skills}
                   onChange={(e) => handleInputChange('skills', e.target.value)}
                   rows={3}
                 />
               </div>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
-                <label className={styles.label}>Previous Volunteer Experience</label>
+                <label className={styles.label}>{t('volunteer.previousExperience')}</label>
                 <Textarea
-                  placeholder="Describe any previous volunteer experience, especially in church or community organizations..."
+                  placeholder={t('volunteer.previousExperiencePlaceholder')}
                   value={formData.previousExperience}
                   onChange={(e) => handleInputChange('previousExperience', e.target.value)}
                   rows={3}
                 />
               </div>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
-                <label className={styles.label}>Special Skills or Talents</label>
+                <label className={styles.label}>{t('volunteer.specialSkills')}</label>
                 <Textarea
-                  placeholder="e.g., graphic design, event planning, music, photography, public speaking..."
+                  placeholder={t('volunteer.specialSkillsPlaceholder')}
                   value={formData.specialSkills}
                   onChange={(e) => handleInputChange('specialSkills', e.target.value)}
                   rows={3}
@@ -385,27 +382,27 @@ function VolunteerPage() {
 
           {/* Volunteer Interests */}
           <Card className={styles.formCard}>
-            <Text className={styles.sectionTitle}>Volunteer Interests</Text>
+            <Text className={styles.sectionTitle}>{t('volunteer.volunteerInterests')}</Text>
             <div className={styles.formGrid}>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
                 <label className={styles.label}>
-                  Areas of Interest <span className={styles.required}>*</span> (Select all that apply)
+                  {t('volunteer.areasOfInterest')} <span className={styles.required}>{t('volunteer.required')}</span>
                 </label>
                 <div className={styles.checkboxGroup}>
                   {volunteerInterestOptions.map((option) => (
                     <Checkbox
-                      key={option}
-                      label={option}
-                      checked={formData.volunteerInterests.includes(option)}
-                      onChange={(e, data) => handleCheckboxChange('volunteerInterests', option, data.checked)}
+                      key={option.key}
+                      label={option.label}
+                      checked={formData.volunteerInterests.includes(option.key)}
+                      onChange={(e, data) => handleCheckboxChange('volunteerInterests', option.key, data.checked)}
                     />
                   ))}
                 </div>
               </div>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
-                <label className={styles.label}>Preferred Role or Tasks</label>
+                <label className={styles.label}>{t('volunteer.preferredRole')}</label>
                 <Textarea
-                  placeholder="Describe the type of volunteer work you'd most enjoy or excel at..."
+                  placeholder={t('volunteer.preferredRolePlaceholder')}
                   value={formData.preferredRole}
                   onChange={(e) => handleInputChange('preferredRole', e.target.value)}
                   rows={3}
@@ -416,50 +413,50 @@ function VolunteerPage() {
 
           {/* Availability */}
           <Card className={styles.formCard}>
-            <Text className={styles.sectionTitle}>Availability</Text>
+            <Text className={styles.sectionTitle}>{t('volunteer.availability')}</Text>
             <div className={styles.formGrid}>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
                 <label className={styles.label}>
-                  Days Available <span className={styles.required}>*</span>
+                  {t('volunteer.daysAvailable')} <span className={styles.required}>{t('volunteer.required')}</span>
                 </label>
                 <div className={styles.checkboxGroup}>
                   {availabilityOptions.map((option) => (
                     <Checkbox
-                      key={option}
-                      label={option}
-                      checked={formData.availability.includes(option)}
-                      onChange={(e, data) => handleCheckboxChange('availability', option, data.checked)}
+                      key={option.key}
+                      label={option.label}
+                      checked={formData.availability.includes(option.key)}
+                      onChange={(e, data) => handleCheckboxChange('availability', option.key, data.checked)}
                     />
                   ))}
                 </div>
               </div>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  Time Preference <span className={styles.required}>*</span>
+                  {t('volunteer.timePreference')} <span className={styles.required}>{t('volunteer.required')}</span>
                 </label>
                 <Dropdown
                   value={formData.timePreference}
                   onOptionSelect={(e, data) => handleInputChange('timePreference', data.optionValue)}
-                  placeholder="Select time preference"
+                  placeholder={t('volunteer.timePlaceholder')}
                 >
-                  <Option value="morning">Morning (8am - 12pm)</Option>
-                  <Option value="afternoon">Afternoon (12pm - 5pm)</Option>
-                  <Option value="evening">Evening (5pm - 9pm)</Option>
-                  <Option value="flexible">Flexible</Option>
+                  <Option value="morning">{t('volunteer.timeMorning')}</Option>
+                  <Option value="afternoon">{t('volunteer.timeAfternoon')}</Option>
+                  <Option value="evening">{t('volunteer.timeEvening')}</Option>
+                  <Option value="flexible">{t('volunteer.timeFlexible')}</Option>
                 </Dropdown>
               </div>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  Hours Per Month <span className={styles.required}>*</span>
+                  {t('volunteer.hoursPerMonth')} <span className={styles.required}>{t('volunteer.required')}</span>
                 </label>
                 <Dropdown
                   value={formData.hoursPerMonth}
                   onOptionSelect={(e, data) => handleInputChange('hoursPerMonth', data.optionValue)}
                 >
-                  <Option value="1-5">1-5 hours</Option>
-                  <Option value="6-10">6-10 hours</Option>
-                  <Option value="11-20">11-20 hours</Option>
-                  <Option value="20+">20+ hours</Option>
+                  <Option value="1-5">{t('volunteer.hours1to5')}</Option>
+                  <Option value="6-10">{t('volunteer.hours6to10')}</Option>
+                  <Option value="11-20">{t('volunteer.hours11to20')}</Option>
+                  <Option value="20+">{t('volunteer.hours20plus')}</Option>
                 </Dropdown>
               </div>
             </div>
@@ -467,11 +464,11 @@ function VolunteerPage() {
 
           {/* Emergency Contact & Consent */}
           <Card className={styles.formCard}>
-            <Text className={styles.sectionTitle}>Emergency Contact & Consent</Text>
+            <Text className={styles.sectionTitle}>{t('volunteer.emergencyConsent')}</Text>
             <div className={styles.formGrid}>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  Emergency Contact Name <span className={styles.required}>*</span>
+                  {t('volunteer.emergencyContactName')} <span className={styles.required}>{t('volunteer.required')}</span>
                 </label>
                 <Input
                   required
@@ -481,7 +478,7 @@ function VolunteerPage() {
               </div>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  Emergency Phone <span className={styles.required}>*</span>
+                  {t('volunteer.emergencyPhone')} <span className={styles.required}>{t('volunteer.required')}</span>
                 </label>
                 <Input
                   type="tel"
@@ -492,7 +489,7 @@ function VolunteerPage() {
               </div>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
                 <Checkbox
-                  label="I consent to a background check if required for my volunteer role"
+                  label={t('volunteer.backgroundCheckConsent')}
                   checked={formData.backgroundCheckConsent}
                   onChange={(e, data) => handleInputChange('backgroundCheckConsent', data.checked)}
                 />
@@ -502,15 +499,15 @@ function VolunteerPage() {
 
           {/* Why Volunteer */}
           <Card className={styles.formCard}>
-            <Text className={styles.sectionTitle}>Tell Us More</Text>
+            <Text className={styles.sectionTitle}>{t('volunteer.tellUsMore')}</Text>
             <div className={styles.formGrid}>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
                 <label className={styles.label}>
-                  Why do you want to volunteer with NAACUS? <span className={styles.required}>*</span>
+                  {t('volunteer.whyVolunteer')} <span className={styles.required}>{t('volunteer.required')}</span>
                 </label>
                 <Textarea
                   required
-                  placeholder="Share your motivation and what you hope to contribute to our community..."
+                  placeholder={t('volunteer.whyVolunteerPlaceholder')}
                   value={formData.whyVolunteer}
                   onChange={(e) => handleInputChange('whyVolunteer', e.target.value)}
                   rows={4}
@@ -529,10 +526,10 @@ function VolunteerPage() {
             {isSubmitting ? (
               <>
                 <Spinner size="tiny" style={{ marginRight: '8px' }} />
-                Submitting to Microsoft 365...
+                {t('volunteer.submitting')}
               </>
             ) : (
-              'Submit Volunteer Application'
+              t('volunteer.submitButton')
             )}
           </Button>
 
@@ -545,7 +542,7 @@ function VolunteerPage() {
               color: '#d13438',
               textAlign: 'center',
             }}>
-              <Text style={{ fontWeight: '600' }}>Error: </Text>
+              <Text style={{ fontWeight: '600' }}>{t('volunteer.errorLabel')}</Text>
               <Text>{error}</Text>
             </div>
           )}
