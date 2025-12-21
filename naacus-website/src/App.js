@@ -10,6 +10,7 @@ import VolunteerPage from './pages/VolunteerPage';
 import AboutPage from './pages/AboutPage';
 import LeadershipPage from './pages/LeadershipPage';
 import FellowshipMinistriesPage from './pages/FellowshipMinistriesPage';
+import ProgramsActivitiesPage from './pages/ProgramsActivitiesPage';
 import ResourcesPage from './pages/ResourcesPage';
 import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
@@ -28,6 +29,7 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/leadership" element={<LeadershipPage />} />
             <Route path="/fellowship-ministries" element={<FellowshipMinistriesPage />} />
+            <Route path="/programs-activities" element={<ProgramsActivitiesPage />} />
             <Route path="/membership" element={<MembershipPage />} />
             <Route path="/volunteer" element={<VolunteerPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
