@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAACUS AI Chatbot Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .demo-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 1200px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .demo-header {
+            background: #0f6cbd;
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .demo-header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .demo-header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .demo-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .demo-panel {
+            padding: 24px;
+        }
+
+        .demo-panel:first-child {
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .panel-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #333;
+        }
+
+        .test-questions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .question-btn {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 12px 16px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+
+        .question-btn:hover {
+            background: #e6f2fb;
+            border-color: #0f6cbd;
+            transform: translateX(4px);
+        }
+
+        .chat-container {
+            background: #f5f7fb;
+            border-radius: 12px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .message.user {
+            background: #dff6dd;
+            color: #06310e;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .message.bot {
+            background: #e6f2fb;
+            color: #0f2940;
+            align-self: flex-start;
+        }
+
+        .message.bot .confidence {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: 8px;
+        }
+
+        .related-questions {
+            margin-top: 8px;
+            font-size: 13px;
+        }
+
+        .related-questions div {
+            margin-top: 4px;
+            cursor: pointer;
+            color: #0f6cbd;
+        }
+
+        .related-questions div:hover {
+            text-decoration: underline;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 8px;
+            padding: 12px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .chat-input button {
+            background: #0f6cbd;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .chat-input button:hover {
+            background: #0a5299;
+        }
+
+        .stats {
+            margin-top: 16px;
+            padding: 16px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .stats-label {
+            color: #666;
+        }
+
+        .stats-value {
+            font-weight: 600;
+            color: #0f6cbd;
+        }
+
+        @media (max-width: 768px) {
+            .demo-content {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-panel:first-child {
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1>🤖 NAACUS AI Chatbot Demo</h1>
+            <p>Test the intelligent FAQ assistant for website and WhatsApp</p>
+        </div>
+        
+        <div class="demo-content">
+            <div class="demo-panel">
+                <div class="panel-title">📝 Test Questions</div>
+                <div class="test-questions">
+                    <button class="question-btn" onclick="askQuestion('What is NAACUS?')">
+                        What is NAACUS?
+                    </button>
+                    <button class="question-btn" onclick="askQuestion('How can I become a member?')">
+                        How can I become a member?
+                    </button>
+                    <button class="question-btn" onclick="askQuestion('When is the next conference?')">
+                        When is the next conference?
+                    </button>
+                    <button class="question-btn" onclick="askQuestion('How do I contact NAACUS?')">
+                        How do I contact NAACUS?
+                    </button>
+                    <button class="question-btn" onclick="askQuestion('Tell me about NAACUS 2025')">
+                        Tell me about NAACUS 2025
+                    </button>
+                    <button class="question-btn" onclick="askQuestion('How can I get involved?')">
+                        How can I get involved?
+                    </button>
+                    <button class="question-btn" onclick="askQuestion('Does NAACUS support families?')">
+                        Does NAACUS support families?
+                    </button>
+                    <button class="question-btn" onclick="askQuestion('Random nonsense text')">
+                        Random nonsense (test fallback)
+                    </button>
+                </div>
+
+                <div class="stats">
+                    <div class="panel-title">📊 Statistics</div>
+                    <div class="stats-row">
+                        <span class="stats-label">Total Questions:</span>
+                        <span class="stats-value" id="totalQuestions">0</span>
+                    </div>
+                    <div class="stats-row">
+                        <span class="stats-label">Successful Matches:</span>
+                        <span class="stats-value" id="successMatches">0</span>
+                    </div>
+                    <div class="stats-row">
+                        <span class="stats-label">Average Confidence:</span>
+                        <span class="stats-value" id="avgConfidence">0%</span>
+                    </div>
+                    <div class="stats-row">
+                        <span class="stats-label">FAQ Database:</span>
+                        <span class="stats-value">25 entries</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-panel">
+                <div class="panel-title">💬 Chat Interface</div>
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot">
+                            Hello! 👋 I'm the NAACUS virtual assistant. I can help answer questions about our organization, membership, events, programs, and more. Try asking a question!
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="messageInput" placeholder="Type your question here..." 
+                               onkeypress="handleKeyPress(event)">
+                        <button onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Import the chatbot service (simulated for demo)
+        const chatbotService = {
+            totalQuestions: 0,
+            successfulMatches: 0,
+            confidenceScores: [],
+
+            processMessage: function(message) {
+                this.totalQuestions++;
+                
+                // Simulate chatbot processing
+                const faqDatabase = {
+                    'what is naacus': {
+                        answer: 'NAACUS stands for the National Association of African Catholics in the United States. We unite African Catholic communities across the nation to promote faith and heritage, strengthen families, and cultivate leaders—ensuring full participation in the life of the Church in the U.S. while supporting the Church in Africa.',
+                        confidence: 0.9,
+                        related: ['What is NAACUS\'s mission?', 'What is NAACUS\'s motto?']
+                    },
+                    'how can i become a member': {
+                        answer: 'You can become a member by filling out our membership form available on our website. Visit the Membership section or contact us at info@naacus.org for more information about membership benefits and requirements.',
+                        confidence: 0.85,
+                        related: ['What are the benefits of membership?']
+                    },
+                    'when is the next conference': {
+                        answer: 'NAACUS hosts a biannual national conference. The next conference is NAACUS 2027. Please subscribe to our newsletter or check our website regularly for updates on dates, location, and registration details.',
+                        confidence: 0.8,
+                        related: ['How was NAACUS 2025?', 'What happens at the conference?']
+                    },
+                    'how do i contact': {
+                        answer: 'You can contact NAACUS by email at info@naacus.org or through our contact form on the website. We\'re here to help and answer any questions you may have!',
+                        confidence: 0.75,
+                        related: ['How do I subscribe to the newsletter?']
+                    },
+                    'about naacus 2025': {
+                        answer: 'NAACUS 2025 in July 2025 was a historic success with record attendance of over 1,500 participants! It featured inspiring programs, cultural celebrations, and significant community impact. Check out our NAACUS 2025 section to see photos, videos, and accomplishments.',
+                        confidence: 0.7,
+                        related: ['When is the next conference?']
+                    },
+                    'how can i get involved': {
+                        answer: 'You can get involved by becoming a member, attending our events, volunteering for programs, joining our ministries, or supporting our advocacy efforts. Visit our Volunteer page or contact us at info@naacus.org to learn about current opportunities.',
+                        confidence: 0.75,
+                        related: ['How can I become a member?']
+                    },
+                    'support families': {
+                        answer: 'Yes! Family Life & Vocations is one of our core focus areas. We work to build up family life, nurture vocations, and support African Catholic families in their faith journey and community participation.',
+                        confidence: 0.7,
+                        related: ['What programs does NAACUS offer?']
+                    }
+                };
+
+                // Simple matching
+                const lowerMessage = message.toLowerCase();
+                let bestMatch = null;
+                let bestScore = 0;
+
+                for (const [key, value] of Object.entries(faqDatabase)) {
+                    if (lowerMessage.includes(key)) {
+                        if (value.confidence > bestScore) {
+                            bestScore = value.confidence;
+                            bestMatch = value;
+                        }
+                    }
+                }
+
+                if (bestMatch) {
+                    this.successfulMatches++;
+                    this.confidenceScores.push(bestScore);
+                    return {
+                        text: bestMatch.answer,
+                        confidence: bestScore,
+                        relatedQuestions: bestMatch.related
+                    };
+                }
+
+                this.confidenceScores.push(0);
+                return {
+                    text: "I'd be happy to help! Could you rephrase your question? For immediate assistance, you can also contact us at info@naacus.org",
+                    confidence: 0,
+                    relatedQuestions: null
+                };
+            },
+
+            getStats: function() {
+                const avgConfidence = this.confidenceScores.length > 0
+                    ? this.confidenceScores.reduce((a, b) => a + b, 0) / this.confidenceScores.length
+                    : 0;
+                
+                return {
+                    total: this.totalQuestions,
+                    successful: this.successfulMatches,
+                    avgConfidence: Math.round(avgConfidence * 100)
+                };
+            }
+        };
+
+        function addMessage(text, isUser, confidence = null, relatedQuestions = null) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+            
+            let html = text;
+            
+            if (!isUser && confidence !== null) {
+                html += `<div class="confidence">Confidence: ${Math.round(confidence * 100)}%</div>`;
+            }
+            
+            if (!isUser && relatedQuestions && relatedQuestions.length > 0) {
+                html += '<div class="related-questions"><strong>Related questions:</strong>';
+                relatedQuestions.forEach(q => {
+                    html += `<div onclick="askQuestion('${q}')">${q}</div>`;
+                });
+                html += '</div>';
+            }
+            
+            messageDiv.innerHTML = html;
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function askQuestion(question) {
+            addMessage(question, true);
+            
+            setTimeout(() => {
+                const response = chatbotService.processMessage(question);
+                addMessage(response.text, false, response.confidence, response.relatedQuestions);
+                updateStats();
+            }, 500);
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                askQuestion(message);
+                input.value = '';
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function updateStats() {
+            const stats = chatbotService.getStats();
+            document.getElementById('totalQuestions').textContent = stats.total;
+            document.getElementById('successMatches').textContent = stats.successful;
+            document.getElementById('avgConfidence').textContent = stats.avgConfidence + '%';
+        }
+    </script>
+</body>
+</html>
