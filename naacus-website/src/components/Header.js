@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
@@ -99,7 +99,7 @@ function Header() {
   const { t } = useTranslation();
   const styles = useStyles();
   const [isScrolling, setIsScrolling] = useState(false);
-  const [scrollTimeout, setScrollTimeout] = useState(null);
+  const scrollTimeoutRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -107,27 +107,25 @@ function Header() {
       setIsScrolling(true);
 
       // Clear previous timeout
-      if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
       }
 
       // Set new timeout to detect when scrolling stops
-      const timeout = setTimeout(() => {
+      scrollTimeoutRef.current = setTimeout(() => {
         setIsScrolling(false);
       }, 150); // Show menu 150ms after scrolling stops
-
-      setScrollTimeout(timeout);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
       }
     };
-  }, [scrollTimeout]);
+  }, []); // Empty dependency array - effect runs only on mount/unmount
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
