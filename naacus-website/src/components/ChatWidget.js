@@ -10,7 +10,7 @@ import {
   Card,
 } from '@fluentui/react-components';
 import { Chat24Regular, Dismiss24Regular, Send24Filled } from '@fluentui/react-icons';
-import { processMessage, logConversation } from '../services/chatbotService';
+import { processMessage, logConversation, initializeCopilotStudio } from '../services/chatbotService';
 
 const useStyles = makeStyles({
   container: {
@@ -185,11 +185,19 @@ function ChatWidget() {
   const [isTyping, setIsTyping] = useState(false);
   const listRef = useRef(null);
 
+  // Initialize Copilot Studio when component mounts
+  useEffect(() => {
+    initializeCopilotStudio();
+  }, []);
+
   // Initialize with greeting when opening
   useEffect(() => {
     if (open && messages.length === 0) {
-      const greeting = processMessage('hi');
-      setMessages([{ from: 'bot', text: greeting.text, quickActions: greeting.quickActions }]);
+      const initializeChat = async () => {
+        const greeting = await processMessage('hi');
+        setMessages([{ from: 'bot', text: greeting.text, quickActions: greeting.quickActions }]);
+      };
+      initializeChat();
     }
   }, [open, messages.length]);
 
@@ -199,12 +207,12 @@ function ChatWidget() {
     }
   }, [messages, isTyping]);
 
-  const handleBotResponse = (userMessage) => {
+  const handleBotResponse = async (userMessage) => {
     setIsTyping(true);
     
     // Simulate typing delay for natural feel
-    setTimeout(() => {
-      const response = processMessage(userMessage);
+    setTimeout(async () => {
+      const response = await processMessage(userMessage);
       
       // Log the conversation
       logConversation(userMessage, response, 'web');
