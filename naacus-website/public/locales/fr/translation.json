@@ -38,7 +38,7 @@
     }
   },
   "footer": {
-    "copyright": "© 2024 NAACUS. Tous droits réservés.",
+    "copyright": "© {{year}} NAACUS. Tous droits réservés.",
     "tagline": "Ensemble avec le Christ - Unir les communautés catholiques africaines à travers les États-Unis."
   },
   "backToTop": "Retour en Haut"

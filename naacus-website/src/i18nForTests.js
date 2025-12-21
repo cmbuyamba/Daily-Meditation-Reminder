@@ -44,7 +44,7 @@ const resources = {
         }
       },
       footer: {
-        copyright: "© 2024 NAACUS. All rights reserved.",
+        copyright: "© {{year}} NAACUS. All rights reserved.",
         tagline: "Together with Christ - Uniting African Catholic communities across the United States."
       },
       backToTop: "Back to Top"

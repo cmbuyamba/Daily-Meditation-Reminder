@@ -96,6 +96,7 @@ const useStyles = makeStyles({
 function Footer() {
   const { t } = useTranslation();
   const styles = useStyles();
+  const currentYear = new Date().getFullYear();
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -229,7 +230,7 @@ function Footer() {
       </div>
       <div className={styles.footerBottom}>
         <Text as="p" className={styles.footerBottomText}>
-          {t('footer.copyright')}
+          {t('footer.copyright', { year: currentYear })}
         </Text>
         <Text as="p" className={styles.msIntegration}>
           Microsoft 365 Integration Ready
