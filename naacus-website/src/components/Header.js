@@ -13,7 +13,7 @@ import {
   Button,
   Input
 } from '@fluentui/react-components';
-import { Navigation24Regular, Search24Regular, Person24Regular } from '@fluentui/react-icons';
+import { Navigation24Regular, Search24Regular } from '@fluentui/react-icons';
 import LanguageSwitcher from './LanguageSwitcher';
 
 const useStyles = makeStyles({
@@ -125,22 +125,6 @@ const useStyles = makeStyles({
     minWidth: 'auto',
     height: '32px',
     color: '#262626',
-    '&:hover': {
-      backgroundColor: '#f2f2f2',
-    },
-    '@media (max-width: 768px)': {
-      display: 'none',
-    },
-  },
-  signInButton: {
-    fontSize: '13px',
-    fontWeight: '400',
-    height: '32px',
-    ...shorthands.padding('0', '12px'),
-    backgroundColor: 'transparent',
-    color: '#262626',
-    ...shorthands.border('1px', 'solid', '#e5e5e5'),
-    ...shorthands.borderRadius('2px'),
     '&:hover': {
       backgroundColor: '#f2f2f2',
     },
@@ -275,14 +259,6 @@ function Header() {
           <div className={styles.languageSwitcher}>
             <LanguageSwitcher />
           </div>
-          
-          <Button 
-            appearance="subtle"
-            className={styles.signInButton}
-            icon={<Person24Regular />}
-          >
-            Sign in
-          </Button>
 
           {/* Mobile Menu */}
           <Menu>
