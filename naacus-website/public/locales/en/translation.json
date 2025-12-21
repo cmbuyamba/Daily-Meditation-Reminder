@@ -23,7 +23,7 @@
     "benefit1": "Connect with fellow members",
     "benefit2": "Access exclusive events",
     "benefit3": "Grow in faith together",
-    "becomeMemberButton": "Become a Member Today",
+    "becomeMemberButton": "Subscribe to Newsletter",
     "discoverButton": "Learn More",
     "joinButton": "Join Our Community"
   },
@@ -117,7 +117,7 @@
     "privacyNote": "We respect your privacy. Your information is secure and will only be used for NAACUS communications."
   },
   "joinNowButton": {
-    "text": "Join Now"
+    "text": "Subscribe"
   },
   "conference2027": {
     "badge": "SAVE THE DATE",
@@ -130,6 +130,6 @@
     "whereValue": "Baltimore, Maryland",
     "targetLabel": "Expected",
     "targetValue": "5,000+ Attendees",
-    "ctaButton": "Stay Updated - Join Our Community"
+    "ctaButton": "Subscribe for Updates"
   }
 }

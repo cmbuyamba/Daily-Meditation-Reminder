@@ -144,7 +144,7 @@ function Contact() {
         </div>
         <div className={styles.formContainer}>
           <form onSubmit={handleSubmit}>
-            <Field label="Name *" required>
+            <Field label="Name" required>
               <Input
                 name="name"
                 value={formData.name}
@@ -153,7 +153,7 @@ function Contact() {
                 placeholder="Your full name"
               />
             </Field>
-            <Field label="Email *" required style={{ marginTop: '20px' }}>
+            <Field label="Email" required style={{ marginTop: '20px' }}>
               <Input
                 type="email"
                 name="email"
@@ -171,7 +171,7 @@ function Contact() {
                 placeholder="Your parish or organization"
               />
             </Field>
-            <Field label="Message *" required style={{ marginTop: '20px' }}>
+            <Field label="Message" required style={{ marginTop: '20px' }}>
               <Textarea
                 name="message"
                 value={formData.message}

@@ -23,7 +23,7 @@
     "benefit1": "Connectez-vous avec d'autres membres",
     "benefit2": "Accédez à des événements exclusifs",
     "benefit3": "Grandissez ensemble dans la foi",
-    "becomeMemberButton": "Devenez Membre Aujourd'hui",
+    "becomeMemberButton": "S'abonner au Bulletin",
     "discoverButton": "En Savoir Plus",
     "joinButton": "Rejoignez Notre Communauté"
   },
@@ -119,7 +119,7 @@
     "privacyNote": "Nous respectons votre vie privée. Vos informations sont sécurisées et ne seront utilisées que pour les communications NAACUS."
   },
   "joinNowButton": {
-    "text": "Rejoindre"
+    "text": "S'abonner"
   },
   "conference2027": {
     "badge": "RÉSERVEZ LA DATE",
@@ -132,6 +132,6 @@
     "whereValue": "Baltimore, Maryland",
     "targetLabel": "Attendu",
     "targetValue": "Plus de 5 000 Participants",
-    "ctaButton": "Restez Informé - Rejoignez Notre Communauté"
+    "ctaButton": "S'abonner aux Mises à Jour"
   }
 }
