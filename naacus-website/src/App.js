@@ -9,7 +9,7 @@ import MembershipPage from './pages/MembershipPage';
 import VolunteerPage from './pages/VolunteerPage';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
-import JoinNowButton from './components/JoinNowButton';
+import SubscribeButton from './components/SubscribeButton';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
           </Routes>
           <Footer />
           <BackToTop />
-          <JoinNowButton />
+          <SubscribeButton />
         </div>
       </Router>
     </FluentProvider>

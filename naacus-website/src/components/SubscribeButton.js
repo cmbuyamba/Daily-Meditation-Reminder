@@ -37,7 +37,7 @@ const useStyles = makeStyles({
   },
 });
 
-function JoinNowButton() {
+function SubscribeButton() {
   const { t } = useTranslation();
   const styles = useStyles();
   const navigate = useNavigate();
@@ -99,4 +99,4 @@ function JoinNowButton() {
   );
 }
 
-export default JoinNowButton;
+export default SubscribeButton;
