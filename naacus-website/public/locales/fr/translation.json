@@ -104,18 +104,18 @@
     }
   },
   "newsletter": {
-    "badge": "ADHÉSION GRATUITE",
-    "title": "Rejoignez NAACUS Aujourd'hui",
-    "subtitle": "Faites partie d'une communauté dynamique de plus de 10 000 catholiques africains à travers l'Amérique",
-    "description": "L'adhésion est entièrement gratuite et vous donne accès à notre réseau national, à des événements exclusifs, à des ressources spirituelles et à une communauté solidaire qui célèbre l'héritage africain et la foi catholique.",
-    "benefit1": "Accès instantané à la communauté",
+    "badge": "RESTEZ CONNECTÉ",
+    "title": "Restez Informé avec NAACUS",
+    "subtitle": "Recevez les dernières nouvelles, événements et mises à jour de notre communauté",
+    "description": "Abonnez-vous à notre bulletin d'information pour recevoir des mises à jour sur les conférences à venir, les événements régionaux, les ressources spirituelles et les nouvelles des communautés catholiques africaines à travers l'Amérique.",
+    "benefit1": "Annonces de conférences",
     "benefit2": "Invitations et mises à jour d'événements",
-    "benefit3": "Ressources spirituelles et culturelles",
+    "benefit3": "Nouvelles et ressources communautaires",
     "namePlaceholder": "Votre Nom Complet",
     "emailPlaceholder": "Votre Adresse Email",
-    "submitButton": "Rejoignez NAACUS - C'est Gratuit!",
-    "successTitle": "Bienvenue à NAACUS!",
-    "successMessage": "Vérifiez votre email pour les prochaines étapes et les événements à venir.",
+    "submitButton": "S'abonner au Bulletin",
+    "successTitle": "Vous êtes Abonné!",
+    "successMessage": "Consultez votre email pour confirmer votre abonnement et recevoir les dernières mises à jour.",
     "privacyNote": "Nous respectons votre vie privée. Vos informations sont sécurisées et ne seront utilisées que pour les communications NAACUS."
   },
   "joinNowButton": {

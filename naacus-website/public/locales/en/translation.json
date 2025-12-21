@@ -102,18 +102,18 @@
     }
   },
   "newsletter": {
-    "badge": "FREE MEMBERSHIP",
-    "title": "Join NAACUS Today",
-    "subtitle": "Become part of a vibrant community of 10,000+ African Catholics across America",
-    "description": "Membership is completely free and gives you access to our national network, exclusive events, spiritual resources, and a supportive community that celebrates African heritage and Catholic faith.",
-    "benefit1": "Instant access to community",
+    "badge": "STAY CONNECTED",
+    "title": "Stay Updated with NAACUS",
+    "subtitle": "Get the latest news, events, and updates from our community",
+    "description": "Subscribe to our newsletter to receive updates about upcoming conferences, regional events, spiritual resources, and news from African Catholic communities across America.",
+    "benefit1": "Conference announcements",
     "benefit2": "Event invitations & updates",
-    "benefit3": "Spiritual & cultural resources",
+    "benefit3": "Community news & resources",
     "namePlaceholder": "Your Full Name",
     "emailPlaceholder": "Your Email Address",
-    "submitButton": "Join NAACUS - It's Free!",
-    "successTitle": "Welcome to NAACUS!",
-    "successMessage": "Check your email for next steps and upcoming events.",
+    "submitButton": "Subscribe to Newsletter",
+    "successTitle": "You're Subscribed!",
+    "successMessage": "Check your email to confirm your subscription and get the latest updates.",
     "privacyNote": "We respect your privacy. Your information is secure and will only be used for NAACUS communications."
   },
   "joinNowButton": {
