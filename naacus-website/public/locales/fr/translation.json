@@ -13,7 +13,8 @@
       "gallery": "Galerie",
       "resources": "Ressources",
       "contact": "Contact"
-    }
+    },
+    "searchPlaceholder": "Recherche"
   },
   "hero": {
     "title": "Ensemble avec le Christ",
@@ -320,8 +321,5 @@
     "participatePrograms": "Participez à nos programmes",
     "contactUs": "Contactez-Nous →",
     "msIntegration": "Intégration Microsoft 365 Prête"
-  },
-  "header": {
-    "searchPlaceholder": "Recherche"
   }
 }

@@ -13,7 +13,8 @@
       "gallery": "Gallery",
       "resources": "Resources",
       "contact": "Contact"
-    }
+    },
+    "searchPlaceholder": "Search"
   },
   "hero": {
     "title": "Together with Christ",
@@ -42,10 +43,6 @@
       "title": "Our Motto",
       "description": "\"Together with Christ\" — We build welcoming networks of fellowship, workshops, and community initiatives that uplift people, celebrate culture, and advance the common good."
     }
-  },
-  "footer": {
-    "copyright": "© {{year}} NAACUS. All rights reserved.",
-    "tagline": "Together with Christ - Uniting African Catholic communities across the United States."
   },
   "backToTop": "Back to Top",
   "memberBenefits": {
@@ -320,8 +317,5 @@
     "participatePrograms": "Participate in our programs",
     "contactUs": "Contact Us →",
     "msIntegration": "Microsoft 365 Integration Ready"
-  },
-  "header": {
-    "searchPlaceholder": "Search"
   }
 }
