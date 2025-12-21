@@ -1,11 +1,51 @@
 /**
  * Chatbot Service
  * 
- * This service provides AI-powered FAQ matching and response generation
- * for the NAACUS chatbot on both web and WhatsApp platforms.
+ * This service provides AI-powered conversation capabilities using:
+ * 1. Microsoft Copilot Studio (primary, when configured)
+ * 2. Local FAQ matching (fallback)
+ * 
+ * Supports both web and WhatsApp platforms with M365 integration
  */
 
 import { faqData, defaultResponses, quickActions } from '../data/faqData';
+import copilotStudioService from './copilotStudioService';
+import copilotStudioConfig, { validateConfig } from '../config/copilotStudioConfig';
+
+// Track if Copilot Studio is available
+let copilotStudioAvailable = false;
+let copilotStudioInitialized = false;
+
+/**
+ * Initialize Copilot Studio integration
+ * Call this when the app starts or when a user opens the chat
+ */
+export async function initializeCopilotStudio() {
+  if (copilotStudioInitialized) {
+    return copilotStudioAvailable;
+  }
+
+  const validation = validateConfig();
+  if (validation.isValid) {
+    try {
+      await copilotStudioService.startConversation();
+      copilotStudioAvailable = true;
+      copilotStudioInitialized = true;
+      console.log('✅ Microsoft Copilot Studio connected successfully');
+      return true;
+    } catch (error) {
+      console.warn('⚠️ Copilot Studio unavailable, using local FAQ fallback:', error.message);
+      copilotStudioAvailable = false;
+      copilotStudioInitialized = true;
+      return false;
+    }
+  } else {
+    console.warn('⚠️ Copilot Studio not configured, using local FAQ fallback');
+    copilotStudioAvailable = false;
+    copilotStudioInitialized = true;
+    return false;
+  }
+}
 
 /**
  * Calculate similarity score between two strings using a simple keyword matching algorithm
@@ -63,11 +103,71 @@ function findBestMatch(userQuestion) {
 
 /**
  * Process a user message and generate a response
+ * Attempts to use Copilot Studio first, falls back to local FAQ matching
  * @param {string} userMessage - The user's question or message
  * @param {object} context - Optional context (user history, language, etc.)
- * @returns {object} Response object with text and optional suggestions
+ * @returns {Promise<object>|object} Response object with text and optional suggestions
  */
-export function processMessage(userMessage, context = {}) {
+export async function processMessage(userMessage, context = {}) {
+  // Try Copilot Studio first if available
+  if (copilotStudioAvailable) {
+    try {
+      await copilotStudioService.sendMessage(userMessage, context);
+      
+      // Get response with a small delay to allow bot processing
+      return new Promise((resolve) => {
+        setTimeout(async () => {
+          const messages = await copilotStudioService.getMessages();
+          
+          if (messages.length > 0) {
+            const latestMessage = messages[messages.length - 1];
+            
+            // Convert Copilot Studio response to our format
+            const response = {
+              text: latestMessage.text || defaultResponses.noMatch,
+              source: 'copilot-studio',
+              timestamp: latestMessage.timestamp,
+            };
+            
+            // Add suggested actions if available
+            if (latestMessage.suggestedActions && latestMessage.suggestedActions.actions) {
+              response.quickActions = latestMessage.suggestedActions.actions.map((action, idx) => ({
+                id: `action-${idx}`,
+                label: action.title,
+                question: action.value || action.title,
+              }));
+            }
+            
+            // Add adaptive cards or attachments if present
+            if (latestMessage.attachments && latestMessage.attachments.length > 0) {
+              response.attachments = latestMessage.attachments;
+            }
+            
+            resolve(response);
+          } else {
+            // No response from Copilot Studio, use fallback
+            resolve(processMessageLocal(userMessage, context));
+          }
+        }, 800); // 800ms delay for bot to process
+      });
+    } catch (error) {
+      console.error('Copilot Studio error, using fallback:', error);
+      copilotStudioAvailable = false; // Disable for this session
+      return processMessageLocal(userMessage, context);
+    }
+  }
+  
+  // Use local FAQ matching as fallback
+  return processMessageLocal(userMessage, context);
+}
+
+/**
+ * Process message using local FAQ matching (original implementation)
+ * @param {string} userMessage - The user's question or message
+ * @param {object} context - Optional context
+ * @returns {object} Response object
+ */
+function processMessageLocal(userMessage, context = {}) {
   const normalizedMessage = userMessage.toLowerCase().trim();
   
   // Handle greetings
@@ -76,7 +176,8 @@ export function processMessage(userMessage, context = {}) {
     return {
       text: defaultResponses.greeting,
       suggestions: quickActions.map(qa => qa.label),
-      quickActions: quickActions
+      quickActions: quickActions,
+      source: 'local-faq',
     };
   }
   
@@ -86,7 +187,8 @@ export function processMessage(userMessage, context = {}) {
     return {
       text: "You're welcome! Is there anything else I can help you with?",
       suggestions: quickActions.map(qa => qa.label),
-      quickActions: quickActions
+      quickActions: quickActions,
+      source: 'local-faq',
     };
   }
   
@@ -104,7 +206,8 @@ export function processMessage(userMessage, context = {}) {
       faqId: match.id,
       category: match.category,
       confidence: score,
-      relatedQuestions: relatedFaqs.map(faq => faq.question)
+      relatedQuestions: relatedFaqs.map(faq => faq.question),
+      source: 'local-faq',
     };
   }
   
@@ -113,7 +216,8 @@ export function processMessage(userMessage, context = {}) {
     text: defaultResponses.noMatch,
     suggestions: quickActions.map(qa => qa.label),
     quickActions: quickActions,
-    confidence: 0
+    confidence: 0,
+    source: 'local-faq',
   };
 }
 
@@ -182,26 +286,59 @@ export function formatForWhatsApp(response) {
 }
 
 /**
- * Log conversation for analytics (can be extended to save to database)
+ * Log conversation for analytics (can be extended to save to database or Microsoft 365)
+ * @param {string} userMessage - User's message
+ * @param {object} botResponse - Bot's response object
+ * @param {string} platform - Platform identifier (web, whatsapp, etc.)
+ * @param {object} user - Optional user information from M365
  */
-export function logConversation(userMessage, botResponse, platform = 'web') {
-  // In production, this would save to a database or analytics service
-  console.log('Chatbot Conversation Log:', {
+export function logConversation(userMessage, botResponse, platform = 'web', user = null) {
+  const logEntry = {
     timestamp: new Date().toISOString(),
     platform,
     userMessage,
     botResponse: botResponse.text,
     faqId: botResponse.faqId,
-    confidence: botResponse.confidence
-  });
+    confidence: botResponse.confidence,
+    source: botResponse.source,
+  };
+  
+  // Add M365 user info if available
+  if (user) {
+    logEntry.userId = user.id;
+    logEntry.userEmail = user.email;
+    logEntry.userName = user.displayName;
+  }
+  
+  // In production, this would:
+  // 1. Save to SharePoint list via Microsoft Graph API
+  // 2. Log to Azure Application Insights
+  // 3. Store in Microsoft Dataverse
+  // 4. Send to Power Automate for processing
+  console.log('Chatbot Conversation Log:', logEntry);
+  
+  // TODO: Implement M365 integration
+  // Example: await saveToSharePoint(logEntry);
+}
+
+/**
+ * Clean up Copilot Studio resources
+ */
+export function cleanupCopilotStudio() {
+  if (copilotStudioAvailable) {
+    copilotStudioService.endConversation();
+  }
 }
 
 export default {
+  initializeCopilotStudio,
   processMessage,
   getFaqById,
   getFaqsByCategory,
   getCategories,
   getQuickActions,
   formatForWhatsApp,
-  logConversation
+  logConversation,
+  cleanupCopilotStudio,
+  copilotStudioService, // Export for advanced usage
 };
