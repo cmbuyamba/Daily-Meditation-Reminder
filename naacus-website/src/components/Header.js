@@ -251,7 +251,7 @@ function Header() {
           <div className={styles.searchContainer}>
             <Input 
               className={styles.searchInput}
-              placeholder="Search"
+              placeholder={t('header.searchPlaceholder')}
               contentAfter={<Search24Regular className={styles.searchIcon} />}
             />
           </div>

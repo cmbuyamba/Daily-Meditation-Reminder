@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
   shorthands,
@@ -86,6 +87,7 @@ const useStyles = makeStyles({
 });
 
 function Contact() {
+  const { t } = useTranslation();
   const styles = useStyles();
   const [formData, setFormData] = useState({
     name: '',
@@ -110,75 +112,74 @@ function Contact() {
 
   return (
     <section id="contact" className={styles.contact}>
-      <Text as="h2" className={styles.contactTitle}>Get In Touch</Text>
+      <Text as="h2" className={styles.contactTitle}>{t('contact.title')}</Text>
       <div className={styles.contactContent}>
         <div>
-          <Text as="h3" className={styles.contactInfoTitle}>Connect With Us</Text>
+          <Text as="h3" className={styles.contactInfoTitle}>{t('contact.connectWithUs')}</Text>
           <Text as="p" className={styles.contactInfoText}>
-            Have questions about NAACUS or our programs? Interested in joining our community? 
-            We'd love to hear from you!
+            {t('contact.description')}
           </Text>
           <div className={styles.contactDetails}>
             <div className={styles.contactItem}>
               <div className={styles.contactIcon}>📧</div>
               <div>
-                <Text className={styles.contactItemTitle}>Email</Text>
-                <Text className={styles.contactItemText}>info@naacus.org</Text>
+                <Text className={styles.contactItemTitle}>{t('contact.emailLabel')}</Text>
+                <Text className={styles.contactItemText}>{t('contact.emailValue')}</Text>
               </div>
             </div>
             <div className={styles.contactItem}>
               <div className={styles.contactIcon}>🤝</div>
               <div>
-                <Text className={styles.contactItemTitle}>Join Us</Text>
-                <Text className={styles.contactItemText}>Become a member or volunteer</Text>
+                <Text className={styles.contactItemTitle}>{t('contact.joinUsLabel')}</Text>
+                <Text className={styles.contactItemText}>{t('contact.joinUsValue')}</Text>
               </div>
             </div>
             <div className={styles.contactItem}>
               <div className={styles.contactIcon}>🌐</div>
               <div>
-                <Text className={styles.contactItemTitle}>Community</Text>
-                <Text className={styles.contactItemText}>Connect with African Catholics nationwide</Text>
+                <Text className={styles.contactItemTitle}>{t('contact.communityLabel')}</Text>
+                <Text className={styles.contactItemText}>{t('contact.communityValue')}</Text>
               </div>
             </div>
           </div>
         </div>
         <div className={styles.formContainer}>
           <form onSubmit={handleSubmit}>
-            <Field label="Name" required>
+            <Field label={t('contact.nameLabel')} required>
               <Input
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 required
-                placeholder="Your full name"
+                placeholder={t('contact.namePlaceholder')}
               />
             </Field>
-            <Field label="Email" required style={{ marginTop: '20px' }}>
+            <Field label={t('contact.emailFieldLabel')} required style={{ marginTop: '20px' }}>
               <Input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 required
-                placeholder="your.email@example.com"
+                placeholder={t('contact.emailPlaceholder')}
               />
             </Field>
-            <Field label="Parish/Organization (Optional)" style={{ marginTop: '20px' }}>
+            <Field label={t('contact.parishLabel')} style={{ marginTop: '20px' }}>
               <Input
                 name="organization"
                 value={formData.organization}
                 onChange={handleChange}
-                placeholder="Your parish or organization"
+                placeholder={t('contact.parishPlaceholder')}
               />
             </Field>
-            <Field label="Message" required style={{ marginTop: '20px' }}>
+            <Field label={t('contact.messageLabel')} required style={{ marginTop: '20px' }}>
               <Textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 required
                 rows={5}
-                placeholder="Tell us how we can help..."
+                placeholder={t('contact.messagePlaceholder')}
               />
             </Field>
             <Button 
@@ -187,11 +188,11 @@ function Contact() {
               size="large"
               style={{ marginTop: '20px' }}
             >
-              Send Message
+              {t('contact.sendButton')}
             </Button>
           </form>
           <Text as="p" className={styles.formNote}>
-            * Microsoft 365 integration ready - form submissions will be processed through secure Microsoft services
+            {t('contact.formNote')}
           </Text>
         </div>
       </div>

@@ -4,8 +4,7 @@ import {
   makeStyles,
   shorthands,
   tokens,
-  Text,
-  Button
+  Text
 } from '@fluentui/react-components';
 
 const useStyles = makeStyles({
@@ -274,13 +273,6 @@ function Hero() {
   const { t } = useTranslation();
   const styles = useStyles();
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="home" className={styles.hero}>
       <div className={styles.heroContent}>
@@ -317,7 +309,7 @@ function Hero() {
               onClick={() => window.location.href = '/membership'}
               className={styles.primaryButton}
             >
-              ✝ Join Our Faith Community
+              ✝ {t('heroButtons.joinCommunity')}
             </button>
           </div>
 
@@ -327,13 +319,13 @@ function Hero() {
               onClick={() => window.location.href = '/about'}
               className={styles.secondaryButton}
             >
-              🙏 Learn Our Mission
+              🙏 {t('heroButtons.learnMission')}
             </button>
             <button
               onClick={() => window.location.href = '/volunteer'}
               className={styles.secondaryButton}
             >
-              💫 Get Involved
+              💫 {t('heroButtons.getInvolved')}
             </button>
           </div>
         </div>

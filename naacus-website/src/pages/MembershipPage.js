@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   makeStyles,
   shorthands,
@@ -127,6 +128,7 @@ const useStyles = makeStyles({
 });
 
 function MembershipPage() {
+  const { t } = useTranslation();
   const styles = useStyles();
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -162,21 +164,21 @@ function MembershipPage() {
   });
 
   const ministryOptions = [
-    'Youth Ministry',
-    'Music & Liturgy',
-    'Social Justice',
-    'Community Outreach',
-    'Education & Catechesis',
-    'Marriage & Family Life',
-    'Cultural Events',
-    'Leadership & Governance',
+    { key: 'Youth Ministry', label: t('membership.ministryYouth') },
+    { key: 'Music & Liturgy', label: t('membership.ministryMusic') },
+    { key: 'Social Justice', label: t('membership.ministrySocialJustice') },
+    { key: 'Community Outreach', label: t('membership.ministryCommunityOutreach') },
+    { key: 'Education & Catechesis', label: t('membership.ministryEducation') },
+    { key: 'Marriage & Family Life', label: t('membership.ministryMarriage') },
+    { key: 'Cultural Events', label: t('membership.ministryCultural') },
+    { key: 'Leadership & Governance', label: t('membership.ministryLeadership') },
   ];
 
   const communicationOptions = [
-    'Email',
-    'Phone',
-    'Text Message',
-    'Mail',
+    { key: 'Email', label: t('membership.commEmail') },
+    { key: 'Phone', label: t('membership.commPhone') },
+    { key: 'Text Message', label: t('membership.commText') },
+    { key: 'Mail', label: t('membership.commMail') },
   ];
 
   const handleInputChange = (field, value) => {
@@ -221,11 +223,9 @@ function MembershipPage() {
       <div className={styles.membershipPage}>
         <div className={styles.container}>
           <div className={styles.successMessage}>
-            <Text className={styles.successTitle}>Welcome to the NAACUS Family!</Text>
+            <Text className={styles.successTitle}>{t('membership.successTitle')}</Text>
             <Text className={styles.successText}>
-              Thank you for joining the National Association of African Catholics in the United States. 
-              We've received your membership application and will be in touch within 2-3 business days 
-              to complete your registration. Check your email for confirmation and next steps.
+              {t('membership.successMessage')}
             </Text>
             <Button
               appearance="primary"
@@ -233,7 +233,7 @@ function MembershipPage() {
               onClick={() => window.location.href = '/'}
               style={{ marginTop: '24px' }}
             >
-              Return to Home
+              {t('membership.returnHome')}
             </Button>
           </div>
         </div>
@@ -245,21 +245,20 @@ function MembershipPage() {
     <div className={styles.membershipPage}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <Text as="h1" className={styles.title}>Join NAACUS</Text>
+          <Text as="h1" className={styles.title}>{t('membership.title')}</Text>
           <Text className={styles.subtitle}>
-            Become part of a vibrant community dedicated to strengthening the African Catholic presence 
-            in the United States. Fill out the form below to begin your membership journey.
+            {t('membership.subtitle')}
           </Text>
         </div>
 
         <form onSubmit={handleSubmit}>
           {/* Personal Information */}
           <Card className={styles.formCard}>
-            <Text className={styles.sectionTitle}>Personal Information</Text>
+            <Text className={styles.sectionTitle}>{t('membership.personalInfo')}</Text>
             <div className={styles.formGrid}>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  First Name <span className={styles.required}>*</span>
+                  {t('membership.firstName')} <span className={styles.required}>{t('membership.required')}</span>
                 </label>
                 <Input
                   required
@@ -269,7 +268,7 @@ function MembershipPage() {
               </div>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  Last Name <span className={styles.required}>*</span>
+                  {t('membership.lastName')} <span className={styles.required}>{t('membership.required')}</span>
                 </label>
                 <Input
                   required
@@ -279,7 +278,7 @@ function MembershipPage() {
               </div>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  Email <span className={styles.required}>*</span>
+                  {t('membership.email')} <span className={styles.required}>{t('membership.required')}</span>
                 </label>
                 <Input
                   type="email"
@@ -290,7 +289,7 @@ function MembershipPage() {
               </div>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  Phone <span className={styles.required}>*</span>
+                  {t('membership.phone')} <span className={styles.required}>{t('membership.required')}</span>
                 </label>
                 <Input
                   type="tel"
@@ -300,7 +299,7 @@ function MembershipPage() {
                 />
               </div>
               <div className={styles.formField}>
-                <label className={styles.label}>Date of Birth</label>
+                <label className={styles.label}>{t('membership.dateOfBirth')}</label>
                 <Input
                   type="date"
                   value={formData.dateOfBirth}
@@ -312,11 +311,11 @@ function MembershipPage() {
 
           {/* Address Information */}
           <Card className={styles.formCard}>
-            <Text className={styles.sectionTitle}>Address</Text>
+            <Text className={styles.sectionTitle}>{t('membership.address')}</Text>
             <div className={styles.formGrid}>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
                 <label className={styles.label}>
-                  Street Address <span className={styles.required}>*</span>
+                  {t('membership.streetAddress')} <span className={styles.required}>{t('membership.required')}</span>
                 </label>
                 <Input
                   required
@@ -326,7 +325,7 @@ function MembershipPage() {
               </div>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  City <span className={styles.required}>*</span>
+                  {t('membership.city')} <span className={styles.required}>{t('membership.required')}</span>
                 </label>
                 <Input
                   required
@@ -336,7 +335,7 @@ function MembershipPage() {
               </div>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  State <span className={styles.required}>*</span>
+                  {t('membership.state')} <span className={styles.required}>{t('membership.required')}</span>
                 </label>
                 <Input
                   required
@@ -346,7 +345,7 @@ function MembershipPage() {
               </div>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  Zip Code <span className={styles.required}>*</span>
+                  {t('membership.zipCode')} <span className={styles.required}>{t('membership.required')}</span>
                 </label>
                 <Input
                   required
@@ -355,7 +354,7 @@ function MembershipPage() {
                 />
               </div>
               <div className={styles.formField}>
-                <label className={styles.label}>Country</label>
+                <label className={styles.label}>{t('membership.country')}</label>
                 <Input
                   value={formData.country}
                   onChange={(e) => handleInputChange('country', e.target.value)}
@@ -366,11 +365,11 @@ function MembershipPage() {
 
           {/* Parish Information */}
           <Card className={styles.formCard}>
-            <Text className={styles.sectionTitle}>Parish Information</Text>
+            <Text className={styles.sectionTitle}>{t('membership.parishInfo')}</Text>
             <div className={styles.formGrid}>
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  Parish Name <span className={styles.required}>*</span>
+                  {t('membership.parishName')} <span className={styles.required}>{t('membership.required')}</span>
                 </label>
                 <Input
                   required
@@ -379,21 +378,21 @@ function MembershipPage() {
                 />
               </div>
               <div className={styles.formField}>
-                <label className={styles.label}>Diocese</label>
+                <label className={styles.label}>{t('membership.diocese')}</label>
                 <Input
                   value={formData.diocese}
                   onChange={(e) => handleInputChange('diocese', e.target.value)}
                 />
               </div>
               <div className={styles.formField}>
-                <label className={styles.label}>City</label>
+                <label className={styles.label}>{t('membership.city')}</label>
                 <Input
                   value={formData.parishCity}
                   onChange={(e) => handleInputChange('parishCity', e.target.value)}
                 />
               </div>
               <div className={styles.formField}>
-                <label className={styles.label}>State</label>
+                <label className={styles.label}>{t('membership.state')}</label>
                 <Input
                   value={formData.parishState}
                   onChange={(e) => handleInputChange('parishState', e.target.value)}
@@ -404,17 +403,17 @@ function MembershipPage() {
 
           {/* Background Information */}
           <Card className={styles.formCard}>
-            <Text className={styles.sectionTitle}>Background & Experience</Text>
+            <Text className={styles.sectionTitle}>{t('membership.backgroundExperience')}</Text>
             <div className={styles.formGrid}>
               <div className={styles.formField}>
-                <label className={styles.label}>Country of Origin</label>
+                <label className={styles.label}>{t('membership.countryOfOrigin')}</label>
                 <Input
                   value={formData.countryOfOrigin}
                   onChange={(e) => handleInputChange('countryOfOrigin', e.target.value)}
                 />
               </div>
               <div className={styles.formField}>
-                <label className={styles.label}>Years in United States</label>
+                <label className={styles.label}>{t('membership.yearsInUS')}</label>
                 <Input
                   type="number"
                   value={formData.yearsInUS}
@@ -422,16 +421,16 @@ function MembershipPage() {
                 />
               </div>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
-                <label className={styles.label}>Occupation/Profession</label>
+                <label className={styles.label}>{t('membership.occupation')}</label>
                 <Input
                   value={formData.occupation}
                   onChange={(e) => handleInputChange('occupation', e.target.value)}
                 />
               </div>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
-                <label className={styles.label}>Skills & Expertise</label>
+                <label className={styles.label}>{t('membership.skills')}</label>
                 <Textarea
-                  placeholder="Share any skills, talents, or expertise you bring to the community..."
+                  placeholder={t('membership.skillsPlaceholder')}
                   value={formData.skills}
                   onChange={(e) => handleInputChange('skills', e.target.value)}
                   rows={3}
@@ -442,31 +441,31 @@ function MembershipPage() {
 
           {/* Membership Type & Interests */}
           <Card className={styles.formCard}>
-            <Text className={styles.sectionTitle}>Membership Details</Text>
+            <Text className={styles.sectionTitle}>{t('membership.membershipDetails')}</Text>
             <div className={styles.formGrid}>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
                 <label className={styles.label}>
-                  Membership Type <span className={styles.required}>*</span>
+                  {t('membership.membershipType')} <span className={styles.required}>{t('membership.required')}</span>
                 </label>
                 <Dropdown
                   value={formData.membershipType}
                   onOptionSelect={(e, data) => handleInputChange('membershipType', data.optionValue)}
                 >
-                  <Option value="individual">Individual Membership</Option>
-                  <Option value="family">Family Membership</Option>
-                  <Option value="student">Student Membership</Option>
-                  <Option value="senior">Senior Membership</Option>
+                  <Option value="individual">{t('membership.membershipTypeIndividual')}</Option>
+                  <Option value="family">{t('membership.membershipTypeFamily')}</Option>
+                  <Option value="student">{t('membership.membershipTypeStudent')}</Option>
+                  <Option value="senior">{t('membership.membershipTypeSenior')}</Option>
                 </Dropdown>
               </div>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
-                <label className={styles.label}>Ministry Interests (Select all that apply)</label>
+                <label className={styles.label}>{t('membership.ministryInterests')}</label>
                 <div className={styles.checkboxGroup}>
                   {ministryOptions.map((option) => (
                     <Checkbox
-                      key={option}
-                      label={option}
-                      checked={formData.ministryInterests.includes(option)}
-                      onChange={(e, data) => handleCheckboxChange('ministryInterests', option, data.checked)}
+                      key={option.key}
+                      label={option.label}
+                      checked={formData.ministryInterests.includes(option.key)}
+                      onChange={(e, data) => handleCheckboxChange('ministryInterests', option.key, data.checked)}
                     />
                   ))}
                 </div>
@@ -476,24 +475,24 @@ function MembershipPage() {
 
           {/* Emergency Contact */}
           <Card className={styles.formCard}>
-            <Text className={styles.sectionTitle}>Emergency Contact</Text>
+            <Text className={styles.sectionTitle}>{t('membership.emergencyContact')}</Text>
             <div className={styles.formGrid}>
               <div className={styles.formField}>
-                <label className={styles.label}>Contact Name</label>
+                <label className={styles.label}>{t('membership.contactName')}</label>
                 <Input
                   value={formData.emergencyName}
                   onChange={(e) => handleInputChange('emergencyName', e.target.value)}
                 />
               </div>
               <div className={styles.formField}>
-                <label className={styles.label}>Relationship</label>
+                <label className={styles.label}>{t('membership.relationship')}</label>
                 <Input
                   value={formData.emergencyRelationship}
                   onChange={(e) => handleInputChange('emergencyRelationship', e.target.value)}
                 />
               </div>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
-                <label className={styles.label}>Emergency Phone</label>
+                <label className={styles.label}>{t('membership.emergencyPhone')}</label>
                 <Input
                   type="tel"
                   value={formData.emergencyPhone}
@@ -505,32 +504,32 @@ function MembershipPage() {
 
           {/* Additional Information */}
           <Card className={styles.formCard}>
-            <Text className={styles.sectionTitle}>Additional Information</Text>
+            <Text className={styles.sectionTitle}>{t('membership.additionalInfo')}</Text>
             <div className={styles.formGrid}>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
-                <label className={styles.label}>Communication Preferences</label>
+                <label className={styles.label}>{t('membership.communicationPreferences')}</label>
                 <div className={styles.checkboxGroup}>
                   {communicationOptions.map((option) => (
                     <Checkbox
-                      key={option}
-                      label={option}
-                      checked={formData.communicationPreferences.includes(option)}
-                      onChange={(e, data) => handleCheckboxChange('communicationPreferences', option, data.checked)}
+                      key={option.key}
+                      label={option.label}
+                      checked={formData.communicationPreferences.includes(option.key)}
+                      onChange={(e, data) => handleCheckboxChange('communicationPreferences', option.key, data.checked)}
                     />
                   ))}
                 </div>
               </div>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
-                <label className={styles.label}>How did you hear about NAACUS?</label>
+                <label className={styles.label}>{t('membership.hearAbout')}</label>
                 <Input
                   value={formData.hearAbout}
                   onChange={(e) => handleInputChange('hearAbout', e.target.value)}
                 />
               </div>
               <div className={`${styles.formField} ${styles.formFieldFull}`}>
-                <label className={styles.label}>Why do you want to join NAACUS?</label>
+                <label className={styles.label}>{t('membership.whyJoin')}</label>
                 <Textarea
-                  placeholder="Share what motivates you to become a member..."
+                  placeholder={t('membership.whyJoinPlaceholder')}
                   value={formData.whyJoin}
                   onChange={(e) => handleInputChange('whyJoin', e.target.value)}
                   rows={4}
@@ -549,10 +548,10 @@ function MembershipPage() {
             {isSubmitting ? (
               <>
                 <Spinner size="tiny" style={{ marginRight: '8px' }} />
-                Submitting to Microsoft 365...
+                {t('membership.submitting')}
               </>
             ) : (
-              'Submit Membership Application'
+              t('membership.submitButton')
             )}
           </Button>
 
@@ -565,7 +564,7 @@ function MembershipPage() {
               color: '#d13438',
               textAlign: 'center',
             }}>
-              <Text style={{ fontWeight: '600' }}>Error: </Text>
+              <Text style={{ fontWeight: '600' }}>{t('membership.errorLabel')}</Text>
               <Text>{error}</Text>
             </div>
           )}
