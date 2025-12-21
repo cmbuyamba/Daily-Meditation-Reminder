@@ -147,12 +147,13 @@ const useStyles = makeStyles({
     top: '-150px',
     right: '-80px',
     animationName: {
-      from: { transform: 'translateY(0) rotate(0deg)' },
-      to: { transform: 'translateY(20px) rotate(360deg)' },
+      from: { transform: 'translateY(0)' },
+      to: { transform: 'translateY(20px)' },
     },
-    animationDuration: '20s',
+    animationDuration: '4s',
     animationIterationCount: 'infinite',
-    animationTimingFunction: 'linear',
+    animationDirection: 'alternate',
+    animationTimingFunction: 'ease-in-out',
   },
   circle2: {
     width: '250px',
@@ -160,12 +161,13 @@ const useStyles = makeStyles({
     bottom: '-100px',
     left: '-50px',
     animationName: {
-      from: { transform: 'translateY(0) rotate(0deg)' },
-      to: { transform: 'translateY(-20px) rotate(-360deg)' },
+      from: { transform: 'translateY(0)' },
+      to: { transform: 'translateY(-20px)' },
     },
-    animationDuration: '25s',
+    animationDuration: '5s',
     animationIterationCount: 'infinite',
-    animationTimingFunction: 'linear',
+    animationDirection: 'alternate',
+    animationTimingFunction: 'ease-in-out',
   },
 });
 
