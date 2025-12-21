@@ -155,6 +155,13 @@ function Header() {
             </Button>
             <Button 
               appearance="transparent" 
+              onClick={() => scrollToSection('naacus2025')}
+              className={styles.navLink}
+            >
+              {t('header.nav.naacus2025', 'NAACUS 2025')}
+            </Button>
+            <Button 
+              appearance="transparent" 
               onClick={() => scrollToSection('about')}
               className={styles.navLink}
             >
@@ -218,6 +225,7 @@ function Header() {
             <MenuPopover>
               <MenuList>
                 <MenuItem onClick={() => scrollToSection('home')}>{t('header.nav.home')}</MenuItem>
+                <MenuItem onClick={() => scrollToSection('naacus2025')}>{t('header.nav.naacus2025', 'NAACUS 2025')}</MenuItem>
                 <MenuItem onClick={() => scrollToSection('about')}>{t('header.nav.about')}</MenuItem>
                 <MenuItem onClick={() => scrollToSection('leadership')}>{t('header.nav.leadership')}</MenuItem>
                 <MenuItem onClick={() => scrollToSection('objectives')}>{t('header.nav.objectives')}</MenuItem>
