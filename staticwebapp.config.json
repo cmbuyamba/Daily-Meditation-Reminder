@@ -1,6 +1,14 @@
 {
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/api/*",
+      "/static/*",
+      "/images/*",
+      "/favicon.ico"
+    ]
+  },
   "buildRequiredFlags": [
     "--legacy-peer-deps"
-  ],
-  "nodeVersion": "20"
+  ]
 }

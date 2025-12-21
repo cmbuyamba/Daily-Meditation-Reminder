@@ -6,6 +6,7 @@ import {
   tokens,
   Text
 } from '@fluentui/react-components';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles({
   hero: {
@@ -271,6 +272,7 @@ const useStyles = makeStyles({
 function Hero() {
   const { t } = useTranslation();
   const styles = useStyles();
+  const navigate = useNavigate();
 
   return (
     <section id="home" className={styles.hero}>
@@ -305,7 +307,7 @@ function Hero() {
           {/* Primary Call to Action */}
           <div className={styles.primaryCTA}>
             <button
-              onClick={() => window.location.href = '/membership'}
+              onClick={() => navigate('/membership')}
               className={styles.primaryButton}
             >
               ✝ {t('heroButtons.joinCommunity')}
@@ -315,13 +317,13 @@ function Hero() {
           {/* Secondary Actions */}
           <div className={styles.secondaryActions}>
             <button
-              onClick={() => window.location.href = '/about'}
+              onClick={() => navigate('/about')}
               className={styles.secondaryButton}
             >
               🙏 {t('heroButtons.learnMission')}
             </button>
             <button
-              onClick={() => window.location.href = '/volunteer'}
+              onClick={() => navigate('/volunteer')}
               className={styles.secondaryButton}
             >
               💫 {t('heroButtons.getInvolved')}
