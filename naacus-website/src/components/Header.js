@@ -218,6 +218,12 @@ function Header() {
               {t('header.nav.leadership')}
             </button>
             <button 
+              onClick={() => handleNavigation('/fellowship-ministries', null)}
+              className={styles.navLink}
+            >
+              Fellowship & Ministries
+            </button>
+            <button 
               onClick={() => handleNavigation('/events', null)}
               className={styles.navLink}
             >
@@ -287,6 +293,7 @@ function Header() {
                 <MenuItem onClick={() => handleNavigation('/events', null)}>{t('header.nav.naacus2025', 'NAACUS 2025')}</MenuItem>
                 <MenuItem onClick={() => handleNavigation('/about', null)}>{t('header.nav.about')}</MenuItem>
                 <MenuItem onClick={() => handleNavigation('/leadership', null)}>{t('header.nav.leadership')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation('/fellowship-ministries', null)}>Fellowship & Ministries</MenuItem>
                 <MenuItem onClick={() => handleNavigation(null, 'objectives')}>{t('header.nav.objectives')}</MenuItem>
                 <MenuItem onClick={() => handleNavigation('/events', null)}>{t('header.nav.events')}</MenuItem>
                 <MenuItem onClick={() => handleNavigation('/membership', null)}>Membership</MenuItem>

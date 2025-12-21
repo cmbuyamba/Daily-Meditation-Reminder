@@ -9,6 +9,7 @@ import MembershipPage from './pages/MembershipPage';
 import VolunteerPage from './pages/VolunteerPage';
 import AboutPage from './pages/AboutPage';
 import LeadershipPage from './pages/LeadershipPage';
+import FellowshipMinistriesPage from './pages/FellowshipMinistriesPage';
 import ResourcesPage from './pages/ResourcesPage';
 import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
@@ -27,6 +28,7 @@ function App() {
             <Route path="/events" element={<EventsPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/leadership" element={<LeadershipPage />} />
+            <Route path="/fellowship-ministries" element={<FellowshipMinistriesPage />} />
             <Route path="/membership" element={<MembershipPage />} />
             <Route path="/volunteer" element={<VolunteerPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
