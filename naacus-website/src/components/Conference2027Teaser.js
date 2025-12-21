@@ -12,12 +12,12 @@ import { CalendarLtr24Regular, People24Regular, Location24Regular } from '@fluen
 const useStyles = makeStyles({
   teaser: {
     position: 'relative',
-    background: `linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #FF6347 100%)`,
+    background: `linear-gradient(135deg, #1a3a52 0%, #2d5a7b 50%, #3d6fa8 100%)`,
     color: tokens.colorNeutralForegroundInverted,
     ...shorthands.padding('60px', '20px'),
     textAlign: 'center',
     overflow: 'hidden',
-    ...shorthands.borderBottom('4px', 'solid', '#FFD700'),
+    ...shorthands.borderBottom('4px', 'solid', '#E8D4C0'),
   },
   teaserContent: {
     position: 'relative',
@@ -27,8 +27,8 @@ const useStyles = makeStyles({
   },
   badge: {
     display: 'inline-block',
-    backgroundColor: '#FFD700',
-    color: '#8B0000',
+    backgroundColor: '#E8D4C0',
+    color: '#1a3a52',
     fontSize: '0.9rem',
     fontWeight: '700',
     ...shorthands.padding('8px', '20px'),
@@ -36,7 +36,7 @@ const useStyles = makeStyles({
     marginBottom: '20px',
     letterSpacing: '1px',
     textTransform: 'uppercase',
-    boxShadow: '0 4px 15px rgba(255, 215, 0, 0.4)',
+    boxShadow: '0 4px 15px rgba(232, 212, 192, 0.35)',
   },
   teaserTitle: {
     fontSize: '3.5rem',
@@ -96,7 +96,7 @@ const useStyles = makeStyles({
   },
   detailIcon: {
     fontSize: '2rem',
-    color: '#FFD700',
+    color: '#E8D4C0',
   },
   detailLabel: {
     fontSize: '0.9rem',
@@ -112,19 +112,19 @@ const useStyles = makeStyles({
   },
   ctaButton: {
     marginTop: '24px',
-    backgroundColor: '#FFD700',
-    color: '#8B0000',
+    backgroundColor: '#E8D4C0',
+    color: '#1a3a52',
     fontSize: '1.1rem',
     fontWeight: '700',
     ...shorthands.padding('20px', '40px'),
     height: 'auto',
     ...shorthands.borderRadius('30px'),
-    boxShadow: '0 4px 20px rgba(255, 215, 0, 0.5)',
+    boxShadow: '0 4px 20px rgba(232, 212, 192, 0.35)',
     ...shorthands.transition('all', '0.3s', 'ease'),
     '&:hover': {
-      backgroundColor: '#FFA500',
+      backgroundColor: '#F0E0D4',
       transform: 'scale(1.05)',
-      boxShadow: '0 6px 25px rgba(255, 215, 0, 0.7)',
+      boxShadow: '0 6px 25px rgba(232, 212, 192, 0.5)',
     },
   },
   teaserGraphic: {
