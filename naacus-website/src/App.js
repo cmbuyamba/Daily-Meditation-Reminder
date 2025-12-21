@@ -14,7 +14,6 @@ import ResourcesPage from './pages/ResourcesPage';
 import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
-import SubscribeButton from './components/SubscribeButton';
 import ChatWidget from './components/ChatWidget';
 
 function App() {
@@ -36,7 +35,6 @@ function App() {
           </Routes>
           <Footer />
           <BackToTop />
-          <SubscribeButton />
           <ChatWidget />
         </div>
       </Router>

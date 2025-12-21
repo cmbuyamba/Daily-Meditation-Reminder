@@ -6,9 +6,7 @@ import Testimonials from '../components/Testimonials';
 import Programs from '../components/Programs';
 import Conference from '../components/Conference';
 import Objectives from '../components/Objectives';
-import Ministries from '../components/Ministries';
 import Gallery from '../components/Gallery';
-import Resources from '../components/Resources';
 import Newsletter from '../components/Newsletter';
 import Contact from '../components/Contact';
 
@@ -22,9 +20,7 @@ function HomePage() {
       <Programs />
       <Conference />
       <Objectives />
-      <Ministries />
       <Gallery />
-      <Resources />
       <Newsletter />
       <Contact />
     </>
