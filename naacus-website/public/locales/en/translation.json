@@ -18,7 +18,12 @@
     "title": "Together with Christ",
     "subtitle": "Uniting African Catholic Communities Across the United States",
     "description": "A vibrant community of faith, heritage, and service—where African Catholics participate fully in the life of the Church while celebrating their cultural identity.",
-    "discoverButton": "Discover Our Mission",
+    "membershipTeaser": "🌟 Join thousands of African Catholics building a stronger community",
+    "benefit1": "Connect with fellow members",
+    "benefit2": "Access exclusive events",
+    "benefit3": "Grow in faith together",
+    "becomeMemberButton": "Become a Member Today",
+    "discoverButton": "Learn More",
     "joinButton": "Join Our Community"
   },
   "about": {
@@ -41,5 +46,78 @@
     "copyright": "© {{year}} NAACUS. All rights reserved.",
     "tagline": "Together with Christ - Uniting African Catholic communities across the United States."
   },
-  "backToTop": "Back to Top"
+  "backToTop": "Back to Top",
+  "memberBenefits": {
+    "title": "Why Become a Member?",
+    "subtitle": "Join a thriving community of African Catholics united in faith, culture, and service across the United States.",
+    "stats": {
+      "members": "Active Members",
+      "communities": "Communities Nationwide",
+      "events": "Annual Events",
+      "states": "States Represented"
+    },
+    "community": {
+      "title": "Vibrant Community",
+      "description": "Connect with thousands of African Catholic families and individuals who share your faith and heritage."
+    },
+    "events": {
+      "title": "Exclusive Events",
+      "description": "Access to national conferences, workshops, cultural celebrations, and spiritual retreats throughout the year."
+    },
+    "resources": {
+      "title": "Faith Resources",
+      "description": "Get access to prayer materials, catechetical resources, newsletters, and spiritual formation programs."
+    },
+    "spiritual": {
+      "title": "Spiritual Growth",
+      "description": "Deepen your faith through Bible studies, prayer groups, and opportunities to serve in various ministries."
+    },
+    "network": {
+      "title": "National Network",
+      "description": "Build relationships with African Catholic communities across all 50 states and strengthen the Church."
+    },
+    "leadership": {
+      "title": "Leadership Development",
+      "description": "Develop your gifts through leadership training, mentorship programs, and opportunities to serve."
+    },
+    "cta": "Ready to be part of something bigger?",
+    "ctaButton": "Join NAACUS Today - It's Free!"
+  },
+  "testimonials": {
+    "title": "What Our Members Say",
+    "subtitle": "Hear from members who have found community, faith, and purpose through NAACUS.",
+    "testimonial1": {
+      "text": "NAACUS has been a blessing to my family. We found a welcoming community where we can celebrate our African heritage while growing in our Catholic faith. The annual conferences are transformative!",
+      "author": "Mary Okonkwo",
+      "location": "Houston, Texas"
+    },
+    "testimonial2": {
+      "text": "As a young professional, NAACUS connected me with mentors and friends who share my values. The leadership programs have helped me serve my parish and community with confidence.",
+      "author": "Joseph Kamara",
+      "location": "Washington, D.C."
+    },
+    "testimonial3": {
+      "text": "Finding NAACUS was like finding home. The community embraces our African traditions while deepening our Catholic identity. I'm grateful for the spiritual support and lasting friendships.",
+      "author": "Amara Nwosu",
+      "location": "Atlanta, Georgia"
+    }
+  },
+  "newsletter": {
+    "badge": "FREE MEMBERSHIP",
+    "title": "Join NAACUS Today",
+    "subtitle": "Become part of a vibrant community of 10,000+ African Catholics across America",
+    "description": "Membership is completely free and gives you access to our national network, exclusive events, spiritual resources, and a supportive community that celebrates African heritage and Catholic faith.",
+    "benefit1": "Instant access to community",
+    "benefit2": "Event invitations & updates",
+    "benefit3": "Spiritual & cultural resources",
+    "namePlaceholder": "Your Full Name",
+    "emailPlaceholder": "Your Email Address",
+    "submitButton": "Join NAACUS - It's Free!",
+    "successTitle": "Welcome to NAACUS!",
+    "successMessage": "Check your email for next steps and upcoming events.",
+    "privacyNote": "We respect your privacy. Your information is secure and will only be used for NAACUS communications."
+  },
+  "joinNowButton": {
+    "text": "Join Now"
+  }
 }

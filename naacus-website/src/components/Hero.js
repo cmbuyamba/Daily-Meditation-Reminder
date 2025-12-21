@@ -67,7 +67,37 @@ const useStyles = makeStyles({
     ...shorthands.gap('16px'),
     justifyContent: 'center',
     flexWrap: 'wrap',
-    marginTop: '24px',
+    marginTop: '32px',
+  },
+  membershipHighlight: {
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+    ...shorthands.padding('20px', '28px'),
+    ...shorthands.borderRadius('12px'),
+    marginTop: '32px',
+    backdropFilter: 'blur(10px)',
+    ...shorthands.border('1px', 'solid', 'rgba(255, 255, 255, 0.2)'),
+  },
+  membershipText: {
+    fontSize: '1rem',
+    color: tokens.colorNeutralForegroundInverted,
+    marginBottom: '8px',
+    display: 'block',
+    textAlign: 'center',
+    fontWeight: '500',
+  },
+  benefitsList: {
+    display: 'flex',
+    ...shorthands.gap('24px'),
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    marginTop: '12px',
+  },
+  benefitItem: {
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('8px'),
+    fontSize: '0.95rem',
+    color: tokens.colorNeutralForegroundInverted,
   },
   heroGraphic: {
     position: 'absolute',
@@ -148,24 +178,47 @@ function Hero() {
         <Text as="p" className={styles.heroDescription}>
           {t('hero.description')}
         </Text>
+        
+        <div className={styles.membershipHighlight}>
+          <Text className={styles.membershipText}>
+            {t('hero.membershipTeaser')}
+          </Text>
+          <div className={styles.benefitsList}>
+            <span className={styles.benefitItem}>✓ {t('hero.benefit1')}</span>
+            <span className={styles.benefitItem}>✓ {t('hero.benefit2')}</span>
+            <span className={styles.benefitItem}>✓ {t('hero.benefit3')}</span>
+          </div>
+        </div>
+
         <div className={styles.heroButtons}>
           <Button 
             appearance="primary" 
             size="large"
-            onClick={() => scrollToSection('about')}
+            onClick={() => scrollToSection('newsletter')}
+            style={{
+              backgroundColor: '#28a745',
+              borderColor: '#28a745',
+              fontSize: '1.1rem',
+              padding: '24px 40px',
+              height: 'auto',
+              fontWeight: '600',
+            }}
           >
-            {t('hero.discoverButton')}
+            {t('hero.becomeMemberButton')}
           </Button>
           <Button 
             appearance="outline" 
             size="large"
-            onClick={() => scrollToSection('conference')}
+            onClick={() => scrollToSection('about')}
             style={{ 
               color: tokens.colorNeutralForegroundInverted, 
-              borderColor: tokens.colorNeutralForegroundInverted 
+              borderColor: tokens.colorNeutralForegroundInverted,
+              fontSize: '1.1rem',
+              padding: '24px 40px',
+              height: 'auto',
             }}
           >
-            {t('hero.joinButton')}
+            {t('hero.discoverButton')}
           </Button>
         </div>
       </div>

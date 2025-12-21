@@ -18,7 +18,12 @@
     "title": "Ensemble avec le Christ",
     "subtitle": "Unir les Communautés Catholiques Africaines à Travers les États-Unis",
     "description": "Une communauté dynamique de foi, d'héritage et de service—où les catholiques africains participent pleinement à la vie de l'Église tout en célébrant leur identité culturelle.",
-    "discoverButton": "Découvrez Notre Mission",
+    "membershipTeaser": "🌟 Rejoignez des milliers de catholiques africains qui construisent une communauté plus forte",
+    "benefit1": "Connectez-vous avec d'autres membres",
+    "benefit2": "Accédez à des événements exclusifs",
+    "benefit3": "Grandissez ensemble dans la foi",
+    "becomeMemberButton": "Devenez Membre Aujourd'hui",
+    "discoverButton": "En Savoir Plus",
     "joinButton": "Rejoignez Notre Communauté"
   },
   "about": {
@@ -41,5 +46,78 @@
     "copyright": "© {{year}} NAACUS. Tous droits réservés.",
     "tagline": "Ensemble avec le Christ - Unir les communautés catholiques africaines à travers les États-Unis."
   },
-  "backToTop": "Retour en Haut"
+  "backToTop": "Retour en Haut",
+  "memberBenefits": {
+    "title": "Pourquoi Devenir Membre?",
+    "subtitle": "Rejoignez une communauté florissante de catholiques africains unis dans la foi, la culture et le service à travers les États-Unis.",
+    "stats": {
+      "members": "Membres Actifs",
+      "communities": "Communautés Nationales",
+      "events": "Événements Annuels",
+      "states": "États Représentés"
+    },
+    "community": {
+      "title": "Communauté Dynamique",
+      "description": "Connectez-vous avec des milliers de familles et d'individus catholiques africains qui partagent votre foi et votre héritage."
+    },
+    "events": {
+      "title": "Événements Exclusifs",
+      "description": "Accès aux conférences nationales, ateliers, célébrations culturelles et retraites spirituelles tout au long de l'année."
+    },
+    "resources": {
+      "title": "Ressources de Foi",
+      "description": "Accédez aux matériels de prière, ressources catéchétiques, bulletins et programmes de formation spirituelle."
+    },
+    "spiritual": {
+      "title": "Croissance Spirituelle",
+      "description": "Approfondissez votre foi à travers des études bibliques, des groupes de prière et des opportunités de servir dans divers ministères."
+    },
+    "network": {
+      "title": "Réseau National",
+      "description": "Établissez des relations avec les communautés catholiques africaines dans les 50 états et renforcez l'Église."
+    },
+    "leadership": {
+      "title": "Développement du Leadership",
+      "description": "Développez vos dons grâce à la formation au leadership, aux programmes de mentorat et aux opportunités de service."
+    },
+    "cta": "Prêt à faire partie de quelque chose de plus grand?",
+    "ctaButton": "Rejoignez NAACUS Aujourd'hui - C'est Gratuit!"
+  },
+  "testimonials": {
+    "title": "Ce Que Disent Nos Membres",
+    "subtitle": "Écoutez les membres qui ont trouvé communauté, foi et but à travers NAACUS.",
+    "testimonial1": {
+      "text": "NAACUS a été une bénédiction pour ma famille. Nous avons trouvé une communauté accueillante où nous pouvons célébrer notre héritage africain tout en grandissant dans notre foi catholique. Les conférences annuelles sont transformatrices!",
+      "author": "Mary Okonkwo",
+      "location": "Houston, Texas"
+    },
+    "testimonial2": {
+      "text": "En tant que jeune professionnel, NAACUS m'a mis en contact avec des mentors et des amis qui partagent mes valeurs. Les programmes de leadership m'ont aidé à servir ma paroisse et ma communauté avec confiance.",
+      "author": "Joseph Kamara",
+      "location": "Washington, D.C."
+    },
+    "testimonial3": {
+      "text": "Trouver NAACUS, c'était comme trouver ma maison. La communauté embrasse nos traditions africaines tout en approfondissant notre identité catholique. Je suis reconnaissante pour le soutien spirituel et les amitiés durables.",
+      "author": "Amara Nwosu",
+      "location": "Atlanta, Géorgie"
+    }
+  },
+  "newsletter": {
+    "badge": "ADHÉSION GRATUITE",
+    "title": "Rejoignez NAACUS Aujourd'hui",
+    "subtitle": "Faites partie d'une communauté dynamique de plus de 10 000 catholiques africains à travers l'Amérique",
+    "description": "L'adhésion est entièrement gratuite et vous donne accès à notre réseau national, à des événements exclusifs, à des ressources spirituelles et à une communauté solidaire qui célèbre l'héritage africain et la foi catholique.",
+    "benefit1": "Accès instantané à la communauté",
+    "benefit2": "Invitations et mises à jour d'événements",
+    "benefit3": "Ressources spirituelles et culturelles",
+    "namePlaceholder": "Votre Nom Complet",
+    "emailPlaceholder": "Votre Adresse Email",
+    "submitButton": "Rejoignez NAACUS - C'est Gratuit!",
+    "successTitle": "Bienvenue à NAACUS!",
+    "successMessage": "Vérifiez votre email pour les prochaines étapes et les événements à venir.",
+    "privacyNote": "Nous respectons votre vie privée. Vos informations sont sécurisées et ne seront utilisées que pour les communications NAACUS."
+  },
+  "joinNowButton": {
+    "text": "Rejoindre"
+  }
 }

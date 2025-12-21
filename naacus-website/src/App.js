@@ -3,6 +3,8 @@ import { FluentProvider, webLightTheme } from '@fluentui/react-components';
 import './App.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import MemberBenefits from './components/MemberBenefits';
+import Testimonials from './components/Testimonials';
 import About from './components/About';
 import Leadership from './components/Leadership';
 import Objectives from './components/Objectives';
@@ -17,6 +19,7 @@ import Newsletter from './components/Newsletter';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
+import JoinNowButton from './components/JoinNowButton';
 
 function App() {
   return (
@@ -24,20 +27,23 @@ function App() {
       <div className="App">
         <Header />
         <Hero />
+        <MemberBenefits />
+        <Testimonials />
         <About />
-        <Leadership />
-        <Objectives />
         <WhatWeDo />
         <WhoWeServe />
         <Programs />
+        <Conference />
+        <Leadership />
+        <Objectives />
         <Ministries />
         <Gallery />
-        <Conference />
         <Resources />
         <Newsletter />
         <Contact />
         <Footer />
         <BackToTop />
+        <JoinNowButton />
       </div>
     </FluentProvider>
   );
