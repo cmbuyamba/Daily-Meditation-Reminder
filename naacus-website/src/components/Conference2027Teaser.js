@@ -185,36 +185,27 @@ function Conference2027Teaser() {
   return (
     <section className={styles.teaser}>
       <div className={styles.teaserContent}>
-        <div className={styles.badge}>
-          {t('conference2027.badge')}
-        </div>
-        
         <Text as="h2" className={styles.teaserTitle}>
           {t('conference2027.title')}
         </Text>
-        
         <Text as="p" className={styles.teaserSubtitle}>
           {t('conference2027.subtitle')}
         </Text>
-
         <div className={styles.highlightBox}>
           <Text className={styles.highlightText}>
             {t('conference2027.highlightText')}
           </Text>
-          
           <div className={styles.detailsGrid}>
             <div className={styles.detailItem}>
               <CalendarLtr24Regular className={styles.detailIcon} />
               <span className={styles.detailLabel}>{t('conference2027.whenLabel')}</span>
               <span className={styles.detailValue}>{t('conference2027.whenValue')}</span>
             </div>
-            
             <div className={styles.detailItem}>
               <Location24Regular className={styles.detailIcon} />
               <span className={styles.detailLabel}>{t('conference2027.whereLabel')}</span>
               <span className={styles.detailValue}>{t('conference2027.whereValue')}</span>
             </div>
-            
             <div className={styles.detailItem}>
               <People24Regular className={styles.detailIcon} />
               <span className={styles.detailLabel}>{t('conference2027.targetLabel')}</span>
@@ -222,7 +213,6 @@ function Conference2027Teaser() {
             </div>
           </div>
         </div>
-
         <Button 
           className={styles.ctaButton}
           onClick={() => scrollToSection('newsletter')}
@@ -230,7 +220,6 @@ function Conference2027Teaser() {
           {t('conference2027.ctaButton')}
         </Button>
       </div>
-      
       <div className={styles.teaserGraphic}>
         <div className={`${styles.graphicCircle} ${styles.circle1}`}></div>
         <div className={`${styles.graphicCircle} ${styles.circle2}`}></div>

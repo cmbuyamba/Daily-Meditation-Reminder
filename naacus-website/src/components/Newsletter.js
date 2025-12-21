@@ -149,7 +149,6 @@ function Newsletter() {
         <div className={styles.iconWrapper}>
           <Mail24Regular />
         </div>
-        <div className={styles.badge}>{t('newsletter.badge')}</div>
         <Text as="h2" className={styles.title}>{t('newsletter.title')}</Text>
         <Text as="p" className={styles.subtitle}>
           {t('newsletter.subtitle')}

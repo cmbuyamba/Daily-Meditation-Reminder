@@ -90,6 +90,12 @@ const useStyles = makeStyles({
       textDecoration: 'underline',
     },
   },
+  navLinkActive: {
+    backgroundColor: '#eaf4ff',
+    color: '#0067b8',
+    fontWeight: '600',
+    textDecoration: 'underline',
+  },
   rightSection: {
     display: 'flex',
     alignItems: 'center',
@@ -143,6 +149,11 @@ const useStyles = makeStyles({
       display: 'none',
     },
   },
+  mobileMenuItemActive: {
+    backgroundColor: '#eaf4ff',
+    color: '#0067b8',
+    fontWeight: '600',
+  },
 });
 
 function Header() {
@@ -173,6 +184,8 @@ function Header() {
     }
   };
 
+  const isActivePath = (path) => location.pathname === path;
+
   return (
     <header className={styles.header}>
       <div className={styles.headerContainer}>
@@ -185,61 +198,61 @@ function Header() {
           <nav className={styles.nav}>
             <button 
               onClick={() => handleNavigation('/events', null)}
-              className={styles.navLink}
+              className={`${styles.navLink} ${isActivePath('/events') ? styles.navLinkActive : ''}`}
             >
               {t('header.nav.naacus2025', 'NAACUS 2025')}
             </button>
             <button 
               onClick={() => handleNavigation('/about', null)}
-              className={styles.navLink}
+              className={`${styles.navLink} ${isActivePath('/about') ? styles.navLinkActive : ''}`}
             >
               {t('header.nav.about')}
             </button>
             <button 
               onClick={() => handleNavigation('/leadership', null)}
-              className={styles.navLink}
+              className={`${styles.navLink} ${isActivePath('/leadership') ? styles.navLinkActive : ''}`}
             >
               {t('header.nav.leadership')}
             </button>
             <button 
               onClick={() => handleNavigation('/fellowship-ministries', null)}
-              className={styles.navLink}
+              className={`${styles.navLink} ${isActivePath('/fellowship-ministries') ? styles.navLinkActive : ''}`}
             >
               Fellowship & Ministries
             </button>
             <button 
               onClick={() => handleNavigation('/programs-activities', null)}
-              className={styles.navLink}
+              className={`${styles.navLink} ${isActivePath('/programs-activities') ? styles.navLinkActive : ''}`}
             >
               Programs & Activities
             </button>
             <button 
               onClick={() => handleNavigation('/events', null)}
-              className={styles.navLink}
+              className={`${styles.navLink} ${isActivePath('/events') ? styles.navLinkActive : ''}`}
             >
               {t('header.nav.events')}
             </button>
             <button 
               onClick={() => handleNavigation('/membership', null)}
-              className={styles.navLink}
+              className={`${styles.navLink} ${isActivePath('/membership') ? styles.navLinkActive : ''}`}
             >
               Membership
             </button>
             <button 
               onClick={() => handleNavigation('/volunteer', null)}
-              className={styles.navLink}
+              className={`${styles.navLink} ${isActivePath('/volunteer') ? styles.navLinkActive : ''}`}
             >
               Volunteer
             </button>
             <button 
               onClick={() => handleNavigation('/resources', null)}
-              className={styles.navLink}
+              className={`${styles.navLink} ${isActivePath('/resources') ? styles.navLinkActive : ''}`}
             >
               {t('header.nav.resources')}
             </button>
             <button 
               onClick={() => handleNavigation('/contact', null)}
-              className={styles.navLink}
+              className={`${styles.navLink} ${isActivePath('/contact') ? styles.navLinkActive : ''}`}
             >
               {t('header.nav.contact')}
             </button>
@@ -272,16 +285,16 @@ function Header() {
             <MenuPopover>
               <MenuList>
                 <MenuItem onClick={() => handleNavigation(null, 'home')}>{t('header.nav.home')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation('/events', null)}>{t('header.nav.naacus2025', 'NAACUS 2025')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation('/about', null)}>{t('header.nav.about')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation('/leadership', null)}>{t('header.nav.leadership')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation('/fellowship-ministries', null)}>Fellowship & Ministries</MenuItem>
-                <MenuItem onClick={() => handleNavigation('/programs-activities', null)}>Programs & Activities</MenuItem>
-                <MenuItem onClick={() => handleNavigation('/events', null)}>{t('header.nav.events')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation('/membership', null)}>Membership</MenuItem>
-                <MenuItem onClick={() => handleNavigation('/volunteer', null)}>Volunteer</MenuItem>
-                <MenuItem onClick={() => handleNavigation('/resources', null)}>{t('header.nav.resources')}</MenuItem>
-                <MenuItem onClick={() => handleNavigation('/contact', null)}>{t('header.nav.contact')}</MenuItem>
+                <MenuItem className={isActivePath('/events') ? styles.mobileMenuItemActive : undefined} onClick={() => handleNavigation('/events', null)}>{t('header.nav.naacus2025', 'NAACUS 2025')}</MenuItem>
+                <MenuItem className={isActivePath('/about') ? styles.mobileMenuItemActive : undefined} onClick={() => handleNavigation('/about', null)}>{t('header.nav.about')}</MenuItem>
+                <MenuItem className={isActivePath('/leadership') ? styles.mobileMenuItemActive : undefined} onClick={() => handleNavigation('/leadership', null)}>{t('header.nav.leadership')}</MenuItem>
+                <MenuItem className={isActivePath('/fellowship-ministries') ? styles.mobileMenuItemActive : undefined} onClick={() => handleNavigation('/fellowship-ministries', null)}>Fellowship & Ministries</MenuItem>
+                <MenuItem className={isActivePath('/programs-activities') ? styles.mobileMenuItemActive : undefined} onClick={() => handleNavigation('/programs-activities', null)}>Programs & Activities</MenuItem>
+                <MenuItem className={isActivePath('/events') ? styles.mobileMenuItemActive : undefined} onClick={() => handleNavigation('/events', null)}>{t('header.nav.events')}</MenuItem>
+                <MenuItem className={isActivePath('/membership') ? styles.mobileMenuItemActive : undefined} onClick={() => handleNavigation('/membership', null)}>Membership</MenuItem>
+                <MenuItem className={isActivePath('/volunteer') ? styles.mobileMenuItemActive : undefined} onClick={() => handleNavigation('/volunteer', null)}>Volunteer</MenuItem>
+                <MenuItem className={isActivePath('/resources') ? styles.mobileMenuItemActive : undefined} onClick={() => handleNavigation('/resources', null)}>{t('header.nav.resources')}</MenuItem>
+                <MenuItem className={isActivePath('/contact') ? styles.mobileMenuItemActive : undefined} onClick={() => handleNavigation('/contact', null)}>{t('header.nav.contact')}</MenuItem>
               </MenuList>
             </MenuPopover>
           </Menu>

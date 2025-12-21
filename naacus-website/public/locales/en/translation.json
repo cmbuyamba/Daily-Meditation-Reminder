@@ -101,7 +101,6 @@
     }
   },
   "newsletter": {
-    "badge": "STAY CONNECTED",
     "title": "Stay Updated with NAACUS",
     "subtitle": "Get the latest news, events, and updates from our community",
     "description": "Subscribe to our newsletter to receive updates about upcoming conferences, regional events, spiritual resources, and news from African Catholic communities across America.",
@@ -119,7 +118,6 @@
     "text": "Subscribe"
   },
   "conference2027": {
-    "badge": "SAVE THE DATE",
     "title": "A Historic Gathering is Coming in 2027",
     "subtitle": "The National Conference that will bring together African Catholics from across America",
     "highlightText": "Join us for an unprecedented gathering of faith, heritage, and unity",

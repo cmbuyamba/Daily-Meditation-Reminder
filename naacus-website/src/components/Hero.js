@@ -156,12 +156,11 @@ const useStyles = makeStyles({
     ...shorthands.borderRadius('20px'),
     marginTop: '48px',
     backdropFilter: 'blur(16px)',
-    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-    ...shorthands.border('1px', 'solid', 'rgba(255, 255, 255, 0.18)'),
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1)',
     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
     '&:hover': {
       transform: 'translateY(-2px)',
-      boxShadow: '0 12px 40px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.25)',
+      boxShadow: '0 12px 40px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.12)',
     },
   },
   membershipText: {

@@ -105,7 +105,6 @@
     }
   },
   "newsletter": {
-    "badge": "RESTEZ CONNECTÉ",
     "title": "Restez Informé avec NAACUS",
     "subtitle": "Recevez les dernières nouvelles, événements et mises à jour de notre communauté",
     "description": "Abonnez-vous à notre bulletin d'information pour recevoir des mises à jour sur les conférences à venir, les événements régionaux, les ressources spirituelles et les nouvelles des communautés catholiques africaines à travers l'Amérique.",
@@ -123,7 +122,6 @@
     "text": "S'abonner"
   },
   "conference2027": {
-    "badge": "RÉSERVEZ LA DATE",
     "title": "Un Rassemblement Historique Arrive en 2027",
     "subtitle": "La Conférence Nationale qui réunira les Catholiques Africains de toute l'Amérique",
     "highlightText": "Rejoignez-nous pour un rassemblement sans précédent de foi, d'héritage et d'unité",
