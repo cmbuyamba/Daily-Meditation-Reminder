@@ -419,9 +419,7 @@ function Naacus2025Accomplishments() {
 
   const scrollToNewsletter = () => {
     const element = document.getElementById('newsletter');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    element?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { 
   makeStyles,
   shorthands,
@@ -101,6 +102,8 @@ const SCROLL_HIDE_DELAY = 150;
 function Header() {
   const { t } = useTranslation();
   const styles = useStyles();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolling, setIsScrolling] = useState(false);
   const scrollTimeoutRef = useRef(null);
 
@@ -137,6 +140,21 @@ function Header() {
     }
   };
 
+  const handleNavigation = (path, sectionId) => {
+    if (path) {
+      // Navigate to a different route
+      navigate(path);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (location.pathname === '/') {
+      // If on home page, scroll to section
+      scrollToSection(sectionId);
+    } else {
+      // If on another page, navigate home first then scroll
+      navigate('/');
+      setTimeout(() => scrollToSection(sectionId), 100);
+    }
+  };
+
   return (
     <header className={`${styles.header} ${isScrolling ? styles.headerHidden : ''}`}>
       <div className={styles.headerContainer}>
@@ -148,63 +166,63 @@ function Header() {
           <nav className={styles.nav}>
             <Button 
               appearance="transparent" 
-              onClick={() => scrollToSection('home')}
+              onClick={() => handleNavigation(null, 'home')}
               className={styles.navLink}
             >
               {t('header.nav.home')}
             </Button>
             <Button 
               appearance="transparent" 
-              onClick={() => scrollToSection('naacus2025')}
+              onClick={() => handleNavigation('/events', null)}
               className={styles.navLink}
             >
               {t('header.nav.naacus2025', 'NAACUS 2025')}
             </Button>
             <Button 
               appearance="transparent" 
-              onClick={() => scrollToSection('about')}
+              onClick={() => handleNavigation(null, 'about')}
               className={styles.navLink}
             >
               {t('header.nav.about')}
             </Button>
             <Button 
               appearance="transparent" 
-              onClick={() => scrollToSection('leadership')}
+              onClick={() => handleNavigation(null, 'leadership')}
               className={styles.navLink}
             >
               {t('header.nav.leadership')}
             </Button>
             <Button 
               appearance="transparent" 
-              onClick={() => scrollToSection('programs')}
+              onClick={() => handleNavigation(null, 'programs')}
               className={styles.navLink}
             >
               {t('header.nav.events')}
             </Button>
             <Button 
               appearance="transparent" 
-              onClick={() => scrollToSection('ministries')}
+              onClick={() => handleNavigation(null, 'ministries')}
               className={styles.navLink}
             >
               {t('header.nav.ministries')}
             </Button>
             <Button 
               appearance="transparent" 
-              onClick={() => scrollToSection('gallery')}
+              onClick={() => handleNavigation(null, 'gallery')}
               className={styles.navLink}
             >
               {t('header.nav.gallery')}
             </Button>
             <Button 
               appearance="transparent" 
-              onClick={() => scrollToSection('resources')}
+              onClick={() => handleNavigation(null, 'resources')}
               className={styles.navLink}
             >
               {t('header.nav.resources')}
             </Button>
             <Button 
               appearance="transparent" 
-              onClick={() => scrollToSection('contact')}
+              onClick={() => handleNavigation(null, 'contact')}
               className={styles.navLink}
             >
               {t('header.nav.contact')}
@@ -224,16 +242,16 @@ function Header() {
             </MenuTrigger>
             <MenuPopover>
               <MenuList>
-                <MenuItem onClick={() => scrollToSection('home')}>{t('header.nav.home')}</MenuItem>
-                <MenuItem onClick={() => scrollToSection('naacus2025')}>{t('header.nav.naacus2025', 'NAACUS 2025')}</MenuItem>
-                <MenuItem onClick={() => scrollToSection('about')}>{t('header.nav.about')}</MenuItem>
-                <MenuItem onClick={() => scrollToSection('leadership')}>{t('header.nav.leadership')}</MenuItem>
-                <MenuItem onClick={() => scrollToSection('objectives')}>{t('header.nav.objectives')}</MenuItem>
-                <MenuItem onClick={() => scrollToSection('programs')}>{t('header.nav.events')}</MenuItem>
-                <MenuItem onClick={() => scrollToSection('ministries')}>{t('header.nav.ministries')}</MenuItem>
-                <MenuItem onClick={() => scrollToSection('gallery')}>{t('header.nav.gallery')}</MenuItem>
-                <MenuItem onClick={() => scrollToSection('resources')}>{t('header.nav.resources')}</MenuItem>
-                <MenuItem onClick={() => scrollToSection('contact')}>{t('header.nav.contact')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'home')}>{t('header.nav.home')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation('/events', null)}>{t('header.nav.naacus2025', 'NAACUS 2025')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'about')}>{t('header.nav.about')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'leadership')}>{t('header.nav.leadership')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'objectives')}>{t('header.nav.objectives')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'programs')}>{t('header.nav.events')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'ministries')}>{t('header.nav.ministries')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'gallery')}>{t('header.nav.gallery')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'resources')}>{t('header.nav.resources')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'contact')}>{t('header.nav.contact')}</MenuItem>
               </MenuList>
             </MenuPopover>
           </Menu>

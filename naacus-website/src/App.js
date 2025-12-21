@@ -1,24 +1,10 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { FluentProvider, webLightTheme } from '@fluentui/react-components';
 import './App.css';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Conference2027Teaser from './components/Conference2027Teaser';
-import { Naacus2025Accomplishments } from './components/naacus2025';
-import MemberBenefits from './components/MemberBenefits';
-import Testimonials from './components/Testimonials';
-import About from './components/About';
-import Leadership from './components/Leadership';
-import Objectives from './components/Objectives';
-import WhatWeDo from './components/WhatWeDo';
-import WhoWeServe from './components/WhoWeServe';
-import Programs from './components/Programs';
-import Ministries from './components/Ministries';
-import Gallery from './components/Gallery';
-import Conference from './components/Conference';
-import Resources from './components/Resources';
-import Newsletter from './components/Newsletter';
-import Contact from './components/Contact';
+import HomePage from './pages/HomePage';
+import EventsPage from './pages/EventsPage';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import JoinNowButton from './components/JoinNowButton';
@@ -26,29 +12,18 @@ import JoinNowButton from './components/JoinNowButton';
 function App() {
   return (
     <FluentProvider theme={webLightTheme}>
-      <div className="App">
-        <Header />
-        <Hero />
-        <Conference2027Teaser />
-        <Naacus2025Accomplishments />
-        <MemberBenefits />
-        <Testimonials />
-        <About />
-        <WhatWeDo />
-        <WhoWeServe />
-        <Programs />
-        <Conference />
-        <Leadership />
-        <Objectives />
-        <Ministries />
-        <Gallery />
-        <Resources />
-        <Newsletter />
-        <Contact />
-        <Footer />
-        <BackToTop />
-        <JoinNowButton />
-      </div>
+      <Router>
+        <div className="App">
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/events" element={<EventsPage />} />
+          </Routes>
+          <Footer />
+          <BackToTop />
+          <JoinNowButton />
+        </div>
+      </Router>
     </FluentProvider>
   );
 }
