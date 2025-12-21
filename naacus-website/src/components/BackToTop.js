@@ -10,8 +10,8 @@ import { ArrowUp24Regular } from '@fluentui/react-icons';
 const useStyles = makeStyles({
   backToTop: {
     position: 'fixed',
-    bottom: '40px',
-    right: '40px',
+    bottom: '110px',
+    right: '30px',
     zIndex: 1000,
     opacity: 0,
     visibility: 'hidden',
@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     transitionDuration: '0.3s',
     transitionTimingFunction: 'ease-in-out',
     '@media (max-width: 768px)': {
-      bottom: '20px',
+      bottom: '100px',
       right: '20px',
     },
   },

@@ -11,10 +11,10 @@ import {
 const useStyles = makeStyles({
   hero: {
     position: 'relative',
-    background: `linear-gradient(135deg, ${tokens.colorBrandBackground} 0%, #005a9e 100%)`,
+    background: `linear-gradient(135deg, ${tokens.colorBrandBackground} 0%, #1a6fb8 100%)`,
     color: tokens.colorNeutralForegroundInverted,
-    ...shorthands.padding('80px', '20px'),
-    minHeight: '500px',
+    ...shorthands.padding('100px', '20px', '80px'),
+    minHeight: '600px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -23,81 +23,86 @@ const useStyles = makeStyles({
   heroContent: {
     position: 'relative',
     zIndex: 2,
-    maxWidth: '900px',
+    maxWidth: '1000px',
     margin: '0 auto',
     textAlign: 'center',
-    animation: 'fadeInUp 0.8s ease-out',
   },
   heroTitle: {
-    fontSize: '4rem',
+    fontSize: '4.5rem',
     fontWeight: '600',
-    marginBottom: '16px',
+    marginBottom: '24px',
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
     textAlign: 'center',
-    lineHeight: '1.2',
-    letterSpacing: '-0.02em',
+    lineHeight: '1.1',
+    letterSpacing: '-0.03em',
     '@media (max-width: 768px)': {
-      fontSize: '2.5rem',
+      fontSize: '2.8rem',
     },
   },
   heroSubtitle: {
-    fontSize: '1.5rem',
-    marginBottom: '16px',
+    fontSize: '1.6rem',
+    marginBottom: '20px',
     fontWeight: '400',
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
     textAlign: 'center',
-    lineHeight: '1.4',
+    lineHeight: '1.5',
     '@media (max-width: 768px)': {
-      fontSize: '1.25rem',
+      fontSize: '1.3rem',
     },
   },
   heroDescription: {
-    fontSize: '1.125rem',
-    marginBottom: '32px',
-    lineHeight: '1.7',
+    fontSize: '1.2rem',
+    marginBottom: '40px',
+    lineHeight: '1.8',
     color: tokens.colorNeutralForegroundInverted,
-    opacity: 0.95,
+    opacity: 0.96,
     display: 'block',
     textAlign: 'center',
+    maxWidth: '900px',
+    margin: '0 auto 40px',
   },
   heroButtons: {
     display: 'flex',
-    ...shorthands.gap('16px'),
+    ...shorthands.gap('20px'),
     justifyContent: 'center',
     flexWrap: 'wrap',
-    marginTop: '32px',
+    marginTop: '40px',
   },
   membershipHighlight: {
-    backgroundColor: 'rgba(255, 255, 255, 0.15)',
-    ...shorthands.padding('20px', '28px'),
-    ...shorthands.borderRadius('12px'),
-    marginTop: '32px',
-    backdropFilter: 'blur(10px)',
-    ...shorthands.border('1px', 'solid', 'rgba(255, 255, 255, 0.2)'),
+    backgroundColor: 'rgba(90, 160, 220, 0.35)',
+    ...shorthands.padding('24px', '32px'),
+    ...shorthands.borderRadius('16px'),
+    marginTop: '40px',
+    backdropFilter: 'blur(12px)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
   },
   membershipText: {
-    fontSize: '1rem',
+    fontSize: '1.1rem',
     color: tokens.colorNeutralForegroundInverted,
-    marginBottom: '8px',
-    display: 'block',
+    marginBottom: '16px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    ...shorthands.gap('10px'),
     textAlign: 'center',
     fontWeight: '500',
   },
   benefitsList: {
     display: 'flex',
-    ...shorthands.gap('24px'),
+    ...shorthands.gap('32px'),
     justifyContent: 'center',
     flexWrap: 'wrap',
-    marginTop: '12px',
+    marginTop: '16px',
   },
   benefitItem: {
     display: 'flex',
     alignItems: 'center',
     ...shorthands.gap('8px'),
-    fontSize: '0.95rem',
+    fontSize: '1rem',
     color: tokens.colorNeutralForegroundInverted,
+    fontWeight: '400',
   },
   heroGraphic: {
     position: 'absolute',
@@ -181,7 +186,7 @@ function Hero() {
         
         <div className={styles.membershipHighlight}>
           <Text className={styles.membershipText}>
-            {t('hero.membershipTeaser')}
+            <span style={{ fontSize: '1.5rem' }}>⭐</span> {t('hero.membershipTeaser')}
           </Text>
           <div className={styles.benefitsList}>
             <span className={styles.benefitItem}>✓ {t('hero.benefit1')}</span>
@@ -198,10 +203,12 @@ function Hero() {
             style={{
               backgroundColor: '#28a745',
               borderColor: '#28a745',
-              fontSize: '1.1rem',
-              padding: '24px 40px',
+              fontSize: '1.15rem',
+              padding: '18px 48px',
               height: 'auto',
               fontWeight: '600',
+              borderRadius: '8px',
+              boxShadow: '0 4px 16px rgba(40, 167, 69, 0.3)',
             }}
           >
             {t('hero.becomeMemberButton')}
@@ -213,9 +220,13 @@ function Hero() {
             style={{ 
               color: tokens.colorNeutralForegroundInverted, 
               borderColor: tokens.colorNeutralForegroundInverted,
-              fontSize: '1.1rem',
-              padding: '24px 40px',
+              fontSize: '1.15rem',
+              padding: '18px 48px',
               height: 'auto',
+              borderWidth: '2px',
+              borderRadius: '8px',
+              fontWeight: '600',
+              backgroundColor: 'transparent',
             }}
           >
             {t('hero.discoverButton')}

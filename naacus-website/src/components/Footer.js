@@ -217,8 +217,20 @@ function Footer() {
         </div>
         <div className={styles.footerSection}>
           <Text as="h4" className={styles.footerSectionTitle}>Get Involved</Text>
-          <Text>Join our community of African Catholics</Text>
-          <Text>Participate in our programs</Text>
+          <Link 
+            className={styles.footerLink} 
+            onClick={() => scrollToSection('newsletter')}
+            style={{ cursor: 'pointer' }}
+          >
+            Join our community of African Catholics
+          </Link>
+          <Link 
+            className={styles.footerLink} 
+            onClick={() => scrollToSection('programs')}
+            style={{ cursor: 'pointer' }}
+          >
+            Participate in our programs
+          </Link>
           <Link 
             className={styles.footerCta} 
             onClick={() => scrollToSection('contact')}

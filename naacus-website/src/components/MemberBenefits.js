@@ -214,20 +214,6 @@ function MemberBenefits() {
             </Card>
           ))}
         </div>
-
-        <div className={styles.ctaSection}>
-          <Text className={styles.ctaText}>
-            {t('memberBenefits.cta')}
-          </Text>
-          <Button 
-            appearance="primary"
-            size="large"
-            className={styles.ctaButton}
-            onClick={scrollToNewsletter}
-          >
-            {t('memberBenefits.ctaButton')}
-          </Button>
-        </div>
       </div>
     </section>
   );

@@ -14,10 +14,10 @@ const useStyles = makeStyles({
   newsletter: {
     background: `linear-gradient(135deg, ${tokens.colorBrandBackground} 0%, #005a9e 100%)`,
     color: tokens.colorNeutralForegroundInverted,
-    ...shorthands.padding('50px', '20px'),
+    ...shorthands.padding('70px', '20px'),
   },
   content: {
-    maxWidth: '800px',
+    maxWidth: '960px',
     ...shorthands.margin('0', 'auto'),
     textAlign: 'center',
   },
@@ -43,6 +43,7 @@ const useStyles = makeStyles({
     fontSize: '0.95rem',
     fontWeight: '600',
     marginBottom: '24px',
+    boxShadow: '0 10px 30px rgba(0,0,0,0.14)',
   },
   subtitle: {
     fontSize: '1.25rem',
@@ -64,7 +65,7 @@ const useStyles = makeStyles({
   benefitsHighlight: {
     display: 'flex',
     justifyContent: 'center',
-    ...shorthands.gap('32px'),
+    ...shorthands.gap('28px'),
     flexWrap: 'wrap',
     marginBottom: '32px',
     ...shorthands.padding('24px', '0'),
@@ -78,25 +79,40 @@ const useStyles = makeStyles({
     fontWeight: '500',
   },
   formContainer: {
-    maxWidth: '500px',
+    maxWidth: '900px',
     ...shorthands.margin('0', 'auto'),
   },
   inputGroup: {
-    display: 'flex',
-    ...shorthands.gap('15px'),
-    flexDirection: 'row',
-    '@media (max-width: 768px)': {
-      flexDirection: 'column',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr auto',
+    alignItems: 'stretch',
+    ...shorthands.gap('12px'),
+    '@media (max-width: 900px)': {
+      gridTemplateColumns: '1fr',
     },
   },
   input: {
     flex: 1,
+    backgroundColor: '#f9fbff',
+    border: '1px solid #d7e3f4',
+    ...shorthands.borderRadius('12px'),
+    ...shorthands.padding('14px', '16px'),
+    boxShadow: '0 8px 30px rgba(0,0,0,0.08)',
+    color: tokens.colorNeutralForeground1,
   },
   subscribeButton: {
-    backgroundColor: tokens.colorNeutralForegroundInverted,
-    color: tokens.colorBrandBackground,
+    backgroundColor: '#28a745',
+    color: tokens.colorNeutralForegroundInverted,
+    fontSize: '1.05rem',
+    fontWeight: '700',
+    ...shorthands.padding('16px', '28px'),
+    ...shorthands.borderRadius('12px'),
+    height: '100%',
+    minWidth: '160px',
+    boxShadow: '0 12px 30px rgba(0,0,0,0.18)',
     '&:hover': {
-      backgroundColor: '#f0f7ff',
+      backgroundColor: '#23963d',
+      boxShadow: '0 14px 36px rgba(0,0,0,0.2)',
     },
   },
   privacyNote: {
@@ -166,10 +182,6 @@ function Newsletter() {
                   required
                   className={styles.input}
                   size="large"
-                  style={{
-                    backgroundColor: tokens.colorNeutralForegroundInverted,
-                    marginBottom: '12px',
-                  }}
                 />
                 <Input
                   type="email"
@@ -179,21 +191,12 @@ function Newsletter() {
                   required
                   className={styles.input}
                   size="large"
-                  style={{
-                    backgroundColor: tokens.colorNeutralForegroundInverted,
-                  }}
                 />
                 <Button 
                   appearance="primary"
                   type="submit"
                   size="large"
                   className={styles.subscribeButton}
-                  style={{
-                    fontSize: '1.1rem',
-                    padding: '20px 40px',
-                    height: 'auto',
-                    fontWeight: '600',
-                  }}
                 >
                   {t('newsletter.submitButton')}
                 </Button>
