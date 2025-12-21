@@ -281,7 +281,7 @@ function Hero() {
             <Button 
               appearance="outline" 
               size="large"
-              onClick={() => scrollToSection('about')}
+              onClick={() => window.location.href = '/about'}
               style={{ 
                 color: tokens.colorNeutralForegroundInverted, 
                 borderColor: 'rgba(255, 255, 255, 0.9)',
