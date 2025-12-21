@@ -116,7 +116,7 @@ function Footer() {
           </Text>
         </div>
         <div className={styles.footerSection}>
-          <Text as="h4" className={styles.footerSectionTitle}>Quick Links</Text>
+          <Text as="h4" className={styles.footerSectionTitle}>{t('footer.quickLinks')}</Text>
           <ul className={styles.footerList}>
             <li>
               <Link 
@@ -124,7 +124,7 @@ function Footer() {
                 onClick={() => handleNavigation('/')}
                 style={{ cursor: 'pointer' }}
               >
-                Home
+                {t('footer.home')}
               </Link>
             </li>
             <li>
@@ -133,7 +133,7 @@ function Footer() {
                 onClick={() => handleNavigation('/about')}
                 style={{ cursor: 'pointer' }}
               >
-                About
+                {t('footer.about')}
               </Link>
             </li>
             <li>
@@ -142,7 +142,7 @@ function Footer() {
                 onClick={() => handleNavigation('/leadership')}
                 style={{ cursor: 'pointer' }}
               >
-                Leadership
+                {t('footer.leadership')}
               </Link>
             </li>
             <li>
@@ -151,7 +151,7 @@ function Footer() {
                 onClick={() => handleNavigation('/events')}
                 style={{ cursor: 'pointer' }}
               >
-                Events
+                {t('footer.events')}
               </Link>
             </li>
             <li>
@@ -160,7 +160,7 @@ function Footer() {
                 onClick={() => handleNavigation('/resources')}
                 style={{ cursor: 'pointer' }}
               >
-                Resources
+                {t('footer.resources')}
               </Link>
             </li>
             <li>
@@ -169,13 +169,13 @@ function Footer() {
                 onClick={() => handleNavigation('/contact')}
                 style={{ cursor: 'pointer' }}
               >
-                Contact
+                {t('footer.contact')}
               </Link>
             </li>
           </ul>
         </div>
         <div className={styles.footerSection}>
-          <Text as="h4" className={styles.footerSectionTitle}>Engage</Text>
+          <Text as="h4" className={styles.footerSectionTitle}>{t('footer.engage')}</Text>
           <ul className={styles.footerList}>
             <li>
               <Link 
@@ -183,7 +183,7 @@ function Footer() {
                 onClick={() => handleNavigation('/programs-activities')}
                 style={{ cursor: 'pointer' }}
               >
-                Events & Activities
+                {t('footer.eventsActivities')}
               </Link>
             </li>
             <li>
@@ -192,7 +192,7 @@ function Footer() {
                 onClick={() => handleNavigation('/events')}
                 style={{ cursor: 'pointer' }}
               >
-                National Conference
+                {t('footer.nationalConference')}
               </Link>
             </li>
             <li>
@@ -201,7 +201,7 @@ function Footer() {
                 onClick={() => handleNavigation('/contact')}
                 style={{ cursor: 'pointer' }}
               >
-                Newsletter
+                {t('footer.newsletter')}
               </Link>
             </li>
             <li>
@@ -210,33 +210,33 @@ function Footer() {
                 onClick={() => handleNavigation('/membership')}
                 style={{ cursor: 'pointer' }}
               >
-                Membership
+                {t('footer.membership')}
               </Link>
             </li>
           </ul>
         </div>
         <div className={styles.footerSection}>
-          <Text as="h4" className={styles.footerSectionTitle}>Get Involved</Text>
+          <Text as="h4" className={styles.footerSectionTitle}>{t('footer.getInvolved')}</Text>
           <Link 
             className={styles.footerLink} 
             onClick={() => handleNavigation('/membership')}
             style={{ cursor: 'pointer' }}
           >
-            Join our community of African Catholics
+            {t('footer.joinCommunity')}
           </Link>
           <Link 
             className={styles.footerLink} 
             onClick={() => handleNavigation('/programs-activities')}
             style={{ cursor: 'pointer' }}
           >
-            Participate in our programs
+            {t('footer.participatePrograms')}
           </Link>
           <Link 
             className={styles.footerCta} 
             onClick={() => handleNavigation('/contact')}
             style={{ cursor: 'pointer' }}
           >
-            Contact Us →
+            {t('footer.contactUs')}
           </Link>
         </div>
       </div>
@@ -245,7 +245,7 @@ function Footer() {
           {t('footer.copyright', { year: currentYear })}
         </Text>
         <Text as="p" className={styles.msIntegration}>
-          Microsoft 365 Integration Ready
+          {t('footer.msIntegration')}
         </Text>
       </div>
     </footer>

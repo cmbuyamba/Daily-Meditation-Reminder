@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   makeStyles,
   shorthands,
@@ -133,6 +134,7 @@ const useStyles = makeStyles({
 });
 
 function VolunteerPage() {
+  const { t } = useTranslation();
   const styles = useStyles();
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   makeStyles,
   shorthands,
@@ -135,10 +136,11 @@ const useStyles = makeStyles({
 });
 
 function ChatWidget() {
+  const { t } = useTranslation();
   const styles = useStyles();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { from: 'bot', text: "Hi there! Need help? Let's chat." },
+    { from: 'bot', text: t('chat.greeting') },
   ]);
   const [input, setInput] = useState('');
   const listRef = useRef(null);
@@ -156,7 +158,7 @@ function ChatWidget() {
     setInput('');
     // Simulate bot reply
     setTimeout(() => {
-      setMessages(prev => [...prev, { from: 'bot', text: 'Thanks! A NAACUS team member will contact you shortly.' }]);
+      setMessages(prev => [...prev, { from: 'bot', text: t('chat.botReply') }]);
     }, 800);
   };
 
@@ -169,8 +171,8 @@ function ChatWidget() {
             <div className={styles.avatarBadge}><Chat24Regular /></div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.2 }}>
-            <Text as="div" weight="semibold" style={{ color: '#fff', fontSize: '1.1rem' }}>Need help?</Text>
-            <Text as="div" style={{ color: '#fff', fontSize: '1.1rem' }}>Let's chat</Text>
+            <Text as="div" weight="semibold" style={{ color: '#fff', fontSize: '1.1rem' }}>{t('chat.needHelp')}</Text>
+            <Text as="div" style={{ color: '#fff', fontSize: '1.1rem' }}>{t('chat.letsChat')}</Text>
           </div>
         </div>
       )}
@@ -178,7 +180,7 @@ function ChatWidget() {
       {open && (
         <Card className={styles.chatPanel}>
           <div className={styles.header}>
-            <Text className={styles.title}>NAACUS Support</Text>
+            <Text className={styles.title}>{t('chat.supportTitle')}</Text>
             <Button appearance="transparent" onClick={() => setOpen(false)} icon={<Dismiss24Regular />} />
           </div>
           <div ref={listRef} className={styles.messages}>
@@ -191,7 +193,7 @@ function ChatWidget() {
           <div className={styles.inputRow}>
             <Input
               appearance="outline"
-              placeholder="Type your message…"
+              placeholder={t('chat.placeholder')}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               style={{ flex: 1 }}

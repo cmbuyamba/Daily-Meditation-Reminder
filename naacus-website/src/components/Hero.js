@@ -317,7 +317,7 @@ function Hero() {
               onClick={() => window.location.href = '/membership'}
               className={styles.primaryButton}
             >
-              ✝ Join Our Faith Community
+              ✝ {t('heroButtons.joinCommunity')}
             </button>
           </div>
 
@@ -327,13 +327,13 @@ function Hero() {
               onClick={() => window.location.href = '/about'}
               className={styles.secondaryButton}
             >
-              🙏 Learn Our Mission
+              🙏 {t('heroButtons.learnMission')}
             </button>
             <button
               onClick={() => window.location.href = '/volunteer'}
               className={styles.secondaryButton}
             >
-              💫 Get Involved
+              💫 {t('heroButtons.getInvolved')}
             </button>
           </div>
         </div>
