@@ -83,17 +83,15 @@ const useStyles = makeStyles({
   heroButtons: {
     display: 'flex',
     flexDirection: 'column',
-    ...shorthands.gap('20px'),
+    ...shorthands.gap('24px'),
     alignItems: 'center',
-    marginTop: '48px',
-    maxWidth: '700px',
-    margin: '48px auto 0',
+    marginTop: '56px',
+    maxWidth: '800px',
+    margin: '56px auto 0',
   },
-  primaryActions: {
+  primaryCTA: {
     display: 'flex',
-    ...shorthands.gap('20px'),
     justifyContent: 'center',
-    flexWrap: 'wrap',
     width: '100%',
   },
   secondaryActions: {
@@ -255,135 +253,111 @@ function Hero() {
         </div>
 
         <div className={styles.heroButtons}>
-          {/* Primary Actions Row */}
-          <div className={styles.primaryActions}>
+          {/* Primary Call to Action - Main Focus */}
+          <div className={styles.primaryCTA}>
             <Button 
               appearance="primary" 
               size="large"
               onClick={() => window.location.href = '/membership'}
               style={{
-                backgroundColor: '#0067b8',
-                borderColor: '#0067b8',
-                fontSize: '1.1rem',
-                padding: '18px 36px',
+                background: 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)',
+                color: '#0f4c81',
+                border: '2px solid rgba(255, 255, 255, 0.9)',
+                fontSize: '1.3rem',
+                padding: '22px 56px',
                 height: 'auto',
-                fontWeight: '600',
-                borderRadius: '12px',
-                boxShadow: '0 8px 24px rgba(0, 103, 184, 0.45), 0 4px 12px rgba(0, 0, 0, 0.2)',
-                flex: '1',
-                minWidth: '200px',
-                maxWidth: '240px',
-                transition: 'all 0.3s ease',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
+                fontWeight: '700',
+                borderRadius: '16px',
+                boxShadow: '0 10px 40px rgba(255, 255, 255, 0.3), 0 6px 20px rgba(0, 0, 0, 0.25)',
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                letterSpacing: '0.5px',
+                textTransform: 'uppercase',
+                minWidth: '300px',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-3px)';
-                e.currentTarget.style.boxShadow = '0 12px 32px rgba(0, 103, 184, 0.5), 0 6px 16px rgba(0, 0, 0, 0.25)';
+                e.currentTarget.style.transform = 'translateY(-4px) scale(1.02)';
+                e.currentTarget.style.boxShadow = '0 16px 50px rgba(255, 255, 255, 0.4), 0 10px 28px rgba(0, 0, 0, 0.3)';
+                e.currentTarget.style.background = 'linear-gradient(135deg, #ffffff 0%, #ffffff 100%)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 103, 184, 0.45), 0 4px 12px rgba(0, 0, 0, 0.2)';
+                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                e.currentTarget.style.boxShadow = '0 10px 40px rgba(255, 255, 255, 0.3), 0 6px 20px rgba(0, 0, 0, 0.25)';
+                e.currentTarget.style.background = 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)';
               }}
             >
-              ✝ Become a Member
-            </Button>
-            <Button 
-              appearance="primary" 
-              size="large"
-              onClick={() => window.location.href = '/volunteer'}
-              style={{
-                backgroundColor: '#d83b01',
-                borderColor: '#d83b01',
-                fontSize: '1.1rem',
-                padding: '18px 36px',
-                height: 'auto',
-                fontWeight: '600',
-                borderRadius: '12px',
-                boxShadow: '0 8px 24px rgba(216, 59, 1, 0.45), 0 4px 12px rgba(0, 0, 0, 0.2)',
-                flex: '1',
-                minWidth: '200px',
-                maxWidth: '240px',
-                transition: 'all 0.3s ease',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-3px)';
-                e.currentTarget.style.boxShadow = '0 12px 32px rgba(216, 59, 1, 0.5), 0 6px 16px rgba(0, 0, 0, 0.25)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 8px 24px rgba(216, 59, 1, 0.45), 0 4px 12px rgba(0, 0, 0, 0.2)';
-              }}
-            >
-              🙏 Volunteer with Us
+              ✝ Join Our Faith Community
             </Button>
           </div>
           
-          {/* Secondary Actions Row */}
+          {/* Secondary Actions - Supportive Options */}
           <div className={styles.secondaryActions}>
-            <Button 
-              appearance="primary" 
-              size="large"
-              onClick={() => scrollToSection('newsletter')}
-              style={{
-                backgroundColor: '#28a745',
-                borderColor: '#28a745',
-                fontSize: '1rem',
-                padding: '16px 32px',
-                height: 'auto',
-                fontWeight: '600',
-                borderRadius: '12px',
-                boxShadow: '0 6px 20px rgba(40, 167, 69, 0.4), 0 3px 10px rgba(0, 0, 0, 0.15)',
-                flex: '1',
-                minWidth: '200px',
-                maxWidth: '240px',
-                transition: 'all 0.3s ease',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-3px)';
-                e.currentTarget.style.boxShadow = '0 10px 28px rgba(40, 167, 69, 0.45), 0 5px 14px rgba(0, 0, 0, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(40, 167, 69, 0.4), 0 3px 10px rgba(0, 0, 0, 0.15)';
-              }}
-            >
-              📧 {t('hero.becomeMemberButton')}
-            </Button>
             <Button 
               appearance="outline" 
               size="large"
               onClick={() => window.location.href = '/about'}
               style={{ 
-                color: tokens.colorNeutralForegroundInverted, 
-                borderColor: 'rgba(255, 255, 255, 0.9)',
+                color: 'rgba(255, 255, 255, 0.95)', 
+                borderColor: 'rgba(255, 255, 255, 0.7)',
                 fontSize: '1rem',
                 padding: '16px 32px',
                 height: 'auto',
                 borderWidth: '2px',
                 borderRadius: '12px',
                 fontWeight: '600',
-                backgroundColor: 'rgba(255, 255, 255, 0.18)',
+                backgroundColor: 'rgba(255, 255, 255, 0.12)',
                 backdropFilter: 'blur(12px)',
-                flex: '1',
-                minWidth: '200px',
-                maxWidth: '240px',
                 transition: 'all 0.3s ease',
                 boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15)',
+                letterSpacing: '0.3px',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-3px)';
-                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.22)';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.9)';
                 e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.2)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.18)';
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.12)';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.7)';
                 e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.15)';
               }}
             >
-              📖 {t('hero.discoverButton')}
+              🙏 Discover Our Mission
+            </Button>
+            <Button 
+              appearance="outline" 
+              size="large"
+              onClick={() => window.location.href = '/volunteer'}
+              style={{ 
+                color: 'rgba(255, 255, 255, 0.95)', 
+                borderColor: 'rgba(255, 255, 255, 0.7)',
+                fontSize: '1rem',
+                padding: '16px 32px',
+                height: 'auto',
+                borderWidth: '2px',
+                borderRadius: '12px',
+                fontWeight: '600',
+                backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                backdropFilter: 'blur(12px)',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15)',
+                letterSpacing: '0.3px',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.22)';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.9)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.2)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.12)';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.7)';
+                e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.15)';
+              }}
+            >
+              💫 Get Involved
             </Button>
           </div>
         </div>
