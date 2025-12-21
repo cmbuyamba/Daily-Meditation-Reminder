@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { 
@@ -96,11 +96,42 @@ const useStyles = makeStyles({
     alignItems: 'center',
     ...shorthands.gap('16px'),
   },
-function Header() {
-  const { t } = useTranslation();
-  const styles = useStyles();
-  const navigate = useNavigate();
-  const location = useLocation();
+  searchContainer: {
+    position: 'relative',
+    '@media (max-width: 768px)': {
+      display: 'none',
+    },
+  },
+  searchInput: {
+    width: '200px',
+    height: '32px',
+    fontSize: '13px',
+    ...shorthands.border('1px', 'solid', '#e5e5e5'),
+    ...shorthands.borderRadius('2px'),
+    ...shorthands.padding('0', '32px', '0', '8px'),
+    '&:focus': {
+      ...shorthands.borderColor('#0067b8'),
+      outline: 'none',
+    },
+  },
+  searchIcon: {
+    position: 'absolute',
+    right: '8px',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    color: '#616161',
+  },
+  iconButton: {
+    ...shorthands.padding('8px'),
+    minWidth: 'auto',
+    height: '32px',
+    color: '#262626',
+    '&:hover': {
+      backgroundColor: '#f2f2f2',
+    },
+    '@media (max-width: 768px)': {
+      display: 'none',
+    },
   },
   signInButton: {
     fontSize: '13px',
@@ -131,42 +162,11 @@ function Header() {
   },
 });
 
-// Delay before showing menu after scroll stops (in milliseconds)
-const SCROLL_HIDE_DELAY = 150;
-
 function Header() {
   const { t } = useTranslation();
   const styles = useStyles();
   const navigate = useNavigate();
   const location = useLocation();
-  const [isScrolling, setIsScrolling] = useState(false);
-  const scrollTimeoutRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Set scrolling state to true
-      setIsScrolling(true);
-
-      // Clear previous timeout
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-
-      // Set new timeout to detect when scrolling stops
-      scrollTimeoutRef.current = setTimeout(() => {
-        setIsScrolling(false);
-      }, SCROLL_HIDE_DELAY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-    };
-  }, []); // Empty dependency array - effect runs only on mount/unmount
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -191,38 +191,7 @@ function Header() {
   };
 
   return (
-    <header className={`${styles.header} ${isScrolling ? styles.headerHidden : ''}`}>
-      <div className={styles.headerContainer}>
-        <div className={styles.logo}>
-          <Text as="h1" className={styles.logoTitle}>{t('header.title')}</Text>
-          <Text className={styles.tagline}>{t('header.tagline')}</Text>
-        </div>
-        <div className={styles.headerActions}>
-          <nav className={styles.nav}>
-            <Button 
-              appearance="transparent" 
-              onClick={() => handleNavigation(null, 'home')}
-              className={styles.navLink}
-            >
-              {t('header.nav.home')}
-            </Button>
-            <Button 
-              appearance="transparent" 
-              onClick={() => handleNavigation('/events', null)}
-              className={styles.navLink}
-            >
-              {t('header.nav.naacus2025', 'NAACUS 2025')}
-            </Button>
-            <Button 
-              appearance="transparent" 
-              onClick={() => handleNavigation(null, 'about')}
-              className={styles.navLink}
-            >
-              {t('header.nav.about')}
-            </Button>
-            <Button 
-              appearance="transparent" 
-              onClick={styles.header}>
+    <header className={styles.header}>
       <div className={styles.headerContainer}>
         {/* Left Section: Logo + Navigation */}
         <div className={styles.leftSection}>
@@ -310,4 +279,28 @@ function Header() {
               <Button 
                 appearance="subtle"
                 icon={<Navigation24Regular />}
-                className={styles.mobileMenuButton
+                className={styles.mobileMenuButton}
+              />
+            </MenuTrigger>
+            <MenuPopover>
+              <MenuList>
+                <MenuItem onClick={() => handleNavigation(null, 'home')}>{t('header.nav.home')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation('/events', null)}>{t('header.nav.naacus2025', 'NAACUS 2025')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'about')}>{t('header.nav.about')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'leadership')}>{t('header.nav.leadership')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'objectives')}>{t('header.nav.objectives')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'programs')}>{t('header.nav.events')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'ministries')}>{t('header.nav.ministries')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'gallery')}>{t('header.nav.gallery')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'resources')}>{t('header.nav.resources')}</MenuItem>
+                <MenuItem onClick={() => handleNavigation(null, 'contact')}>{t('header.nav.contact')}</MenuItem>
+              </MenuList>
+            </MenuPopover>
+          </Menu>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+export default Header;
