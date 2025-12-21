@@ -20,6 +20,7 @@ const useStyles = makeStyles({
   accomplishments: {
     backgroundColor: '#faf9f8',
     ...shorthands.padding('60px', '20px'),
+    paddingTop: '114px', // 54px header height + 60px spacing
   },
   hero: {
     position: 'relative',
