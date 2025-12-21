@@ -19,6 +19,7 @@ import Newsletter from './components/Newsletter';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
+import JoinNowButton from './components/JoinNowButton';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Contact />
         <Footer />
         <BackToTop />
+        <JoinNowButton />
       </div>
     </FluentProvider>
   );

@@ -61,7 +61,7 @@ const useStyles = makeStyles({
     '&:hover': {
       transform: 'translateY(-8px)',
       boxShadow: '0 12px 28px rgba(0, 120, 212, 0.15)',
-      borderColor: tokens.colorBrandBackground,
+      ...shorthands.border('2px', 'solid', tokens.colorBrandBackground),
     },
   },
   benefitIcon: {

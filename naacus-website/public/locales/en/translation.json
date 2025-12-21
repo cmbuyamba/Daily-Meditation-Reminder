@@ -116,5 +116,8 @@
     "successTitle": "Welcome to NAACUS!",
     "successMessage": "Check your email for next steps and upcoming events.",
     "privacyNote": "We respect your privacy. Your information is secure and will only be used for NAACUS communications."
+  },
+  "joinNowButton": {
+    "text": "Join Now"
   }
 }

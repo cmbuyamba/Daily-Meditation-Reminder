@@ -116,5 +116,8 @@
     "successTitle": "Bienvenue à NAACUS!",
     "successMessage": "Vérifiez votre email pour les prochaines étapes et les événements à venir.",
     "privacyNote": "Nous respectons votre vie privée. Vos informations sont sécurisées et ne seront utilisées que pour les communications NAACUS."
+  },
+  "joinNowButton": {
+    "text": "Rejoindre"
   }
 }
