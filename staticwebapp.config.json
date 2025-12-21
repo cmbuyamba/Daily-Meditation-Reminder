@@ -1,0 +1,6 @@
+{
+  "buildRequiredFlags": [
+    "--legacy-peer-deps"
+  ],
+  "nodeVersion": "20"
+}
