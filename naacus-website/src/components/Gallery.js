@@ -22,6 +22,9 @@ const useStyles = makeStyles({
     fontWeight: '600',
     display: 'block',
     letterSpacing: '-0.02em',
+    '@media (max-width: 768px)': {
+      fontSize: '2rem',
+    },
   },
   sectionSubtitle: {
     fontSize: '1.125rem',
@@ -32,6 +35,10 @@ const useStyles = makeStyles({
     margin: '0 auto 40px',
     lineHeight: '1.6',
     display: 'block',
+    '@media (max-width: 768px)': {
+      fontSize: '1rem',
+      padding: '0 10px',
+    },
   },
   content: {
     maxWidth: '1200px',
@@ -42,6 +49,9 @@ const useStyles = makeStyles({
     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
     ...shorthands.gap('24px'),
     marginBottom: '32px',
+    '@media (max-width: 768px)': {
+      gridTemplateColumns: '1fr',
+    },
   },
   galleryCard: {
     ...shorthands.padding('0'),
@@ -73,6 +83,9 @@ const useStyles = makeStyles({
     marginBottom: '10px',
     color: tokens.colorNeutralForeground1,
     display: 'block',
+    '@media (max-width: 768px)': {
+      fontSize: '1.05rem',
+    },
   },
   cardDescription: {
     fontSize: '1rem',

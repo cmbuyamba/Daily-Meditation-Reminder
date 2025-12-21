@@ -33,6 +33,9 @@ const useStyles = makeStyles({
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
     letterSpacing: '-0.02em',
+    '@media (max-width: 768px)': {
+      fontSize: '2rem',
+    },
   },
   badge: {
     display: 'inline-block',
@@ -53,6 +56,9 @@ const useStyles = makeStyles({
     opacity: 0.95,
     display: 'block',
     fontWeight: '500',
+    '@media (max-width: 768px)': {
+      fontSize: '1.05rem',
+    },
   },
   description: {
     fontSize: '1.05rem',
@@ -61,6 +67,9 @@ const useStyles = makeStyles({
     color: tokens.colorNeutralForegroundInverted,
     opacity: 0.9,
     display: 'block',
+    '@media (max-width: 768px)': {
+      fontSize: '0.95rem',
+    },
   },
   benefitsHighlight: {
     display: 'flex',
@@ -69,6 +78,12 @@ const useStyles = makeStyles({
     flexWrap: 'wrap',
     marginBottom: '32px',
     ...shorthands.padding('24px', '0'),
+    '@media (max-width: 768px)': {
+      ...shorthands.gap('16px'),
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      ...shorthands.padding('16px', '0'),
+    },
   },
   benefitItem: {
     display: 'flex',
@@ -77,6 +92,9 @@ const useStyles = makeStyles({
     color: tokens.colorNeutralForegroundInverted,
     fontSize: '1rem',
     fontWeight: '500',
+    '@media (max-width: 768px)': {
+      fontSize: '0.9rem',
+    },
   },
   formContainer: {
     maxWidth: '900px',

@@ -24,6 +24,10 @@ const useStyles = makeStyles({
     fontWeight: '600',
     display: 'block',
     letterSpacing: '-0.02em',
+    '@media (max-width: 768px)': {
+      fontSize: '2rem',
+      marginBottom: '32px',
+    },
   },
   contactContent: {
     display: 'grid',
@@ -42,6 +46,9 @@ const useStyles = makeStyles({
     color: tokens.colorNeutralForeground1,
     fontWeight: '600',
     display: 'block',
+    '@media (max-width: 768px)': {
+      fontSize: '1.5rem',
+    },
   },
   contactInfoText: {
     fontSize: '1rem',
@@ -69,11 +76,17 @@ const useStyles = makeStyles({
     color: tokens.colorNeutralForeground1,
     marginBottom: '5px',
     display: 'block',
+    '@media (max-width: 768px)': {
+      fontSize: '1rem',
+    },
   },
   contactItemText: {
     fontSize: '1rem',
     color: tokens.colorNeutralForeground2,
     display: 'block',
+    '@media (max-width: 768px)': {
+      fontSize: '0.9rem',
+    },
   },
   formContainer: {
     backgroundColor: tokens.colorNeutralBackground1,

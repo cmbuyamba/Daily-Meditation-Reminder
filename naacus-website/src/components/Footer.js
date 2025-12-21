@@ -14,6 +14,9 @@ const useStyles = makeStyles({
     backgroundColor: '#252423',
     color: tokens.colorNeutralForegroundInverted,
     ...shorthands.padding('64px', '20px', '24px'),
+    '@media (max-width: 768px)': {
+      ...shorthands.padding('48px', '20px', '24px'),
+    },
   },
   footerContent: {
     maxWidth: '1200px',
@@ -34,6 +37,9 @@ const useStyles = makeStyles({
     marginBottom: '16px',
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
+    '@media (max-width: 768px)': {
+      fontSize: '1rem',
+    },
   },
   footerSectionSubtitle: {
     fontSize: '1rem',
@@ -64,6 +70,9 @@ const useStyles = makeStyles({
     '&:hover': {
       opacity: 1,
       textDecoration: 'underline',
+    },
+    '@media (max-width: 768px)': {
+      fontSize: '0.875rem',
     },
   },
   footerCta: {

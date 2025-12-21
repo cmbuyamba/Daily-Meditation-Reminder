@@ -73,6 +73,11 @@ const useStyles = makeStyles({
     marginBottom: '32px',
     backdropFilter: 'blur(10px)',
     ...shorthands.border('1px', 'solid', 'rgba(255, 255, 255, 0.3)'),
+    '@media (max-width: 768px)': {
+      ...shorthands.padding('20px', '16px'),
+      marginTop: '24px',
+      marginBottom: '24px',
+    },
   },
   highlightText: {
     fontSize: '1.3rem',
@@ -81,12 +86,20 @@ const useStyles = makeStyles({
     marginBottom: '20px',
     display: 'block',
     textAlign: 'center',
+    '@media (max-width: 768px)': {
+      fontSize: '1.05rem',
+      marginBottom: '16px',
+    },
   },
   detailsGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
     ...shorthands.gap('20px'),
     marginTop: '16px',
+    '@media (max-width: 768px)': {
+      gridTemplateColumns: '1fr',
+      ...shorthands.gap('16px'),
+    },
   },
   detailItem: {
     display: 'flex',
@@ -109,6 +122,9 @@ const useStyles = makeStyles({
     fontSize: '1.2rem',
     fontWeight: '600',
     color: tokens.colorNeutralForegroundInverted,
+    '@media (max-width: 768px)': {
+      fontSize: '1.05rem',
+    },
   },
   ctaButton: {
     marginTop: '24px',
@@ -125,6 +141,10 @@ const useStyles = makeStyles({
       backgroundColor: '#F0E0D4',
       transform: 'scale(1.05)',
       boxShadow: '0 6px 25px rgba(232, 212, 192, 0.5)',
+    },
+    '@media (max-width: 768px)': {
+      fontSize: '0.95rem',
+      ...shorthands.padding('16px', '32px'),
     },
   },
   teaserGraphic: {

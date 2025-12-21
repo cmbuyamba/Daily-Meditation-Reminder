@@ -51,7 +51,9 @@ const useStyles = makeStyles({
     textShadow: '0 4px 20px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2)',
     fontFamily: 'Georgia, "Times New Roman", serif',
     '@media (max-width: 768px)': {
-      fontSize: '3rem',
+      fontSize: '2.25rem',
+      marginBottom: '20px',
+      lineHeight: '1.2',
     },
   },
   heroSubtitle: {
@@ -65,7 +67,9 @@ const useStyles = makeStyles({
     textShadow: '0 2px 12px rgba(0, 0, 0, 0.25)',
     letterSpacing: '0.5px',
     '@media (max-width: 768px)': {
-      fontSize: '1.4rem',
+      fontSize: '1.125rem',
+      marginBottom: '16px',
+      lineHeight: '1.5',
     },
   },
   heroDescription: {
@@ -80,6 +84,11 @@ const useStyles = makeStyles({
     margin: '0 auto 48px',
     fontWeight: '400',
     textShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
+    '@media (max-width: 768px)': {
+      fontSize: '1rem',
+      lineHeight: '1.6',
+      marginBottom: '32px',
+    },
   },
   heroButtons: {
     display: 'flex',
@@ -117,6 +126,12 @@ const useStyles = makeStyles({
     '&:active': {
       transform: 'translateY(-2px)',
     },
+    '@media (max-width: 768px)': {
+      fontSize: '0.95rem',
+      padding: '14px 32px',
+      minWidth: '220px',
+      letterSpacing: '0.4px',
+    },
   },
   secondaryActions: {
     display: 'flex',
@@ -150,6 +165,11 @@ const useStyles = makeStyles({
     '&:active': {
       transform: 'translateY(-1px)',
     },
+    '@media (max-width: 768px)': {
+      fontSize: '0.875rem',
+      padding: '10px 20px',
+      minWidth: '140px',
+    },
   },
   membershipHighlight: {
     background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.08) 100%)',
@@ -162,6 +182,10 @@ const useStyles = makeStyles({
     '&:hover': {
       transform: 'translateY(-2px)',
       boxShadow: '0 12px 40px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.12)',
+    },
+    '@media (max-width: 768px)': {
+      ...shorthands.padding('20px', '20px'),
+      marginTop: '32px',
     },
   },
   membershipText: {
@@ -176,6 +200,11 @@ const useStyles = makeStyles({
     fontWeight: '600',
     textShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
     letterSpacing: '0.3px',
+    '@media (max-width: 768px)': {
+      fontSize: '1rem',
+      flexDirection: 'column',
+      ...shorthands.gap('8px'),
+    },
   },
   benefitsList: {
     display: 'flex',
@@ -183,6 +212,11 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     flexWrap: 'wrap',
     marginTop: '20px',
+    '@media (max-width: 768px)': {
+      ...shorthands.gap('16px'),
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+    },
   },
   benefitItem: {
     display: 'flex',
@@ -192,6 +226,10 @@ const useStyles = makeStyles({
     color: 'rgba(255, 255, 255, 0.95)',
     fontWeight: '500',
     textShadow: '0 1px 4px rgba(0, 0, 0, 0.2)',
+    '@media (max-width: 768px)': {
+      fontSize: '0.9rem',
+      ...shorthands.gap('6px'),
+    },
   },
   heroGraphic: {
     position: 'absolute',

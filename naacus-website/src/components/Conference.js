@@ -22,6 +22,9 @@ const useStyles = makeStyles({
     fontWeight: '600',
     display: 'block',
     letterSpacing: '-0.02em',
+    '@media (max-width: 768px)': {
+      fontSize: '2rem',
+    },
   },
   conferenceBanner: {
     background: `linear-gradient(135deg, ${tokens.colorBrandBackground} 0%, #005a9e 100%)`,
@@ -38,6 +41,9 @@ const useStyles = makeStyles({
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
     textAlign: 'center',
+    '@media (max-width: 768px)': {
+      fontSize: '1.5rem',
+    },
   },
   conferenceDate: {
     fontSize: '1.25rem',
@@ -45,6 +51,9 @@ const useStyles = makeStyles({
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
     textAlign: 'center',
+    '@media (max-width: 768px)': {
+      fontSize: '1rem',
+    },
   },
   conferenceContent: {
     maxWidth: '1200px',
@@ -55,6 +64,9 @@ const useStyles = makeStyles({
     gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
     ...shorthands.gap('24px'),
     marginBottom: '40px',
+    '@media (max-width: 768px)': {
+      gridTemplateColumns: '1fr',
+    },
   },
   detailCard: {
     textAlign: 'center',
@@ -73,6 +85,9 @@ const useStyles = makeStyles({
     marginBottom: '10px',
     color: tokens.colorBrandBackground,
     fontWeight: '600',
+    '@media (max-width: 768px)': {
+      fontSize: '1.125rem',
+    },
   },
   cardText: {
     fontSize: '1.1rem',
@@ -90,6 +105,9 @@ const useStyles = makeStyles({
     backgroundColor: tokens.colorNeutralBackground1,
     ...shorthands.padding('32px'),
     ...shorthands.borderRadius('12px'),
+    '@media (max-width: 768px)': {
+      ...shorthands.padding('24px', '16px'),
+    },
   },
   descriptionTitle: {
     fontSize: '2rem',
@@ -98,6 +116,9 @@ const useStyles = makeStyles({
     fontWeight: '600',
     display: 'block',
     textAlign: 'center',
+    '@media (max-width: 768px)': {
+      fontSize: '1.5rem',
+    },
   },
   descriptionText: {
     fontSize: '1.1rem',
@@ -106,6 +127,11 @@ const useStyles = makeStyles({
     marginBottom: '30px',
     display: 'block',
     textAlign: 'center',
+    '@media (max-width: 768px)': {
+      fontSize: '1rem',
+      lineHeight: '1.6',
+      textAlign: 'left',
+    },
   },
   conferenceHighlights: {
     marginBottom: '30px',
@@ -117,6 +143,11 @@ const useStyles = makeStyles({
     marginBottom: '15px',
     fontSize: '1.05rem',
     color: tokens.colorNeutralForeground1,
+    '@media (max-width: 768px)': {
+      fontSize: '0.95rem',
+      ...shorthands.gap('10px'),
+      alignItems: 'flex-start',
+    },
   },
   ctaSection: {
     textAlign: 'center',

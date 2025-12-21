@@ -29,6 +29,9 @@ const useStyles = makeStyles({
     fontWeight: '600',
     display: 'block',
     letterSpacing: '-0.02em',
+    '@media (max-width: 768px)': {
+      fontSize: '2rem',
+    },
   },
   benefitsSubtitle: {
     fontSize: '1.25rem',
@@ -38,6 +41,11 @@ const useStyles = makeStyles({
     display: 'block',
     maxWidth: '700px',
     margin: '0 auto 48px',
+    '@media (max-width: 768px)': {
+      fontSize: '1rem',
+      marginBottom: '32px',
+      padding: '0 10px',
+    },
   },
   benefitsContent: {
     maxWidth: '1200px',
@@ -48,6 +56,10 @@ const useStyles = makeStyles({
     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
     ...shorthands.gap('32px'),
     marginBottom: '48px',
+    '@media (max-width: 768px)': {
+      gridTemplateColumns: '1fr',
+      ...shorthands.gap('24px'),
+    },
   },
   benefitCard: {
     ...shorthands.padding('32px', '28px'),
@@ -76,6 +88,9 @@ const useStyles = makeStyles({
     color: tokens.colorNeutralForeground1,
     fontWeight: '600',
     display: 'block',
+    '@media (max-width: 768px)': {
+      fontSize: '1.125rem',
+    },
   },
   benefitDescription: {
     fontSize: '1rem',
@@ -112,6 +127,10 @@ const useStyles = makeStyles({
     ...shorthands.padding('32px', '20px'),
     backgroundColor: '#f8f9fa',
     ...shorthands.borderRadius('12px'),
+    '@media (max-width: 768px)': {
+      ...shorthands.gap('24px'),
+      ...shorthands.padding('24px', '16px'),
+    },
   },
   statItem: {
     textAlign: 'center',
@@ -122,12 +141,18 @@ const useStyles = makeStyles({
     color: tokens.colorBrandBackground,
     display: 'block',
     lineHeight: '1',
+    '@media (max-width: 768px)': {
+      fontSize: '2.25rem',
+    },
   },
   statLabel: {
     fontSize: '1rem',
     color: tokens.colorNeutralForeground2,
     marginTop: '8px',
     display: 'block',
+    '@media (max-width: 768px)': {
+      fontSize: '0.875rem',
+    },
   },
 });
 

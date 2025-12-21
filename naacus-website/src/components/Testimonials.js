@@ -21,6 +21,9 @@ const useStyles = makeStyles({
     fontWeight: '600',
     display: 'block',
     letterSpacing: '-0.02em',
+    '@media (max-width: 768px)': {
+      fontSize: '2rem',
+    },
   },
   testimonialsSubtitle: {
     fontSize: '1.25rem',
@@ -30,6 +33,11 @@ const useStyles = makeStyles({
     display: 'block',
     maxWidth: '700px',
     margin: '0 auto 48px',
+    '@media (max-width: 768px)': {
+      fontSize: '1rem',
+      marginBottom: '32px',
+      padding: '0 10px',
+    },
   },
   testimonialsContent: {
     maxWidth: '1200px',
@@ -39,6 +47,10 @@ const useStyles = makeStyles({
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
     ...shorthands.gap('32px'),
+    '@media (max-width: 768px)': {
+      gridTemplateColumns: '1fr',
+      ...shorthands.gap('24px'),
+    },
   },
   testimonialCard: {
     ...shorthands.padding('32px'),
@@ -67,6 +79,10 @@ const useStyles = makeStyles({
     marginBottom: '24px',
     fontStyle: 'italic',
     display: 'block',
+    '@media (max-width: 768px)': {
+      fontSize: '1rem',
+      lineHeight: '1.6',
+    },
   },
   authorSection: {
     display: 'flex',
