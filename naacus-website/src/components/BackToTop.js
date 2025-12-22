@@ -10,8 +10,8 @@ import { ArrowUp24Regular } from '@fluentui/react-icons';
 const useStyles = makeStyles({
   backToTop: {
     position: 'fixed',
-    bottom: '130px',
-    right: '30px',
+    bottom: '88px',
+    right: '4px',
     zIndex: 1200,
     opacity: 0,
     transform: 'translateY(20px)',
@@ -20,8 +20,8 @@ const useStyles = makeStyles({
     transitionDuration: '0.3s',
     transitionTimingFunction: 'ease-in-out',
     '@media (max-width: 768px)': {
-      bottom: '120px',
-      right: '20px',
+      bottom: '80px',
+      right: '4px',
     },
   },
   visible: {
@@ -38,10 +38,24 @@ const useStyles = makeStyles({
     fontSize: '15px',
     fontWeight: '600',
     border: 'none',
+    minWidth: 'fit-content',
     ':hover': {
       transform: 'translateY(-3px)',
       boxShadow: '0 8px 20px rgba(0, 103, 184, 0.45)',
       backgroundColor: '#005a9e',
+    },
+    '@media (max-width: 768px)': {
+      ...shorthands.padding('12px'),
+      minWidth: '52px',
+      width: '52px',
+      height: '52px',
+      ...shorthands.borderRadius('26px'),
+    },
+  },
+  textShowDesktop: {
+    display: 'inline',
+    '@media (max-width: 768px)': {
+      display: 'none',
     },
   },
 });
@@ -78,8 +92,8 @@ function BackToTop() {
     <div 
       style={{
         position: 'fixed',
-        bottom: '130px',
-        right: '30px',
+        bottom: '85px',
+        right: '4px',
         zIndex: 1200,
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -118,7 +132,9 @@ function BackToTop() {
           e.currentTarget.style.backgroundColor = '#0067b8';
         }}
       >
-        {t('backToTop')}
+        <span className={styles.textShowDesktop}>
+          {t('backToTop')}
+        </span>
       </Button>
     </div>
   );

@@ -10,12 +10,15 @@ import {
   makeStyles,
   tokens
 } from '@fluentui/react-components';
-import { LocalLanguage24Regular } from '@fluentui/react-icons';
 
 const useStyles = makeStyles({
   button: {
-    minWidth: '80px',
+    minWidth: '40px',
+    padding: '8px',
     color: tokens.colorNeutralForeground1,
+  },
+  flagIcon: {
+    fontSize: '1.5rem',
   },
 });
 
@@ -28,28 +31,29 @@ function LanguageSwitcher() {
   };
 
   const languages = {
-    en: 'English',
-    fr: 'Français',
+    en: { flag: '🇺🇸', name: 'English' },
+    fr: { flag: '🇫🇷', name: 'Français' },
   };
+
+  const currentLang = languages[i18n.language] || languages.en;
 
   return (
     <Menu>
       <MenuTrigger disableButtonEnhancement>
         <Button
           appearance="subtle"
-          icon={<LocalLanguage24Regular />}
           className={styles.button}
         >
-          {languages[i18n.language] || languages.en}
+          <span className={styles.flagIcon}>{currentLang.flag}</span>
         </Button>
       </MenuTrigger>
       <MenuPopover>
         <MenuList>
           <MenuItem onClick={() => changeLanguage('en')}>
-            English
+            🇺🇸 English
           </MenuItem>
           <MenuItem onClick={() => changeLanguage('fr')}>
-            Français
+            🇫🇷 Français
           </MenuItem>
         </MenuList>
       </MenuPopover>

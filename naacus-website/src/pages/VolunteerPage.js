@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     ...shorthands.padding('40px', '0'),
   },
   title: {
-    fontSize: '3.5rem',
+    fontSize: '2.5rem',
     fontWeight: '600',
     color: '#d83b01',
     marginBottom: '16px',

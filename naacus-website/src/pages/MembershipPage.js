@@ -30,14 +30,14 @@ const useStyles = makeStyles({
     ...shorthands.padding('40px', '0'),
   },
   title: {
-    fontSize: '3.5rem',
+    fontSize: '2.5rem',
     fontWeight: '600',
     color: tokens.colorBrandBackground,
     marginBottom: '16px',
     display: 'block',
     letterSpacing: '-0.02em',
     '@media (max-width: 768px)': {
-      fontSize: '2.5rem',
+      fontSize: '1.75rem',
     },
   },
   subtitle: {

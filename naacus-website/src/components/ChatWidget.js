@@ -15,8 +15,8 @@ import { processMessage, logConversation, initializeCopilotStudio } from '../ser
 const useStyles = makeStyles({
   container: {
     position: 'fixed',
-    right: '24px',
-    bottom: '24px',
+    right: '4px',
+    bottom: '4px',
     zIndex: 1300,
     display: 'flex',
     flexDirection: 'column',
@@ -34,6 +34,18 @@ const useStyles = makeStyles({
     boxShadow: '0 8px 20px rgba(0,0,0,0.18)',
     maxWidth: '300px',
     cursor: 'pointer',
+    '@media (max-width: 768px)': {
+      maxWidth: 'auto',
+      ...shorthands.padding('12px'),
+    },
+  },
+  teaserText: {
+    display: 'flex',
+    flexDirection: 'column',
+    lineHeight: 1.2,
+    '@media (max-width: 768px)': {
+      display: 'none',
+    },
   },
   avatarWrap: {
     position: 'relative',
@@ -73,30 +85,39 @@ const useStyles = makeStyles({
     color: '#0f6cbd',
   },
   chatPanel: {
-    width: '360px',
-    height: '480px',
+    width: '380px',
+    height: '520px',
     backgroundColor: '#ffffff',
-    boxShadow: '0 14px 40px rgba(0,0,0,0.24)',
-    ...shorthands.borderRadius('12px'),
+    boxShadow: '0 16px 48px rgba(0,0,0,0.2)',
+    ...shorthands.borderRadius('16px'),
     overflow: 'hidden',
+    display: 'flex',
+    flexDirection: 'column',
   },
   header: {
-    backgroundColor: '#0f6cbd',
-    color: tokens.colorNeutralForegroundInverted,
+    backgroundColor: '#ffffff',
+    color: '#000',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    ...shorthands.padding('12px', '14px'),
+    ...shorthands.padding('16px', '20px'),
+    borderBottom: '1px solid #e0e0e0',
   },
   title: {
-    fontSize: '1rem',
-    fontWeight: 600,
+    fontSize: '1.1rem',
+    fontWeight: 700,
+    color: '#000',
+  },
+  headerActions: {
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('12px'),
   },
   messages: {
-    height: '340px',
+    flex: 1,
     overflowY: 'auto',
-    backgroundColor: '#f5f7fb',
-    ...shorthands.padding('12px'),
+    backgroundColor: '#f8f8f8',
+    ...shorthands.padding('16px'),
     display: 'flex',
     flexDirection: 'column',
     ...shorthands.gap('10px'),
@@ -149,10 +170,10 @@ const useStyles = makeStyles({
   inputRow: {
     display: 'flex',
     alignItems: 'center',
-    ...shorthands.gap('8px'),
-    ...shorthands.padding('10px'),
-    borderTop: `1px solid ${tokens.colorNeutralStroke1}`,
-    backgroundColor: '#fff',
+    ...shorthands.gap('10px'),
+    ...shorthands.padding('14px', '16px'),
+    borderTop: `1px solid #e0e0e0`,
+    backgroundColor: '#ffffff',
   },
   sendButton: {
     minWidth: 'auto',
@@ -256,7 +277,7 @@ function ChatWidget() {
             <div className={styles.avatarInner}>AI</div>
             <div className={styles.avatarBadge}><Chat24Regular /></div>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.2 }}>
+          <div className={styles.teaserText}>
             <Text as="div" weight="semibold" style={{ color: '#fff', fontSize: '1.1rem' }}>{t('chat.needHelp')}</Text>
             <Text as="div" style={{ color: '#fff', fontSize: '1.1rem' }}>{t('chat.letsChat')}</Text>
           </div>
@@ -266,11 +287,14 @@ function ChatWidget() {
       {open && (
         <Card className={styles.chatPanel}>
           <div className={styles.header}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
               <Text className={styles.title}>{t('chat.supportTitle')}</Text>
-              <Text style={{ fontSize: '0.75rem', opacity: 0.9 }}>AI-Powered Assistant</Text>
+              <Text style={{ fontSize: '0.75rem', opacity: 0.7 }}>AI-Powered Assistant</Text>
             </div>
-            <Button appearance="transparent" onClick={() => setOpen(false)} icon={<Dismiss24Regular />} />
+            <div className={styles.headerActions}>
+              <Button appearance="transparent" size="small" icon={<Chat24Regular />} />
+              <Button appearance="transparent" size="small" onClick={() => setOpen(false)} icon={<Dismiss24Regular />} />
+            </div>
           </div>
           <div ref={listRef} className={styles.messages}>
             {messages.map((m, i) => (

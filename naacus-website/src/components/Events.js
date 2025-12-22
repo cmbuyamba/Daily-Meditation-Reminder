@@ -351,7 +351,7 @@ const useStyles = makeStyles({
     border: '1px solid rgba(232, 212, 192, 0.15)',
     backdropFilter: 'blur(10px)',
   },
-  infoIcon: {
+  featuredInfoIcon: {
     fontSize: '1.5rem',
     color: '#E8D4C0',
   },
@@ -387,14 +387,14 @@ const useStyles = makeStyles({
   featuredHighlightsList: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-    ...shorthands.gap('8px'),
+    ...shorthands.gap('12px'),
     justifyItems: 'center',
   },
   featuredHighlightItem: {
-    fontSize: '0.9rem',
+    fontSize: '1.05rem',
     position: 'relative',
-    lineHeight: '1.4',
-    opacity: 0.95,
+    lineHeight: '1.5',
+    opacity: 0.95
   },
   featuredCtaButton: {
     backgroundColor: '#E8D4C0',
@@ -595,17 +595,17 @@ function FeaturedEventCard({ event }) {
 
       <div className={styles.featuredEventInfo}>
         <div className={styles.featuredEventInfoItem}>
-          <Calendar24Regular className={styles.infoIcon} />
+          <Calendar24Regular className={styles.featuredInfoIcon} />
           <span className={styles.featuredEventLabel}>Dates</span>
           <span className={styles.featuredEventValue}>{event.date}</span>
         </div>
         <div className={styles.featuredEventInfoItem}>
-          <Location24Regular className={styles.infoIcon} />
+          <Location24Regular className={styles.featuredInfoIcon} />
           <span className={styles.featuredEventLabel}>Location</span>
           <span className={styles.featuredEventValue}>{event.location}</span>
         </div>
         <div className={styles.featuredEventInfoItem}>
-          <ChevronRight24Regular className={styles.infoIcon} />
+          <ChevronRight24Regular className={styles.featuredInfoIcon} />
           <span className={styles.featuredEventLabel}>Attendees</span>
           <span className={styles.featuredEventValue}>{event.attendees}</span>
         </div>
