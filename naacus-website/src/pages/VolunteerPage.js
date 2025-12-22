@@ -37,7 +37,7 @@ const useStyles = makeStyles({
     display: 'block',
     letterSpacing: '-0.02em',
     '@media (max-width: 768px)': {
-      fontSize: '2.5rem',
+      fontSize: '1.75rem',
     },
   },
   subtitle: {

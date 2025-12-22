@@ -26,6 +26,9 @@ const useStyles = makeStyles({
     fontWeight: '600',
     display: 'block',
     letterSpacing: '-0.02em',
+    '@media (max-width: 768px)': {
+      fontSize: '1.75rem',
+    },
   },
   sectionSubtitle: {
     fontSize: '1.125rem',

@@ -21,33 +21,47 @@ const useStyles = makeStyles({
     margin: '0 auto',
   },
   hero: {
+    position: 'relative',
     background: `linear-gradient(135deg, #1a3a52 0%, #2d5a7b 50%, #3d6fa8 100%)`,
     color: tokens.colorNeutralForegroundInverted,
-    ...shorthands.padding('40px', '20px'),
+    ...shorthands.padding('80px', '20px'),
+    paddingTop: '120px',
     textAlign: 'center',
-    marginBottom: '28px',
-    marginTop: '40px',
+    marginBottom: '40px',
     overflow: 'hidden',
   },
-  heroTitle: {
-    fontSize: '2.2rem',
+  heroBadge: {
+    display: 'inline-block',
+    backgroundColor: '#E8D4C0',
+    color: '#1a3a52',
+    fontSize: '0.9rem',
     fontWeight: '700',
-    marginBottom: '10px',
+    ...shorthands.padding('8px', '20px'),
+    ...shorthands.borderRadius('30px'),
+    marginBottom: '20px',
+    letterSpacing: '1px',
+    textTransform: 'uppercase',
+    boxShadow: '0 4px 15px rgba(232, 212, 192, 0.35)',
+  },
+  heroTitle: {
+    fontSize: '3.5rem',
+    fontWeight: '700',
+    marginBottom: '16px',
     textAlign: 'center',
     lineHeight: '1.2',
     letterSpacing: '-0.02em',
     textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
     '@media (max-width: 768px)': {
-      fontSize: '1.5rem',
+      fontSize: '2.2rem',
     },
   },
   heroSubtitle: {
-    fontSize: '1.1rem',
-    marginBottom: '0',
+    fontSize: '1.5rem',
+    marginBottom: '24px',
     fontWeight: '400',
     opacity: 0.95,
     '@media (max-width: 768px)': {
-      fontSize: '0.95rem',
+      fontSize: '1.2rem',
     },
   },
   sectionContainer: {
@@ -229,7 +243,14 @@ const useStyles = makeStyles({
     },
   },
   featuredEventSection: {
-    marginTop: '75px',
+    width: '100vw',
+    position: 'relative',
+    left: '50%',
+    right: '50%',
+    marginLeft: '-50vw',
+    marginRight: '-50vw',
+    marginTop: '50px',
+    marginBottom: '40px',
   },
   featuredEventContainer: {
     position: 'relative',
@@ -322,12 +343,17 @@ const useStyles = makeStyles({
   featuredEventInfoItem: {
     display: 'flex',
     flexDirection: 'column',
-    ...shorthands.gap('4px'),
+    alignItems: 'center',
+    ...shorthands.gap('8px'),
     backgroundColor: 'rgba(255, 255, 255, 0.08)',
-    ...shorthands.padding('12px'),
+    ...shorthands.padding('16px', '12px'),
     ...shorthands.borderRadius('12px'),
     border: '1px solid rgba(232, 212, 192, 0.15)',
     backdropFilter: 'blur(10px)',
+  },
+  infoIcon: {
+    fontSize: '1.5rem',
+    color: '#E8D4C0',
   },
   featuredEventLabel: {
     fontSize: '0.75rem',
@@ -430,14 +456,14 @@ export function Events() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.maxWidth}>
-        {/* Featured 2027 Event */}
-        {activeTab === 'upcoming' && featuredEvent && (
-          <div className={styles.featuredEventSection}>
-            <FeaturedEventCard event={featuredEvent} />
-          </div>
-        )}
+      {/* Featured 2027 Event - Full Width - Always Visible */}
+      {featuredEvent && (
+        <div className={styles.featuredEventSection}>
+          <FeaturedEventCard event={featuredEvent} />
+        </div>
+      )}
 
+      <div className={styles.maxWidth}>
         {/* Tabs */}
         <div className={styles.tabsContainer}>
           <button
@@ -569,22 +595,25 @@ function FeaturedEventCard({ event }) {
 
       <div className={styles.featuredEventInfo}>
         <div className={styles.featuredEventInfoItem}>
-          <span className={styles.featuredEventLabel}>📅 When</span>
+          <Calendar24Regular className={styles.infoIcon} />
+          <span className={styles.featuredEventLabel}>Dates</span>
           <span className={styles.featuredEventValue}>{event.date}</span>
         </div>
         <div className={styles.featuredEventInfoItem}>
-          <span className={styles.featuredEventLabel}>📍 Where</span>
+          <Location24Regular className={styles.infoIcon} />
+          <span className={styles.featuredEventLabel}>Location</span>
           <span className={styles.featuredEventValue}>{event.location}</span>
         </div>
         <div className={styles.featuredEventInfoItem}>
-          <span className={styles.featuredEventLabel}>👥 Expected</span>
+          <ChevronRight24Regular className={styles.infoIcon} />
+          <span className={styles.featuredEventLabel}>Attendees</span>
           <span className={styles.featuredEventValue}>{event.attendees}</span>
         </div>
       </div>
 
       {event.highlights && event.highlights.length > 0 && (
         <div className={styles.featuredEventHighlights}>
-          <div className={styles.featuredHighlightsTitle}>✨ What to Expect</div>
+          <div className={styles.featuredHighlightsTitle}>What to Expect</div>
           <ul className={styles.featuredHighlightsList}>
             {event.highlights.map((highlight, index) => (
               <li key={index} className={styles.featuredHighlightItem}>
