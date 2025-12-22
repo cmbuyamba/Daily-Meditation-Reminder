@@ -1,11 +1,48 @@
 {
   "navigationFallback": {
-    "rewrite": "/index.html",
-    "exclude": [
-      "/api/*",
-      "/static/*",
-      "/images/*",
-      "/favicon.ico"
-    ]
-  }
+    "rewrite": "/index.html"
+  },
+  "mimeTypes": {
+    ".json": "application/json",
+    ".woff": "font/woff",
+    ".woff2": "font/woff2"
+  },
+  "routes": [
+    {
+      "route": "/static/*",
+      "rewrite": "/static/"
+    },
+    {
+      "route": "/locales/*",
+      "rewrite": "/locales/"
+    },
+    {
+      "route": "/naacus2025/*",
+      "rewrite": "/naacus2025/"
+    },
+    {
+      "route": "/*.js",
+      "rewrite": "/*.js"
+    },
+    {
+      "route": "/*.css",
+      "rewrite": "/*.css"
+    },
+    {
+      "route": "/*.json",
+      "rewrite": "/*.json"
+    },
+    {
+      "route": "*.ico",
+      "rewrite": "/favicon.ico"
+    },
+    {
+      "route": "*.png",
+      "rewrite": "/"
+    },
+    {
+      "route": "*.jpg",
+      "rewrite": "/"
+    }
+  ]
 }
