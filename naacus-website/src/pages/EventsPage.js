@@ -1,11 +1,12 @@
 import React from 'react';
-import { Naacus2025Accomplishments } from '../components/naacus2025';
+import { Events } from '../components/Events';
+import PageWrapper from '../components/PageWrapper';
 
 function EventsPage() {
   return (
-    <>
-      <Naacus2025Accomplishments />
-    </>
+    <PageWrapper>
+      <Events />
+    </PageWrapper>
   );
 }
 

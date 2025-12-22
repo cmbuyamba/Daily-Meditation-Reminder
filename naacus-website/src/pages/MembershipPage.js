@@ -14,14 +14,12 @@ import {
   Card,
   Spinner,
 } from '@fluentui/react-components';
+import PageWrapper from '../components/PageWrapper';
 import { submitMembershipToSharePoint } from '../services/m365Service';
 
 const useStyles = makeStyles({
-  membershipPage: {
-    paddingTop: '114px',
-    backgroundColor: tokens.colorNeutralBackground1,
-    minHeight: '100vh',
-    ...shorthands.padding('0', '20px', '60px'),
+  wrapper: {
+    width: '100%',
   },
   container: {
     maxWidth: '900px',
@@ -29,7 +27,6 @@ const useStyles = makeStyles({
   },
   header: {
     textAlign: 'center',
-    marginBottom: '60px',
     ...shorthands.padding('40px', '0'),
   },
   title: {
@@ -220,29 +217,27 @@ function MembershipPage() {
 
   if (submitted) {
     return (
-      <div className={styles.membershipPage}>
-        <div className={styles.container}>
-          <div className={styles.successMessage}>
-            <Text className={styles.successTitle}>{t('membership.successTitle')}</Text>
-            <Text className={styles.successText}>
-              {t('membership.successMessage')}
-            </Text>
-            <Button
-              appearance="primary"
-              size="large"
-              onClick={() => window.location.href = '/'}
-              style={{ marginTop: '24px' }}
-            >
-              {t('membership.returnHome')}
-            </Button>
-          </div>
+      <PageWrapper>
+        <div className={styles.successMessage}>
+          <Text className={styles.successTitle}>{t('membership.successTitle')}</Text>
+          <Text className={styles.successText}>
+            {t('membership.successMessage')}
+          </Text>
+          <Button
+            appearance="primary"
+            size="large"
+            onClick={() => window.location.href = '/'}
+            style={{ marginTop: '24px' }}
+          >
+            {t('membership.returnHome')}
+          </Button>
         </div>
-      </div>
+      </PageWrapper>
     );
   }
 
   return (
-    <div className={styles.membershipPage}>
+    <PageWrapper>
       <div className={styles.container}>
         <div className={styles.header}>
           <Text as="h1" className={styles.title}>{t('membership.title')}</Text>
@@ -570,8 +565,8 @@ function MembershipPage() {
           )}
         </form>
       </div>
-    </div>
-  );
-}
+    </PageWrapper>
+    );
+  }
 
 export default MembershipPage;

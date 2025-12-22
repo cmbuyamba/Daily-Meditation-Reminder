@@ -1,6 +1,9 @@
 import React from 'react';
-import { makeStyles, shorthands, tokens } from '@fluentui/react-components';
-import Ministries from '../components/Ministries';
+import { 
+  makeStyles,
+  shorthands,
+  tokens
+} from '@fluentui/react-components';
 
 const useStyles = makeStyles({
   page: {
@@ -9,7 +12,8 @@ const useStyles = makeStyles({
     minHeight: '100vh',
     ...shorthands.padding('0', '20px', '60px'),
     '@media (max-width: 768px)': {
-      padding: '0 0 60px',
+      paddingTop: '100px',
+      ...shorthands.padding('0', '12px', '40px'),
     },
   },
   container: {
@@ -18,12 +22,12 @@ const useStyles = makeStyles({
   },
 });
 
-export default function FellowshipMinistriesPage() {
+export default function PageWrapper({ children }) {
   const styles = useStyles();
   return (
     <div className={styles.page}>
       <div className={styles.container}>
-        <Ministries />
+        {children}
       </div>
     </div>
   );

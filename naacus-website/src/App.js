@@ -4,6 +4,7 @@ import { FluentProvider, webLightTheme } from '@fluentui/react-components';
 import './App.css';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
+import Event2025Page from './pages/Event2025Page';
 import EventsPage from './pages/EventsPage';
 import MembershipPage from './pages/MembershipPage';
 import VolunteerPage from './pages/VolunteerPage';
@@ -25,6 +26,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/2025" element={<Event2025Page />} />
             <Route path="/events" element={<EventsPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/leadership" element={<LeadershipPage />} />

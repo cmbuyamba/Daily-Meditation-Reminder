@@ -16,6 +16,9 @@ const useStyles = makeStyles({
   leadership: {
     backgroundColor: '#faf9f8',
     ...shorthands.padding('50px', '20px'),
+    '@media (max-width: 768px)': {
+      padding: '40px 0',
+    },
   },
   leadershipTitle: {
     fontSize: '2.75rem',
@@ -25,6 +28,9 @@ const useStyles = makeStyles({
     fontWeight: '600',
     display: 'block',
     letterSpacing: '-0.02em',
+    '@media (max-width: 768px)': {
+      fontSize: '1.75rem',
+    },
   },
   leadershipContent: {
     maxWidth: '1200px',

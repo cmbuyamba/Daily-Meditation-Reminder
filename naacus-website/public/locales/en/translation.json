@@ -24,6 +24,7 @@
     "benefit1": "Connect with fellow members",
     "benefit2": "Access exclusive events",
     "benefit3": "Grow in faith together",
+    "scrollDown": "Scroll Down",
     "becomeMemberButton": "Subscribe to Newsletter",
     "discoverButton": "Learn More",
     "joinButton": "Join Our Community"
@@ -286,6 +287,21 @@
     "sendButton": "Send Message",
     "formNote": "* Microsoft 365 integration ready - form submissions will be processed through secure Microsoft services",
     "required": "*"
+  },
+  "events": {
+    "title": "Our Events",
+    "subtitle": "Gatherings that strengthen our faith, celebrate our heritage, and unite our community",
+    "upcomingEvents": "Upcoming Events",
+    "pastEvents": "Past Events",
+    "registerNow": "Register Now",
+    "viewDetails": "View Details",
+    "expectedAttendees": "Expected Attendees",
+    "highlights": "Highlights",
+    "noUpcomingEvents": "No upcoming events at this time. Please check back soon!",
+    "noPastEvents": "No past events to display.",
+    "date": "Date",
+    "location": "Location",
+    "description": "Description"
   },
   "chat": {
     "greeting": "Hi there! Need help? Let's chat.",

@@ -197,8 +197,8 @@ function Header() {
           
           <nav className={styles.nav}>
             <button 
-              onClick={() => handleNavigation('/events', null)}
-              className={`${styles.navLink} ${isActivePath('/events') ? styles.navLinkActive : ''}`}
+              onClick={() => handleNavigation('/2025', null)}
+              className={`${styles.navLink} ${isActivePath('/2025') ? styles.navLinkActive : ''}`}
             >
               {t('header.nav.naacus2025', 'NAACUS 2025')}
             </button>

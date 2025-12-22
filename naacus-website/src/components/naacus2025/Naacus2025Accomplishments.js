@@ -28,7 +28,6 @@ const useStyles = makeStyles({
     color: tokens.colorNeutralForegroundInverted,
     ...shorthands.padding('80px', '20px'),
     textAlign: 'center',
-    ...shorthands.borderRadius('16px'),
     marginBottom: '40px',
     overflow: 'hidden',
   },
@@ -427,9 +426,6 @@ function Naacus2025Accomplishments() {
     <section id="naacus2025" className={styles.accomplishments}>
       <div className={styles.hero}>
         <div className={styles.heroContent}>
-          <div className={styles.badge}>
-            July 18-20, 2025
-          </div>
           
           <Text as="h1" className={styles.title}>
             NAACUS 2025: A Historic Gathering

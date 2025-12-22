@@ -68,7 +68,6 @@ const useStyles = makeStyles({
   highlightBox: {
     backgroundColor: 'rgba(255, 255, 255, 0.15)',
     ...shorthands.padding('24px', '32px'),
-    ...shorthands.borderRadius('16px'),
     marginTop: '32px',
     marginBottom: '32px',
     backdropFilter: 'blur(10px)',

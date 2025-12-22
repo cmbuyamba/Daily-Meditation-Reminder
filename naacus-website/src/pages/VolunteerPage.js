@@ -14,14 +14,12 @@ import {
   Card,
   Spinner,
 } from '@fluentui/react-components';
+import PageWrapper from '../components/PageWrapper';
 import { submitVolunteerToSharePoint } from '../services/m365Service';
 
 const useStyles = makeStyles({
-  volunteerPage: {
-    paddingTop: '114px',
-    backgroundColor: tokens.colorNeutralBackground1,
-    minHeight: '100vh',
-    ...shorthands.padding('0', '20px', '60px'),
+  wrapper: {
+    width: '100%',
   },
   container: {
     maxWidth: '900px',
@@ -29,7 +27,6 @@ const useStyles = makeStyles({
   },
   header: {
     textAlign: 'center',
-    marginBottom: '60px',
     ...shorthands.padding('40px', '0'),
   },
   title: {
@@ -226,33 +223,31 @@ function VolunteerPage() {
 
   if (submitted) {
     return (
-      <div className={styles.volunteerPage}>
-        <div className={styles.container}>
-          <div className={styles.successMessage}>
-            <Text className={styles.successTitle}>{t('volunteer.successTitle')}</Text>
-            <Text className={styles.successText}>
-              {t('volunteer.successMessage')}
-            </Text>
-            <Button
-              appearance="primary"
-              size="large"
-              onClick={() => window.location.href = '/'}
-              style={{ 
-                marginTop: '24px',
-                backgroundColor: '#d83b01',
-                borderColor: '#d83b01',
-              }}
-            >
-              {t('volunteer.returnHome')}
-            </Button>
-          </div>
+      <PageWrapper>
+        <div className={styles.successMessage}>
+          <Text className={styles.successTitle}>{t('volunteer.successTitle')}</Text>
+          <Text className={styles.successText}>
+            {t('volunteer.successMessage')}
+          </Text>
+          <Button
+            appearance="primary"
+            size="large"
+            onClick={() => window.location.href = '/'}
+            style={{ 
+              marginTop: '24px',
+              backgroundColor: '#d83b01',
+              borderColor: '#d83b01',
+            }}
+          >
+            {t('volunteer.returnHome')}
+          </Button>
         </div>
-      </div>
+      </PageWrapper>
     );
   }
 
   return (
-    <div className={styles.volunteerPage}>
+    <PageWrapper>
       <div className={styles.container}>
         <div className={styles.header}>
           <Text as="h1" className={styles.title}>{t('volunteer.title')}</Text>
@@ -548,7 +543,7 @@ function VolunteerPage() {
           )}
         </form>
       </div>
-    </div>
+    </PageWrapper>
   );
 }
 

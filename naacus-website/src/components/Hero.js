@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
   shorthands,
   tokens,
-  Text
+  Text,
+  Button
 } from '@fluentui/react-components';
+import { ChevronDown24Regular } from '@fluentui/react-icons';
 import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles({
@@ -305,15 +307,75 @@ const useStyles = makeStyles({
       transform: 'translateY(12px)',
     },
   },
+  scrollIndicator: {
+    position: 'absolute',
+    bottom: '30px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    zIndex: 3,
+    opacity: 0,
+    visibility: 'hidden',
+    transitionProperty: 'opacity, visibility, transform',
+    transitionDuration: '0.4s',
+    transitionTimingFunction: 'ease-in-out',
+  },
+  scrollIndicatorVisible: {
+    opacity: 1,
+    visibility: 'visible',
+  },
+  scrollButton: {
+    ...shorthands.padding('12px', '28px'),
+    ...shorthands.borderRadius('50px'),
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+    color: '#ffffff',
+    boxShadow: '0 8px 24px rgba(255, 255, 255, 0.2)',
+    fontSize: '14px',
+    fontWeight: '600',
+    border: '1.5px solid rgba(255, 255, 255, 0.35)',
+    backdropFilter: 'blur(10px)',
+    cursor: 'pointer',
+    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+    '&:hover': {
+      transform: 'translateY(-4px)',
+      backgroundColor: 'rgba(255, 255, 255, 0.25)',
+      boxShadow: '0 12px 32px rgba(255, 255, 255, 0.3)',
+      borderColor: 'rgba(255, 255, 255, 0.5)',
+    },
+    '&:active': {
+      transform: 'translateY(-2px)',
+    },
+  },
 });
 
 function Hero() {
   const { t } = useTranslation();
   const styles = useStyles();
   const navigate = useNavigate();
+  const [showScrollIndicator, setShowScrollIndicator] = useState(false);
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (heroRef.current) {
+        const heroBottom = heroRef.current.getBoundingClientRect().bottom;
+        // Show scroll indicator when user has scrolled past 20% of hero section
+        setShowScrollIndicator(heroBottom < window.innerHeight * 0.8);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToNextSection = () => {
+    const nextSection = document.querySelector('section:not(#home)');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <section id="home" className={styles.hero}>
+    <section id="home" className={styles.hero} ref={heroRef}>
       <div className={styles.heroContent}>
         <Text as="h1" className={styles.heroTitle}>{t('hero.title')}</Text>
         <Text as="p" className={styles.heroSubtitle}>
@@ -369,6 +431,46 @@ function Hero() {
           </div>
         </div>
       </div>
+      
+      {/* Scroll Down Indicator */}
+      <div 
+        className={`${styles.scrollIndicator} ${showScrollIndicator ? styles.scrollIndicatorVisible : ''}`}
+      >
+        <Button
+          icon={<ChevronDown24Regular />}
+          onClick={scrollToNextSection}
+          className={styles.scrollButton}
+          aria-label={t('hero.scrollDown') || 'Scroll down'}
+          style={{
+            padding: '12px 28px',
+            borderRadius: '50px',
+            backgroundColor: 'rgba(255, 255, 255, 0.15)',
+            color: '#ffffff',
+            boxShadow: '0 8px 24px rgba(255, 255, 255, 0.2)',
+            fontSize: '14px',
+            fontWeight: '600',
+            border: '1.5px solid rgba(255, 255, 255, 0.35)',
+            backdropFilter: 'blur(10px)',
+            cursor: 'pointer',
+            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-4px)';
+            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
+            e.currentTarget.style.boxShadow = '0 12px 32px rgba(255, 255, 255, 0.3)';
+            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+            e.currentTarget.style.boxShadow = '0 8px 24px rgba(255, 255, 255, 0.2)';
+            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.35)';
+          }}
+        >
+          {t('hero.scrollDown') || 'Scroll Down'}
+        </Button>
+      </div>
+
       <div className={styles.heroGraphic}>
         <div className={styles.divineLight}></div>
         <div className={`${styles.graphicCircle} ${styles.circle1}`}></div>

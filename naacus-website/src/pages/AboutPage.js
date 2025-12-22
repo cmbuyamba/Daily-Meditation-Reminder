@@ -1,33 +1,17 @@
 import React from 'react';
-import { makeStyles, shorthands, tokens } from '@fluentui/react-components';
 import About from '../components/About';
 import WhatWeDo from '../components/WhatWeDo';
 import WhoWeServe from '../components/WhoWeServe';
 import Objectives from '../components/Objectives';
-
-const useStyles = makeStyles({
-  page: {
-    paddingTop: '114px',
-    backgroundColor: tokens.colorNeutralBackground1,
-    minHeight: '100vh',
-    ...shorthands.padding('0', '20px', '60px'),
-  },
-  container: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-  },
-});
+import PageWrapper from '../components/PageWrapper';
 
 export default function AboutPage() {
-  const styles = useStyles();
   return (
-    <div className={styles.page}>
-      <div className={styles.container}>
-        <About />
-        <WhatWeDo />
-        <WhoWeServe />
-        <Objectives />
-      </div>
-    </div>
+    <PageWrapper>
+      <About />
+      <WhatWeDo />
+      <WhoWeServe />
+      <Objectives />
+    </PageWrapper>
   );
 }
