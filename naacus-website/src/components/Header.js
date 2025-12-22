@@ -15,6 +15,7 @@ import {
 } from '@fluentui/react-components';
 import { Navigation24Regular, Search24Regular } from '@fluentui/react-icons';
 import LanguageSwitcher from './LanguageSwitcher';
+import DonationDialog from './DonationDialog';
 
 const useStyles = makeStyles({
   header: {
@@ -145,6 +146,26 @@ const useStyles = makeStyles({
     },
   },
   languageSwitcher: {
+    display: 'flex',
+    alignItems: 'center',
+    ...shorthands.gap('8px'),
+    '@media (max-width: 768px)': {
+      display: 'none',
+    },
+  },
+  donateButton: {
+    backgroundColor: '#0067b8',
+    color: '#ffffff',
+    fontWeight: '600',
+    fontSize: '13px',
+    ...shorthands.padding('8px', '16px'),
+    border: 'none',
+    ...shorthands.borderRadius('2px'),
+    cursor: 'pointer',
+    transition: 'background-color 0.2s ease',
+    '&:hover': {
+      backgroundColor: '#004578',
+    },
     '@media (max-width: 768px)': {
       display: 'none',
     },
@@ -218,13 +239,13 @@ function Header() {
               onClick={() => handleNavigation('/fellowship-ministries', null)}
               className={`${styles.navLink} ${isActivePath('/fellowship-ministries') ? styles.navLinkActive : ''}`}
             >
-              Fellowship & Ministries
+              Ministries
             </button>
             <button 
               onClick={() => handleNavigation('/programs-activities', null)}
               className={`${styles.navLink} ${isActivePath('/programs-activities') ? styles.navLinkActive : ''}`}
             >
-              Programs & Activities
+              Activities
             </button>
             <button 
               onClick={() => handleNavigation('/events', null)}
@@ -271,6 +292,7 @@ function Header() {
           
           <div className={styles.languageSwitcher}>
             <LanguageSwitcher />
+            <DonationDialog />
           </div>
 
           {/* Mobile Menu */}
