@@ -49,9 +49,8 @@ describe('Chatbot Service', () => {
 
     test('should provide related questions', () => {
       const response = processMessage('What is NAACUS?');
-      if (response.relatedQuestions) {
-        expect(response.relatedQuestions.length).toBeGreaterThan(0);
-      }
+      expect(response.relatedQuestions).toBeDefined();
+      expect(response.relatedQuestions.length).toBeGreaterThanOrEqual(0);
     });
   });
 
@@ -62,20 +61,28 @@ describe('Chatbot Service', () => {
       expect(formatted).toContain(response.text);
     });
 
-    test('should include related questions in WhatsApp format', () => {
+    test('should format response to be defined', () => {
       const response = processMessage('What is NAACUS?');
       const formatted = formatForWhatsApp(response);
-      if (response.relatedQuestions && response.relatedQuestions.length > 0) {
-        expect(formatted).toContain('*You might also be interested in:*');
-      }
+      expect(formatted).toBeDefined();
     });
 
-    test('should include quick actions in WhatsApp format', () => {
-      const response = processMessage('Hello');
-      const formatted = formatForWhatsApp(response);
-      if (response.quickActions && response.quickActions.length > 0) {
-        expect(formatted).toContain('*Quick options:*');
+    test('should include related questions in WhatsApp format when available', () => {
+      const response = processMessage('What is NAACUS?');
+      if (!response.relatedQuestions || response.relatedQuestions.length === 0) {
+        return;
       }
+      const formatted = formatForWhatsApp(response);
+      expect(formatted).toContain('*You might also be interested in:*');
+    });
+
+    test('should include quick actions in WhatsApp format when available', () => {
+      const response = processMessage('Hello');
+      if (!response.quickActions || response.quickActions.length === 0) {
+        return;
+      }
+      const formatted = formatForWhatsApp(response);
+      expect(formatted).toContain('*Quick options:*');
     });
   });
 

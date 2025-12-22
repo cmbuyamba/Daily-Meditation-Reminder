@@ -3,17 +3,13 @@ import {
   makeStyles,
   shorthands,
   tokens,
-  Text,
-  Card,
   Button,
-  Badge
 } from '@fluentui/react-components';
 import { 
   Calendar24Regular, 
   Location24Regular,
   ChevronRight24Regular
 } from '@fluentui/react-icons';
-import { useTranslation } from 'react-i18next';
 import { eventsData } from '../data/eventsData';
 
 const useStyles = makeStyles({
@@ -171,10 +167,9 @@ const useStyles = makeStyles({
   },
   attendees: {
     fontSize: '0.9rem',
-    color: tokens.colorNeutralForeground2,
+    color: '#1a3a52',
     marginBottom: '16px',
     fontWeight: '600',
-    color: '#1a3a52',
   },
   ctaButton: {
     width: '100%',
@@ -424,7 +419,6 @@ const useStyles = makeStyles({
 
 export function Events() {
   const styles = useStyles();
-  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('upcoming');
 
   const upcomingEvents = eventsData.upcomingEvents;
