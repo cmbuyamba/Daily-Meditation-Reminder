@@ -94,13 +94,23 @@ async function getSiteId(graphClient, siteUrl) {
  */
 export async function submitMembershipToSharePoint(formData) {
   try {
-    const graphClient = await getGraphClient();
-    const siteId = sharePointConfig.siteUrl ? await getSiteId(graphClient, sharePointConfig.siteUrl) : null;
-    
-    if (!siteId || !sharePointConfig.membershipListId) {
-      console.error('SharePoint site or list not configured');
-      return { success: false, error: 'SharePoint not configured' };
+    // Validate configuration
+    if (!process.env.REACT_APP_AZURE_CLIENT_ID || !process.env.REACT_APP_AZURE_TENANT_ID) {
+      return {
+        success: false,
+        error: 'Azure credentials not configured. Please set REACT_APP_AZURE_CLIENT_ID and REACT_APP_AZURE_TENANT_ID environment variables.',
+      };
     }
+
+    if (!sharePointConfig.siteUrl || !sharePointConfig.membershipListId) {
+      return {
+        success: false,
+        error: 'SharePoint configuration not set. Please set REACT_APP_SHAREPOINT_SITE_URL and REACT_APP_MEMBERSHIP_LIST_ID environment variables.',
+      };
+    }
+
+    const graphClient = await getGraphClient();
+    const siteId = await getSiteId(graphClient, sharePointConfig.siteUrl);
 
     // Prepare list item data
     const listItem = {
