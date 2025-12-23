@@ -132,7 +132,6 @@ function Contact() {
       <Text as="h2" className={styles.contactTitle}>{t('contact.title')}</Text>
       <div className={styles.contactContent}>
         <div>
-          <Text as="h3" className={styles.contactInfoTitle}>{t('contact.connectWithUs')}</Text>
           <Text as="p" className={styles.contactInfoText}>
             {t('contact.description')}
           </Text>
