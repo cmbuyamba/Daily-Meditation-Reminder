@@ -181,8 +181,6 @@ export const customTheme = createLightTheme({
   colorNeutralDisabled: colors.neutral.disabled,
   colorBackgroundOverlay: colors.background.overlay,
   colorBackgroundLightBlue: colors.background.lightBlue,
-  colorNeutralDisabled: colors.neutral.disabled,
-  colorBackgroundOverlay: colors.background.overlay,
   
   // Button Color Tokens
   colorButtonPrimary: colors.button.primary,
