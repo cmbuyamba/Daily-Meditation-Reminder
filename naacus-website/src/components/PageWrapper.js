@@ -9,8 +9,7 @@ const useStyles = makeStyles({
   page: {
     paddingTop: '114px',
     backgroundColor: tokens.colorNeutralBackground1,
-    minHeight: '100vh',
-    ...shorthands.padding('0', '20px', '60px'),
+    ...shorthands.padding('0', '20px', '0'),
     '@media (max-width: 768px)': {
       paddingTop: '100px',
       ...shorthands.padding('0', '12px', '40px'),
