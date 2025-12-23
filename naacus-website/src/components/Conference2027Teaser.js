@@ -14,6 +14,7 @@ const useStyles = makeStyles({
     position: 'relative',
     background: `linear-gradient(135deg, #1a3a52 0%, #2d5a7b 50%, #3d6fa8 100%)`,
     color: tokens.colorNeutralForegroundInverted,
+    minHeight: '700px',
     ...shorthands.padding('60px', '20px'),
     textAlign: 'center',
     overflow: 'hidden',
@@ -21,6 +22,7 @@ const useStyles = makeStyles({
     '@media (max-width: 768px)': {
       paddingLeft: '16px',
       paddingRight: '16px',
+      minHeight: '600px',
     },
   },
   teaserContent: {

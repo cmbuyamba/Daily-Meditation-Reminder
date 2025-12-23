@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     background: `linear-gradient(135deg, #0f4c81 0%, #1a6fb8 50%, #2a8fd8 100%)`,
     color: tokens.colorNeutralForegroundInverted,
     ...shorthands.padding('20px', '20px', '20px'),
-    // minHeight: '700px',
+    minHeight: '700px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
