@@ -5,22 +5,31 @@ import { PublicClientApplication } from '@azure/msal-browser';
 import { Client } from '@microsoft/microsoft-graph-client';
 import { msalConfig, sharePointScopes, sharePointConfig } from '../config/msalConfig';
 
-// Initialize MSAL instance
-const msalInstance = new PublicClientApplication(msalConfig);
+// Check if Azure AD is configured
+const hasAzureConfig = !!(
+  process.env.REACT_APP_AZURE_CLIENT_ID && 
+  process.env.REACT_APP_AZURE_TENANT_ID
+);
 
-// Create a promise for MSAL initialization that runs only once
+// Initialize MSAL instance only if configured
+let msalInstance = null;
 let msalInitPromise = null;
 
-function getMsalInitPromise() {
-  if (!msalInitPromise) {
-    msalInitPromise = msalInstance.initialize().catch((error) => {
-      console.error('Error initializing MSAL:', error);
-      // Reset promise on error so it can retry
-      msalInitPromise = null;
-      throw error;
-    });
+if (hasAzureConfig) {
+  msalInstance = new PublicClientApplication(msalConfig);
+  msalInitPromise = msalInstance.initialize().catch((error) => {
+    console.error('Error initializing MSAL:', error);
+    throw error;
+  });
+}
+
+async function ensureMsalInitialized() {
+  if (!hasAzureConfig) {
+    throw new Error('Azure AD is not configured. Please set REACT_APP_AZURE_CLIENT_ID and REACT_APP_AZURE_TENANT_ID environment variables.');
   }
-  return msalInitPromise;
+  if (msalInitPromise) {
+    await msalInitPromise;
+  }
 }
 
 /**
@@ -28,8 +37,8 @@ function getMsalInitPromise() {
  */
 async function getGraphClient() {
   try {
-    // Wait for MSAL to initialize
-    await getMsalInitPromise();
+    // Ensure MSAL is initialized
+    await ensureMsalInitialized();
     
     // Get the account
     const accounts = msalInstance.getAllAccounts();
