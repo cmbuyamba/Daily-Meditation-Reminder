@@ -1,11 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { 
   makeStyles,
   shorthands,
   tokens,
   Text,
-  Card
+  Card,
+  Button
 } from '@fluentui/react-components';
 import { dataService } from '../services/dataService';
 import {
@@ -56,7 +58,6 @@ const useStyles = makeStyles({
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
     ...shorthands.gap('32px'),
-    marginBottom: '48px',
     '@media (max-width: 768px)': {
       gridTemplateColumns: '1fr',
       ...shorthands.gap('24px'),
@@ -101,30 +102,44 @@ const useStyles = makeStyles({
   },
   ctaSection: {
     textAlign: 'center',
-    backgroundColor: '#f5f5f5',
-    ...shorthands.padding('24px', '20px'),
+    backgroundColor: 'linear-gradient(135deg, #f0f7ff 0%, #e8f4f8 100%)',
+    ...shorthands.padding('28px', '24px'),
     ...shorthands.borderRadius('12px'),
-    marginTop: '24px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '16px',
     '@media (max-width: 768px)': {
-      ...shorthands.padding('16px', '16px'),
+      ...shorthands.padding('20px', '16px'),
+      gap: '12px',
+    },
+  },
+  ctaButtonsContainer: {
+    display: 'flex',
+    gap: '16px',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    '@media (max-width: 768px)': {
+      gap: '12px',
     },
   },
   ctaText: {
-    fontSize: '1.125rem',
-    marginBottom: '16px',
-    color: tokens.colorNeutralForeground1,
-    fontWeight: '600',
+    fontSize: '1.2rem',
+    marginBottom: '0',
+    color: tokens.colorBrandBackground,
+    fontWeight: '700',
     display: 'block',
+    letterSpacing: '-0.01em',
     '@media (max-width: 768px)': {
       fontSize: '1rem',
-      marginBottom: '12px',
     },
   },
   ctaButton: {
     fontSize: '0.95rem',
-    padding: '12px 32px',
+    padding: '10px 40px',
     height: 'auto',
     fontWeight: '600',
+    minWidth: '160px',
   },
   statsSection: {
     display: 'flex',
@@ -166,6 +181,7 @@ const useStyles = makeStyles({
 
 function MemberBenefits() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const styles = useStyles();
 
   // Get benefits data from service
@@ -226,6 +242,28 @@ function MemberBenefits() {
               <Text className={styles.benefitDescription}>{benefit.description}</Text>
             </Card>
           ))}
+        </div>
+
+        <div className={styles.ctaSection}>
+          <Text as="p" className={styles.ctaText}>
+            {t('memberBenefits.cta')}
+          </Text>
+          <div className={styles.ctaButtonsContainer}>
+            <Button 
+              appearance="primary"
+              className={styles.ctaButton}
+              onClick={() => navigate('/membership')}
+            >
+              {t('memberBenefits.becomeMemberButton')}
+            </Button>
+            <Button 
+              appearance="secondary"
+              className={styles.ctaButton}
+              onClick={() => navigate('/volunteer')}
+            >
+              {t('memberBenefits.becomeVolunteerButton')}
+            </Button>
+          </div>
         </div>
       </div>
     </section>

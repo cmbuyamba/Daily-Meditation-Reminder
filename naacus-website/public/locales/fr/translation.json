@@ -79,8 +79,9 @@
       "title": "Développement du Leadership",
       "description": "Développez vos dons grâce à la formation au leadership, aux programmes de mentorat et aux opportunités de service."
     },
-    "cta": "Prêt à faire partie de quelque chose de plus grand?",
-    "ctaButton": "Rejoignez NAACUS Aujourd'hui - C'est Gratuit!"
+    "cta": "Prêt à rejoindre notre communauté?",
+    "becomeMemberButton": "Devenir un Membre",
+    "becomeVolunteerButton": "Devenir Bénévole"
   },
   "testimonials": {
     "title": "Ce Que Disent Nos Membres",
