@@ -178,8 +178,8 @@ function MemberBenefits() {
   const benefits = benefitsData.map(benefit => ({
     ...benefit,
     icon: iconMap[benefit.key],
-    title: t(`memberBenefits.${benefit.key}.title`),
-    description: t(`memberBenefits.${benefit.key}.description`)
+    title: t(benefit.titleKey),
+    description: t(benefit.descriptionKey)
   }));
 
   return (
