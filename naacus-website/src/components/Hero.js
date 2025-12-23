@@ -22,6 +22,10 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     overflow: 'hidden',
     marginTop: '0',
+    '@media (max-width: 768px)': {
+      padding: '54px 24px 80px',
+      minHeight: '600px',
+    },
     '::before': {
       content: '""',
       position: 'absolute',
@@ -40,6 +44,9 @@ const useStyles = makeStyles({
     maxWidth: '1100px',
     margin: '0 auto',
     textAlign: 'center',
+    '@media (max-width: 768px)': {
+      padding: '0 8px',
+    },
   },
   heroTitle: {
     fontSize: '5rem',

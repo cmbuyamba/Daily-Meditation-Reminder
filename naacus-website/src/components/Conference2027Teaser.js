@@ -18,12 +18,20 @@ const useStyles = makeStyles({
     textAlign: 'center',
     overflow: 'hidden',
     ...shorthands.borderBottom('4px', 'solid', '#E8D4C0'),
+    '@media (max-width: 768px)': {
+      paddingLeft: '16px',
+      paddingRight: '16px',
+    },
   },
   teaserContent: {
     position: 'relative',
     zIndex: 2,
     maxWidth: '1000px',
     margin: '0 auto',
+    '@media (max-width: 768px)': {
+      paddingLeft: '12px',
+      paddingRight: '12px',
+    },
   },
   badge: {
     display: 'inline-block',

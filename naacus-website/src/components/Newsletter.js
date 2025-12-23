@@ -15,16 +15,26 @@ const useStyles = makeStyles({
     background: `linear-gradient(135deg, ${tokens.colorBrandBackground} 0%, #005a9e 100%)`,
     color: tokens.colorNeutralForegroundInverted,
     ...shorthands.padding('70px', '20px'),
+    '@media (max-width: 768px)': {
+      ...shorthands.padding('40px', '12px'),
+    },
   },
   content: {
     maxWidth: '960px',
     ...shorthands.margin('0', 'auto'),
     textAlign: 'center',
+    '@media (max-width: 768px)': {
+      ...shorthands.padding('0', '8px'),
+    },
   },
   iconWrapper: {
     fontSize: '4rem',
     marginBottom: '20px',
     color: tokens.colorNeutralForegroundInverted,
+    '@media (max-width: 768px)': {
+      fontSize: '2.5rem',
+      marginBottom: '16px',
+    },
   },
   title: {
     fontSize: '2.75rem',
@@ -34,7 +44,8 @@ const useStyles = makeStyles({
     display: 'block',
     letterSpacing: '-0.02em',
     '@media (max-width: 768px)': {
-      fontSize: '2rem',
+      fontSize: '1.75rem',
+      marginBottom: '12px',
     },
   },
   badge: {
@@ -69,6 +80,7 @@ const useStyles = makeStyles({
     display: 'block',
     '@media (max-width: 768px)': {
       fontSize: '0.95rem',
+      marginBottom: '24px',
     },
   },
   benefitsHighlight: {
@@ -81,8 +93,9 @@ const useStyles = makeStyles({
     '@media (max-width: 768px)': {
       ...shorthands.gap('16px'),
       flexDirection: 'column',
-      alignItems: 'flex-start',
-      ...shorthands.padding('16px', '0'),
+      alignItems: 'center',
+      ...shorthands.padding('20px', '0'),
+      marginBottom: '28px',
     },
   },
   benefitItem: {
@@ -99,6 +112,9 @@ const useStyles = makeStyles({
   formContainer: {
     maxWidth: '900px',
     ...shorthands.margin('0', 'auto'),
+    '@media (max-width: 768px)': {
+      ...shorthands.padding('0', '8px'),
+    },
   },
   inputGroup: {
     display: 'grid',
@@ -107,6 +123,10 @@ const useStyles = makeStyles({
     ...shorthands.gap('12px'),
     '@media (max-width: 900px)': {
       gridTemplateColumns: '1fr',
+    },
+    '@media (max-width: 768px)': {
+      gridTemplateColumns: '1fr',
+      ...shorthands.gap('10px'),
     },
   },
   input: {
@@ -117,6 +137,10 @@ const useStyles = makeStyles({
     ...shorthands.padding('14px', '16px'),
     boxShadow: '0 8px 30px rgba(0,0,0,0.08)',
     color: tokens.colorNeutralForeground1,
+    '@media (max-width: 768px)': {
+      ...shorthands.padding('12px', '14px'),
+      fontSize: '0.95rem',
+    },
   },
   subscribeButton: {
     backgroundColor: '#28a745',
@@ -131,6 +155,12 @@ const useStyles = makeStyles({
     '&:hover': {
       backgroundColor: '#23963d',
       boxShadow: '0 14px 36px rgba(0,0,0,0.2)',
+    },
+    '@media (max-width: 768px)': {
+      minWidth: 'auto',
+      width: '100%',
+      fontSize: '1rem',
+      padding: '12px 20px',
     },
   },
   privacyNote: {

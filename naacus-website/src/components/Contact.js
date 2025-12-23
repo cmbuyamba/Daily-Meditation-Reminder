@@ -15,6 +15,9 @@ const useStyles = makeStyles({
   contact: {
     backgroundColor: '#faf9f8',
     ...shorthands.padding('50px', '20px'),
+    '@media (max-width: 768px)': {
+      padding: '40px 16px',
+    },
   },
   contactTitle: {
     fontSize: '2.75rem',
@@ -38,6 +41,7 @@ const useStyles = makeStyles({
     '@media (max-width: 768px)': {
       gridTemplateColumns: '1fr',
       ...shorthands.gap('40px'),
+      ...shorthands.padding('0', '8px'),
     },
   },
   contactInfoTitle: {
