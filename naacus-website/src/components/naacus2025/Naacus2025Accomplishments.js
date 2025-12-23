@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { 
   makeStyles,
   shorthands,
@@ -16,6 +17,8 @@ import {
   Video24Regular,
   Image24Regular
 } from '@fluentui/react-icons';
+import { getNaacus2025Events } from '../../data/naacus2025EventsData';
+import { handleNavigation } from '../../services/navigationService';
 
 const useStyles = makeStyles({
   accomplishments: {
@@ -26,10 +29,10 @@ const useStyles = makeStyles({
     position: 'relative',
     background: `linear-gradient(135deg, #1a3a52 0%, #2d5a7b 50%, #3d6fa8 100%)`,
     color: tokens.colorNeutralForegroundInverted,
-    ...shorthands.padding('80px', '20px'),
-    paddingTop: '80px',
+    ...shorthands.padding('20px', '20px'),
+    paddingTop: '30px',
     textAlign: 'center',
-    marginBottom: '40px',
+    marginBottom: '0px',
     overflow: 'hidden',
   },
   heroContent: {
@@ -140,10 +143,13 @@ const useStyles = makeStyles({
     display: 'block',
   },
   eventsContainer: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, 1fr)',
     ...shorthands.gap('30px'),
     marginBottom: '40px',
+    '@media (max-width: 768px)': {
+      gridTemplateColumns: '1fr',
+    },
   },
   eventCard: {
     ...shorthands.padding('30px'),
@@ -282,147 +288,18 @@ const useStyles = makeStyles({
 
 function Naacus2025Accomplishments() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const styles = useStyles();
 
-  // Conference events extracted from the schedule
-  const events = [
-    {
-      id: 1,
-      day: 'Friday, July 18, 2025',
-      time: '10:00 AM - 4:00 PM',
-      title: "Men's Retreat: Who Do You Say You Really Are?",
-      presenter: 'Deacon Joseph LeMay',
-      location: 'St. Francis DeSales',
-      summary: 'Content and summary to be provided',
-      videoPlaceholder: true,
-      photosPlaceholder: true,
-    },
-    {
-      id: 2,
-      day: 'Friday, July 18, 2025',
-      time: '10:00 AM - 4:00 PM',
-      title: "Women's Retreat: Living a Life of Blessing and Thanksgiving - Challenges and Blessings",
-      presenter: 'Sr. Frances Nwaneri',
-      location: 'St. Francis DeSales',
-      summary: 'Content and summary to be provided',
-      videoPlaceholder: true,
-      photosPlaceholder: true,
-    },
-    {
-      id: 3,
-      day: 'Friday, July 18, 2025',
-      time: '6:00 PM - 9:00 PM',
-      title: 'Opening Mass and Reception',
-      presenter: 'Bishop Brendan J. Cahill',
-      location: 'St. Matthias School',
-      summary: 'Content and summary to be provided',
-      videoPlaceholder: true,
-      photosPlaceholder: true,
-    },
-    {
-      id: 4,
-      day: 'Saturday, July 19, 2025',
-      time: '8:00 AM - 9:00 AM',
-      title: 'Registration and Continental Breakfast',
-      presenter: 'NAACUS Team',
-      location: 'St. Francis DeSales',
-      summary: 'Content and summary to be provided',
-      videoPlaceholder: false,
-      photosPlaceholder: true,
-    },
-    {
-      id: 5,
-      day: 'Saturday, July 19, 2025',
-      time: '9:00 AM - 10:30 AM',
-      title: 'Keynote Address: United in Christ for Evangelization',
-      presenter: 'To be announced',
-      location: 'St. Francis DeSales',
-      summary: 'Content and summary to be provided',
-      videoPlaceholder: true,
-      photosPlaceholder: true,
-    },
-    {
-      id: 6,
-      day: 'Saturday, July 19, 2025',
-      time: '11:00 AM - 12:30 PM',
-      title: 'Workshops Session 1',
-      presenter: 'Various Presenters',
-      location: 'St. Francis DeSales',
-      summary: 'Content and summary to be provided',
-      videoPlaceholder: true,
-      photosPlaceholder: true,
-    },
-    {
-      id: 7,
-      day: 'Saturday, July 19, 2025',
-      time: '12:30 PM - 1:30 PM',
-      title: 'Lunch Break',
-      presenter: 'NAACUS Team',
-      location: 'St. Francis DeSales',
-      summary: 'Content and summary to be provided',
-      videoPlaceholder: false,
-      photosPlaceholder: true,
-    },
-    {
-      id: 8,
-      day: 'Saturday, July 19, 2025',
-      time: '2:00 PM - 3:30 PM',
-      title: 'Workshops Session 2',
-      presenter: 'Various Presenters',
-      location: 'St. Francis DeSales',
-      summary: 'Content and summary to be provided',
-      videoPlaceholder: true,
-      photosPlaceholder: true,
-    },
-    {
-      id: 9,
-      day: 'Saturday, July 19, 2025',
-      time: '4:00 PM - 5:00 PM',
-      title: 'Cultural Performance and Exhibition',
-      presenter: 'African Catholic Communities',
-      location: 'St. Francis DeSales',
-      summary: 'Content and summary to be provided',
-      videoPlaceholder: true,
-      photosPlaceholder: true,
-    },
-    {
-      id: 10,
-      day: 'Saturday, July 19, 2025',
-      time: '6:00 PM - 10:00 PM',
-      title: 'Gala Dinner and Cultural Night',
-      presenter: 'NAACUS Team',
-      location: 'St. Francis DeSales',
-      summary: 'Content and summary to be provided',
-      videoPlaceholder: true,
-      photosPlaceholder: true,
-    },
-    {
-      id: 11,
-      day: 'Sunday, July 20, 2025',
-      time: '9:00 AM - 11:00 AM',
-      title: 'Closing Mass and Commissioning',
-      presenter: 'Bishop and Concelebrants',
-      location: 'St. Matthias School',
-      summary: 'Content and summary to be provided',
-      videoPlaceholder: true,
-      photosPlaceholder: true,
-    },
-    {
-      id: 12,
-      day: 'Sunday, July 20, 2025',
-      time: '11:30 AM - 1:00 PM',
-      title: 'Farewell Brunch and Networking',
-      presenter: 'NAACUS Team',
-      location: 'St. Francis DeSales',
-      summary: 'Content and summary to be provided',
-      videoPlaceholder: false,
-      photosPlaceholder: true,
-    },
-  ];
+  // Get conference events from data service
+  const events = getNaacus2025Events();
 
   const scrollToNewsletter = () => {
-    const element = document.getElementById('newsletter');
-    element?.scrollIntoView({ behavior: 'smooth' });
+    handleNavigation({ 
+      path: '/', 
+      sectionId: 'newsletter', 
+      navigate 
+    });
   };
 
   return (
@@ -470,6 +347,23 @@ function Naacus2025Accomplishments() {
       </div>
 
       <div className={styles.content}>
+        <div className={styles.ctaSection}>
+          <Text as="h2" className={styles.ctaTitle}>
+            {t('naacus2025.ctaTitle')}
+          </Text>
+          
+          <Text as="p" className={styles.ctaDescription}>
+            {t('naacus2025.ctaDescription')}
+          </Text>
+
+          <Button 
+            className={styles.ctaButton}
+            onClick={scrollToNewsletter}
+          >
+            {t('naacus2025.ctaButton')}
+          </Button>
+        </div>
+
         <Text as="h2" className={styles.sectionTitle}>
           {t('naacus2025.scheduleTitle')}
         </Text>
@@ -522,23 +416,6 @@ function Naacus2025Accomplishments() {
               </div>
             </Card>
           ))}
-        </div>
-
-        <div className={styles.ctaSection}>
-          <Text as="h2" className={styles.ctaTitle}>
-            {t('naacus2025.ctaTitle')}
-          </Text>
-          
-          <Text as="p" className={styles.ctaDescription}>
-            {t('naacus2025.ctaDescription')}
-          </Text>
-
-          <Button 
-            className={styles.ctaButton}
-            onClick={scrollToNewsletter}
-          >
-            {t('naacus2025.ctaButton')}
-          </Button>
         </div>
       </div>
     </section>

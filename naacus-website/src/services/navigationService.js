@@ -31,7 +31,13 @@ export const handleNavigation = ({
   if (path) {
     // Navigate to a different route
     navigate(path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (sectionId) {
+      // If section ID is also provided, scroll to it after navigation
+      setTimeout(() => scrollToSection(sectionId), 100);
+    } else {
+      // Otherwise scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   } else if (currentPathname === '/') {
     // If on home page, scroll to section
     scrollToSection(sectionId);
