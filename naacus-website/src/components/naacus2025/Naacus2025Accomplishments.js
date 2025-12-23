@@ -62,7 +62,7 @@ const useStyles = makeStyles({
     letterSpacing: '-0.02em',
     textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
     '@media (max-width: 768px)': {
-      fontSize: '2.2rem',
+      fontSize: '1.9rem',
     },
   },
   subtitle: {
@@ -120,7 +120,7 @@ const useStyles = makeStyles({
     ...shorthands.margin('0', 'auto'),
   },
   sectionTitle: {
-    fontSize: '2.5rem',
+    fontSize: '1.5rem',
     textAlign: 'center',
     marginBottom: '16px',
     marginTop: '40px',
@@ -179,7 +179,7 @@ const useStyles = makeStyles({
     display: 'block',
   },
   eventTitle: {
-    fontSize: '1.8rem',
+    fontSize: '1.2rem',
     fontWeight: '600',
     marginBottom: '8px',
     color: tokens.colorNeutralForeground1,
@@ -242,15 +242,15 @@ const useStyles = makeStyles({
   },
   ctaSection: {
     textAlign: 'center',
-    ...shorthands.padding('60px', '20px'),
     marginTop: '40px',
   },
   ctaTitle: {
-    fontSize: '2rem',
+    fontSize: '1.5rem',
     fontWeight: '600',
     marginBottom: '20px',
     color: tokens.colorNeutralForeground1,
     display: 'block',
+    textAlign: 'center',
   },
   ctaDescription: {
     fontSize: '1.2rem',
@@ -260,6 +260,7 @@ const useStyles = makeStyles({
     margin: '0 auto 30px',
     lineHeight: '1.6',
     display: 'block',
+    textAlign: 'center',
   },
   ctaButton: {
     backgroundColor: '#E8D4C0',

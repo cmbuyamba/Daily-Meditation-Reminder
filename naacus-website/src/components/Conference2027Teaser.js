@@ -14,7 +14,6 @@ const useStyles = makeStyles({
     position: 'relative',
     background: `linear-gradient(135deg, #1a3a52 0%, #2d5a7b 50%, #3d6fa8 100%)`,
     color: tokens.colorNeutralForegroundInverted,
-    minHeight: '700px',
     ...shorthands.padding('60px', '20px'),
     textAlign: 'center',
     overflow: 'hidden',
@@ -22,7 +21,6 @@ const useStyles = makeStyles({
     '@media (max-width: 768px)': {
       paddingLeft: '16px',
       paddingRight: '16px',
-      minHeight: '600px',
     },
   },
   teaserContent: {
@@ -56,7 +54,7 @@ const useStyles = makeStyles({
     display: 'block',
     textAlign: 'center',
     lineHeight: '1.2',
-    letterSpacing: '-0.02em',
+    letterSpacing: '0.02em',
     textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
     '@media (max-width: 768px)': {
       fontSize: '2.2rem',
@@ -140,9 +138,9 @@ const useStyles = makeStyles({
     marginTop: '24px',
     backgroundColor: '#E8D4C0',
     color: '#1a3a52',
-    fontSize: '0.95rem',
+    fontSize: '1.1rem',
     fontWeight: '700',
-    ...shorthands.padding('12px', '28px'),
+    ...shorthands.padding('20px', '40px'),
     height: 'auto',
     ...shorthands.borderRadius('30px'),
     boxShadow: '0 4px 20px rgba(232, 212, 192, 0.35)',
@@ -153,8 +151,8 @@ const useStyles = makeStyles({
       boxShadow: '0 6px 25px rgba(232, 212, 192, 0.5)',
     },
     '@media (max-width: 768px)': {
-      fontSize: '0.9rem',
-      ...shorthands.padding('10px', '24px'),
+      fontSize: '0.95rem',
+      ...shorthands.padding('16px', '32px'),
     },
   },
   teaserGraphic: {
