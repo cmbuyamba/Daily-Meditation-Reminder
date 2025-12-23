@@ -6,6 +6,7 @@ import {
   Text,
   Card
 } from '@fluentui/react-components';
+import { dataService } from '../services/dataService';
 
 const useStyles = makeStyles({
   whoWeServe: {
@@ -82,16 +83,7 @@ const useStyles = makeStyles({
 function WhoWeServe() {
   const styles = useStyles();
 
-  const communities = [
-    { icon: '✈️', text: 'Immigrants' },
-    { icon: '🌍', text: 'Migrants' },
-    { icon: '🏡', text: 'Refugees' },
-    { icon: '🎓', text: 'Students' },
-    { icon: '💼', text: 'Professionals' },
-    { icon: '👨‍👩‍👧‍👦', text: 'Families' },
-    { icon: '👴', text: 'Elders' },
-    { icon: '🌟', text: 'Diaspora' }
-  ];
+  const communities = dataService.getCommunitiesServed();
 
   return (
     <section id="who-we-serve" className={styles.whoWeServe}>

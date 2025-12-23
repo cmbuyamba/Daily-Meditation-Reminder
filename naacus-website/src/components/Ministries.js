@@ -19,6 +19,7 @@ import {
   HandRight24Regular,
   MusicNote224Regular
 } from '@fluentui/react-icons';
+import { dataService } from '../services/dataService';
 
 const useStyles = makeStyles({
   ministries: {
@@ -118,68 +119,30 @@ const useStyles = makeStyles({
 function Ministries() {
   const styles = useStyles();
 
-  const ministries = [
-    {
-      icon: <Megaphone24Regular />,
-      title: 'Advocacy Ministry',
-      description: 'Promoting social justice and advocating for African communities in the United States.'
-    },
-    {
-      icon: <PersonAccounts24Regular />,
-      title: "Women's Ministry",
-      description: 'Empowering women through retreats, workshops, and fellowship activities.'
-    },
-    {
-      icon: <PeopleTeam24Regular />,
-      title: 'Youth Ministry',
-      description: 'Nurturing young Catholics through faith formation, activities, and leadership development.'
-    },
-    {
-      icon: <Heart24Regular />,
-      title: 'Young Adults Ministry',
-      description: 'Supporting young adults (ages 19-39) in their spiritual journey and community life.'
-    },
-    {
-      icon: <People24Regular />,
-      title: "Men's Ministry",
-      description: 'Building brotherhood and strengthening faith among African Catholic men.'
-    },
-    {
-      icon: <HandRight24Regular />,
-      title: 'Ministry for People with Disabilities',
-      description: 'Creating inclusive opportunities for full participation in church life.'
-    },
-    {
-      icon: <Book24Regular />,
-      title: 'Resource Ministry',
-      description: 'Providing educational materials and resources for spiritual growth.'
-    },
-    {
-      icon: <Money24Regular />,
-      title: 'Finance Ministry',
-      description: 'Managing financial resources and supporting organizational sustainability.'
-    },
-    {
-      icon: <Video24Regular />,
-      title: 'Media & Public Relations Ministry',
-      description: 'Sharing our story and engaging with communities through various media platforms.'
-    },
-    {
-      icon: <News24Regular />,
-      title: 'Newsletter Ministry',
-      description: 'Keeping members informed through regular communications and updates.'
-    },
-    {
-      icon: <CalendarLtr24Regular />,
-      title: 'Liturgy Committee',
-      description: 'Planning and coordinating meaningful worship experiences and celebrations.'
-    },
-    {
-      icon: <MusicNote224Regular />,
-      title: 'ANEC Ministry',
-      description: 'Organizing the African National Eucharistic Congress and related activities.'
-    },
-  ];
+  // Get ministry data from service
+  const ministriesData = dataService.getMinistries();
+
+  // Map icons to ministries by title
+  const iconMap = {
+    'Advocacy Ministry': <Megaphone24Regular />,
+    "Women's Ministry": <PersonAccounts24Regular />,
+    'Youth Ministry': <PeopleTeam24Regular />,
+    'Young Adults Ministry': <Heart24Regular />,
+    "Men's Ministry": <People24Regular />,
+    'Ministry for People with Disabilities': <HandRight24Regular />,
+    'Resource Ministry': <Book24Regular />,
+    'Finance Ministry': <Money24Regular />,
+    'Media & Public Relations Ministry': <Video24Regular />,
+    'Newsletter Ministry': <News24Regular />,
+    'Liturgy Committee': <CalendarLtr24Regular />,
+    'ANEC Ministry': <MusicNote224Regular />
+  };
+
+  // Combine ministry data with icons
+  const ministries = ministriesData.map(ministry => ({
+    ...ministry,
+    icon: iconMap[ministry.title]
+  }));
 
   return (
     <section id="ministries" className={styles.ministries}>

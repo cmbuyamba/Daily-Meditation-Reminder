@@ -8,6 +8,7 @@ import {
   Button
 } from '@fluentui/react-components';
 import { CheckmarkCircle24Regular } from '@fluentui/react-icons';
+import { dataService } from '../services/dataService';
 
 const useStyles = makeStyles({
   programs: {
@@ -137,16 +138,7 @@ function Programs() {
     }
   };
 
-  const activities = [
-    'Community gatherings and fellowship events',
-    'Workshops on faith, family, and leadership',
-    'National conferences highlighting African Catholic faith and culture',
-    'Leadership formation and mentorship programs',
-    'Cultural celebrations and liturgical events',
-    'Youth and young adult ministry initiatives',
-    'Marriage and family life support programs',
-    'Outreach and service projects'
-  ];
+  const activities = dataService.getProgramsList();
 
   return (
     <section id="programs" className={styles.programs}>

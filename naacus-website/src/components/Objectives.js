@@ -6,6 +6,7 @@ import {
   Text,
   Card
 } from '@fluentui/react-components';
+import { dataService } from '../services/dataService';
 
 const useStyles = makeStyles({
   objectives: {
@@ -130,40 +131,12 @@ const useStyles = makeStyles({
 function Objectives() {
   const styles = useStyles();
 
-  const objectives = [
+  const objectives = dataService.getObjectives().map((obj, index) => (
     {
-      title: 'Be a United Voice',
-      description: 'Serve as a united voice for African Catholics in the United States, advocating for their needs and representing their interests within the Church and society.'
-    },
-    {
-      title: 'Promote Heritage Awareness',
-      description: 'Raise awareness of the presence, heritage, and cultures of African Catholics in the U.S., celebrating their unique contributions to the Church.'
-    },
-    {
-      title: 'Celebrate Ethnic Liturgies',
-      description: 'Encourage the celebration of liturgies in ethnic languages and traditions, fostering culturally rooted worship experiences.'
-    },
-    {
-      title: 'Foster Diocesan Connections',
-      description: 'Promote connection and collaboration with local dioceses and national Catholic organizations to strengthen the African Catholic presence.'
-    },
-    {
-      title: 'Support Families and Youth',
-      description: 'Provide support for African families, youth, marriages, and vocations, nurturing the next generation of Catholic leaders.'
-    },
-    {
-      title: 'Advocate for Social Justice',
-      description: 'Champion social justice initiatives and promote interreligious dialogue, working for the common good in African communities and U.S. society.'
-    },
-    {
-      title: 'Build Leadership',
-      description: 'Cultivate lay leadership and support vocational programs, empowering African Catholics to serve the Church in various ministries.'
-    },
-    {
-      title: 'Ensure Full Participation',
-      description: 'Work to ensure that African Catholics fully participate in the life of the Church in the United States while maintaining connections with the Church in Africa.'
-    },
-  ];
+      title: obj.title,
+      description: obj.description
+    }
+  ));
 
   return (
     <section id="objectives" className={styles.objectives}>

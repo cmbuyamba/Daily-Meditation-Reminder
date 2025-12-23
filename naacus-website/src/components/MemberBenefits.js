@@ -7,6 +7,7 @@ import {
   Text,
   Card
 } from '@fluentui/react-components';
+import { dataService } from '../services/dataService';
 import {
   People24Regular,
   Calendar24Regular,
@@ -160,38 +161,26 @@ function MemberBenefits() {
   const { t } = useTranslation();
   const styles = useStyles();
 
-  const benefits = [
-    {
-      icon: <People24Regular />,
-      title: t('memberBenefits.community.title'),
-      description: t('memberBenefits.community.description')
-    },
-    {
-      icon: <Calendar24Regular />,
-      title: t('memberBenefits.events.title'),
-      description: t('memberBenefits.events.description')
-    },
-    {
-      icon: <BookOpen24Regular />,
-      title: t('memberBenefits.resources.title'),
-      description: t('memberBenefits.resources.description')
-    },
-    {
-      icon: <Heart24Regular />,
-      title: t('memberBenefits.spiritual.title'),
-      description: t('memberBenefits.spiritual.description')
-    },
-    {
-      icon: <Globe24Regular />,
-      title: t('memberBenefits.network.title'),
-      description: t('memberBenefits.network.description')
-    },
-    {
-      icon: <Star24Regular />,
-      title: t('memberBenefits.leadership.title'),
-      description: t('memberBenefits.leadership.description')
-    }
-  ];
+  // Get benefits data from service
+  const benefitsData = dataService.getMemberBenefits();
+
+  // Map icons to benefits
+  const iconMap = {
+    'community': <People24Regular />,
+    'events': <Calendar24Regular />,
+    'resources': <BookOpen24Regular />,
+    'spiritual': <Heart24Regular />,
+    'network': <Globe24Regular />,
+    'leadership': <Star24Regular />
+  };
+
+  // Combine benefits data with icons and translations
+  const benefits = benefitsData.map(benefit => ({
+    ...benefit,
+    icon: iconMap[benefit.key],
+    title: t(`memberBenefits.${benefit.key}.title`),
+    description: t(`memberBenefits.${benefit.key}.description`)
+  }));
 
   return (
     <section id="member-benefits" className={styles.benefits}>

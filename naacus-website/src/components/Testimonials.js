@@ -7,6 +7,7 @@ import {
   Text,
   Card
 } from '@fluentui/react-components';
+import { dataService } from '../services/dataService';
 
 const useStyles = makeStyles({
   testimonials: {
@@ -124,26 +125,16 @@ function Testimonials() {
   const { t } = useTranslation();
   const styles = useStyles();
 
-  const testimonials = [
-    {
-      text: t('testimonials.testimonial1.text'),
-      author: t('testimonials.testimonial1.author'),
-      location: t('testimonials.testimonial1.location'),
-      initial: 'M'
-    },
-    {
-      text: t('testimonials.testimonial2.text'),
-      author: t('testimonials.testimonial2.author'),
-      location: t('testimonials.testimonial2.location'),
-      initial: 'J'
-    },
-    {
-      text: t('testimonials.testimonial3.text'),
-      author: t('testimonials.testimonial3.author'),
-      location: t('testimonials.testimonial3.location'),
-      initial: 'A'
-    }
-  ];
+  // Get testimonial keys from service
+  const testimonialKeys = dataService.getTestimonials();
+
+  // Map keys to translated content
+  const testimonials = testimonialKeys.map(item => ({
+    text: t(`testimonials.${item.key}.text`),
+    author: t(`testimonials.${item.key}.author`),
+    location: t(`testimonials.${item.key}.location`),
+    initial: item.initial
+  }));
 
   return (
     <section id="testimonials" className={styles.testimonials}>

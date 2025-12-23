@@ -7,13 +7,7 @@ import {
   Card,
   CardHeader
 } from '@fluentui/react-components';
-import { 
-  People24Regular,
-  Globe24Regular,
-  Heart24Regular,
-  BookInformation24Regular,
-  Handshake24Regular
-} from '@fluentui/react-icons';
+import { dataService } from '../services/dataService';
 
 const useStyles = makeStyles({
   whatWeDo: {
@@ -94,34 +88,7 @@ const useStyles = makeStyles({
 
 function WhatWeDo() {
   const styles = useStyles();
-
-  const activities = [
-    {
-      icon: <People24Regular />,
-      title: 'Pastoral Care & Parish Connection',
-      description: 'Supporting African Catholic communities and strengthening their connection with parishes, dioceses, and national Catholic organizations.'
-    },
-    {
-      icon: <Globe24Regular />,
-      title: 'Heritage & Culture Awareness',
-      description: 'Raising awareness of the presence, heritage, and cultures of African Catholics in the U.S., encouraging culturally rooted liturgy including ethnic languages and traditions.'
-    },
-    {
-      icon: <Heart24Regular />,
-      title: 'Family Life & Vocations',
-      description: 'Building up family life and vocations, nurturing leadership among laity, youth, young adults, and those discerning priesthood, religious life, and other ministries.'
-    },
-    {
-      icon: <BookInformation24Regular />,
-      title: 'Evangelization & Catechesis',
-      description: 'Promoting evangelization, catechesis, and service, empowering African Catholics to witness to Christ in their local parishes and communities.'
-    },
-    {
-      icon: <Handshake24Regular />,
-      title: 'Collaboration & Advocacy',
-      description: 'Collaborating widely—dialoguing with diocesan offices, national Catholic partners, and other ecclesial communities—and advocating for social justice in African communities and U.S. society.'
-    }
-  ];
+  const activities = dataService.getWhatWeDo();
 
   return (
     <section id="what-we-do" className={styles.whatWeDo}>
