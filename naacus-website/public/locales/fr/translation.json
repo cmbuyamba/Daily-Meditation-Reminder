@@ -1,7 +1,6 @@
 {
   "header": {
     "title": "NAACUS",
-    "tagline": "Association Nationale des Catholiques Africains aux États-Unis",
     "nav": {
       "home": "Accueil",
       "naacus2025": "2025",
@@ -31,7 +30,6 @@
   },
   "about": {
     "title": "À Propos de NAACUS",
-    "intro": "L'Association Nationale des Catholiques Africains aux États-Unis (NAACUS) rassemble les catholiques africains et leurs familles pour favoriser la foi, le leadership et le service dans l'Église à travers les États-Unis. Enracinés dans l'Évangile et notre devise \"Ensemble avec le Christ\", nous accueillons les membres dans une communauté active pour la fraternité, les ateliers et les ministères collaboratifs.",
     "mission": {
       "title": "Notre Mission",
       "description": "Rassembler les communautés catholiques africaines aux États-Unis, promouvoir leur foi et assurer leur participation pleine et active à la vie de l'Église."

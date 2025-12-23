@@ -18,7 +18,8 @@ import {
   Video24Regular,
   PersonAccounts24Regular,
   HandRight24Regular,
-  MusicNote224Regular
+  MusicNote224Regular,
+  Mail24Regular
 } from '@fluentui/react-icons';
 import { dataService } from '../services/dataService';
 
@@ -94,6 +95,20 @@ const useStyles = makeStyles({
     lineHeight: '1.5',
     color: tokens.colorNeutralForeground2,
     display: 'block',
+    marginBottom: '16px',
+  },
+  ministryEmail: {
+    fontSize: '0.85rem',
+    color: tokens.colorBrandBackground,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    ...shorthands.gap('6px'),
+    textDecoration: 'none',
+    ...shorthands.transition('color', '0.2s', 'ease'),
+    '&:hover': {
+      color: tokens.colorBrandBackgroundHover,
+    },
   },
   callToAction: {
     ...shorthands.padding('32px', '30px'),
@@ -162,6 +177,12 @@ function Ministries() {
               </div>
               <Text className={styles.ministryTitle}>{ministry.title}</Text>
               <Text className={styles.ministryDescription}>{ministry.description}</Text>
+              {ministry.email && (
+                <a href={`mailto:${ministry.email}`} className={styles.ministryEmail}>
+                  <Mail24Regular />
+                  <span>{ministry.email}</span>
+                </a>
+              )}
             </div>
           ))}
         </div>

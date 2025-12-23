@@ -924,29 +924,382 @@ RATE_LIMIT_EXCEEDED - Too many requests
 
 ---
 
+## Data Services Architecture
+
+The frontend implements a service-oriented architecture using mock data files in `src/data/`. These services will serve as the contract for future backend API implementation.
+
+### Data Service Files
+
+#### 1. **activitiesData.js** - Activities & What We Do
+**Purpose:** Store activities for the "What We Do" section with emoji icons
+
+**Export Function:**
+```javascript
+export const activitiesData = [...]
+```
+
+**Data Structure:**
+```json
+{
+  "activities": [
+    {
+      "icon": "⛪",
+      "title": "Activity Title",
+      "description": "Activity description text"
+    }
+  ]
+}
+```
+
+**Current Items:** 5 activities (⛪ Faith, 🌍 Community, 👨‍👩‍👧‍👦 Family, ✨ Empowerment, 🤝 Service)
+
+**Usage:** WhatWeDo.js component
+
+---
+
+#### 2. **testimonialData.js** - Member Testimonials
+**Purpose:** Store member testimonials for the testimonials section
+
+**Export Function:**
+```javascript
+export const testimonialData = [...]
+```
+
+**Data Structure:**
+```json
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "text": "Testimonial quote text",
+      "author": "Member Name",
+      "location": "City, State",
+      "initial": "M"
+    }
+  ]
+}
+```
+
+**Current Count:** 3 testimonials
+- Mary Okafor (New York, NY)
+- James Mensah (Atlanta, GA)
+- Amara Nwosu (Chicago, IL)
+
+**Usage:** Testimonials.js component
+
+---
+
+#### 3. **galleryData.js** - Gallery & Video Items
+**Purpose:** Store gallery photos and videos with dynamic icon rendering
+
+**Export Functions:**
+```javascript
+export const galleryData = [...]
+export const getGalleryItems = () => galleryData
+```
+
+**Data Structure:**
+```json
+{
+  "galleryItems": [
+    {
+      "id": 1,
+      "title": "Gallery Item Title",
+      "description": "Item description",
+      "type": "photos" // or "video"
+    }
+  ]
+}
+```
+
+**Icon Rendering:** Icons are NOT stored in data. Gallery.js component renders icons dynamically:
+- `type: "photos"` → Image24Regular icon
+- `type: "video"` → Video24Regular icon
+
+**Current Items:** 6 items (4 photo galleries, 2 video items)
+
+**Usage:** Gallery.js component with renderIcon(type) function
+
+---
+
+#### 4. **resourcesData.js** - Resources & Partners
+**Purpose:** Store downloadable resources and partner organizations with dynamic icon rendering
+
+**Export Functions:**
+```javascript
+export const resourcesData = [...]
+export const partnersData = [...]
+export const getResources = () => resourcesData
+export const getPartners = () => partnersData
+```
+
+**Resources Data Structure:**
+```json
+{
+  "resources": [
+    {
+      "id": 1,
+      "iconType": "document",  // "document" | "news" | "form"
+      "title": "Resource Title",
+      "description": "Resource description",
+      "buttonText": "Button Label"
+    }
+  ]
+}
+```
+
+**Icon Rendering:** Icons rendered dynamically based on iconType:
+- `iconType: "document"` → DocumentBulletList icon
+- `iconType: "news"` → News24Regular icon
+- `iconType: "form"` → FormNew24Regular icon
+
+**Partners Data Structure:**
+```json
+{
+  "partners": [
+    {
+      "id": 1,
+      "name": "Partner Short Name",
+      "fullName": "Partner Full Legal Name"
+    }
+  ]
+}
+```
+
+**Current Count:** 4 resources + 5 partners
+
+**Usage:** Resources.js component with renderIcon(iconType) function
+
+---
+
+#### 5. **leadershipData.js** - Leadership & Board Members
+**Purpose:** Store executive board and spiritual advisers information
+
+**Data Structure:**
+```json
+{
+  "executiveBoard": [
+    {
+      "name": "Member Name",
+      "title": "Position Title",
+      "about": "Biography text",
+      "phone": "+1-xxx-xxx-xxxx",
+      "email": "email@example.com"
+    }
+  ],
+  "spiritualAdvisers": [ ... ]
+}
+```
+
+**Usage:** Leadership.js component with member detail dialog
+
+---
+
+#### 6. **ministriesData.js** - Ministry Programs
+**Purpose:** Store ministry programs and service descriptions
+
+**Data Structure:**
+```json
+{
+  "ministries": [
+    {
+      "title": "Ministry Name",
+      "description": "Ministry description and mission"
+    }
+  ]
+}
+```
+
+**Usage:** Ministries.js component
+
+---
+
+#### 7. **naacus2025EventsData.js** - NAACUS 2025 Conference Schedule
+**Purpose:** Store conference event schedule and details
+
+**Export Function:**
+```javascript
+export const getNaacus2025Events = () => naacus2025Events
+```
+
+**Data Structure:**
+```json
+{
+  "events": [
+    {
+      "id": 1,
+      "day": "Friday, July 18",
+      "title": "Event Title",
+      "presenter": "Presenter Name",
+      "time": "2:00 PM - 3:00 PM",
+      "location": "Venue Name",
+      "videoPlaceholder": true,
+      "photosPlaceholder": true
+    }
+  ]
+}
+```
+
+**Current Count:** 12 events (July 18-20, 2025)
+
+**Layout:** 2-column grid on desktop, single column on mobile
+
+**Usage:** Naacus2025Accomplishments.js component
+
+---
+
+#### 8. **eventsData.js** - Past & Upcoming Events
+**Purpose:** Store event history and announcements
+
+**Usage:** Events.js component
+
+---
+
+#### 9. **memberBenefitsData.js** - Membership Benefits
+**Purpose:** Store membership tiers and benefit information
+
+**Usage:** MemberBenefits.js component
+
+---
+
+#### 10. **faqData.js** - FAQ Items
+**Purpose:** Store frequently asked questions organized by category
+
+**Data Structure:**
+```json
+{
+  "faqs": [
+    {
+      "category": "General | Membership | Events | Programs | Volunteer | Contact | About",
+      "question": "FAQ Question?",
+      "answer": "FAQ Answer"
+    }
+  ]
+}
+```
+
+**Usage:** FAQ section and Chatbot integration
+
+---
+
+### Data Service Pattern & Best Practices
+
+**Principles:**
+1. **No JSX in Data:** All icons and UI elements are stored as type/enum values, not JSX
+2. **Dynamic Rendering:** Components render UI based on data field (type, iconType, etc.)
+3. **Reusable Exports:** Service functions (getGalleryItems, getResources, etc.) allow filtering
+4. **Unique Identifiers:** All items have `id` field for reliable React key usage
+5. **Localization Ready:** All user-facing text is externalized to i18n translation files
+
+**Example Component Pattern:**
+
+```javascript
+// In component: Resources.js
+import { getResources, getPartners } from '../services/resourcesData';
+import { DocumentBulletList, News24Regular, FormNew24Regular } from '@fluentui/react-icons';
+
+const renderIcon = (iconType) => {
+  switch(iconType) {
+    case 'document': return <DocumentBulletList />;
+    case 'news': return <News24Regular />;
+    case 'form': return <FormNew24Regular />;
+    default: return null;
+  }
+};
+
+const resources = getResources();
+resources.map(resource => (
+  <div key={resource.id}>
+    {renderIcon(resource.iconType)}
+    <h3>{resource.title}</h3>
+  </div>
+))
+```
+
+---
+
+### Internationalization (i18n)
+
+All text is externalized using react-i18next. Translation files located in:
+- `public/locales/en/translation.json` (English)
+- `public/locales/fr/translation.json` (French)
+
+**Translation Key Coverage:**
+- Objectives (visionTitle, visionDescription)
+- What We Do (title, subtitle)
+- Who We Serve (title, subtitle, closingText)
+- Leadership (executiveBoard, spiritualAdvisers, 11 keys)
+- Ministries (4 keys)
+- Programs (10 keys)
+- NAACUS 2025 (title, subtitle, scheduleTitle)
+- Plus existing: header, hero, footer, donations, etc.
+
+**Total Translation Keys:** 40+ keys in 2 languages
+
+---
+
+### Service Navigation Utility
+
+**File:** `src/services/navigationService.js`
+
+**Exports:**
+```javascript
+export const handleNavigation = ({ path, sectionId, navigate }) => {
+  // Handles navigation to path and optional section scroll
+};
+
+export const scrollToSection = (sectionId) => {
+  // Scrolls to section element by ID
+};
+
+export const isActivePath = (path, currentPathname) => {
+  // Checks if path matches current location
+};
+```
+
+**Usage:** Header, Footer, Hero, MemberBenefits components for unified navigation
+
+---
+
 ## Future Enhancements
 
-### 1. Advanced Search & Filtering
+### 1. Backend API Implementation
+Migrate from mock data to REST API endpoints:
+
+```
+GET /api/v1/data/activities
+GET /api/v1/data/testimonials
+GET /api/v1/data/gallery
+GET /api/v1/data/resources
+GET /api/v1/data/partners
+GET /api/v1/data/leadership
+GET /api/v1/data/ministries
+GET /api/v1/data/events
+GET /api/v1/data/naacus2025-events
+GET /api/v1/data/faq
+```
+
+### 2. Advanced Search & Filtering
 ```
 GET /api/v1/memberships?filter[status]=active&sort=createdAt&page=1&limit=20
 ```
 
-### 2. Bulk Operations
+### 3. Bulk Operations
 ```
 POST /api/v1/memberships/bulk
 ```
 
-### 3. Export Data
+### 4. Export Data
 ```
 GET /api/v1/memberships/export?format=csv&fields=firstName,email,status
 ```
 
-### 4. Analytics & Reporting
+### 5. Analytics & Reporting
 ```
 GET /api/v1/analytics/memberships?startDate=2025-01-01&endDate=2025-12-31
 ```
 
-### 5. Webhook Subscriptions
+### 6. Webhook Subscriptions
 ```
 POST /api/v1/webhooks
 {
@@ -955,18 +1308,18 @@ POST /api/v1/webhooks
 }
 ```
 
-### 6. Two-Factor Authentication
+### 7. Two-Factor Authentication
 ```
 POST /api/auth/2fa/initiate
 POST /api/auth/2fa/verify
 ```
 
-### 7. Audit Logging
+### 8. Audit Logging
 ```
 GET /api/v1/audit-logs?resource=membership&action=create
 ```
 
-### 8. Integration with External Services
+### 9. Integration with External Services
 - Email Service (SendGrid, Mailchimp)
 - SMS Service (Twilio)
 - Payment Processing (Stripe, Square)
