@@ -138,9 +138,9 @@ const useStyles = makeStyles({
     marginTop: '24px',
     backgroundColor: '#E8D4C0',
     color: '#1a3a52',
-    fontSize: '1.1rem',
+    fontSize: '0.95rem',
     fontWeight: '700',
-    ...shorthands.padding('20px', '40px'),
+    ...shorthands.padding('12px', '28px'),
     height: 'auto',
     ...shorthands.borderRadius('30px'),
     boxShadow: '0 4px 20px rgba(232, 212, 192, 0.35)',
@@ -151,8 +151,8 @@ const useStyles = makeStyles({
       boxShadow: '0 6px 25px rgba(232, 212, 192, 0.5)',
     },
     '@media (max-width: 768px)': {
-      fontSize: '0.95rem',
-      ...shorthands.padding('16px', '32px'),
+      fontSize: '0.9rem',
+      ...shorthands.padding('10px', '24px'),
     },
   },
   teaserGraphic: {

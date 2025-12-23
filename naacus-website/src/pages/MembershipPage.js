@@ -30,18 +30,18 @@ const useStyles = makeStyles({
     ...shorthands.padding('40px', '0'),
   },
   title: {
-    fontSize: '2.5rem',
+    fontSize: '2rem',
     fontWeight: '600',
     color: tokens.colorBrandBackground,
     marginBottom: '16px',
     display: 'block',
     letterSpacing: '-0.02em',
     '@media (max-width: 768px)': {
-      fontSize: '1.75rem',
+      fontSize: '1.5rem',
     },
   },
   subtitle: {
-    fontSize: '1.3rem',
+    fontSize: '1.1rem',
     color: tokens.colorNeutralForeground2,
     lineHeight: '1.6',
     display: 'block',
@@ -54,13 +54,16 @@ const useStyles = makeStyles({
     },
   },
   sectionTitle: {
-    fontSize: '1.8rem',
+    fontSize: '1.4rem',
     fontWeight: '600',
     color: tokens.colorBrandBackground,
     marginBottom: '24px',
     display: 'block',
     paddingBottom: '12px',
     borderBottom: `2px solid ${tokens.colorBrandBackground}`,
+    '@media (max-width: 768px)': {
+      fontSize: '1.2rem',
+    },
   },
   formGrid: {
     display: 'grid',

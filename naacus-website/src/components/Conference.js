@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     ...shorthands.padding('50px', '20px'),
   },
   conferenceTitle: {
-    fontSize: '2.75rem',
+    fontSize: '2rem',
     textAlign: 'center',
     marginBottom: '30px',
     color: tokens.colorNeutralForeground1,
@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     display: 'block',
     letterSpacing: '-0.02em',
     '@media (max-width: 768px)': {
-      fontSize: '2rem',
+      fontSize: '1.5rem',
     },
   },
   conferenceBanner: {

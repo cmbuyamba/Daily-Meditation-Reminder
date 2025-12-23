@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     ...shorthands.padding('50px', '20px'),
   },
   sectionTitle: {
-    fontSize: '2.75rem',
+    fontSize: '2rem',
     textAlign: 'center',
     marginBottom: '16px',
     color: tokens.colorNeutralForeground1,
@@ -27,7 +27,7 @@ const useStyles = makeStyles({
     display: 'block',
     letterSpacing: '-0.02em',
     '@media (max-width: 768px)': {
-      fontSize: '1.75rem',
+      fontSize: '1.5rem',
     },
   },
   sectionSubtitle: {

@@ -37,14 +37,14 @@ const useStyles = makeStyles({
     },
   },
   title: {
-    fontSize: '2.75rem',
+    fontSize: '2rem',
     marginBottom: '16px',
     fontWeight: '600',
     color: tokens.colorNeutralForegroundInverted,
     display: 'block',
     letterSpacing: '-0.02em',
     '@media (max-width: 768px)': {
-      fontSize: '1.75rem',
+      fontSize: '1.5rem',
       marginBottom: '12px',
     },
   },
@@ -145,12 +145,12 @@ const useStyles = makeStyles({
   subscribeButton: {
     backgroundColor: '#28a745',
     color: tokens.colorNeutralForegroundInverted,
-    fontSize: '1.05rem',
+    fontSize: '0.95rem',
     fontWeight: '700',
-    ...shorthands.padding('16px', '28px'),
+    ...shorthands.padding('12px', '24px'),
     ...shorthands.borderRadius('12px'),
     height: '100%',
-    minWidth: '160px',
+    minWidth: '140px',
     boxShadow: '0 12px 30px rgba(0,0,0,0.18)',
     '&:hover': {
       backgroundColor: '#23963d',
@@ -159,8 +159,8 @@ const useStyles = makeStyles({
     '@media (max-width: 768px)': {
       minWidth: 'auto',
       width: '100%',
-      fontSize: '1rem',
-      padding: '12px 20px',
+      fontSize: '0.9rem',
+      padding: '10px 18px',
     },
   },
   privacyNote: {

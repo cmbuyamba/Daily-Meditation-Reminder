@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     },
   },
   contactTitle: {
-    fontSize: '2.75rem',
+    fontSize: '2rem',
     textAlign: 'center',
     marginBottom: '40px',
     color: tokens.colorNeutralForeground1,
@@ -28,7 +28,7 @@ const useStyles = makeStyles({
     display: 'block',
     letterSpacing: '-0.02em',
     '@media (max-width: 768px)': {
-      fontSize: '2rem',
+      fontSize: '1.5rem',
       marginBottom: '32px',
     },
   },

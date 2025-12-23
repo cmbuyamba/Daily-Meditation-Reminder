@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     ...shorthands.padding('60px', '20px'),
   },
   benefitsTitle: {
-    fontSize: '2.75rem',
+    fontSize: '2rem',
     textAlign: 'center',
     marginBottom: '16px',
     color: tokens.colorNeutralForeground1,
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     display: 'block',
     letterSpacing: '-0.02em',
     '@media (max-width: 768px)': {
-      fontSize: '2rem',
+      fontSize: '1.5rem',
     },
   },
   benefitsSubtitle: {
@@ -102,20 +102,27 @@ const useStyles = makeStyles({
   ctaSection: {
     textAlign: 'center',
     backgroundColor: '#f5f5f5',
-    ...shorthands.padding('40px', '32px'),
+    ...shorthands.padding('24px', '20px'),
     ...shorthands.borderRadius('12px'),
     marginTop: '24px',
+    '@media (max-width: 768px)': {
+      ...shorthands.padding('16px', '16px'),
+    },
   },
   ctaText: {
-    fontSize: '1.375rem',
-    marginBottom: '24px',
+    fontSize: '1.125rem',
+    marginBottom: '16px',
     color: tokens.colorNeutralForeground1,
     fontWeight: '600',
     display: 'block',
+    '@media (max-width: 768px)': {
+      fontSize: '1rem',
+      marginBottom: '12px',
+    },
   },
   ctaButton: {
-    fontSize: '1.1rem',
-    padding: '20px 48px',
+    fontSize: '0.95rem',
+    padding: '12px 32px',
     height: 'auto',
     fontWeight: '600',
   },
