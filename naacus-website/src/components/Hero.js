@@ -5,9 +5,7 @@ import {
   shorthands,
   tokens,
   Text,
-  Button
 } from '@fluentui/react-components';
-import { ChevronDown24Regular } from '@fluentui/react-icons';
 import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles({
@@ -358,28 +356,7 @@ function Hero() {
   const { t } = useTranslation();
   const styles = useStyles();
   const navigate = useNavigate();
-  const [showScrollIndicator, setShowScrollIndicator] = useState(false);
   const heroRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (heroRef.current) {
-        const heroBottom = heroRef.current.getBoundingClientRect().bottom;
-        // Show scroll indicator when user has scrolled past 20% of hero section
-        setShowScrollIndicator(heroBottom < window.innerHeight * 0.8);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToNextSection = () => {
-    const nextSection = document.querySelector('section:not(#home)');
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section id="home" className={styles.hero} ref={heroRef}>
