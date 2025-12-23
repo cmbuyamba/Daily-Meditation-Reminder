@@ -17,7 +17,6 @@ import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import ChatWidget from './components/ChatWidget';
-import DonationDialog from './components/DonationDialog';
 
 function App() {
   return (
@@ -41,7 +40,6 @@ function App() {
           <Footer />
           <BackToTop />
           <ChatWidget />
-          <DonationDialog />
         </div>
       </Router>
     </FluentProvider>
