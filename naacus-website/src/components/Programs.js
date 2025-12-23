@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
   shorthands,
@@ -129,6 +130,7 @@ const useStyles = makeStyles({
 });
 
 function Programs() {
+  const { t } = useTranslation();
   const styles = useStyles();
 
   const scrollToSection = (sectionId) => {
@@ -142,17 +144,15 @@ function Programs() {
 
   return (
     <section id="programs" className={styles.programs}>
-      <Text as="h2" className={styles.sectionTitle}>Programs & Activities</Text>
+      <Text as="h2" className={styles.sectionTitle}>{t('programs.title')}</Text>
       <Text as="p" className={styles.sectionSubtitle}>
-        NAACUS convenes gatherings, workshops, and events that strengthen fellowship, 
-        leadership formation, and outreach while celebrating African Catholic faith and culture in action.
+        {t('programs.subtitle')}
       </Text>
       <div className={styles.content}>
         <Card className={styles.highlightCard}>
-          <Text as="h3" className={styles.highlightTitle}>Our Activities</Text>
+          <Text as="h3" className={styles.highlightTitle}>{t('programs.activitiesTitle')}</Text>
           <Text as="p" className={styles.highlightText}>
-            Through various programs and initiatives, we create opportunities for African Catholics 
-            to grow in faith, build community, and serve the Church and society.
+            {t('programs.activitiesDescription')}
           </Text>
           <div className={styles.activitiesList}>
             {activities.map((activity, index) => (
@@ -165,10 +165,9 @@ function Programs() {
         </Card>
 
         <div className={styles.conferenceCallout}>
-          <Text as="h3" className={styles.calloutTitle}>Biannual National Conference</Text>
+          <Text as="h3" className={styles.calloutTitle}>{t('programs.conferenceTitle')}</Text>
           <Text as="p" className={styles.calloutText}>
-            Our signature event brings together African Catholics from across the nation for 
-            a time of unity in Christ, evangelization, and celebrating our shared heritage.
+            {t('programs.conferenceDescription')}
           </Text>
           <Button 
             appearance="primary" 
@@ -179,22 +178,21 @@ function Programs() {
               color: tokens.colorBrandBackground 
             }}
           >
-            Learn More About Conferences
+            {t('programs.learnMore')}
           </Button>
         </div>
 
         <div className={styles.getInvolvedSection}>
-          <Text as="h3" className={styles.getInvolvedTitle}>Get Involved</Text>
+          <Text as="h3" className={styles.getInvolvedTitle}>{t('programs.getInvolvedTitle')}</Text>
           <Text as="p" className={styles.getInvolvedText}>
-            NAACUS welcomes new members and volunteers to help build a stronger community 
-            in the Church through fellowship, workshops, and service. Join us in our mission!
+            {t('programs.getInvolvedDescription')}
           </Text>
           <Button 
             appearance="primary" 
             size="large"
             onClick={() => scrollToSection('contact')}
           >
-            Contact Us to Join
+            {t('programs.contactUs')}
           </Button>
         </div>
       </div>

@@ -125,16 +125,8 @@ function Testimonials() {
   const { t } = useTranslation();
   const styles = useStyles();
 
-  // Get testimonial keys from service
-  const testimonialKeys = dataService.getTestimonials();
-
-  // Map keys to translated content
-  const testimonials = testimonialKeys.map(item => ({
-    text: t(`testimonials.${item.key}.text`),
-    author: t(`testimonials.${item.key}.author`),
-    location: t(`testimonials.${item.key}.location`),
-    initial: item.initial
-  }));
+  // Get testimonial data from service
+  const testimonials = dataService.getTestimonials();
 
   return (
     <section id="testimonials" className={styles.testimonials}>

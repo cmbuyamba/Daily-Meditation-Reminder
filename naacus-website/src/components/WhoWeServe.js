@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
   shorthands,
@@ -84,17 +85,16 @@ const useStyles = makeStyles({
 });
 
 function WhoWeServe() {
+  const { t } = useTranslation();
   const styles = useStyles();
 
   const communities = dataService.getCommunitiesServed();
 
   return (
     <section id="who-we-serve" className={styles.whoWeServe}>
-      <Text as="h2" className={styles.sectionTitle}>Who We Serve</Text>
+      <Text as="h2" className={styles.sectionTitle}>{t('whoWeServe.title')}</Text>
       <Text as="p" className={styles.sectionSubtitle}>
-        Our network includes people from across the African continent and diaspora who are 
-        building their lives in the United States and seeking a spiritual home that honors 
-        both Catholic faith and African heritage.
+        {t('whoWeServe.subtitle')}
       </Text>
       <div className={styles.content}>
         <div className={styles.communityList}>
@@ -106,8 +106,7 @@ function WhoWeServe() {
           ))}
         </div>
         <Text as="p" className={styles.closingText}>
-          NAACUS welcomes all who seek to connect with the vibrant African Catholic community 
-          in the United States—a place where faith and heritage come together in service to Christ and His Church.
+          {t('whoWeServe.closingText')}
         </Text>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
   shorthands,
@@ -90,16 +91,15 @@ const useStyles = makeStyles({
 });
 
 function WhatWeDo() {
+  const { t } = useTranslation();
   const styles = useStyles();
   const activities = dataService.getWhatWeDo();
 
   return (
     <section id="what-we-do" className={styles.whatWeDo}>
-      <Text as="h2" className={styles.sectionTitle}>What We Do</Text>
+      <Text as="h2" className={styles.sectionTitle}>{t('whatWeDo.title')}</Text>
       <Text as="p" className={styles.sectionSubtitle}>
-        Guided by our mission, NAACUS works to ensure African Catholics in the United States 
-        can fully share their gifts, participate actively in the Church, and witness Christ 
-        in family life, parish life, and public life.
+        {t('whatWeDo.subtitle')}
       </Text>
       <div className={styles.content}>
         <div className={styles.activitiesGrid}>

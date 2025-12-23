@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
   shorthands,
@@ -117,6 +118,7 @@ const useStyles = makeStyles({
 });
 
 function Ministries() {
+  const { t } = useTranslation();
   const styles = useStyles();
 
   // Get ministry data from service
@@ -147,11 +149,9 @@ function Ministries() {
   return (
     <section id="ministries" className={styles.ministries}>
       <div className={styles.content}>
-        <Text as="h2" className={styles.sectionTitle}>Fellowship & Ministries</Text>
+        <Text as="h2" className={styles.sectionTitle}>{t('ministries.title')}</Text>
         <Text className={styles.sectionSubtitle}>
-          NAACUS calls its members to get actively involved in various activities, maximizing their 
-          gifts as a faith and worship community in the United States. Through fellowship, workshops, 
-          and programs, we welcome members to help form a vibrant and active church community.
+          {t('ministries.subtitle')}
         </Text>
 
         <div className={styles.ministriesGrid}>
@@ -167,11 +167,9 @@ function Ministries() {
         </div>
 
         <div className={styles.callToAction}>
-          <Text className={styles.ctaTitle}>Get Involved</Text>
+          <Text className={styles.ctaTitle}>{t('ministries.ctaTitle')}</Text>
           <Text className={styles.ctaText}>
-            Join us in building a better church community. Your talents and expertise are needed 
-            in various ministries and committees. Together, we can make a meaningful impact in 
-            advancing the mission of NAACUS and serving African Catholics in the United States.
+            {t('ministries.ctaText')}
           </Text>
         </div>
       </div>

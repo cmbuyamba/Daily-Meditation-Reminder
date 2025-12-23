@@ -8,6 +8,7 @@ import {
   Button
 } from '@fluentui/react-components';
 import { Image24Regular, Video24Regular } from '@fluentui/react-icons';
+import { getGalleryItems } from '../data/galleryData';
 
 const useStyles = makeStyles({
   gallery: {
@@ -113,44 +114,18 @@ const useStyles = makeStyles({
 function Gallery() {
   const styles = useStyles();
 
-  const galleryItems = [
-    {
-      icon: <Image24Regular />,
-      title: 'Biannual National Conference',
-      description: 'Photos from our national gatherings featuring keynote speakers, workshops, and cultural celebrations.',
-      type: 'photos'
-    },
-    {
-      icon: <Image24Regular />,
-      title: 'Eucharistic Congress',
-      description: 'Moments of faith and worship from special Eucharistic celebrations and congresses.',
-      type: 'photos'
-    },
-    {
-      icon: <Image24Regular />,
-      title: 'Multicultural Mass',
-      description: 'Vibrant liturgies incorporating African languages, music, and traditions.',
-      type: 'photos'
-    },
-    {
-      icon: <Video24Regular />,
-      title: 'Conference Highlights',
-      description: 'Video recordings of inspiring keynote addresses and workshop sessions.',
-      type: 'video'
-    },
-    {
-      icon: <Image24Regular />,
-      title: 'Community Gatherings',
-      description: 'Fellowship events, youth activities, and family life programs across the nation.',
-      type: 'photos'
-    },
-    {
-      icon: <Video24Regular />,
-      title: 'Cultural Celebrations',
-      description: 'Videos showcasing African Catholic heritage, music, and dance performances.',
-      type: 'video'
-    },
-  ];
+  const galleryItems = getGalleryItems();
+
+  // Render icon based on type
+  const renderIcon = (type) => {
+    switch (type) {
+      case 'video':
+        return <Video24Regular />;
+      case 'photos':
+      default:
+        return <Image24Regular />;
+    }
+  };
 
   return (
     <section id="gallery" className={styles.gallery}>
@@ -161,10 +136,10 @@ function Gallery() {
       </Text>
       <div className={styles.content}>
         <div className={styles.galleryGrid}>
-          {galleryItems.map((item, index) => (
-            <Card key={index} className={styles.galleryCard}>
+          {galleryItems.map((item) => (
+            <Card key={item.id} className={styles.galleryCard}>
               <div className={styles.imageContainer}>
-                {item.icon}
+                {renderIcon(item.type)}
               </div>
               <div className={styles.cardContent}>
                 <Text className={styles.cardTitle}>{item.title}</Text>

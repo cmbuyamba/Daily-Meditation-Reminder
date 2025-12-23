@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
   shorthands,
@@ -132,6 +133,7 @@ const useStyles = makeStyles({
 });
 
 function Objectives() {
+  const { t } = useTranslation();
   const styles = useStyles();
 
   const objectives = dataService.getObjectives().map((obj, index) => (
@@ -143,10 +145,9 @@ function Objectives() {
 
   return (
     <section id="objectives" className={styles.objectives}>
-      <Text as="h2" className={styles.sectionTitle}>Our Objectives</Text>
+      <Text as="h2" className={styles.sectionTitle}>{t('objectives.title')}</Text>
       <Text as="p" className={styles.sectionSubtitle}>
-        NAACUS is committed to achieving these objectives to bring all African Catholic 
-        communities together and ensure their vibrant presence in the U.S. Church.
+        {t('objectives.subtitle')}
       </Text>
       <div className={styles.content}>
         <div className={styles.objectivesList}>
@@ -164,11 +165,9 @@ function Objectives() {
         </div>
 
         <div className={styles.visionCard}>
-          <Text as="h3" className={styles.visionTitle}>Our Vision</Text>
+          <Text as="h3" className={styles.visionTitle}>{t('objectives.visionTitle')}</Text>
           <Text as="p" className={styles.visionText}>
-            A vibrant and visible African Catholic community in the United States—confident in identity, 
-            generous in service, and engaged in society—fully participating in the life of the Church 
-            and contributing its gifts to build the Kingdom of God.
+            {t('objectives.visionDescription')}
           </Text>
         </div>
       </div>

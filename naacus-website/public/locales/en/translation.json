@@ -86,22 +86,7 @@
   },
   "testimonials": {
     "title": "What Our Members Say",
-    "subtitle": "Hear from members who have found community, faith, and purpose through NAACUS.",
-    "testimonial1": {
-      "text": "NAACUS has been a blessing to my family. We found a welcoming community where we can celebrate our African heritage while growing in our Catholic faith. The annual conferences are transformative!",
-      "author": "Mary Okonkwo",
-      "location": "Houston, Texas"
-    },
-    "testimonial2": {
-      "text": "As a young professional, NAACUS connected me with mentors and friends who share my values. The leadership programs have helped me serve my parish and community with confidence.",
-      "author": "Joseph Kamara",
-      "location": "Washington, D.C."
-    },
-    "testimonial3": {
-      "text": "Finding NAACUS was like finding home. The community embraces our African traditions while deepening our Catholic identity. I'm grateful for the spiritual support and lasting friendships.",
-      "author": "Amara Nwosu",
-      "location": "Atlanta, Georgia"
-    }
+    "subtitle": "Hear from members who have found community, faith, and purpose through NAACUS."
   },
   "newsletter": {
     "title": "Stay Updated with NAACUS",
@@ -352,6 +337,51 @@
     "donate": "Donate",
     "cancel": "Cancel",
     "thankYou": "Thank you for your generous donation!"
+  },
+  "objectives": {
+    "title": "Our Objectives",
+    "subtitle": "NAACUS is committed to achieving these objectives to bring all African Catholic communities together and ensure their vibrant presence in the U.S. Church.",
+    "visionTitle": "Our Vision",
+    "visionDescription": "A vibrant and visible African Catholic community in the United States—confident in identity, generous in service, and engaged in society—fully participating in the life of the Church and contributing its gifts to build the Kingdom of God."
+  },
+  "whoWeServe": {
+    "title": "Who We Serve",
+    "subtitle": "Our network includes people from across the African continent and diaspora who are building their lives in the United States and seeking a spiritual home that honors both Catholic faith and African heritage.",
+    "closingText": "NAACUS welcomes all who seek to connect with the vibrant African Catholic community in the United States—a place where faith and heritage come together in service to Christ and His Church."
+  },
+  "whatWeDo": {
+    "title": "What We Do",
+    "subtitle": "Guided by our mission, NAACUS works to ensure African Catholics in the United States can fully share their gifts, participate actively in the Church, and witness Christ in family life, parish life, and public life."
+  },
+  "leadership": {
+    "title": "Leadership",
+    "intro": "Our dedicated leaders serve the NAACUS community with commitment and passion, guiding our mission to unite African Catholic communities across the United States.",
+    "executiveBoard": "Executive Board",
+    "spiritualAdvisers": "Spiritual Advisers",
+    "readMore": "Read More",
+    "aboutLabel": "About",
+    "contactLabel": "Contact Information",
+    "phone": "Phone",
+    "email": "Email",
+    "close": "Close"
+  },
+  "ministries": {
+    "title": "Fellowship & Ministries",
+    "subtitle": "NAACUS calls its members to get actively involved in various activities, maximizing their gifts as a faith and worship community in the United States. Through fellowship, workshops, and programs, we welcome members to help form a vibrant and active church community.",
+    "ctaTitle": "Get Involved",
+    "ctaText": "Join us in building a better church community. Your talents and expertise are needed in various ministries and committees. Together, we can make a meaningful impact in advancing the mission of NAACUS and serving African Catholics in the United States."
+  },
+  "programs": {
+    "title": "Programs & Activities",
+    "subtitle": "NAACUS convenes gatherings, workshops, and events that strengthen fellowship, leadership formation, and outreach while celebrating African Catholic faith and culture in action.",
+    "activitiesTitle": "Our Activities",
+    "activitiesDescription": "Through various programs and initiatives, we create opportunities for African Catholics to grow in faith, build community, and serve the Church and society.",
+    "conferenceTitle": "Biannual National Conference",
+    "conferenceDescription": "Our signature event brings together African Catholics from across the nation for a time of unity in Christ, evangelization, and celebrating our shared heritage.",
+    "learnMore": "Learn More About Conferences",
+    "getInvolvedTitle": "Get Involved",
+    "getInvolvedDescription": "NAACUS welcomes new members and volunteers to help build a stronger community in the Church through fellowship, workshops, and service. Join us in our mission!",
+    "contactUs": "Contact Us to Join"
   },
   "naacus2025": {
     "title": "NAACUS 2025: A Historic Gathering",

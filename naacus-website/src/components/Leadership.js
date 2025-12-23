@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
   shorthands,
@@ -134,6 +135,7 @@ const useStyles = makeStyles({
 });
 
 function Leadership() {
+  const { t } = useTranslation();
   const styles = useStyles();
   const [selectedMember, setSelectedMember] = useState(null);
 
@@ -142,14 +144,13 @@ function Leadership() {
 
   return (
     <section id="leadership" className={styles.leadership}>
-      <Text as="h2" className={styles.leadershipTitle}>Leadership</Text>
+      <Text as="h2" className={styles.leadershipTitle}>{t('leadership.title')}</Text>
       <div className={styles.leadershipContent}>
         <Text as="p" className={styles.leadershipIntro}>
-          Our dedicated leaders serve the NAACUS community with commitment and passion, 
-          guiding our mission to unite African Catholic communities across the United States.
+          {t('leadership.intro')}
         </Text>
 
-        <Text as="h3" className={styles.sectionTitle}>Executive Board</Text>
+        <Text as="h3" className={styles.sectionTitle}>{t('leadership.executiveBoard')}</Text>
         <div className={styles.boardGrid}>
           {executiveBoard.map((member) => (
             <Card key={member.name} className={styles.boardMember}>
@@ -175,7 +176,7 @@ function Leadership() {
           ))}
         </div>
 
-        <Text as="h3" className={styles.sectionTitle}>Spiritual Advisers</Text>
+        <Text as="h3" className={styles.sectionTitle}>{t('leadership.spiritualAdvisers')}</Text>
         <div className={styles.boardGrid}>
           {spiritualAdvisers.map((member) => (
             <Card key={member.name} className={styles.boardMember}>
@@ -218,7 +219,7 @@ function Leadership() {
 
                 <div>
                   <Text as="h4" style={{ fontSize: '0.95rem', fontWeight: '600', marginBottom: '12px', color: tokens.colorNeutralForeground1 }}>
-                    About
+                    {t('leadership.aboutLabel')}
                   </Text>
                   <Text as="p" style={{ fontSize: '0.9rem', lineHeight: '1.6', color: tokens.colorNeutralForeground2, marginBottom: '12px' }}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -230,21 +231,21 @@ function Leadership() {
 
                 <div>
                   <Text as="h4" style={{ fontSize: '0.95rem', fontWeight: '600', marginBottom: '8px', color: tokens.colorNeutralForeground1 }}>
-                    Contact Information
+                    {t('leadership.contactLabel')}
                   </Text>
                   {selectedMember.phone && (
                     <Text as="p" style={{ fontSize: '0.9rem', color: tokens.colorNeutralForeground2, marginBottom: '4px' }}>
-                      <strong>Phone:</strong> {selectedMember.phone}
+                      <strong>{t('leadership.phone')}:</strong> {selectedMember.phone}
                     </Text>
                   )}
                   {selectedMember.email && (
                     <Text as="p" style={{ fontSize: '0.9rem', color: tokens.colorNeutralForeground2 }}>
-                      <strong>Email:</strong> <a href={`mailto:${selectedMember.email}`} className={styles.contactLink}>{selectedMember.email}</a>
+                      <strong>{t('leadership.email')}:</strong> <a href={`mailto:${selectedMember.email}`} className={styles.contactLink}>{selectedMember.email}</a>
                     </Text>
                   )}
                 </div>
               <Button appearance="secondary" onClick={() => setSelectedMember(null)}>
-                Close
+                {t('leadership.close')}
               </Button>
             </div>
           </DialogBody>

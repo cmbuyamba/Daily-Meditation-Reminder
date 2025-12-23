@@ -12,6 +12,7 @@ import {
   News24Regular,
   FormNew24Regular
 } from '@fluentui/react-icons';
+import { getResources, getPartners } from '../data/resourcesData';
 
 const useStyles = makeStyles({
   resources: {
@@ -149,40 +150,21 @@ const useStyles = makeStyles({
 function Resources() {
   const styles = useStyles();
 
-  const resources = [
-    {
-      icon: <DocumentBulletList24Regular />,
-      title: 'NAACUS Brochure',
-      description: 'Download our brochure to learn more about NAACUS mission, objectives, and how to get involved.',
-      buttonText: 'Download Brochure'
-    },
-    {
-      icon: <News24Regular />,
-      title: 'Newsletters',
-      description: 'Stay updated with our latest newsletters featuring community news, events, and spiritual reflections.',
-      buttonText: 'View Newsletters'
-    },
-    {
-      icon: <FormNew24Regular />,
-      title: 'Membership Form',
-      description: 'Join the NAACUS community! Download and complete our membership form to become a member.',
-      buttonText: 'Get Membership Form'
-    },
-    {
-      icon: <DocumentBulletList24Regular />,
-      title: 'Advocacy Documents',
-      description: 'Access our advocacy resources supporting African Catholics and promoting social justice.',
-      buttonText: 'View Documents'
-    },
-  ];
+  const resources = getResources();
+  const partners = getPartners();
 
-  const partners = [
-    { name: 'USCCB', fullName: 'United States Conference of Catholic Bishops' },
-    { name: 'Local Dioceses', fullName: 'Local Diocesan Offices' },
-    { name: 'African & Haitian Ministries', fullName: 'African and Haitian Catholic Ministries' },
-    { name: 'National Catholic Orgs', fullName: 'National Catholic Organizations' },
-    { name: 'Intercultural Programs', fullName: 'Intercultural Ministry Programs' },
-  ];
+  // Render icon based on iconType
+  const renderIcon = (iconType) => {
+    switch (iconType) {
+      case 'news':
+        return <News24Regular />;
+      case 'form':
+        return <FormNew24Regular />;
+      case 'document':
+      default:
+        return <DocumentBulletList24Regular />;
+    }
+  };
 
   return (
     <section id="resources" className={styles.resources}>
@@ -193,10 +175,10 @@ function Resources() {
       </Text>
       <div className={styles.content}>
         <div className={styles.resourcesGrid}>
-          {resources.map((resource, index) => (
-            <Card key={index} className={styles.resourceCard}>
+          {resources.map((resource) => (
+            <Card key={resource.id} className={styles.resourceCard}>
               <div className={styles.iconWrapper}>
-                {resource.icon}
+                {renderIcon(resource.iconType)}
               </div>
               <Text className={styles.cardTitle}>{resource.title}</Text>
               <Text className={styles.cardDescription}>{resource.description}</Text>
@@ -223,13 +205,13 @@ function Resources() {
             <div className={styles.carouselTrack}>
               {/* First set of logos */}
               {partners.map((partner, index) => (
-                <div key={`logo-1-${index}`} className={styles.logoItem} title={partner.fullName}>
+                <div key={`logo-1-${partner.id}`} className={styles.logoItem} title={partner.fullName}>
                   <Text className={styles.logoText}>{partner.name}</Text>
                 </div>
               ))}
               {/* Duplicate set for seamless loop */}
               {partners.map((partner, index) => (
-                <div key={`logo-2-${index}`} className={styles.logoItem} title={partner.fullName}>
+                <div key={`logo-2-${partner.id}`} className={styles.logoItem} title={partner.fullName}>
                   <Text className={styles.logoText}>{partner.name}</Text>
                 </div>
               ))}

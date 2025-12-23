@@ -85,22 +85,7 @@
   },
   "testimonials": {
     "title": "Ce Que Disent Nos Membres",
-    "subtitle": "Écoutez les membres qui ont trouvé communauté, foi et but à travers NAACUS.",
-    "testimonial1": {
-      "text": "NAACUS a été une bénédiction pour ma famille. Nous avons trouvé une communauté accueillante où nous pouvons célébrer notre héritage africain tout en grandissant dans notre foi catholique. Les conférences annuelles sont transformatrices!",
-      "author": "Mary Okonkwo",
-      "location": "Houston, Texas"
-    },
-    "testimonial2": {
-      "text": "En tant que jeune professionnel, NAACUS m'a mis en contact avec des mentors et des amis qui partagent mes valeurs. Les programmes de leadership m'ont aidé à servir ma paroisse et ma communauté avec confiance.",
-      "author": "Joseph Kamara",
-      "location": "Washington, D.C."
-    },
-    "testimonial3": {
-      "text": "Trouver NAACUS, c'était comme trouver ma maison. La communauté embrasse nos traditions africaines tout en approfondissant notre identité catholique. Je suis reconnaissante pour le soutien spirituel et les amitiés durables.",
-      "author": "Amara Nwosu",
-      "location": "Atlanta, Géorgie"
-    }
+    "subtitle": "Écoutez les membres qui ont trouvé communauté, foi et but à travers NAACUS."
   },
   "newsletter": {
     "title": "Restez Informé avec NAACUS",
@@ -336,6 +321,51 @@
     "donate": "Donner",
     "cancel": "Annuler",
     "thankYou": "Merci pour votre généreuse donation!"
+  },
+  "objectives": {
+    "title": "Nos Objectifs",
+    "subtitle": "NAACUS s'engage à réaliser ces objectifs pour rassembler toutes les communautés catholiques africaines et assurer leur présence vibrante dans l'Église américaine.",
+    "visionTitle": "Notre Vision",
+    "visionDescription": "Une communauté catholique africaine vibrante et visible aux États-Unis—confiante dans son identité, généreuse dans son service et engagée dans la société—participiant pleinement à la vie de l'Église et contribuant ses dons pour construire le Royaume de Dieu."
+  },
+  "whoWeServe": {
+    "title": "Qui Nous Servons",
+    "subtitle": "Notre réseau comprend des personnes de tout le continent africain et de la diaspora qui construisent leur vie aux États-Unis et cherchent un foyer spirituel qui honore à la fois la foi catholique et le patrimoine africain.",
+    "closingText": "NAACUS accueille tous ceux qui cherchent à se connecter avec la communauté catholique africaine vibrante aux États-Unis—un endroit où la foi et le patrimoine se réunissent au service du Christ et de Son Église."
+  },
+  "whatWeDo": {
+    "title": "Ce Que Nous Faisons",
+    "subtitle": "Guidée par notre mission, NAACUS travaille à assurer que les catholiques africains aux États-Unis peuvent pleinement partager leurs dons, participer activement à l'Église et témoigner du Christ dans la vie familiale, la vie paroissiale et la vie publique."
+  },
+  "leadership": {
+    "title": "Direction",
+    "intro": "Nos leaders dédiés servent la communauté NAACUS avec engagement et passion, guidant notre mission d'unir les communautés catholiques africaines à travers les États-Unis.",
+    "executiveBoard": "Conseil d'Administration",
+    "spiritualAdvisers": "Conseillers Spirituels",
+    "readMore": "En Savoir Plus",
+    "aboutLabel": "À Propos",
+    "contactLabel": "Informations de Contact",
+    "phone": "Téléphone",
+    "email": "E-mail",
+    "close": "Fermer"
+  },
+  "ministries": {
+    "title": "Fraternité et Ministères",
+    "subtitle": "NAACUS appelle ses membres à s'impliquer activement dans diverses activités, en maximisant leurs dons en tant que communauté de foi et de culte aux États-Unis. Par la fraternité, les ateliers et les programmes, nous accueillons les membres pour aider à former une communauté ecclésiale dynamique et active.",
+    "ctaTitle": "Impliquez-vous",
+    "ctaText": "Rejoignez-nous dans la construction d'une meilleure communauté ecclésiale. Vos talents et votre expertise sont nécessaires dans divers ministères et comités. Ensemble, nous pouvons avoir un impact significatif en faisant progresser la mission de NAACUS et en servant les catholiques africains aux États-Unis."
+  },
+  "programs": {
+    "title": "Programmes et Activités",
+    "subtitle": "NAACUS organise des rassemblements, des ateliers et des événements qui renforcent la fraternité, la formation du leadership et l'engagement tout en célébrant la foi catholique africaine et la culture en action.",
+    "activitiesTitle": "Nos Activités",
+    "activitiesDescription": "Par le biais de divers programmes et initiatives, nous créons des opportunités pour que les catholiques africains grandissent dans la foi, construisent une communauté et servent l'Église et la société.",
+    "conferenceTitle": "Conférence Nationale Biennale",
+    "conferenceDescription": "Notre événement phare rassemble les catholiques africains de partout dans le pays pour un moment d'unité en Christ, d'évangélisation et de célébration de notre patrimoine commun.",
+    "learnMore": "En Savoir Plus sur les Conférences",
+    "getInvolvedTitle": "Impliquez-vous",
+    "getInvolvedDescription": "NAACUS accueille les nouveaux membres et les bénévoles pour aider à construire une communauté plus forte dans l'Église par la fraternité, les ateliers et le service. Rejoignez-nous dans notre mission!",
+    "contactUs": "Contactez-nous pour Rejoindre"
   },
   "naacus2025": {
     "title": "NAACUS 2025 : Un Rassemblement Historique",
