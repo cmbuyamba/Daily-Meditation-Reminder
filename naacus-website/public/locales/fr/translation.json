@@ -45,13 +45,9 @@
       "description": "\"Ensemble avec le Christ\" — Nous construisons des réseaux accueillants de fraternité, d'ateliers et d'initiatives communautaires qui élèvent les gens, célèbrent la culture et font progresser le bien commun."
     }
   },
-  "footer": {
-    "copyright": "© {{year}} NAACUS. Tous droits réservés.",
-    "tagline": "Ensemble avec le Christ - Unir les communautés catholiques africaines à travers les États-Unis."
-  },
   "backToTop": "Retour en Haut",
   "memberBenefits": {
-    "title": "Pourquoi Devenir Membre?",
+    "title": "Devenir Membre de NAACUS",
     "subtitle": "Rejoignez une communauté florissante de catholiques africains unis dans la foi, la culture et le service à travers les États-Unis.",
     "stats": {
       "members": "Membres Actifs",

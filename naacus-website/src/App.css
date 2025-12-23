@@ -20,7 +20,7 @@ section {
 
 /* Professional section spacing */
 section:not(:first-child) {
-  padding: 50px 0;
+  padding: 10px 0;
 }
 
 @media (max-width: 768px) {
