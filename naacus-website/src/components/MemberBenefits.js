@@ -175,11 +175,11 @@ function MemberBenefits() {
   };
 
   // Combine benefits data with icons and translations
-  const benefits = benefitsData.map(benefit => ({
-    ...benefit,
-    icon: iconMap[benefit.key],
-    title: t(`memberBenefits.${benefit.key}.title`),
-    description: t(`memberBenefits.${benefit.key}.description`)
+  const benefits = benefitsData.map(key => ({
+    key,
+    icon: iconMap[key],
+    title: t(`memberBenefits.${key}.title`),
+    description: t(`memberBenefits.${key}.description`)
   }));
 
   return (
