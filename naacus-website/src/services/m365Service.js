@@ -8,11 +8,28 @@ import { msalConfig, sharePointScopes, sharePointConfig } from '../config/msalCo
 // Initialize MSAL instance
 const msalInstance = new PublicClientApplication(msalConfig);
 
+// Initialize MSAL
+let msalInitialized = false;
+
+async function initializeMsal() {
+  if (msalInitialized) return;
+  try {
+    await msalInstance.initialize();
+    msalInitialized = true;
+  } catch (error) {
+    console.error('Error initializing MSAL:', error);
+    throw error;
+  }
+}
+
 /**
  * Get an authenticated Microsoft Graph client
  */
 async function getGraphClient() {
   try {
+    // Initialize MSAL first
+    await initializeMsal();
+    
     // Get the account
     const accounts = msalInstance.getAllAccounts();
     
