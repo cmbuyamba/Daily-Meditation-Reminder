@@ -65,8 +65,7 @@
       "description": "Access to national conferences, workshops, cultural celebrations, and spiritual retreats throughout the year."
     },
     "resources": {
-      "title": "Faith Resources",
-      "description": "Get access to prayer materials, catechetical resources, newsletters, and spiritual formation programs."
+      "title": "Resources & Links"
     },
     "spiritual": {
       "title": "Spiritual Growth",
@@ -252,6 +251,21 @@
     "submitting": "Submitting to Microsoft 365...",
     "errorLabel": "Error: ",
     "required": "*"
+  },
+  "resourcesPage": {
+    "title": "Resources & Links",
+    "subtitle": "Access brochures, newsletters, membership forms, and advocacy documents that support the mission of NAACUS and empower African Catholic communities.",
+    "partners": {
+      "title": "Partner Organizations",
+      "description": "NAACUS collaborates with various Catholic organizations, dioceses, and ministries to support African Catholics throughout the United States.",
+      "organizations": {
+        "usccb": "United States Conference of Catholic Bishops",
+        "dioceses": "Local Diocesan Offices",
+        "african": "African and Haitian Catholic Ministries",
+        "national": "National Catholic Organizations",
+        "intercultural": "Intercultural Ministry Programs"
+      }
+    }
   },
   "contact": {
     "title": "Get In Touch",

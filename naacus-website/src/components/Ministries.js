@@ -139,26 +139,26 @@ function Ministries() {
   // Get ministry data from service
   const ministriesData = dataService.getMinistries();
 
-  // Map icons to ministries by title
+  // Map icons to ministries by iconKey
   const iconMap = {
-    'Advocacy Ministry': <Megaphone24Regular />,
-    "Women's Ministry": <PersonAccounts24Regular />,
-    'Youth Ministry': <PeopleTeam24Regular />,
-    'Young Adults Ministry': <Heart24Regular />,
-    "Men's Ministry": <People24Regular />,
-    'Ministry for People with Disabilities': <HandRight24Regular />,
-    'Resource Ministry': <Book24Regular />,
-    'Finance Ministry': <Money24Regular />,
-    'Media & Public Relations Ministry': <Video24Regular />,
-    'Newsletter Ministry': <News24Regular />,
-    'Liturgy Committee': <CalendarLtr24Regular />,
-    'ANEC Ministry': <MusicNote224Regular />
+    advocacy: <Megaphone24Regular />,
+    women: <PersonAccounts24Regular />,
+    youth: <PeopleTeam24Regular />,
+    youngAdults: <Heart24Regular />,
+    men: <People24Regular />,
+    disabilities: <HandRight24Regular />,
+    resources: <Book24Regular />,
+    finance: <Money24Regular />,
+    media: <Video24Regular />,
+    newsletter: <News24Regular />,
+    liturgy: <CalendarLtr24Regular />,
+    anec: <MusicNote224Regular />
   };
 
   // Combine ministry data with icons
   const ministries = ministriesData.map(ministry => ({
     ...ministry,
-    icon: iconMap[ministry.title]
+    icon: iconMap[ministry.iconKey]
   }));
 
   return (

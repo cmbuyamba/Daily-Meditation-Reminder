@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
   shorthands,
@@ -148,6 +149,7 @@ const useStyles = makeStyles({
 });
 
 function Resources() {
+  const { t } = useTranslation();
   const styles = useStyles();
 
   const resources = getResources();
@@ -168,10 +170,9 @@ function Resources() {
 
   return (
     <section id="resources" className={styles.resources}>
-      <Text as="h2" className={styles.sectionTitle}>Resources & Links</Text>
+      <Text as="h2" className={styles.sectionTitle}>{t('resourcesPage.title')}</Text>
       <Text as="p" className={styles.sectionSubtitle}>
-        Access brochures, newsletters, membership forms, and advocacy documents that support 
-        the mission of NAACUS and empower African Catholic communities.
+        {t('resourcesPage.subtitle')}
       </Text>
       <div className={styles.content}>
         <div className={styles.resourcesGrid}>
@@ -196,10 +197,9 @@ function Resources() {
         </div>
 
         <div className={styles.partnerSection}>
-          <Text as="h3" className={styles.partnerTitle}>Partner Organizations</Text>
+          <Text as="h3" className={styles.partnerTitle}>{t('resourcesPage.partners.title')}</Text>
           <Text as="p" className={styles.partnerText}>
-            NAACUS collaborates with various Catholic organizations, dioceses, and ministries 
-            to support African Catholics throughout the United States.
+            {t('resourcesPage.partners.description')}
           </Text>
           <div className={styles.carouselContainer}>
             <div className={styles.carouselTrack}>
