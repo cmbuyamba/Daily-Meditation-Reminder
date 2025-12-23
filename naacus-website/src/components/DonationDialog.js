@@ -360,7 +360,7 @@ export function DonationDialog() {
                       }`}>
                         {selectedPayment === method.id && <div className={styles.radioButtonInner}></div>}
                       </div>
-                      <span>{t(`donation.${method.id}`)}</span>
+                      <span>{method.label}</span>
                     </div>
                   ))}
                 </div>
