@@ -253,9 +253,6 @@ function Footer() {
         <Text as="p" className={styles.footerBottomText}>
           {t('footer.copyright', { year: currentYear })}
         </Text>
-        <Text as="p" className={styles.msIntegration}>
-          {t('footer.msIntegration')}
-        </Text>
       </div>
     </footer>
   );

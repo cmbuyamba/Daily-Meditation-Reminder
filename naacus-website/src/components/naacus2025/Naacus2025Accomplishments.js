@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
   shorthands,
@@ -279,6 +280,7 @@ const useStyles = makeStyles({
 });
 
 function Naacus2025Accomplishments() {
+  const { t } = useTranslation();
   const styles = useStyles();
 
   // Conference events extracted from the schedule
@@ -428,38 +430,38 @@ function Naacus2025Accomplishments() {
         <div className={styles.heroContent}>
           
           <Text as="h1" className={styles.title}>
-            NAACUS 2025: A Historic Gathering
+            {t('naacus2025.title')}
           </Text>
           
           <Text as="p" className={styles.subtitle}>
-            United in Christ for Evangelization
+            {t('naacus2025.subtitle')}
           </Text>
 
           <div className={styles.conferenceInfo}>
             <Text style={{ fontSize: '1.3rem', fontWeight: '600', marginBottom: '10px', display: 'block', textAlign: 'center' }}>
-              Theme: United in Christ for Evangelization (1 Cor. 1:10-13)
+              {t('naacus2025.theme')}
             </Text>
             <Text style={{ fontSize: '1.1rem', marginBottom: '20px', display: 'block', textAlign: 'center', opacity: 0.9 }}>
-              Goal: African Catholics Faith and Culture in Action
+              {t('naacus2025.goal')}
             </Text>
             
             <div className={styles.infoGrid}>
               <div className={styles.infoItem}>
                 <Calendar24Regular className={styles.infoIcon} />
                 <span className={styles.infoLabel}>Dates</span>
-                <span className={styles.infoValue}>July 18-20, 2025</span>
+                <span className={styles.infoValue}>{t('naacus2025.dates')}</span>
               </div>
               
               <div className={styles.infoItem}>
                 <Location24Regular className={styles.infoIcon} />
                 <span className={styles.infoLabel}>Location</span>
-                <span className={styles.infoValue}>Washington DC Area</span>
+                <span className={styles.infoValue}>{t('naacus2025.location')}</span>
               </div>
               
               <div className={styles.infoItem}>
                 <People24Regular className={styles.infoIcon} />
                 <span className={styles.infoLabel}>Host</span>
-                <span className={styles.infoValue}>Region 6</span>
+                <span className={styles.infoValue}>{t('naacus2025.host')}</span>
               </div>
             </div>
           </div>
@@ -468,13 +470,11 @@ function Naacus2025Accomplishments() {
 
       <div className={styles.content}>
         <Text as="h2" className={styles.sectionTitle}>
-          Conference Schedule & Events
+          {t('naacus2025.scheduleTitle')}
         </Text>
         
         <Text as="p" className={styles.sectionDescription}>
-          The NAACUS 2025 Bi-Annual Conference brought together African Catholics from across the United States 
-          for three days of worship, learning, fellowship, and cultural celebration. Below are the complete details 
-          of each event, session, and activity from this historic gathering.
+          {t('naacus2025.scheduleDescription')}
         </Text>
 
         <div className={styles.eventsContainer}>
@@ -484,7 +484,7 @@ function Naacus2025Accomplishments() {
                 <div className={styles.eventTitleSection}>
                   <Text className={styles.eventDay}>{event.day}</Text>
                   <Text className={styles.eventTitle}>{event.title}</Text>
-                  <Text className={styles.eventPresenter}>Presenter: {event.presenter}</Text>
+                  <Text className={styles.eventPresenter}>{t('naacus2025.presenter')} {event.presenter}</Text>
                 </div>
                 
                 <div className={styles.eventMeta}>
@@ -501,20 +501,20 @@ function Naacus2025Accomplishments() {
 
               <div className={styles.eventContent}>
                 <Text className={styles.eventDescription}>
-                  <strong>Summary:</strong> {event.summary}
+                  <strong>{t('naacus2025.summary')}</strong> {t('naacus2025.contentToBeProvided')}
                 </Text>
 
                 <div className={styles.mediaSection}>
                   {event.videoPlaceholder && (
                     <div className={styles.mediaPlaceholder}>
                       <Video24Regular className={styles.placeholderIcon} />
-                      <span>Video to be added</span>
+                      <span>{t('naacus2025.videoToBeAdded')}</span>
                     </div>
                   )}
                   {event.photosPlaceholder && (
                     <div className={styles.mediaPlaceholder}>
                       <Image24Regular className={styles.placeholderIcon} />
-                      <span>Photos to be added</span>
+                      <span>{t('naacus2025.photosToBeAdded')}</span>
                     </div>
                   )}
                 </div>
@@ -525,19 +525,18 @@ function Naacus2025Accomplishments() {
 
         <div className={styles.ctaSection}>
           <Text as="h2" className={styles.ctaTitle}>
-            Join Us for NAACUS 2027!
+            {t('naacus2025.ctaTitle')}
           </Text>
           
           <Text as="p" className={styles.ctaDescription}>
-            Inspired by the success of NAACUS 2025? Be part of the next chapter 
-            at NAACUS 2027. Stay updated with the latest news and conference details.
+            {t('naacus2025.ctaDescription')}
           </Text>
 
           <Button 
             className={styles.ctaButton}
             onClick={scrollToNewsletter}
           >
-            Subscribe for NAACUS 2027 Updates
+            {t('naacus2025.ctaButton')}
           </Button>
         </div>
       </div>

@@ -352,5 +352,24 @@
     "donate": "Donate",
     "cancel": "Cancel",
     "thankYou": "Thank you for your generous donation!"
+  },
+  "naacus2025": {
+    "title": "NAACUS 2025: A Historic Gathering",
+    "subtitle": "United in Christ for Evangelization",
+    "theme": "Theme: United in Christ for Evangelization (1 Cor. 1:10-13)",
+    "goal": "Goal: African Catholics Faith and Culture in Action",
+    "dates": "July 18-20, 2025",
+    "location": "Washington DC Area",
+    "host": "Region 6",
+    "scheduleTitle": "Conference Schedule & Events",
+    "scheduleDescription": "The NAACUS 2025 Bi-Annual Conference brought together African Catholics from across the United States for three days of worship, learning, fellowship, and cultural celebration. Below are the complete details of each event, session, and activity from this historic gathering.",
+    "presenter": "Presenter:",
+    "summary": "Summary:",
+    "videoToBeAdded": "Video to be added",
+    "photosToBeAdded": "Photos to be added",
+    "contentToBeProvided": "Content and summary to be provided",
+    "ctaTitle": "Join Us for NAACUS 2027!",
+    "ctaDescription": "Inspired by the success of NAACUS 2025? Be part of the next chapter at NAACUS 2027. Stay updated with the latest news and conference details.",
+    "ctaButton": "Subscribe for NAACUS 2027 Updates"
   }
 }
