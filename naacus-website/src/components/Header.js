@@ -330,7 +330,7 @@ function Header() {
             <MenuPopover>
               <MenuList>
                 <MenuItem onClick={() => handleNavigation(null, 'home')}>{t('header.nav.home')}</MenuItem>
-                <MenuItem className={isActivePath('/events') ? styles.mobileMenuItemActive : undefined} onClick={() => handleNavigation('/events', null)}>{t('header.nav.naacus2025', 'NAACUS 2025')}</MenuItem>
+                <MenuItem className={isActivePath('/2025') ? styles.mobileMenuItemActive : undefined} onClick={() => handleNavigation('/2025', null)}>{t('header.nav.naacus2025', 'NAACUS 2025')}</MenuItem>
                 <MenuItem className={isActivePath('/about') ? styles.mobileMenuItemActive : undefined} onClick={() => handleNavigation('/about', null)}>{t('header.nav.about')}</MenuItem>
                 <MenuItem className={isActivePath('/leadership') ? styles.mobileMenuItemActive : undefined} onClick={() => handleNavigation('/leadership', null)}>{t('header.nav.leadership')}</MenuItem>
                 <MenuItem className={isActivePath('/fellowship-ministries') ? styles.mobileMenuItemActive : undefined} onClick={() => handleNavigation('/fellowship-ministries', null)}>Fellowship & Ministries</MenuItem>

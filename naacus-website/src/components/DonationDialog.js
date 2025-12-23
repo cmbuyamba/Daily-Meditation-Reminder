@@ -52,6 +52,11 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     ...shorthands.padding('20px'),
+    '@media (max-width: 768px)': {
+      maxHeight: '80vh',
+      width: '95%',
+      maxWidth: 'none',
+    },
   },
   formField: {
     display: 'flex',

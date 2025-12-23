@@ -50,6 +50,9 @@ const useStyles = makeStyles({
       width: '52px',
       height: '52px',
       ...shorthands.borderRadius('26px'),
+      '& [class*="fui-Button__icon"]': {
+        marginLeft: '0 !important',
+      },
     },
   },
   textShowDesktop: {
