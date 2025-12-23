@@ -80,6 +80,7 @@ const useStyles = makeStyles({
     marginBottom: '32px',
     backdropFilter: 'blur(10px)',
     ...shorthands.border('1px', 'solid', 'rgba(255, 255, 255, 0.3)'),
+    ...shorthands.borderRadius('12px'),
     '@media (max-width: 768px)': {
       ...shorthands.padding('20px', '16px'),
       marginTop: '24px',

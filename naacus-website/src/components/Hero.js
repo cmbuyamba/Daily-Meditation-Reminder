@@ -438,45 +438,6 @@ function Hero() {
           </div>
         </div>
       </div>
-      
-      {/* Scroll Down Indicator */}
-      <div 
-        className={`${styles.scrollIndicator} ${showScrollIndicator ? styles.scrollIndicatorVisible : ''}`}
-      >
-        <Button
-          icon={<ChevronDown24Regular />}
-          onClick={scrollToNextSection}
-          className={styles.scrollButton}
-          aria-label={t('hero.scrollDown') || 'Scroll down'}
-          style={{
-            padding: '12px 28px',
-            borderRadius: '50px',
-            backgroundColor: 'rgba(255, 255, 255, 0.15)',
-            color: '#ffffff',
-            boxShadow: '0 8px 24px rgba(255, 255, 255, 0.2)',
-            fontSize: '14px',
-            fontWeight: '600',
-            border: '1.5px solid rgba(255, 255, 255, 0.35)',
-            backdropFilter: 'blur(10px)',
-            cursor: 'pointer',
-            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-4px)';
-            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
-            e.currentTarget.style.boxShadow = '0 12px 32px rgba(255, 255, 255, 0.3)';
-            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
-            e.currentTarget.style.boxShadow = '0 8px 24px rgba(255, 255, 255, 0.2)';
-            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.35)';
-          }}
-        >
-          {t('hero.scrollDown') || 'Scroll Down'}
-        </Button>
-      </div>
 
       <div className={styles.heroGraphic}>
         <div className={styles.divineLight}></div>
