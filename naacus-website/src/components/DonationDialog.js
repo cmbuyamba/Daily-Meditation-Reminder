@@ -183,12 +183,12 @@ export function DonationDialog() {
   const amountPresets = [25, 50, 100, 250];
 
   const paymentMethods = [
-    { id: 'card', label: 'Credit/Debit Card' },
-    { id: 'paypal', label: 'PayPal' },
-    { id: 'apple', label: 'Apple Pay' },
-    { id: 'google', label: 'Google Pay' },
-    { id: 'bank', label: 'Bank Transfer' },
-    { id: 'crypto', label: 'Cryptocurrency' },
+    { id: 'card', label: t('donation.creditDebit') },
+    { id: 'paypal', label: t('donation.paypal') },
+    { id: 'apple', label: t('donation.applePay') },
+    { id: 'google', label: t('donation.googlePay') },
+    { id: 'bank', label: t('donation.bankTransfer') },
+    { id: 'crypto', label: t('donation.bitcoin') },
   ];
 
   const handleInputChange = (e) => {

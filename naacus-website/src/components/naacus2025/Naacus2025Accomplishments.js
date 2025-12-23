@@ -26,7 +26,6 @@ const useStyles = makeStyles({
     background: `linear-gradient(135deg, #1a3a52 0%, #2d5a7b 50%, #3d6fa8 100%)`,
     color: tokens.colorNeutralForegroundInverted,
     ...shorthands.padding('80px', '20px'),
-    marginTop: '54px',
     paddingTop: '80px',
     textAlign: 'center',
     marginBottom: '40px',
