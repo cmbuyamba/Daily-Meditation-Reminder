@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Button,
   Input,
@@ -8,6 +9,21 @@ import {
 } from '@fluentui/react-components';
 
 const useStyles = makeStyles({
+  donateButtonContainer: {
+    position: 'fixed',
+    top: '70px',
+    right: '16px',
+    zIndex: 999,
+    '@media (max-width: 768px)': {
+      display: 'none',
+    },
+  },
+  donateButtonMobileHeader: {
+    display: 'none',
+    '@media (max-width: 768px)': {
+      display: 'flex',
+    },
+  },
   dialogBackdrop: {
     position: 'fixed',
     top: 0,
@@ -153,6 +169,7 @@ const useStyles = makeStyles({
 
 export function DonationDialog() {
   const styles = useStyles();
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
@@ -222,19 +239,37 @@ export function DonationDialog() {
 
   return (
     <>
+      <div className={styles.donateButtonContainer}>
+        <Button
+          appearance="primary"
+          style={{
+            backgroundColor: '#2d5a7b',
+            color: 'white',
+            minWidth: '100px',
+            padding: '10px 16px',
+            fontSize: '0.95rem',
+            fontWeight: '600',
+          }}
+          onClick={() => setOpen(true)}
+        >
+          💝 {t('header.donate')}
+        </Button>
+      </div>
+
       <Button
         appearance="primary"
+        className={styles.donateButtonMobileHeader}
         style={{
           backgroundColor: '#2d5a7b',
           color: 'white',
-          minWidth: '100px',
-          padding: '10px 16px',
-          fontSize: '0.95rem',
+          padding: '6px 8px',
+          fontSize: '11px',
           fontWeight: '600',
+          whiteSpace: 'nowrap',
         }}
         onClick={() => setOpen(true)}
       >
-        💝 Donate
+        💝 {t('header.donate')}
       </Button>
 
       {open && (
@@ -242,7 +277,7 @@ export function DonationDialog() {
           <div className={styles.dialogWrapper} onClick={e => e.stopPropagation()}>
             <div className={styles.dialogContent}>
               <div style={{ position: 'relative', marginBottom: '20px' }}>
-                <h2 className={styles.dialogTitle}>Make a Donation</h2>
+                <h2 className={styles.dialogTitle}>{t('donation.title')}</h2>
                 <button 
                   className={styles.closeButton}
                   onClick={() => { setOpen(false); resetForm(); }}
@@ -254,34 +289,34 @@ export function DonationDialog() {
               {/* Full Name */}
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  Full Name <span className={styles.required}>*</span>
+                  {t('donation.fullName')} <span className={styles.required}>*</span>
                 </label>
                 <Input
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  placeholder="John Doe"
+                  placeholder={t('donation.fullName')}
                 />
               </div>
 
               {/* Email */}
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  Email <span className={styles.required}>*</span>
+                  {t('donation.email')} <span className={styles.required}>*</span>
                 </label>
                 <Input
                   name="email"
                   type="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  placeholder="john@example.com"
+                  placeholder={t('donation.email')}
                 />
               </div>
 
               {/* Amount */}
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  Donation Amount <span className={styles.required}>*</span>
+                  {t('donation.selectAmount')} <span className={styles.required}>*</span>
                 </label>
                 <div className={styles.amountPresets}>
                   {amountPresets.map(amount => (
@@ -301,7 +336,7 @@ export function DonationDialog() {
                   type="number"
                   value={formData.amount}
                   onChange={handleInputChange}
-                  placeholder="Enter custom amount"
+                  placeholder={t('donation.customAmount')}
                   min="1"
                 />
               </div>
@@ -309,7 +344,7 @@ export function DonationDialog() {
               {/* Payment Method */}
               <div className={styles.formField}>
                 <label className={styles.label}>
-                  Payment Method <span className={styles.required}>*</span>
+                  {t('donation.paymentMethod')} <span className={styles.required}>*</span>
                 </label>
                 <div className={styles.paymentMethods}>
                   {paymentMethods.map(method => (
@@ -325,23 +360,10 @@ export function DonationDialog() {
                       }`}>
                         {selectedPayment === method.id && <div className={styles.radioButtonInner}></div>}
                       </div>
-                      <span>{method.label}</span>
+                      <span>{t(`donation.${method.id}`)}</span>
                     </div>
                   ))}
                 </div>
-              </div>
-
-              {/* Message */}
-              <div className={styles.formField}>
-                <label className={styles.label}>Message (Optional)</label>
-                <Input
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  placeholder="Add a message..."
-                  multiline
-                  rows={3}
-                />
               </div>
 
               {/* Actions */}
@@ -353,7 +375,7 @@ export function DonationDialog() {
                   }}
                   appearance="secondary"
                 >
-                  Cancel
+                  {t('donation.cancel')}
                 </Button>
                 <Button
                   onClick={handleDonate}
@@ -362,7 +384,7 @@ export function DonationDialog() {
                     backgroundColor: '#2d5a7b',
                   }}
                 >
-                  Donate Now
+                  {t('donation.donate')}
                 </Button>
               </div>
             </div>

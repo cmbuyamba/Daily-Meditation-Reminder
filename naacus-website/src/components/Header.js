@@ -47,6 +47,9 @@ const useStyles = makeStyles({
     alignItems: 'center',
     ...shorthands.gap('24px'),
     flex: 1,
+    '@media (max-width: 768px)': {
+      flex: 'none',
+    },
   },
   logo: {
     display: 'flex',
@@ -61,6 +64,9 @@ const useStyles = makeStyles({
     margin: 0,
     color: '#0067b8',
     whiteSpace: 'nowrap',
+    '@media (max-width: 768px)': {
+      fontSize: '12px',
+    },
   },
   nav: {
     display: 'flex',
@@ -100,12 +106,18 @@ const useStyles = makeStyles({
   rightSection: {
     display: 'flex',
     alignItems: 'center',
-    ...shorthands.gap('16px'),
+    ...shorthands.gap('12px'),
+    '@media (max-width: 768px)': {
+      ...shorthands.gap('2px'),
+      flexWrap: 'nowrap',
+    },
   },
   searchContainer: {
     position: 'relative',
     '@media (max-width: 768px)': {
-      display: 'none',
+      width: 'auto',
+      display: 'flex',
+      alignItems: 'center',
     },
   },
   searchInput: {
@@ -118,6 +130,9 @@ const useStyles = makeStyles({
     '&:focus': {
       ...shorthands.borderColor('#0067b8'),
       outline: 'none',
+    },
+    '@media (max-width: 768px)': {
+      display: 'none !important',
     },
   },
   searchIcon: {
@@ -136,13 +151,16 @@ const useStyles = makeStyles({
       backgroundColor: '#f2f2f2',
     },
     '@media (max-width: 768px)': {
-      display: 'none',
+      padding: '4px',
+      height: '28px',
     },
   },
   mobileMenuButton: {
-    display: 'none',
-    '@media (max-width: 1024px)': {
+    '@media (max-width: 768px)': {
       display: 'flex',
+    },
+    '@media (min-width: 769px)': {
+      display: 'none',
     },
   },
   languageSwitcher: {
@@ -150,7 +168,7 @@ const useStyles = makeStyles({
     alignItems: 'center',
     ...shorthands.gap('8px'),
     '@media (max-width: 768px)': {
-      display: 'none',
+      ...shorthands.gap('2px'),
     },
   },
   donateButton: {
@@ -163,11 +181,17 @@ const useStyles = makeStyles({
     ...shorthands.borderRadius('2px'),
     cursor: 'pointer',
     transition: 'background-color 0.2s ease',
+    height: '32px',
     '&:hover': {
       backgroundColor: '#004578',
     },
     '@media (max-width: 768px)': {
-      display: 'none',
+      padding: '1px 4px',
+      fontSize: '9px',
+      whiteSpace: 'nowrap',
+      minWidth: 'auto',
+      height: '20px',
+      lineHeight: '20px',
     },
   },
   mobileMenuItemActive: {
@@ -289,10 +313,9 @@ function Header() {
               contentAfter={<Search24Regular className={styles.searchIcon} />}
             />
           </div>
-          
+          <DonationDialog />
           <div className={styles.languageSwitcher}>
             <LanguageSwitcher />
-            <DonationDialog />
           </div>
 
           {/* Mobile Menu */}

@@ -14,7 +14,8 @@
       "resources": "Resources",
       "contact": "Contact"
     },
-    "searchPlaceholder": "Search"
+    "searchPlaceholder": "Search",
+    "donate": "Donate"
   },
   "hero": {
     "title": "Together with Christ",
@@ -331,5 +332,25 @@
     "participatePrograms": "Participate in our programs",
     "contactUs": "Contact Us →",
     "msIntegration": "Microsoft 365 Integration Ready"
+  },
+  "donation": {
+    "title": "Support NAACUS",
+    "subtitle": "Your donation helps us continue our mission of faith, fellowship, and service",
+    "selectAmount": "Select Amount",
+    "customAmount": "Custom Amount",
+    "donorInfo": "Donor Information",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number (Optional)",
+    "paymentMethod": "Payment Method",
+    "creditDebit": "Credit/Debit Card",
+    "paypal": "PayPal",
+    "bitcoin": "Bitcoin",
+    "bankTransfer": "Bank Transfer",
+    "googlePay": "Google Pay",
+    "applePay": "Apple Pay",
+    "donate": "Donate",
+    "cancel": "Cancel",
+    "thankYou": "Thank you for your generous donation!"
   }
 }
