@@ -51,7 +51,7 @@ function HomePage() {
 
   return (
     <>
-      <Carousel groupSize={1} circular announcement={getAnnouncement} className={styles.carouselContainer}>
+      <Carousel groupSize={1} circular announcement={getAnnouncement} className={styles.carouselContainer} autoplayIntervalMs={5000}>
         <CarouselViewport>
           <CarouselSlider>
             {slides.map((slide, index) => {
