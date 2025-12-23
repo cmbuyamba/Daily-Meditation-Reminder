@@ -9,6 +9,7 @@ import {
   Card,
   Button
 } from '@fluentui/react-components';
+import { handleNavigation } from '../services/navigationService';
 import { dataService } from '../services/dataService';
 import {
   People24Regular,
@@ -252,14 +253,14 @@ function MemberBenefits() {
             <Button 
               appearance="primary"
               className={styles.ctaButton}
-              onClick={() => navigate('/membership')}
+              onClick={() => handleNavigation({ path: '/membership', sectionId: null, currentPathname: '/', navigate })}
             >
               {t('memberBenefits.becomeMemberButton')}
             </Button>
             <Button 
               appearance="secondary"
               className={styles.ctaButton}
-              onClick={() => navigate('/volunteer')}
+              onClick={() => handleNavigation({ path: '/volunteer', sectionId: null, currentPathname: '/', navigate })}
             >
               {t('memberBenefits.becomeVolunteerButton')}
             </Button>

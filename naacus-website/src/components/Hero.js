@@ -7,6 +7,7 @@ import {
   Text,
 } from '@fluentui/react-components';
 import { useNavigate } from 'react-router-dom';
+import { handleNavigation } from '../services/navigationService';
 
 const useStyles = makeStyles({
   hero: {
@@ -391,7 +392,7 @@ function Hero() {
           {/* Primary Call to Action */}
           <div className={styles.primaryCTA}>
             <button
-              onClick={() => navigate('/membership')}
+              onClick={() => handleNavigation({ path: '/membership', sectionId: null, currentPathname: '/', navigate })}
               className={styles.primaryButton}
             >
               ✝ {t('heroButtons.joinCommunity')}
@@ -401,13 +402,13 @@ function Hero() {
           {/* Secondary Actions */}
           <div className={styles.secondaryActions}>
             <button
-              onClick={() => navigate('/about')}
+              onClick={() => handleNavigation({ path: '/about', sectionId: null, currentPathname: '/', navigate })}
               className={styles.secondaryButton}
             >
               🙏 {t('heroButtons.learnMission')}
             </button>
             <button
-              onClick={() => navigate('/volunteer')}
+              onClick={() => handleNavigation({ path: '/volunteer', sectionId: null, currentPathname: '/', navigate })}
               className={styles.secondaryButton}
             >
               💫 {t('heroButtons.getInvolved')}

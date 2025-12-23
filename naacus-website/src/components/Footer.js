@@ -8,6 +8,7 @@ import {
   Text,
   Link
 } from '@fluentui/react-components';
+import { handleNavigation } from '../services/navigationService';
 
 const useStyles = makeStyles({
   footer: {
@@ -109,9 +110,13 @@ function Footer() {
   const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
 
-  const handleNavigation = (path) => {
-    navigate(path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleNavigationHelper = (path) => {
+    handleNavigation({
+      path,
+      sectionId: null,
+      currentPathname: '/',
+      navigate,
+    });
   };
 
   return (
@@ -130,7 +135,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigation('/')}
+                onClick={() => handleNavigationHelper('/')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.home')}
@@ -139,7 +144,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigation('/about')}
+                onClick={() => handleNavigationHelper('/about')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.about')}
@@ -148,7 +153,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigation('/leadership')}
+                onClick={() => handleNavigationHelper('/leadership')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.leadership')}
@@ -157,7 +162,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigation('/events')}
+                onClick={() => handleNavigationHelper('/events')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.events')}
@@ -166,7 +171,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigation('/resources')}
+                onClick={() => handleNavigationHelper('/resources')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.resources')}
@@ -175,7 +180,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigation('/contact')}
+                onClick={() => handleNavigationHelper('/contact')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.contact')}
@@ -189,7 +194,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigation('/programs-activities')}
+                onClick={() => handleNavigationHelper('/programs-activities')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.eventsActivities')}
@@ -198,7 +203,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigation('/events')}
+                onClick={() => handleNavigationHelper('/events')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.nationalConference')}
@@ -207,7 +212,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigation('/contact')}
+                onClick={() => handleNavigationHelper('/contact')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.newsletter')}
@@ -216,7 +221,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigation('/membership')}
+                onClick={() => handleNavigationHelper('/membership')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.membership')}
@@ -228,21 +233,21 @@ function Footer() {
           <Text as="h4" className={styles.footerSectionTitle}>{t('footer.getInvolved')}</Text>
           <Link 
             className={styles.footerLink} 
-            onClick={() => handleNavigation('/membership')}
+            onClick={() => handleNavigationHelper('/membership')}
             style={{ cursor: 'pointer' }}
           >
             {t('footer.joinCommunity')}
           </Link>
           <Link 
             className={styles.footerLink} 
-            onClick={() => handleNavigation('/programs-activities')}
+            onClick={() => handleNavigationHelper('/programs-activities')}
             style={{ cursor: 'pointer' }}
           >
             {t('footer.participatePrograms')}
           </Link>
           <Link 
             className={styles.footerCta} 
-            onClick={() => handleNavigation('/contact')}
+            onClick={() => handleNavigationHelper('/contact')}
             style={{ cursor: 'pointer' }}
           >
             {t('footer.contactUs')}
