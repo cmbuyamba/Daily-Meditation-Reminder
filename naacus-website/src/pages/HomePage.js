@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Carousel,
   CarouselCard,
@@ -17,6 +17,7 @@ import Testimonials from '../components/Testimonials';
 import Gallery from '../components/Gallery';
 import Newsletter from '../components/Newsletter';
 import Contact from '../components/Contact';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 const useStyles = makeStyles({
   carouselCard: {
@@ -34,7 +35,12 @@ const getAnnouncement = (index, totalSlides) => {
 
 function HomePage() {
   const styles = useStyles();
+  const { trackPageViewEvent } = useAnalytics();
   const [autoplayEnabled, setAutoplayEnabled] = useState(true);
+
+  useEffect(() => {
+    trackPageViewEvent('HomePage');
+  }, [trackPageViewEvent]);
 
   const slides = [
     { id: 'hero', label: 'Hero', component: Hero },

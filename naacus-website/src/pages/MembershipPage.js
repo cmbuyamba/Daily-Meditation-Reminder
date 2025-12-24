@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   makeStyles,
@@ -16,6 +16,7 @@ import {
 } from '@fluentui/react-components';
 import PageWrapper from '../components/PageWrapper';
 import { submitMembershipToSharePoint } from '../services/m365Service';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 const useStyles = makeStyles({
   wrapper: {
@@ -130,9 +131,14 @@ const useStyles = makeStyles({
 function MembershipPage() {
   const { t } = useTranslation();
   const styles = useStyles();
+  const { trackPageViewEvent } = useAnalytics();
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    trackPageViewEvent('MembershipPage');
+  }, [trackPageViewEvent]);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',

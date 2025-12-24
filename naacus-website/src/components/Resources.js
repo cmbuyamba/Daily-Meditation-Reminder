@@ -152,13 +152,14 @@ const useStyles = makeStyles({
 function Resources() {
   const { t } = useTranslation();
   const styles = useStyles();
-  const { trackResourceCTA } = useAnalytics();
+  const { trackResourceCTA, trackResourceDownload } = useAnalytics();
 
   const resources = getResources();
   const partners = getPartners();
 
   const handleResourceClick = (resourceTitle) => {
     trackResourceCTA(`View ${resourceTitle}`, 'resource_click');
+    trackResourceDownload(resourceTitle, 'resource');
     const element = document.getElementById('contact');
     if (element) element.scrollIntoView({ behavior: 'smooth' });
   };

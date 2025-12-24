@@ -87,6 +87,16 @@ export const trackPageView = (pageName) => {
     url: window.location.pathname,
   };
 
+  // Store in localStorage for analytics
+  const existingEvents = JSON.parse(
+    localStorage.getItem(ANALYTICS_STORAGE_KEY) || '[]'
+  );
+  existingEvents.push(event);
+
+  // Keep only last 500 events to avoid storage bloat
+  const recentEvents = existingEvents.slice(-500);
+  localStorage.setItem(ANALYTICS_STORAGE_KEY, JSON.stringify(recentEvents));
+
   if (process.env.NODE_ENV === 'development') {
     console.log('📄 Page View:', pageName);
   }
@@ -106,6 +116,25 @@ export const trackScrollToSection = (sectionId) => {
 };
 
 /**
+ * Track resource download
+ * @param {string} resourceName - Name of the resource being downloaded
+ * @param {string} resourceType - Type of resource (pdf, doc, image, etc.)
+ */
+export const trackDownload = (resourceName, resourceType = '') => {
+  const event = {
+    timestamp: new Date().toISOString(),
+    type: EVENT_TYPES.DOWNLOAD,
+    resource: resourceName,
+    resourceType,
+    url: window.location.pathname,
+  };
+
+  if (process.env.NODE_ENV === 'development') {
+    console.log('📥 Download Event:', resourceName, resourceType);
+  }
+};
+
+/**
  * Track form interaction
  * @param {string} formName - Name of the form
  * @param {string} eventType - 'start' or 'submit'
@@ -122,7 +151,18 @@ export const trackFormEvent = (formName, eventType, formData = {}) => {
     fields: Object.keys(formData),
   };
 
-  if (process.env.NODE_ENV === 'development') {
+  // Store in localStorage for analytics
+  const existingEvents = JSON.parse(
+    localStorage.getItem(ANALYTICS_STORAGE_KEY) || '[]'
+  );
+  existingEvents.push(event);
+
+  // Keep only last 500 events to avoid storage bloat
+  const recentEvents = existingEvents.slice(-500);
+  localStorage.setItem(ANALYTICS_STORAGE_KEY, JSON.stringify(recentEvents));
+
+  // Only log form_submit events to avoid console spam from form_start
+  if (process.env.NODE_ENV === 'development' && eventType === 'submit') {
     console.log('📝 Form Event:', event.type, formName);
   }
 };

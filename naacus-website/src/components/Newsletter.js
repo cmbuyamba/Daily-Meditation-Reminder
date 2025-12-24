@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
@@ -180,6 +180,10 @@ function Newsletter() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    trackForm('NewsletterForm', 'form_start');
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

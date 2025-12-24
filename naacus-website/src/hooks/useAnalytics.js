@@ -9,6 +9,8 @@ import {
   trackCTAEvent,
   trackFormEvent,
   trackScrollToSection,
+  trackPageView,
+  trackDownload,
   CTA_CATEGORIES,
 } from '../services/analyticsService';
 
@@ -118,6 +120,20 @@ export const useAnalytics = () => {
     trackScrollToSection(sectionId);
   }, []);
 
+  /**
+   * Track resource downloads
+   */
+  const trackResourceDownload = useCallback((resourceName, resourceType = '') => {
+    trackDownload(resourceName, resourceType);
+  }, []);
+
+  /**
+   * Track page view
+   */
+  const trackPageViewEvent = useCallback((pageName) => {
+    trackPageView(pageName);
+  }, []);
+
   return {
     trackCTA,
     trackMembershipCTA,
@@ -130,5 +146,7 @@ export const useAnalytics = () => {
     trackDonationCTA,
     trackForm,
     trackScroll,
+    trackResourceDownload,
+    trackPageViewEvent,
   };
 };

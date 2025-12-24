@@ -114,9 +114,13 @@ const useStyles = makeStyles({
 
 function Gallery() {
   const styles = useStyles();
-  const { trackContactCTA } = useAnalytics();
+  const { trackContactCTA, trackResourceDownload } = useAnalytics();
 
   const galleryItems = getGalleryItems();
+
+  const handleGalleryItemClick = (itemTitle) => {
+    trackResourceDownload(itemTitle, 'gallery');
+  };
 
   const handleContactShare = () => {
     trackContactCTA('Contact to Share', 'gallery_cta');
@@ -145,7 +149,7 @@ function Gallery() {
       <div className={styles.content}>
         <div className={styles.galleryGrid}>
           {galleryItems.map((item) => (
-            <Card key={item.id} className={styles.galleryCard}>
+            <Card key={item.id} className={styles.galleryCard} onClick={() => handleGalleryItemClick(item.title)}>
               <div className={styles.imageContainer}>
                 {renderIcon(item.type)}
               </div>

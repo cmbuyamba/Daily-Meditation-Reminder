@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   makeStyles,
@@ -161,6 +161,10 @@ function VolunteerPage() {
     specialSkills: '',
     whyVolunteer: '',
   });
+
+  useEffect(() => {
+    trackForm('VolunteerForm', 'form_start');
+  }, []);
 
   const volunteerInterestOptions = [
     { key: 'Event Planning & Coordination', label: t('volunteer.interestEventPlanning') },

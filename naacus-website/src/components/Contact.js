@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { 
   makeStyles,
@@ -115,6 +115,11 @@ function Contact() {
     message: ''
   });
 
+  // Track form open event
+  useEffect(() => {
+    trackForm('ContactForm', 'form_start');
+  }, []);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -167,53 +172,51 @@ function Contact() {
           </div>
         </div>
         <div className={styles.formContainer}>
-          <form onSubmit={handleSubmit}>
-            <Field label={t('contact.nameLabel')} required>
-              <Input
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                placeholder={t('contact.namePlaceholder')}
-              />
-            </Field>
-            <Field label={t('contact.emailFieldLabel')} required style={{ marginTop: '20px' }}>
-              <Input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                placeholder={t('contact.emailPlaceholder')}
-              />
-            </Field>
-            <Field label={t('contact.parishLabel')} style={{ marginTop: '20px' }}>
-              <Input
-                name="organization"
-                value={formData.organization}
-                onChange={handleChange}
-                placeholder={t('contact.parishPlaceholder')}
-              />
-            </Field>
-            <Field label={t('contact.messageLabel')} required style={{ marginTop: '20px' }}>
-              <Textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={5}
-                placeholder={t('contact.messagePlaceholder')}
-              />
-            </Field>
-            <Button 
-              appearance="primary" 
-              type="submit" 
-              size="large"
-              style={{ marginTop: '20px' }}
-            >
-              {t('contact.sendButton')}
-            </Button>
-          </form>
+          <Field label={t('contact.nameLabel')} required>
+            <Input
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              placeholder={t('contact.namePlaceholder')}
+            />
+          </Field>
+          <Field label={t('contact.emailFieldLabel')} required style={{ marginTop: '20px' }}>
+            <Input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              placeholder={t('contact.emailPlaceholder')}
+            />
+          </Field>
+          <Field label={t('contact.parishLabel')} style={{ marginTop: '20px' }}>
+            <Input
+              name="organization"
+              value={formData.organization}
+              onChange={handleChange}
+              placeholder={t('contact.parishPlaceholder')}
+            />
+          </Field>
+          <Field label={t('contact.messageLabel')} required style={{ marginTop: '20px' }}>
+            <Textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              rows={5}
+              placeholder={t('contact.messagePlaceholder')}
+            />
+          </Field>
+          <Button 
+            appearance="primary" 
+            size="large"
+            style={{ marginTop: '20px' }}
+            onClick={handleSubmit}
+          >
+            {t('contact.sendButton')}
+          </Button>
           <Text as="p" className={styles.formNote}>
             {t('contact.formNote')}
           </Text>
