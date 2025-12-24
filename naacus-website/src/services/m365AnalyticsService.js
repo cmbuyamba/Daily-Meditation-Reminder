@@ -1,22 +1,64 @@
 // Microsoft 365 Analytics Service
 // Stores analytics events to SharePoint Lists for historical tracking and audit
+// Uses Application-Level Authentication (no user sign-in required)
 
-import { PublicClientApplication } from '@azure/msal-browser';
 import { Client } from '@microsoft/microsoft-graph-client';
-import { msalConfig, sharePointScopes, sharePointConfig } from '../config/msalConfig';
 
-// Initialize MSAL instance
-let msalInstance = null;
 let graphClient = null;
+let tokenCache = null;
+let tokenExpiresAt = null;
 
 const hasM365Config = !!(
   process.env.REACT_APP_AZURE_CLIENT_ID &&
   process.env.REACT_APP_AZURE_TENANT_ID &&
+  process.env.REACT_APP_AZURE_CLIENT_SECRET &&
   process.env.REACT_APP_ANALYTICS_LIST_ID
 );
 
-if (hasM365Config) {
-  msalInstance = new PublicClientApplication(msalConfig);
+/**
+ * Get access token using Client Credentials flow (no user sign-in required)
+ */
+async function getAccessToken() {
+  // Return cached token if still valid (with 5 min buffer)
+  if (tokenCache && tokenExpiresAt && Date.now() < tokenExpiresAt - 300000) {
+    return tokenCache;
+  }
+
+  try {
+    const tokenEndpoint = `https://login.microsoftonline.com/${process.env.REACT_APP_AZURE_TENANT_ID}/oauth2/v2.0/token`;
+
+    const response = await fetch(tokenEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        client_id: process.env.REACT_APP_AZURE_CLIENT_ID,
+        client_secret: process.env.REACT_APP_AZURE_CLIENT_SECRET,
+        scope: 'https://graph.microsoft.com/.default',
+        grant_type: 'client_credentials',
+      }),
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      console.error('📊 M365 token error:', error);
+      return null;
+    }
+
+    const data = await response.json();
+    tokenCache = data.access_token;
+    tokenExpiresAt = Date.now() + data.expires_in * 1000;
+
+    if (process.env.NODE_ENV === 'development') {
+      console.log('📊 M365 access token obtained');
+    }
+
+    return tokenCache;
+  } catch (error) {
+    console.error('📊 Error getting M365 access token:', error);
+    return null;
+  }
 }
 
 /**
@@ -25,7 +67,7 @@ if (hasM365Config) {
 async function initializeGraphClient() {
   if (!hasM365Config) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('⚠️ M365 analytics not configured. Set REACT_APP_AZURE_CLIENT_ID, REACT_APP_AZURE_TENANT_ID, and REACT_APP_ANALYTICS_LIST_ID');
+      console.warn('⚠️ M365 analytics not configured. Set REACT_APP_AZURE_CLIENT_ID, REACT_APP_AZURE_TENANT_ID, REACT_APP_AZURE_CLIENT_SECRET, and REACT_APP_ANALYTICS_LIST_ID');
     }
     return null;
   }
@@ -35,40 +77,17 @@ async function initializeGraphClient() {
   }
 
   try {
-    await msalInstance.initialize();
-    const accounts = msalInstance.getAllAccounts();
-
-    let account = null;
-    if (accounts.length > 0) {
-      account = accounts[0];
-    } else {
-      // Silent login attempt with cached credentials
-      try {
-        const tokenResponse = await msalInstance.acquireTokenSilent({
-          scopes: sharePointScopes.scopes,
-        });
-        account = tokenResponse.account;
-      } catch (error) {
-        // No cached credentials - will attempt on first analytics call
-        if (process.env.NODE_ENV === 'development') {
-          console.log('📊 M365 analytics: User not signed in yet (will use anonymous tracking)');
-        }
-        return null;
-      }
+    const accessToken = await getAccessToken();
+    if (!accessToken) {
+      return null;
     }
 
-    if (account) {
-      const tokenResponse = await msalInstance.acquireTokenSilent({
-        scopes: sharePointScopes.scopes,
-        account: account,
-      });
-
-      graphClient = Client.init({
-        authProvider: (done) => {
-          done(null, tokenResponse.accessToken);
-        },
-      });
-    }
+    graphClient = Client.init({
+      authProvider: async (done) => {
+        const token = await getAccessToken();
+        done(null, token);
+      },
+    });
 
     return graphClient;
   } catch (error) {
@@ -84,10 +103,11 @@ async function initializeGraphClient() {
  */
 async function getSiteId(client, siteUrl) {
   try {
+    // Format: domain.sharepoint.com/sites/sitename
     const site = await client.api(`/sites/${siteUrl}`).get();
     return site.id;
   } catch (error) {
-    console.error('Error getting SharePoint site ID:', error);
+    console.error('📊 Error getting SharePoint site ID:', error);
     return null;
   }
 }
@@ -104,14 +124,19 @@ export async function sendToM365Analytics(eventData) {
     const client = await initializeGraphClient();
 
     if (!client) {
-      // M365 not available (user not signed in or no token)
+      // M365 not available (token retrieval failed)
       if (process.env.NODE_ENV === 'development') {
-        console.log('📊 M365 analytics: Skipping (not authenticated)');
+        console.log('📊 M365 analytics: Skipping (token unavailable)');
       }
       return { success: false, reason: 'M365 client not initialized' };
     }
 
-    const siteId = await getSiteId(client, sharePointConfig.siteUrl);
+    const siteUrl = process.env.REACT_APP_SHAREPOINT_SITE_URL;
+    if (!siteUrl) {
+      return { success: false, reason: 'SharePoint site URL not configured' };
+    }
+
+    const siteId = await getSiteId(client, siteUrl);
     if (!siteId) {
       return { success: false, reason: 'Cannot resolve SharePoint site' };
     }
@@ -249,7 +274,12 @@ export async function batchSendToM365(eventDataArray) {
       return { success: false, reason: 'M365 client not initialized', failed: eventDataArray.length };
     }
 
-    const siteId = await getSiteId(client, sharePointConfig.siteUrl);
+    const siteUrl = process.env.REACT_APP_SHAREPOINT_SITE_URL;
+    if (!siteUrl) {
+      return { success: false, reason: 'SharePoint site URL not configured', failed: eventDataArray.length };
+    }
+
+    const siteId = await getSiteId(client, siteUrl);
     if (!siteId) {
       return { success: false, reason: 'Cannot resolve SharePoint site', failed: eventDataArray.length };
     }
@@ -310,8 +340,9 @@ export function getM365ConfigStatus() {
     configured: hasM365Config,
     clientIdSet: !!process.env.REACT_APP_AZURE_CLIENT_ID,
     tenantIdSet: !!process.env.REACT_APP_AZURE_TENANT_ID,
+    clientSecretSet: !!process.env.REACT_APP_AZURE_CLIENT_SECRET,
     analyticsListIdSet: !!process.env.REACT_APP_ANALYTICS_LIST_ID,
-    siteUrlSet: !!sharePointConfig.siteUrl,
+    siteUrlSet: !!process.env.REACT_APP_SHAREPOINT_SITE_URL,
   };
 }
 
