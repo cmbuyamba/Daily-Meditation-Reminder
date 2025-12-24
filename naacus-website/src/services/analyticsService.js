@@ -1,8 +1,18 @@
 /**
  * Analytics Service - Track user CTAs and interactions
  * Purpose: Collect data on user behavior to understand conversion paths
- * Usage: Import and use useCTATracking hook in components
+ * Integrates with Google Analytics 4 for cloud analytics
+ * Also stores locally in localStorage for backup/offline tracking
+ * Usage: Import and use useAnalytics hook in components
  */
+
+import {
+  trackCTAInGA,
+  trackPageViewInGA,
+  trackFormInGA,
+  trackDownloadInGA,
+  trackScrollInGA,
+} from './googleAnalyticsService';
 
 // Local storage key for analytics data
 const ANALYTICS_STORAGE_KEY = 'naacus_analytics_events';
@@ -60,6 +70,9 @@ export const trackCTAEvent = (category, action, label, metadata = {}) => {
   const recentEvents = existingEvents.slice(-500);
   localStorage.setItem(ANALYTICS_STORAGE_KEY, JSON.stringify(recentEvents));
 
+  // Send to Google Analytics
+  trackCTAInGA(category, action, label);
+
   // Log to console in development
   if (process.env.NODE_ENV === 'development') {
     console.log('📊 CTA Event:', {
@@ -71,7 +84,7 @@ export const trackCTAEvent = (category, action, label, metadata = {}) => {
     });
   }
 
-  // TODO: Send to analytics backend (Google Analytics, Segment, etc.)
+  // TODO: Send to analytics backend (Segment, Mixpanel, etc.)
   // sendToAnalyticsBackend(event);
 };
 
@@ -97,6 +110,9 @@ export const trackPageView = (pageName) => {
   const recentEvents = existingEvents.slice(-500);
   localStorage.setItem(ANALYTICS_STORAGE_KEY, JSON.stringify(recentEvents));
 
+  // Send to Google Analytics
+  trackPageViewInGA(pageName);
+
   if (process.env.NODE_ENV === 'development') {
     console.log('📄 Page View:', pageName);
   }
@@ -113,6 +129,8 @@ export const trackScrollToSection = (sectionId) => {
     sectionId,
     { sectionId }
   );
+  // Also send directly to GA
+  trackScrollInGA(sectionId);
 };
 
 /**
@@ -128,6 +146,19 @@ export const trackDownload = (resourceName, resourceType = '') => {
     resourceType,
     url: window.location.pathname,
   };
+
+  // Store in localStorage for analytics
+  const existingEvents = JSON.parse(
+    localStorage.getItem(ANALYTICS_STORAGE_KEY) || '[]'
+  );
+  existingEvents.push(event);
+
+  // Keep only last 500 events to avoid storage bloat
+  const recentEvents = existingEvents.slice(-500);
+  localStorage.setItem(ANALYTICS_STORAGE_KEY, JSON.stringify(recentEvents));
+
+  // Send to Google Analytics
+  trackDownloadInGA(resourceName, resourceType);
 
   if (process.env.NODE_ENV === 'development') {
     console.log('📥 Download Event:', resourceName, resourceType);
@@ -160,6 +191,9 @@ export const trackFormEvent = (formName, eventType, formData = {}) => {
   // Keep only last 500 events to avoid storage bloat
   const recentEvents = existingEvents.slice(-500);
   localStorage.setItem(ANALYTICS_STORAGE_KEY, JSON.stringify(recentEvents));
+
+  // Send to Google Analytics
+  trackFormInGA(formName, eventType);
 
   // Only log form_submit events to avoid console spam from form_start
   if (process.env.NODE_ENV === 'development' && eventType === 'submit') {

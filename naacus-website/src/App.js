@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { FluentProvider, webLightTheme } from '@fluentui/react-components';
 import './App.css';
+import { initializeGoogleAnalytics } from './services/googleAnalyticsService';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import Event2025Page from './pages/Event2025Page';
@@ -19,6 +20,11 @@ import BackToTop from './components/BackToTop';
 import ChatWidget from './components/ChatWidget';
 
 function App() {
+  useEffect(() => {
+    // Initialize Google Analytics on app load
+    initializeGoogleAnalytics();
+  }, []);
+
   return (
     <FluentProvider theme={webLightTheme}>
       <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
