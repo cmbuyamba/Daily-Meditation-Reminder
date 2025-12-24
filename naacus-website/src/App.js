@@ -21,7 +21,7 @@ import ChatWidget from './components/ChatWidget';
 function App() {
   return (
     <FluentProvider theme={webLightTheme}>
-      <Router>
+      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <div className="App">
           <Header />
           <Routes>
