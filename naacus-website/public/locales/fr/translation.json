@@ -431,5 +431,12 @@
     "ctaTitle": "Rejoignez-nous pour NAACUS 2027 !",
     "ctaDescription": "Inspiré par le succès de NAACUS 2025 ? Faites partie du prochain chapitre à NAACUS 2027. Restez à jour avec les dernières nouvelles et détails de la conférence.",
     "ctaButton": "S'abonner aux Mises à Jour NAACUS 2027"
+  },
+  "newsletters": {
+    "title": "Restez Informé avec NAACUS",
+    "subtitle": "Obtenez les dernières nouvelles, événements et mises à jour de notre communauté",
+    "archive": "Archives des Bulletins d'Information",
+    "downloadButton": "Télécharger le Dernier Bulletin",
+    "viewButton": "Afficher le Bulletin"
   }
 }
