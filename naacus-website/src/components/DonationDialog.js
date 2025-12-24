@@ -90,12 +90,18 @@ const useStyles = makeStyles({
     transition: 'all 0.2s ease',
     fontSize: '0.8rem',
     '&:hover': {
-      borderColor: tokens.colorBrandBackground,
+      borderTopColor: tokens.colorBrandBackground,
+      borderRightColor: tokens.colorBrandBackground,
+      borderBottomColor: tokens.colorBrandBackground,
+      borderLeftColor: tokens.colorBrandBackground,
       backgroundColor: '#f3f2f1',
     },
   },
   paymentOptionSelected: {
-    borderColor: tokens.colorBrandBackground,
+    borderTopColor: tokens.colorBrandBackground,
+    borderRightColor: tokens.colorBrandBackground,
+    borderBottomColor: tokens.colorBrandBackground,
+    borderLeftColor: tokens.colorBrandBackground,
     backgroundColor: 'rgba(45, 90, 123, 0.08)',
   },
   radioButton: {
@@ -109,7 +115,10 @@ const useStyles = makeStyles({
     justifyContent: 'center',
   },
   radioButtonSelected: {
-    borderColor: tokens.colorBrandBackground,
+    borderTopColor: tokens.colorBrandBackground,
+    borderRightColor: tokens.colorBrandBackground,
+    borderBottomColor: tokens.colorBrandBackground,
+    borderLeftColor: tokens.colorBrandBackground,
     backgroundColor: tokens.colorBrandBackground,
   },
   radioButtonInner: {
@@ -134,13 +143,19 @@ const useStyles = makeStyles({
     fontWeight: '500',
     transition: 'all 0.2s ease',
     '&:hover': {
-      borderColor: tokens.colorBrandBackground,
+      borderTopColor: tokens.colorBrandBackground,
+      borderRightColor: tokens.colorBrandBackground,
+      borderBottomColor: tokens.colorBrandBackground,
+      borderLeftColor: tokens.colorBrandBackground,
     },
   },
   amountButtonSelected: {
     backgroundColor: tokens.colorBrandBackground,
     color: tokens.colorNeutralForegroundInverted,
-    borderColor: tokens.colorBrandBackground,
+    borderTopColor: tokens.colorBrandBackground,
+    borderRightColor: tokens.colorBrandBackground,
+    borderBottomColor: tokens.colorBrandBackground,
+    borderLeftColor: tokens.colorBrandBackground,
   },
   dialogContent: {
     padding: '16px',

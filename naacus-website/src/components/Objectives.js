@@ -69,7 +69,10 @@ const useStyles = makeStyles({
     '&:hover': {
       boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
       transform: 'translateY(-4px)',
-      ...shorthands.borderColor(tokens.colorBrandBackground),
+      borderTopColor: tokens.colorBrandBackground,
+      borderRightColor: tokens.colorBrandBackground,
+      borderBottomColor: tokens.colorBrandBackground,
+      borderLeftColor: tokens.colorBrandBackground,
     },
   },
   objectiveItem: {

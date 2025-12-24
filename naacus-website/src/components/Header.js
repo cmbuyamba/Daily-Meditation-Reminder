@@ -129,7 +129,10 @@ const useStyles = makeStyles({
     ...shorthands.borderRadius('2px'),
     ...shorthands.padding('0', '32px', '0', '8px'),
     '&:focus': {
-      ...shorthands.borderColor('#0067b8'),
+      borderTopColor: '#0067b8',
+      borderRightColor: '#0067b8',
+      borderBottomColor: '#0067b8',
+      borderLeftColor: '#0067b8',
       outline: 'none',
     },
     '@media (max-width: 768px)': {
