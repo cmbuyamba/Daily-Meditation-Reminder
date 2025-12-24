@@ -14,6 +14,15 @@ import {
   trackScrollInGA,
 } from './googleAnalyticsService';
 
+import {
+  trackCTAInM365,
+  trackPageViewInM365,
+  trackFormInM365,
+  trackDownloadInM365,
+  trackScrollInM365,
+  isM365AnalyticsAvailable,
+} from './m365AnalyticsService';
+
 // Local storage key for analytics data
 const ANALYTICS_STORAGE_KEY = 'naacus_analytics_events';
 
@@ -73,6 +82,11 @@ export const trackCTAEvent = (category, action, label, metadata = {}) => {
   // Send to Google Analytics
   trackCTAInGA(category, action, label);
 
+  // Send to M365 SharePoint (if configured)
+  if (isM365AnalyticsAvailable()) {
+    trackCTAInM365(category, action, label, metadata);
+  }
+
   // Log to console in development
   if (process.env.NODE_ENV === 'development') {
     console.log('📊 CTA Event:', {
@@ -113,6 +127,11 @@ export const trackPageView = (pageName) => {
   // Send to Google Analytics
   trackPageViewInGA(pageName);
 
+  // Send to M365 SharePoint (if configured)
+  if (isM365AnalyticsAvailable()) {
+    trackPageViewInM365(pageName, document.title);
+  }
+
   if (process.env.NODE_ENV === 'development') {
     console.log('📄 Page View:', pageName);
   }
@@ -131,6 +150,11 @@ export const trackScrollToSection = (sectionId) => {
   );
   // Also send directly to GA
   trackScrollInGA(sectionId);
+  
+  // Send to M365 SharePoint (if configured)
+  if (isM365AnalyticsAvailable()) {
+    trackScrollInM365(sectionId);
+  }
 };
 
 /**
@@ -159,6 +183,11 @@ export const trackDownload = (resourceName, resourceType = '') => {
 
   // Send to Google Analytics
   trackDownloadInGA(resourceName, resourceType);
+
+  // Send to M365 SharePoint (if configured)
+  if (isM365AnalyticsAvailable()) {
+    trackDownloadInM365(resourceName, resourceType);
+  }
 
   if (process.env.NODE_ENV === 'development') {
     console.log('📥 Download Event:', resourceName, resourceType);
@@ -194,6 +223,11 @@ export const trackFormEvent = (formName, eventType, formData = {}) => {
 
   // Send to Google Analytics
   trackFormInGA(formName, eventType);
+
+  // Send to M365 SharePoint (if configured)
+  if (isM365AnalyticsAvailable()) {
+    trackFormInM365(formName, eventType === 'start' ? EVENT_TYPES.FORM_START : EVENT_TYPES.FORM_SUBMIT);
+  }
 
   // Only log form_submit events to avoid console spam from form_start
   if (process.env.NODE_ENV === 'development' && eventType === 'submit') {
