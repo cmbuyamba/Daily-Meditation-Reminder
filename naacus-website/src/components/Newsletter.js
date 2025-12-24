@@ -9,6 +9,7 @@ import {
   Button
 } from '@fluentui/react-components';
 import { Mail24Regular, Checkmark24Regular } from '@fluentui/react-icons';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 const useStyles = makeStyles({
   newsletter: {
@@ -175,12 +176,15 @@ const useStyles = makeStyles({
 function Newsletter() {
   const { t } = useTranslation();
   const styles = useStyles();
+  const { trackForm, trackNewsletterCTA } = useAnalytics();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    trackForm('NewsletterForm', 'form_submit', { email, name });
+    trackNewsletterCTA('Newsletter Signup', 'newsletter_cta');
     // This will be integrated with email service
     console.log('Membership signup:', { name, email });
     setSubmitted(true);

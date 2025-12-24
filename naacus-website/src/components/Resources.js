@@ -14,6 +14,7 @@ import {
   FormNew24Regular
 } from '@fluentui/react-icons';
 import { getResources, getPartners } from '../data/resourcesData';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 const useStyles = makeStyles({
   resources: {
@@ -151,9 +152,16 @@ const useStyles = makeStyles({
 function Resources() {
   const { t } = useTranslation();
   const styles = useStyles();
+  const { trackResourceCTA } = useAnalytics();
 
   const resources = getResources();
   const partners = getPartners();
+
+  const handleResourceClick = (resourceTitle) => {
+    trackResourceCTA(`View ${resourceTitle}`, 'resource_click');
+    const element = document.getElementById('contact');
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
+  };
 
   // Render icon based on iconType
   const renderIcon = (iconType) => {
@@ -185,10 +193,7 @@ function Resources() {
               <Text className={styles.cardDescription}>{resource.description}</Text>
               <Button 
                 appearance="primary"
-                onClick={() => {
-                  const element = document.getElementById('contact');
-                  if (element) element.scrollIntoView({ behavior: 'smooth' });
-                }}
+                onClick={() => handleResourceClick(resource.title)}
               >
                 {resource.buttonText}
               </Button>

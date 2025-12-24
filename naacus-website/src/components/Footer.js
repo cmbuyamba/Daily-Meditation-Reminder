@@ -9,6 +9,7 @@ import {
   Link
 } from '@fluentui/react-components';
 import { handleNavigation } from '../services/navigationService';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 const useStyles = makeStyles({
   footer: {
@@ -108,9 +109,11 @@ function Footer() {
   const { t } = useTranslation();
   const styles = useStyles();
   const navigate = useNavigate();
+  const { trackCTA } = useAnalytics();
   const currentYear = new Date().getFullYear();
 
-  const handleNavigationHelper = (path) => {
+  const handleNavigationHelper = (path, action = '') => {
+    if (action) trackCTA('navigation', action, 'footer_nav');
     handleNavigation({
       path,
       sectionId: null,
@@ -135,7 +138,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigationHelper('/')}
+                onClick={() => handleNavigationHelper('/', 'Home')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.home')}
@@ -144,7 +147,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigationHelper('/about')}
+                onClick={() => handleNavigationHelper('/about', 'About')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.about')}
@@ -153,7 +156,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigationHelper('/leadership')}
+                onClick={() => handleNavigationHelper('/leadership', 'Leadership')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.leadership')}
@@ -162,7 +165,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigationHelper('/events')}
+                onClick={() => handleNavigationHelper('/events', 'Events')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.events')}
@@ -171,7 +174,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigationHelper('/resources')}
+                onClick={() => handleNavigationHelper('/resources', 'Resources')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.resources')}
@@ -180,7 +183,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigationHelper('/contact')}
+                onClick={() => handleNavigationHelper('/contact', 'Contact')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.contact')}
@@ -194,7 +197,7 @@ function Footer() {
             <li>
               <Link 
                 className={styles.footerLink} 
-                onClick={() => handleNavigationHelper('/programs-activities')}
+                onClick={() => handleNavigationHelper('/programs-activities', 'Programs')}
                 style={{ cursor: 'pointer' }}
               >
                 {t('footer.eventsActivities')}

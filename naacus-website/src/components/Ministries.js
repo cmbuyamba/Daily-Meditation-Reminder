@@ -22,6 +22,7 @@ import {
   Mail24Regular
 } from '@fluentui/react-icons';
 import { dataService } from '../services/dataService';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 const useStyles = makeStyles({
   ministries: {
@@ -135,9 +136,14 @@ const useStyles = makeStyles({
 function Ministries() {
   const { t } = useTranslation();
   const styles = useStyles();
+  const { trackMinistryCTA } = useAnalytics();
 
   // Get ministry data from service
   const ministriesData = dataService.getMinistries();
+
+  const handleMinistryEmail = (ministryTitle) => {
+    trackMinistryCTA(`Email ${ministryTitle}`, 'ministry_email_link');
+  };
 
   // Map icons to ministries by iconKey
   const iconMap = {
@@ -178,7 +184,11 @@ function Ministries() {
               <Text className={styles.ministryTitle}>{ministry.title}</Text>
               <Text className={styles.ministryDescription}>{ministry.description}</Text>
               {ministry.email && (
-                <a href={`mailto:${ministry.email}`} className={styles.ministryEmail}>
+                <a 
+                  href={`mailto:${ministry.email}`} 
+                  className={styles.ministryEmail}
+                  onClick={() => handleMinistryEmail(ministry.title)}
+                >
                   <Mail24Regular />
                   <span>{ministry.email}</span>
                 </a>

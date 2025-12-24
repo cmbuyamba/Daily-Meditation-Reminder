@@ -9,6 +9,7 @@ import {
 } from '@fluentui/react-components';
 import { Image24Regular, Video24Regular } from '@fluentui/react-icons';
 import { getGalleryItems } from '../data/galleryData';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 const useStyles = makeStyles({
   gallery: {
@@ -113,8 +114,15 @@ const useStyles = makeStyles({
 
 function Gallery() {
   const styles = useStyles();
+  const { trackContactCTA } = useAnalytics();
 
   const galleryItems = getGalleryItems();
+
+  const handleContactShare = () => {
+    trackContactCTA('Contact to Share', 'gallery_cta');
+    const element = document.getElementById('contact');
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
+  };
 
   // Render icon based on type
   const renderIcon = (type) => {
@@ -155,10 +163,7 @@ function Gallery() {
           <Button 
             appearance="primary" 
             size="large"
-            onClick={() => {
-              const element = document.getElementById('contact');
-              if (element) element.scrollIntoView({ behavior: 'smooth' });
-            }}
+            onClick={handleContactShare}
           >
             Contact Us to Share
           </Button>

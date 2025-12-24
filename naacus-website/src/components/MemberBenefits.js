@@ -11,6 +11,7 @@ import {
 } from '@fluentui/react-components';
 import { handleNavigation } from '../services/navigationService';
 import { dataService } from '../services/dataService';
+import { useAnalytics } from '../hooks/useAnalytics';
 import {
   People24Regular,
   Calendar24Regular,
@@ -184,6 +185,7 @@ function MemberBenefits() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const styles = useStyles();
+  const { trackMembershipCTA, trackVolunteerCTA } = useAnalytics();
 
   // Get benefits data from service
   const benefitsData = dataService.getMemberBenefits();
@@ -205,6 +207,16 @@ function MemberBenefits() {
     title: t(`memberBenefits.${key}.title`),
     description: t(`memberBenefits.${key}.description`)
   }));
+
+  const handleBecomeMember = () => {
+    trackMembershipCTA('Become a Member', 'member_benefits_cta');
+    handleNavigation({ path: '/membership', sectionId: null, currentPathname: '/', navigate });
+  };
+
+  const handleBecomeVolunteer = () => {
+    trackVolunteerCTA('Become a Volunteer', 'member_benefits_cta');
+    handleNavigation({ path: '/volunteer', sectionId: null, currentPathname: '/', navigate });
+  };
 
   return (
     <section id="member-benefits" className={styles.benefits}>
@@ -253,14 +265,14 @@ function MemberBenefits() {
             <Button 
               appearance="primary"
               className={styles.ctaButton}
-              onClick={() => handleNavigation({ path: '/membership', sectionId: null, currentPathname: '/', navigate })}
+              onClick={handleBecomeMember}
             >
               {t('memberBenefits.becomeMemberButton')}
             </Button>
             <Button 
               appearance="secondary"
               className={styles.ctaButton}
-              onClick={() => handleNavigation({ path: '/volunteer', sectionId: null, currentPathname: '/', navigate })}
+              onClick={handleBecomeVolunteer}
             >
               {t('memberBenefits.becomeVolunteerButton')}
             </Button>

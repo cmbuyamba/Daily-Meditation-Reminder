@@ -8,6 +8,7 @@ import {
 } from '@fluentui/react-components';
 import { useNavigate } from 'react-router-dom';
 import { handleNavigation } from '../services/navigationService';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 const useStyles = makeStyles({
   hero: {
@@ -167,7 +168,6 @@ const useStyles = makeStyles({
     '&:hover': {
       transform: 'translateY(-2px)',
       backgroundColor: 'rgba(255, 255, 255, 0.2)',
-      borderColor: 'rgba(255, 255, 255, 0.9)',
       boxShadow: '0 6px 20px rgba(0, 0, 0, 0.18)',
     },
     '&:active': {
@@ -345,7 +345,6 @@ const useStyles = makeStyles({
       transform: 'translateY(-4px)',
       backgroundColor: 'rgba(255, 255, 255, 0.25)',
       boxShadow: '0 12px 32px rgba(255, 255, 255, 0.3)',
-      borderColor: 'rgba(255, 255, 255, 0.5)',
     },
     '&:active': {
       transform: 'translateY(-2px)',
@@ -357,7 +356,23 @@ function Hero() {
   const { t } = useTranslation();
   const styles = useStyles();
   const navigate = useNavigate();
+  const { trackMembershipCTA, trackScroll } = useAnalytics();
   const heroRef = useRef(null);
+
+  const handleJoinClick = () => {
+    trackMembershipCTA('Join Community', 'hero_primary_cta');
+    handleNavigation({ path: '/membership', sectionId: null, currentPathname: '/', navigate });
+  };
+
+  const handleLearnMissionClick = () => {
+    trackScroll('about');
+    handleNavigation({ path: '/about', sectionId: null, currentPathname: '/', navigate });
+  };
+
+  const handleGetInvolvedClick = () => {
+    trackMembershipCTA('Get Involved', 'hero_secondary_cta');
+    handleNavigation({ path: '/volunteer', sectionId: null, currentPathname: '/', navigate });
+  };
 
   return (
     <section id="home" className={styles.hero} ref={heroRef}>
@@ -392,7 +407,7 @@ function Hero() {
           {/* Primary Call to Action */}
           <div className={styles.primaryCTA}>
             <button
-              onClick={() => handleNavigation({ path: '/membership', sectionId: null, currentPathname: '/', navigate })}
+              onClick={handleJoinClick}
               className={styles.primaryButton}
             >
               ✝ {t('heroButtons.joinCommunity')}
@@ -402,13 +417,13 @@ function Hero() {
           {/* Secondary Actions */}
           <div className={styles.secondaryActions}>
             <button
-              onClick={() => handleNavigation({ path: '/about', sectionId: null, currentPathname: '/', navigate })}
+              onClick={handleLearnMissionClick}
               className={styles.secondaryButton}
             >
               🙏 {t('heroButtons.learnMission')}
             </button>
             <button
-              onClick={() => handleNavigation({ path: '/volunteer', sectionId: null, currentPathname: '/', navigate })}
+              onClick={handleGetInvolvedClick}
               className={styles.secondaryButton}
             >
               💫 {t('heroButtons.getInvolved')}

@@ -8,6 +8,7 @@ import {
   Button
 } from '@fluentui/react-components';
 import { CheckmarkCircle24Regular } from '@fluentui/react-icons';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 const useStyles = makeStyles({
   conference: {
@@ -166,12 +167,18 @@ const useStyles = makeStyles({
 
 function Conference() {
   const styles = useStyles();
+  const { trackEventCTA } = useAnalytics();
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleStayInformed = () => {
+    trackEventCTA('Stay Informed', 'conference_cta');
+    scrollToSection('contact');
   };
 
   return (
@@ -249,7 +256,7 @@ function Conference() {
             <Button 
               appearance="primary" 
               size="large"
-              onClick={() => scrollToSection('contact')}
+              onClick={handleStayInformed}
             >
               Stay Informed
             </Button>

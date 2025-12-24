@@ -10,6 +10,7 @@ import {
   Button,
   Field
 } from '@fluentui/react-components';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 const useStyles = makeStyles({
   contact: {
@@ -106,6 +107,7 @@ const useStyles = makeStyles({
 function Contact() {
   const { t } = useTranslation();
   const styles = useStyles();
+  const { trackForm } = useAnalytics();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -122,6 +124,11 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    trackForm('ContactForm', 'form_submit', {
+      email: formData.email,
+      name: formData.name,
+      organization: formData.organization
+    });
     // This will be integrated with Microsoft 365 services
     alert('Thank you for your interest! Form submission will be integrated with Microsoft 365 services.');
     console.log('Form data:', formData);

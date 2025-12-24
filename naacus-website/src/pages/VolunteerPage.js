@@ -16,6 +16,7 @@ import {
 } from '@fluentui/react-components';
 import PageWrapper from '../components/PageWrapper';
 import { submitVolunteerToSharePoint } from '../services/m365Service';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 const useStyles = makeStyles({
   wrapper: {
@@ -105,10 +106,8 @@ const useStyles = makeStyles({
     fontSize: '1.15rem',
     fontWeight: '600',
     backgroundColor: '#d83b01',
-    borderColor: '#d83b01',
     '&:hover': {
       backgroundColor: '#c23600',
-      borderColor: '#c23600',
     },
   },
   successMessage: {
@@ -136,6 +135,7 @@ const useStyles = makeStyles({
 function VolunteerPage() {
   const { t } = useTranslation();
   const styles = useStyles();
+  const { trackForm, trackVolunteerCTA } = useAnalytics();
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
@@ -202,6 +202,11 @@ function VolunteerPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    trackForm('VolunteerForm', 'form_submit', {
+      email: formData.email,
+      interests: formData.volunteerInterests
+    });
+    trackVolunteerCTA('Volunteer Form Submitted', 'volunteer_form_submission');
     setIsSubmitting(true);
     setError(null);
 
@@ -239,7 +244,6 @@ function VolunteerPage() {
             style={{ 
               marginTop: '24px',
               backgroundColor: '#d83b01',
-              borderColor: '#d83b01',
             }}
           >
             {t('volunteer.returnHome')}
