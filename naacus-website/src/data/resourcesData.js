@@ -19,13 +19,6 @@ export const resourcesData = [
   },
   {
     id: 3,
-    iconType: 'form',
-    title: 'Membership Form',
-    description: 'Join the NAACUS community! Download and complete our membership form to become a member.',
-    buttonText: 'Get Membership Form'
-  },
-  {
-    id: 4,
     iconType: 'document',
     title: 'Advocacy Documents',
     description: 'Access our advocacy resources supporting African Catholics and promoting social justice.',

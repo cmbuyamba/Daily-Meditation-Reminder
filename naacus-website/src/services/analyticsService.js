@@ -4,6 +4,9 @@
  * Integrates with Google Analytics 4 for cloud analytics
  * Also stores locally in localStorage for backup/offline tracking
  * Usage: Import and use useAnalytics hook in components
+ * 
+ * NOTE: M365 integration disabled on localhost due to CORS/OAuth limitations
+ * M365 requires backend implementation. Will be re-enabled when backend is ready.
  */
 
 import {
@@ -22,6 +25,10 @@ import {
   trackScrollInM365,
   isM365AnalyticsAvailable,
 } from './m365AnalyticsService';
+
+// Feature flag: Disable M365 until backend is implemented
+// Client Credentials OAuth cannot work in browser (CORS + security issues)
+const ENABLE_M365_ANALYTICS = false;
 
 // Local storage key for analytics data
 const ANALYTICS_STORAGE_KEY = 'naacus_analytics_events';
@@ -82,8 +89,8 @@ export const trackCTAEvent = async (category, action, label, metadata = {}) => {
   // Send to Google Analytics
   trackCTAInGA(category, action, label);
 
-  // Send to M365 SharePoint (if configured)
-  if (isM365AnalyticsAvailable()) {
+  // Send to M365 SharePoint (if configured and enabled)
+  if (ENABLE_M365_ANALYTICS && isM365AnalyticsAvailable()) {
     try {
       await trackCTAInM365(category, action, label, metadata);
     } catch (error) {
@@ -131,8 +138,8 @@ export const trackPageView = async (pageName) => {
   // Send to Google Analytics
   trackPageViewInGA(pageName);
 
-  // Send to M365 SharePoint (if configured)
-  if (isM365AnalyticsAvailable()) {
+  // Send to M365 SharePoint (if configured and enabled)
+  if (ENABLE_M365_ANALYTICS && isM365AnalyticsAvailable()) {
     try {
       await trackPageViewInM365(pageName, document.title);
     } catch (error) {
@@ -159,8 +166,8 @@ export const trackScrollToSection = async (sectionId) => {
   // Also send directly to GA
   trackScrollInGA(sectionId);
   
-  // Send to M365 SharePoint (if configured)
-  if (isM365AnalyticsAvailable()) {
+  // Send to M365 SharePoint (if configured and enabled)
+  if (ENABLE_M365_ANALYTICS && isM365AnalyticsAvailable()) {
     try {
       await trackScrollInM365(sectionId);
     } catch (error) {
@@ -196,8 +203,8 @@ export const trackDownload = async (resourceName, resourceType = '') => {
   // Send to Google Analytics
   trackDownloadInGA(resourceName, resourceType);
 
-  // Send to M365 SharePoint (if configured)
-  if (isM365AnalyticsAvailable()) {
+  // Send to M365 SharePoint (if configured and enabled)
+  if (ENABLE_M365_ANALYTICS && isM365AnalyticsAvailable()) {
     try {
       await trackDownloadInM365(resourceName, resourceType);
     } catch (error) {
@@ -240,8 +247,8 @@ export const trackFormEvent = async (formName, eventType, formData = {}) => {
   // Send to Google Analytics
   trackFormInGA(formName, eventType);
 
-  // Send to M365 SharePoint (if configured)
-  if (isM365AnalyticsAvailable()) {
+  // Send to M365 SharePoint (if configured and enabled)
+  if (ENABLE_M365_ANALYTICS && isM365AnalyticsAvailable()) {
     try {
       await trackFormInM365(formName, eventType === 'start' ? EVENT_TYPES.FORM_START : EVENT_TYPES.FORM_SUBMIT);
     } catch (error) {
