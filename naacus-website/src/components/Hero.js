@@ -305,14 +305,6 @@ const useStyles = makeStyles({
     background: 'radial-gradient(circle, rgba(255, 215, 0, 0.12) 0%, transparent 70%)',
     pointerEvents: 'none',
   },
-  '@keyframes bounce': {
-    '0%, 100%': {
-      transform: 'translateY(0)',
-    },
-    '50%': {
-      transform: 'translateY(12px)',
-    },
-  },
   scrollIndicator: {
     position: 'absolute',
     bottom: '30px',
