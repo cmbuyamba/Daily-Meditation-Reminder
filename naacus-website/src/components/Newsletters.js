@@ -15,18 +15,19 @@ import { useAnalytics } from '../hooks/useAnalytics';
 const useStyles = makeStyles({
   newsletters: {
     backgroundColor: tokens.colorNeutralBackground1,
-    ...shorthands.padding('50px', '20px'),
+    ...shorthands.padding('80px', '20px', '50px', '20px'),
+    marginTop: '50px',
   },
   sectionTitle: {
     fontSize: '2rem',
     textAlign: 'center',
     marginBottom: '16px',
     color: tokens.colorNeutralForeground1,
-    fontWeight: '600',
+    fontWeight: '700',
     display: 'block',
     letterSpacing: '-0.02em',
     '@media (max-width: 768px)': {
-      fontSize: '1.5rem',
+      fontSize: '2rem',
     },
   },
   sectionSubtitle: {
@@ -69,10 +70,13 @@ const useStyles = makeStyles({
     display: 'block',
   },
   articlesList: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, 1fr)',
     ...shorthands.gap('16px'),
     marginBottom: '24px',
+    '@media (max-width: 640px)': {
+      gridTemplateColumns: '1fr',
+    },
   },
   articleItem: {
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
@@ -94,11 +98,17 @@ const useStyles = makeStyles({
   },
   newsarchiveGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gridTemplateColumns: 'repeat(3, 1fr)',
     ...shorthands.gap('24px'),
+    '@media (max-width: 1024px)': {
+      gridTemplateColumns: 'repeat(2, 1fr)',
+    },
+    '@media (max-width: 640px)': {
+      gridTemplateColumns: '1fr',
+    },
   },
   newsletterCard: {
-    ...shorthands.padding('30px', '20px'),
+    ...shorthands.padding('20px', '16px'),
     textAlign: 'center',
     ...shorthands.transition('all', '0.3s', 'ease'),
     '&:hover': {
@@ -108,7 +118,7 @@ const useStyles = makeStyles({
   },
   iconWrapper: {
     fontSize: '3rem',
-    marginBottom: '20px',
+    marginBottom: '12px',
     color: tokens.colorBrandBackground,
   },
   cardDate: {
@@ -116,29 +126,29 @@ const useStyles = makeStyles({
     color: tokens.colorBrandBackground,
     fontWeight: '600',
     display: 'block',
-    marginBottom: '12px',
+    marginBottom: '8px',
   },
   cardTitle: {
     fontSize: '1.3rem',
     color: tokens.colorBrandBackground,
     fontWeight: '600',
     display: 'block',
-    marginBottom: '15px',
+    marginBottom: '10px',
   },
   articlePreview: {
     fontSize: '0.95rem',
     color: tokens.colorNeutralForeground2,
-    lineHeight: '1.6',
-    marginBottom: '20px',
+    lineHeight: '1.5',
+    marginBottom: '12px',
     display: 'block',
-    minHeight: '60px',
+    minHeight: '45px',
   },
   articleBadges: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    ...shorthands.gap('8px'),
-    marginBottom: '20px',
+    ...shorthands.gap('6px'),
+    marginBottom: '14px',
   },
   categoryBadge: {
     display: 'inline-block',
@@ -159,7 +169,16 @@ function Newsletters() {
 
   const newsletters = getNewsletters();
   const featured = getFeaturedNewsletter();
-  const archive = newsletters.slice(1);
+  // Sort archive by date (newest first): mmYYYY format
+  const archive = newsletters.slice(1).sort((a, b) => {
+    const monthMap = {
+      January: 1, February: 2, March: 3, April: 4, May: 5, June: 6,
+      July: 7, August: 8, September: 9, October: 10, November: 11, December: 12
+    };
+    const dateA = monthMap[a.month] * 10000 + a.year;
+    const dateB = monthMap[b.month] * 10000 + b.year;
+    return dateB - dateA; // Newest first
+  });
 
   const handleNewsletterClick = (newsletterTitle) => {
     trackResourceCTA(`View ${newsletterTitle}`, 'newsletter_view');
@@ -175,10 +194,10 @@ function Newsletters() {
   return (
     <section className={styles.newsletters}>
       <Text as="h2" className={styles.sectionTitle}>
-        {t('newsletter.title', 'NAACUS Newsletters')}
+        Stay Updated with NAACUS
       </Text>
       <Text as="p" className={styles.sectionSubtitle}>
-        {t('newsletter.subtitle', 'Stay connected with our community through monthly newsletters featuring updates, events, and spiritual reflections')}
+        Get the latest news, events, and updates from our community
       </Text>
 
       <div className={styles.content}>
@@ -246,7 +265,7 @@ function Newsletters() {
 
               <Button
                 appearance="primary"
-                onClick={() => handleDownload(newsletter.title)}
+                onClick={() => handleNewsletterClick(newsletter.title)}
                 style={{ width: '100%', display: 'flex', justifyContent: 'center', gap: '8px' }}
               >
                 View Newsletter
