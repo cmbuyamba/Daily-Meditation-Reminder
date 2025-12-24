@@ -118,7 +118,7 @@ function Contact() {
   // Track form open event
   useEffect(() => {
     trackForm('ContactForm', 'form_start');
-  }, []);
+  }, [trackForm]);
 
   const handleChange = (e) => {
     setFormData({

@@ -346,7 +346,7 @@ export function getM365ConfigStatus() {
   };
 }
 
-export default {
+const m365AnalyticsService = {
   sendToM365Analytics,
   trackCTAInM365,
   trackPageViewInM365,
@@ -357,3 +357,5 @@ export default {
   isM365AnalyticsAvailable,
   getM365ConfigStatus,
 };
+
+export default m365AnalyticsService;

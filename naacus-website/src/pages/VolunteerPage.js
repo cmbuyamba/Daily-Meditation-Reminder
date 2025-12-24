@@ -164,7 +164,7 @@ function VolunteerPage() {
 
   useEffect(() => {
     trackForm('VolunteerForm', 'form_start');
-  }, []);
+  }, [trackForm]);
 
   const volunteerInterestOptions = [
     { key: 'Event Planning & Coordination', label: t('volunteer.interestEventPlanning') },

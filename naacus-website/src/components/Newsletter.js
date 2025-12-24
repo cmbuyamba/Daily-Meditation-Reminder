@@ -183,7 +183,7 @@ function Newsletter() {
 
   useEffect(() => {
     trackForm('NewsletterForm', 'form_start');
-  }, []);
+  }, [trackForm]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
