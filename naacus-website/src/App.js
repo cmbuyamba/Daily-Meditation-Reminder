@@ -14,6 +14,7 @@ import LeadershipPage from './pages/LeadershipPage';
 import FellowshipMinistriesPage from './pages/FellowshipMinistriesPage';
 import ProgramsActivitiesPage from './pages/ProgramsActivitiesPage';
 import ResourcesPage from './pages/ResourcesPage';
+import NewslettersPage from './pages/NewslettersPage';
 import ContactPage from './pages/ContactPage';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
@@ -41,6 +42,7 @@ function App() {
             <Route path="/membership" element={<MembershipPage />} />
             <Route path="/volunteer" element={<VolunteerPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
+            <Route path="/newsletters" element={<NewslettersPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
           <Footer />

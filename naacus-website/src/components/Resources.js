@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { 
   makeStyles,
   shorthands,
@@ -151,6 +152,7 @@ const useStyles = makeStyles({
 
 function Resources() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const styles = useStyles();
   const { trackResourceCTA, trackResourceDownload } = useAnalytics();
 
@@ -160,8 +162,15 @@ function Resources() {
   const handleResourceClick = (resourceTitle) => {
     trackResourceCTA(`View ${resourceTitle}`, 'resource_click');
     trackResourceDownload(resourceTitle, 'resource');
-    const element = document.getElementById('contact');
-    if (element) element.scrollIntoView({ behavior: 'smooth' });
+    
+    // Navigate to newsletters page if the resource is Newsletters
+    if (resourceTitle === 'Newsletters') {
+      navigate('/newsletters');
+    } else {
+      // Default behavior for other resources
+      const element = document.getElementById('contact');
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   // Render icon based on iconType
