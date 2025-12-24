@@ -57,7 +57,7 @@ export const EVENT_TYPES = {
  * @param {string} label - Additional label (page, section, destination)
  * @param {object} metadata - Additional metadata (optional)
  */
-export const trackCTAEvent = (category, action, label, metadata = {}) => {
+export const trackCTAEvent = async (category, action, label, metadata = {}) => {
   const event = {
     timestamp: new Date().toISOString(),
     type: EVENT_TYPES.CTA_CLICK,
@@ -84,7 +84,11 @@ export const trackCTAEvent = (category, action, label, metadata = {}) => {
 
   // Send to M365 SharePoint (if configured)
   if (isM365AnalyticsAvailable()) {
-    trackCTAInM365(category, action, label, metadata);
+    try {
+      await trackCTAInM365(category, action, label, metadata);
+    } catch (error) {
+      console.error('📊 Error sending CTA to M365:', error);
+    }
   }
 
   // Log to console in development
@@ -106,7 +110,7 @@ export const trackCTAEvent = (category, action, label, metadata = {}) => {
  * Track page view
  * @param {string} pageName - Name of the page/section
  */
-export const trackPageView = (pageName) => {
+export const trackPageView = async (pageName) => {
   const event = {
     timestamp: new Date().toISOString(),
     type: EVENT_TYPES.PAGE_VIEW,
@@ -129,7 +133,11 @@ export const trackPageView = (pageName) => {
 
   // Send to M365 SharePoint (if configured)
   if (isM365AnalyticsAvailable()) {
-    trackPageViewInM365(pageName, document.title);
+    try {
+      await trackPageViewInM365(pageName, document.title);
+    } catch (error) {
+      console.error('📊 Error sending page view to M365:', error);
+    }
   }
 
   if (process.env.NODE_ENV === 'development') {
@@ -141,8 +149,8 @@ export const trackPageView = (pageName) => {
  * Track scroll to section
  * @param {string} sectionId - ID of the section scrolled to
  */
-export const trackScrollToSection = (sectionId) => {
-  trackCTAEvent(
+export const trackScrollToSection = async (sectionId) => {
+  await trackCTAEvent(
     CTA_CATEGORIES.NAVIGATION,
     'scroll_to_section',
     sectionId,
@@ -153,7 +161,11 @@ export const trackScrollToSection = (sectionId) => {
   
   // Send to M365 SharePoint (if configured)
   if (isM365AnalyticsAvailable()) {
-    trackScrollInM365(sectionId);
+    try {
+      await trackScrollInM365(sectionId);
+    } catch (error) {
+      console.error('📊 Error sending scroll to M365:', error);
+    }
   }
 };
 
@@ -162,7 +174,7 @@ export const trackScrollToSection = (sectionId) => {
  * @param {string} resourceName - Name of the resource being downloaded
  * @param {string} resourceType - Type of resource (pdf, doc, image, etc.)
  */
-export const trackDownload = (resourceName, resourceType = '') => {
+export const trackDownload = async (resourceName, resourceType = '') => {
   const event = {
     timestamp: new Date().toISOString(),
     type: EVENT_TYPES.DOWNLOAD,
@@ -186,7 +198,11 @@ export const trackDownload = (resourceName, resourceType = '') => {
 
   // Send to M365 SharePoint (if configured)
   if (isM365AnalyticsAvailable()) {
-    trackDownloadInM365(resourceName, resourceType);
+    try {
+      await trackDownloadInM365(resourceName, resourceType);
+    } catch (error) {
+      console.error('📊 Error sending download to M365:', error);
+    }
   }
 
   if (process.env.NODE_ENV === 'development') {
@@ -200,7 +216,7 @@ export const trackDownload = (resourceName, resourceType = '') => {
  * @param {string} eventType - 'start' or 'submit'
  * @param {object} formData - Form data (optional, sanitized)
  */
-export const trackFormEvent = (formName, eventType, formData = {}) => {
+export const trackFormEvent = async (formName, eventType, formData = {}) => {
   const event = {
     timestamp: new Date().toISOString(),
     type:
@@ -226,7 +242,11 @@ export const trackFormEvent = (formName, eventType, formData = {}) => {
 
   // Send to M365 SharePoint (if configured)
   if (isM365AnalyticsAvailable()) {
-    trackFormInM365(formName, eventType === 'start' ? EVENT_TYPES.FORM_START : EVENT_TYPES.FORM_SUBMIT);
+    try {
+      await trackFormInM365(formName, eventType === 'start' ? EVENT_TYPES.FORM_START : EVENT_TYPES.FORM_SUBMIT);
+    } catch (error) {
+      console.error('📊 Error sending form event to M365:', error);
+    }
   }
 
   // Only log form_submit events to avoid console spam from form_start
